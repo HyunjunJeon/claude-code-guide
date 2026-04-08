@@ -1,0 +1,14 @@
+---
+name: Review PR
+description: Start comprehensive PR review with security and testing checks
+---
+
+# PR 리뷰
+
+이 명령은 다음을 포함하는 완전한 풀 리퀘스트 리뷰를 시작합니다:
+
+1. 보안 분석
+2. 테스트 커버리지 검증
+3. 문서 업데이트
+4. 코드 품질 검사
+5. 성능 영향 평가
