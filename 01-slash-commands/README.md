@@ -20,6 +20,8 @@ Slash commands are shortcuts that control Claude's behavior during an interactiv
 
 Built-in commands are shortcuts for common actions. There are **60+ built-in commands** and **5 bundled skills** available. Type `/` in Claude Code to see the full list, or type `/` followed by any letters to filter.
 
+> **Note**: Some commands are conditional — they appear based on subscription tier (e.g., `/privacy-settings`), platform (e.g., `/desktop`), or environment setup (e.g., `/setup-bedrock`).
+
 | Command | Purpose |
 |---------|---------|
 | `/add-dir <path>` | Add working directory |
@@ -126,6 +128,7 @@ These skills ship with Claude Code and are invoked like slash commands:
 - `/model` picker now shows human-readable labels (e.g., "Sonnet 4.6") instead of raw model IDs
 - `/resume` supports `/continue` alias
 - MCP prompts are available as `/mcp__<server>__<prompt>` commands (see [MCP Prompts as Commands](#mcp-prompts-as-commands))
+- `/setup-bedrock` available when `CLAUDE_CODE_USE_BEDROCK=1` is set (conditional command)
 
 ## Custom Commands (Now Skills)
 

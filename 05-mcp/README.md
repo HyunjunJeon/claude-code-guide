@@ -107,6 +107,8 @@ claude mcp add --transport sse legacy-server https://example.com/sse
 
 ### WebSocket Transport
 
+> **Note**: WebSocket transport is not documented in the official Claude Code documentation. This may be an experimental or community-supported feature. Use HTTP transport for production setups.
+
 WebSocket transport for persistent bidirectional connections:
 
 ```bash
@@ -212,6 +214,8 @@ When MCP tool descriptions exceed 10% of the context window, Claude Code automat
 | `ENABLE_TOOL_SEARCH` | `false` | Disabled; all tool descriptions sent in full |
 
 > **Note:** Tool search requires Sonnet 4 or later, or Opus 4 or later. Haiku models are not supported for tool search.
+
+**Tool description cap**: Each MCP server's tool descriptions are capped at 2 KB (v2.1.84+). Descriptions exceeding this limit are truncated.
 
 ## Dynamic Tool Updates
 

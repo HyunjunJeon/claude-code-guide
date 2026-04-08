@@ -737,6 +737,8 @@ Plugin-provided subagents have restricted frontmatter capabilities for security.
 
 This prevents plugins from escalating privileges or executing arbitrary commands through subagent hooks.
 
+> **Security restriction**: Plugin-shipped agents cannot use `hooks`, `mcpServers`, or `permissionMode` fields. These are restricted for security reasons.
+
 ---
 
 ## Architecture

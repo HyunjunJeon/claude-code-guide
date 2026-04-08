@@ -136,7 +136,7 @@ Show concrete examples of using this Skill.
 ### Required Fields
 
 - **name**: lowercase letters, numbers, hyphens only (max 64 characters). Cannot contain "anthropic" or "claude".
-- **description**: what the Skill does AND when to use it (max 1024 characters). This is critical for Claude to know when to activate the skill.
+- **description**: what the Skill does AND when to use it (max 250 characters). This is critical for Claude to know when to activate the skill.
 
 ### Optional Frontmatter Fields
 
@@ -166,7 +166,7 @@ paths: "src/api/**/*.ts"               # Glob patterns limiting when skill activ
 | Field | Description |
 |-------|-------------|
 | `name` | Lowercase letters, numbers, hyphens only (max 64 chars). Cannot contain "anthropic" or "claude". |
-| `description` | What the Skill does AND when to use it (max 1024 chars). Critical for auto-invocation matching. |
+| `description` | What the Skill does AND when to use it (max 250 chars). Critical for auto-invocation matching. |
 | `argument-hint` | Hint shown in the `/` autocomplete menu (e.g., `"[filename] [format]"`). |
 | `disable-model-invocation` | `true` = only the user can invoke via `/name`. Claude will never auto-invoke. |
 | `user-invocable` | `false` = hidden from the `/` menu. Only Claude can invoke it automatically. |

@@ -573,7 +573,7 @@ graph LR
     C -->|View| D["Components"]
     D -->|Install| E["/plugin install"]
     E -->|Extract| F["Configure"]
-    F -->|Activate| G["Use"]
+    F -->|Enable| G["Use"]
     G -->|Check| H["Update"]
     H -->|Available| G
     G -->|Done| I["Disable"]
@@ -606,6 +606,7 @@ claude plugin list                           # List installed plugins
 claude plugin enable <name>                  # Enable a disabled plugin
 claude plugin disable <name>                 # Disable a plugin
 claude plugin validate                       # Validate plugin structure
+claude plugin update                         # Update installed plugins
 ```
 
 ## Installation Methods
@@ -713,6 +714,8 @@ Plugin subagents run in a restricted sandbox. The following frontmatter keys are
 - `permissionMode` -- Subagents cannot override the permission model
 
 This ensures that plugins cannot escalate privileges or modify the host environment beyond their declared scope.
+
+> **Security restriction**: Agents shipped via plugins cannot use `hooks`, `mcpServers`, or `permissionMode` fields for security reasons.
 
 ## Publishing a Plugin
 

@@ -1130,6 +1130,7 @@ For the most up-to-date information, refer to the official Claude Code documenta
 - All memory files are automatically loaded when Claude Code launches
 - Claude traverses upward from the current working directory to discover CLAUDE.md files
 - Subtree files are discovered and loaded contextually when accessing those directories
+- HTML block comments (`<!-- ... -->`) are stripped from context before loading
 
 **Import Syntax:**
 

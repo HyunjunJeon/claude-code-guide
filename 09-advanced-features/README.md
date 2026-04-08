@@ -252,6 +252,8 @@ claude --effort high "complex architectural review"
 
 > **Note:** The keyword "ultrathink" in prompts activates deep reasoning mode. Effort levels `low`, `medium`, `high`, and `max` (Opus 4.6 only) control how much reasoning Claude performs.
 
+> **Note**: As of v2.1.94, the default effort level changed from `medium` to `high` for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users.
+
 ### Benefits of Extended Thinking
 
 - **Deep reasoning**: Spend more time thinking about complex problems
@@ -880,6 +882,10 @@ claude -p --json-schema '{"type":"object","properties":{"issues":{"type":"array"
 claude -p --no-session-persistence "one-off analysis"
 ```
 
+| Flag | Description | Example |
+|------|-------------|---------|
+| `--max-budget-usd` | Set maximum spend limit for a session | `claude -p --max-budget-usd 5.00 "query"` |
+
 ---
 
 ## Session Management
@@ -941,6 +947,8 @@ claude -r "auth-refactor"
 claude --resume auth-refactor --fork-session "alternative approach"
 ```
 
+Use `--fork-session` with `--resume` to fork an existing session into a new one.
+
 ---
 
 ## Interactive Features
@@ -963,6 +971,8 @@ Claude Code supports keyboard shortcuts for efficiency. Here's the complete refe
 | `Shift+Tab` / `Alt+M` | Toggle permission modes |
 | `Option+P` / `Alt+P` | Switch model |
 | `Option+T` / `Alt+T` | Toggle extended thinking |
+| `Ctrl+X Ctrl+K` | Kill all background agents |
+| `Ctrl+X Ctrl+E` | Open in external editor (alias for Ctrl+G) |
 
 **Line Editing (standard readline shortcuts):**
 
@@ -1049,6 +1059,8 @@ Keybindings support chord sequences (multi-key combinations):
 | `Ctrl+Z` | Terminal conflict | Process suspend |
 
 > **Tip**: If a shortcut does not work, check for conflicts with your terminal emulator or multiplexer.
+
+**Transcript search** (v2.1.83+): Press `/` in transcript mode to search through conversation history.
 
 ### Tab Completion
 
@@ -1169,6 +1181,8 @@ Voice Dictation provides push-to-talk voice input for Claude Code, allowing you 
 | **Account requirement** | Requires a Claude.ai account for STT processing |
 
 ### Configuration
+
+Hold `Space` to use push-to-talk voice dictation (rebindable via `/keybindings`).
 
 Customize the push-to-talk keybinding in your keybindings file (`/keybindings`). Voice dictation uses your Claude.ai account for speech-to-text processing.
 

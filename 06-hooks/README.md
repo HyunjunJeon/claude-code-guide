@@ -59,6 +59,9 @@ Hooks are configured in settings files with a specific structure:
 | `command` | Shell command to execute | `"$CLAUDE_PROJECT_DIR/.claude/hooks/format.sh"` |
 | `timeout` | Optional timeout in seconds (default 60) | `30` |
 | `once` | If `true`, run the hook only once per session | `true` |
+| `if` | Permission rule filter for conditional execution (v2.1.85+) | `"Bash(git *)"` |
+| `async` | Run hook asynchronously (non-blocking) | `true` |
+| `shell` | Shell to use for command hooks: `bash` (default) or `powershell` | `"bash"` |
 
 ### Matcher Patterns
 

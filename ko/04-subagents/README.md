@@ -737,6 +737,8 @@ Plugin 제공 subagent는 보안을 위해 frontmatter 기능이 제한됩니다
 
 이를 통해 plugin이 subagent hook을 통해 권한을 상승시키거나 임의의 명령을 실행하는 것을 방지합니다.
 
+> **보안 제한**: Plugin을 통해 배포된 agent는 `hooks`, `mcpServers`, `permissionMode` 필드를 사용할 수 없습니다. 보안상의 이유로 제한됩니다.
+
 ---
 
 ## 아키텍처

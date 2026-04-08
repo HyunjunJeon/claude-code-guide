@@ -1,7 +1,7 @@
 {
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"source .venv/bin/activate && pytest scripts/tests/ -v 2>&1 | tail -30\",\"description\":\"Run existing unit tests\"}",
-  "error": "Exit code 127\n(eval):source:1: no such file or directory: .venv/bin/activate",
-  "timestamp": "2026-04-08T08:59:34.904Z",
-  "retry_count": 1
+  "tool_name": "Grep",
+  "tool_input_preview": "{\"pattern\":\"--fork-session.*fork an existing|기존 세션을 새 세션으로 포크\",\"path\":\"/Users/jhj/Desktop/personal/claude-code-guide-book\",\"output_mode\":\"content\"}",
+  "error": "ENOENT: no such file or directory, posix_spawn 'rg'",
+  "timestamp": "2026-04-08T14:14:16.085Z",
+  "retry_count": 9
 }

@@ -573,7 +573,7 @@ graph LR
     C -->|View| D["Components"]
     D -->|Install| E["/plugin install"]
     E -->|Extract| F["Configure"]
-    F -->|Activate| G["Use"]
+    F -->|Enable| G["Use"]
     G -->|Check| H["Update"]
     H -->|Available| G
     G -->|Done| I["Disable"]
@@ -606,6 +606,7 @@ claude plugin list                           # List installed plugins
 claude plugin enable <name>                  # Enable a disabled plugin
 claude plugin disable <name>                 # Disable a plugin
 claude plugin validate                       # Validate plugin structure
+claude plugin update                         # Update installed plugins
 ```
 
 ## 설치 방법
@@ -713,6 +714,8 @@ Plugin subagent는 제한된 샌드박스에서 실행됩니다. 다음 frontmat
 - `permissionMode` -- subagent가 권한 모델을 재정의할 수 없음
 
 이를 통해 plugin이 선언된 범위를 넘어 권한을 에스컬레이션하거나 호스트 환경을 수정할 수 없도록 합니다.
+
+> **보안 제한**: Plugin을 통해 배포된 agent는 보안상의 이유로 `hooks`, `mcpServers`, `permissionMode` 필드를 사용할 수 없습니다.
 
 ## Plugin 게시
 

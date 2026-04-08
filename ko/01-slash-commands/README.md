@@ -20,6 +20,8 @@ Slash command는 대화형 세션에서 Claude의 동작을 제어하는 단축 
 
 내장 명령은 일반적인 작업을 위한 단축 명령입니다. **60개 이상의 내장 명령**과 **5개의 번들 skill**을 사용할 수 있습니다. Claude Code에서 `/`를 입력하면 전체 목록을 볼 수 있고, `/` 뒤에 문자를 입력하면 필터링됩니다.
 
+> **참고**: 일부 명령은 조건부입니다 — 구독 티어(예: `/privacy-settings`), 플랫폼(예: `/desktop`), 또는 환경 설정(예: `/setup-bedrock`)에 따라 표시됩니다.
+
 | Command | 용도 |
 |---------|---------|
 | `/add-dir <path>` | 작업 디렉터리 추가 |
@@ -126,6 +128,7 @@ Slash command는 대화형 세션에서 Claude의 동작을 제어하는 단축 
 - `/model` 선택기가 이제 원시 모델 ID 대신 읽기 쉬운 레이블(예: "Sonnet 4.6")을 표시
 - `/resume`이 `/continue` 별칭 지원
 - MCP prompt를 `/mcp__<server>__<prompt>` 명령으로 사용 가능 ([MCP Prompt를 명령으로 사용](#mcp-prompt를-명령으로-사용) 참조)
+- `CLAUDE_CODE_USE_BEDROCK=1` 설정 시 `/setup-bedrock` 사용 가능 (조건부 명령)
 
 ## 사용자 정의 명령 (현재 Skill)
 

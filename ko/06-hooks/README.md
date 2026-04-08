@@ -59,6 +59,9 @@ Hooks는 특정 구조의 설정 파일에서 구성합니다:
 | `command` | 실행할 셸 명령 | `"$CLAUDE_PROJECT_DIR/.claude/hooks/format.sh"` |
 | `timeout` | 선택적 타임아웃(초 단위, 기본값 60) | `30` |
 | `once` | `true`이면 세션당 한 번만 hook 실행 | `true` |
+| `if` | 조건부 실행을 위한 권한 규칙 필터 (v2.1.85+) | `"Bash(git *)"` |
+| `async` | hook을 비동기적으로 실행 (논블로킹) | `true` |
+| `shell` | command hook에 사용할 셸: `bash` (기본값) 또는 `powershell` | `"bash"` |
 
 ### Matcher 패턴
 

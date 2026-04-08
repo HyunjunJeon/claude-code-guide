@@ -70,6 +70,11 @@ graph TD
 | `--maintenance` | Run maintenance hooks and exit | `claude --maintenance` |
 | `--disable-slash-commands` | Disable all skills and slash commands | `claude --disable-slash-commands` |
 | `--no-session-persistence` | Disable session saving (print mode) | `claude -p --no-session-persistence "query"` |
+| `--verbose` | Enable verbose logging | `claude --verbose` |
+| `--debug [categories]` | Enable debug logging (optional category filter) | `claude --debug api,hooks` |
+| `--debug-file <path>` | Write debug logs to file | `claude --debug-file ./debug.log` |
+| `--fork-session` | Fork session when used with --resume | `claude -r "session" --fork-session` |
+| `--tmux` | Set tmux display mode for agent teams | `claude --tmux` |
 
 ### Interactive vs Print Mode
 
@@ -173,6 +178,8 @@ claude -p --system-prompt-file ./prompts/code-reviewer.txt "review main.py"
 | `--permission-mode` | Begin in specified permission mode | `claude --permission-mode auto` |
 | `--permission-prompt-tool` | MCP tool for permission handling | `claude -p --permission-prompt-tool mcp_auth "query"` |
 | `--enable-auto-mode` | Unlock auto permission mode | `claude --enable-auto-mode` |
+| `--max-budget-usd <amount>` | Set maximum spend limit for session | `claude -p --max-budget-usd 5.00 "query"` |
+| `--allow-dangerously-skip-permissions` | Allow other flags to bypass permissions | `claude --allow-dangerously-skip-permissions` |
 
 ### Permission Examples
 
@@ -200,6 +207,10 @@ claude --disallowedTools "Bash(rm -rf:*)" "Bash(git push --force:*)"
 | `--include-partial-messages` | Include streaming events | Requires `stream-json` | `claude -p --output-format stream-json --include-partial-messages "query"` |
 | `--json-schema` | Get validated JSON matching schema | | `claude -p --json-schema '{"type":"object"}' "query"` |
 | `--max-budget-usd` | Maximum spend for print mode | | `claude -p --max-budget-usd 5.00 "query"` |
+| `--json-schema <schema>` | JSON schema for structured output | | `claude -p --json-schema '{"type":"object"}' "query"` |
+| `--append-system-prompt-file <path>` | Append file contents to system prompt | | `claude --append-system-prompt-file ./rules.txt` |
+| `--max-turns <N>` | Limit agentic turns in print mode | | `claude -p --max-turns 10 "query"` |
+| `--input-format <format>` | Input format: text or stream-json | | `claude -p --input-format stream-json` |
 
 ### Output Format Examples
 
@@ -226,6 +237,10 @@ claude -p --json-schema '{"type":"object","properties":{"bugs":{"type":"array"}}
 | `--setting-sources` | Comma-separated setting sources | `claude --setting-sources user,project` |
 | `--settings` | Load settings from file or JSON | `claude --settings ./settings.json` |
 | `--plugin-dir` | Load plugins from directory (repeatable) | `claude --plugin-dir ./my-plugin` |
+| `--mcp-config <path>` | Load MCP server configuration file | `claude --mcp-config ./mcp.json` |
+| `--strict-mcp-config` | Use only specified MCP configs, ignore others | `claude --strict-mcp-config` |
+| `--session-id <id>` | Set explicit session ID | `claude --session-id "my-session"` |
+| `--betas <features>` | Enable beta features | `claude --betas feature1,feature2` |
 
 ### Multi-Directory Example
 

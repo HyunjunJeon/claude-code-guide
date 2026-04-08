@@ -70,6 +70,11 @@ graph TD
 | `--maintenance` | 유지보수 hook 실행 후 종료 | `claude --maintenance` |
 | `--disable-slash-commands` | 모든 skill 및 slash command 비활성화 | `claude --disable-slash-commands` |
 | `--no-session-persistence` | 세션 저장 비활성화 (print mode) | `claude -p --no-session-persistence "query"` |
+| `--verbose` | 상세 로깅 활성화 | `claude --verbose` |
+| `--debug [categories]` | 디버그 로깅 활성화 (선택적 카테고리 필터) | `claude --debug api,hooks` |
+| `--debug-file <path>` | 디버그 로그를 파일에 기록 | `claude --debug-file ./debug.log` |
+| `--fork-session` | --resume과 함께 사용하여 세션 포크 | `claude -r "session" --fork-session` |
+| `--tmux` | agent team의 tmux 표시 모드 설정 | `claude --tmux` |
 
 ### 대화형 모드 vs Print Mode
 
@@ -173,6 +178,8 @@ claude -p --system-prompt-file ./prompts/code-reviewer.txt "review main.py"
 | `--permission-mode` | 지정된 권한 모드에서 시작 | `claude --permission-mode auto` |
 | `--permission-prompt-tool` | 권한 처리를 위한 MCP 도구 | `claude -p --permission-prompt-tool mcp_auth "query"` |
 | `--enable-auto-mode` | Auto 권한 모드 잠금 해제 | `claude --enable-auto-mode` |
+| `--max-budget-usd <amount>` | 세션의 최대 비용 한도 설정 | `claude -p --max-budget-usd 5.00 "query"` |
+| `--allow-dangerously-skip-permissions` | 다른 플래그가 권한을 우회할 수 있도록 허용 | `claude --allow-dangerously-skip-permissions` |
 
 ### 권한 예제
 
@@ -200,6 +207,10 @@ claude --disallowedTools "Bash(rm -rf:*)" "Bash(git push --force:*)"
 | `--include-partial-messages` | 스트리밍 이벤트 포함 | `stream-json` 필요 | `claude -p --output-format stream-json --include-partial-messages "query"` |
 | `--json-schema` | 스키마에 맞는 검증된 JSON 가져오기 | | `claude -p --json-schema '{"type":"object"}' "query"` |
 | `--max-budget-usd` | Print mode의 최대 지출 | | `claude -p --max-budget-usd 5.00 "query"` |
+| `--json-schema <schema>` | 구조화된 출력을 위한 JSON 스키마 | | `claude -p --json-schema '{"type":"object"}' "query"` |
+| `--append-system-prompt-file <path>` | 파일 내용을 시스템 프롬프트에 추가 | | `claude --append-system-prompt-file ./rules.txt` |
+| `--max-turns <N>` | print mode에서 에이전트 턴 수 제한 | | `claude -p --max-turns 10 "query"` |
+| `--input-format <format>` | 입력 형식: text 또는 stream-json | | `claude -p --input-format stream-json` |
 
 ### 출력 형식 예제
 
@@ -226,6 +237,10 @@ claude -p --json-schema '{"type":"object","properties":{"bugs":{"type":"array"}}
 | `--setting-sources` | 쉼표로 구분된 설정 소스 | `claude --setting-sources user,project` |
 | `--settings` | 파일 또는 JSON에서 설정 로드 | `claude --settings ./settings.json` |
 | `--plugin-dir` | 디렉토리에서 plugin 로드 (반복 가능) | `claude --plugin-dir ./my-plugin` |
+| `--mcp-config <path>` | MCP 서버 설정 파일 로드 | `claude --mcp-config ./mcp.json` |
+| `--strict-mcp-config` | 지정된 MCP 설정만 사용, 나머지 무시 | `claude --strict-mcp-config` |
+| `--session-id <id>` | 명시적 세션 ID 설정 | `claude --session-id "my-session"` |
+| `--betas <features>` | 베타 기능 활성화 | `claude --betas feature1,feature2` |
 
 ### 다중 디렉토리 예제
 
