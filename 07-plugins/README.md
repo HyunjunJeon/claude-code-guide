@@ -251,6 +251,39 @@ Plugins have access to a persistent state directory via the `${CLAUDE_PLUGIN_DAT
 
 The directory is created automatically when the plugin is installed. Files stored here persist until the plugin is uninstalled.
 
+## Plugin Paths and File Resolution
+
+Plugins effectively have two important filesystem anchors:
+
+| Variable | Meaning | Use it for |
+|---------|---------|------------|
+| `${CLAUDE_PLUGIN_ROOT}` | Plugin installation root | Referencing scripts, bundled configs, and relative assets |
+| `${CLAUDE_PLUGIN_DATA}` | Plugin-specific persistent data directory | Caches, state, and generated runtime artifacts |
+
+Practical rules:
+
+- treat `${CLAUDE_PLUGIN_ROOT}` as the stable base for shipped files
+- treat `${CLAUDE_PLUGIN_DATA}` as the stable base for mutable plugin state
+- keep manifest component paths deterministic relative to the plugin package
+- do not assume the current working directory is the plugin directory
+
+### Path behavior rules
+
+Use these rules when authoring manifests and support files:
+
+1. Component paths should resolve from the plugin package, not from the caller's shell state.
+2. Use `${CLAUDE_PLUGIN_ROOT}` whenever a hook, MCP server, or helper script needs a reliable absolute base.
+3. Use `${CLAUDE_PLUGIN_DATA}` for writable state instead of writing back into the shipped plugin tree.
+
+### Path traversal and safety
+
+Avoid plugin designs that depend on traversing out of the plugin root to reach arbitrary host paths. If a workflow truly needs an external path:
+
+- accept it through explicit user configuration, or
+- derive it from safe runtime inputs
+
+That keeps plugin packaging reproducible and reduces surprises during installation and review.
+
 ## Inline Plugin via Settings (`source: 'settings'`) (v2.1.80+)
 
 Plugins can be defined inline in settings files as marketplace entries using the `source: 'settings'` field. This allows embedding a plugin definition directly without requiring a separate repository or marketplace:
@@ -283,6 +316,16 @@ Plugins can ship a `settings.json` file to provide default configuration. This c
 ```
 
 When a plugin includes `settings.json`, its defaults are applied on installation. Users can override these settings in their own project or user configuration.
+
+## Plugin Channels
+
+Plugins can also package channel-oriented workflows, but the channel behavior is not a free-floating side concept. In practice, a channel-capable plugin is built from the same primitives as other advanced plugins:
+
+- a bundled MCP server
+- plugin-managed configuration
+- optional hooks, commands, and skills that react to inbound events
+
+If a plugin participates in a specific release channel or communication channel policy, keep that policy explicit in managed settings rather than only in prose. The managed setting `allowedChannelPlugins` is the main policy hook for channel-specific plugin governance.
 
 ## Standalone vs Plugin Approach
 
@@ -534,6 +577,17 @@ GitHub and git sources support optional `ref` (branch/tag) and `sha` (commit has
 
 **Private repositories**: Supported via git credential helpers or environment tokens. Users must have read access to the repository.
 
+### Remote marketplace URLs and non-GitHub sources
+
+GitHub shorthand is convenient, but it is not the only supported distribution path. If your marketplace or plugin lives outside GitHub:
+
+- use a full git URL
+- document the exact credential requirements
+- document whether the install source is the repo root or a subdirectory
+- pin a branch, tag, or commit when reproducibility matters
+
+This matters most for private registries and enterprise-controlled marketplaces, where the URL shape itself becomes part of the support contract.
+
 **Official marketplace submission**: Submit plugins to the Anthropic-curated marketplace for broader distribution via [claude.ai/settings/plugins/submit](https://claude.ai/settings/plugins/submit) or [platform.claude.com/plugins/submit](https://platform.claude.com/plugins/submit).
 
 ### Strict mode
@@ -580,6 +634,22 @@ graph LR
     I -->|Later| J["Enable"]
     J -->|Back| G
 ```
+
+## Update and Auto-Update Behavior
+
+Plugin updates should be treated as explicit lifecycle events, not as magical background mutations.
+
+Use:
+
+```bash
+claude plugin update
+```
+
+Key expectations:
+
+- a marketplace can publish a newer version without changing your installed copy immediately
+- explicit update flows are better for reproducibility than silent background upgrades
+- version pinning remains the safest option when a team depends on stable behavior
 
 ## Plugin Features Comparison
 
@@ -690,6 +760,19 @@ Plugins support hot-reload during development. When you modify plugin files, Cla
 ```
 
 This re-reads all plugin manifests, commands, agents, skills, hooks, and MCP/LSP configurations without restarting the session.
+
+## Caching and Reload Semantics
+
+Hot-reload does not replace understanding what the plugin runtime caches.
+
+Practical guidance:
+
+- manifest and component definitions can be re-read with `/reload-plugins`
+- generated build output still needs to exist before reload if the plugin points at compiled assets
+- persistent state belongs in `${CLAUDE_PLUGIN_DATA}`, not in the shipped plugin tree
+- if a plugin depends on external package installs or generated files, those dependencies must be refreshed separately before expecting reload to reflect them
+
+In other words: reload updates Claude Code's view of plugin definitions, but it does not magically rebuild the plugin for you.
 
 ## Managed Settings for Plugins
 

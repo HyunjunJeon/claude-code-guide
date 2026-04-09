@@ -80,6 +80,36 @@ Hooks are configured in settings files with a specific structure:
 | `nested_traversal` | Instructions loaded during nested directory traversal |
 | `path_glob_match` | Instructions loaded via path glob pattern matching |
 
+## Managing Hooks
+
+### Using the `/hooks` Menu
+
+Use `/hooks` when you want an interactive way to inspect and manage hook configuration without manually hunting through settings files first.
+
+Typical uses:
+
+- review which hook events are currently configured
+- locate the file or component that owns a hook
+- confirm whether a hook comes from user, project, plugin, or component scope
+
+The `/hooks` menu is the quickest starting point when a hook is firing unexpectedly or not firing at all.
+
+### Disable or Remove Hooks
+
+How you disable a hook depends on where it is defined:
+
+- user/project/local settings: remove or comment out the relevant `hooks` entry in the settings file
+- plugin hooks: disable the plugin, or remove the hook from the plugin definition
+- component hooks: remove the frontmatter `hooks` block from the skill, agent, or command
+
+Safe workflow:
+
+1. Use `/hooks` or inspect the owning config file to identify where the hook is defined.
+2. Disable the narrowest possible hook first rather than deleting an entire hook family.
+3. Re-run the triggering action once to confirm the hook is actually inactive.
+
+For temporary debugging, disabling a single matcher entry is safer than deleting an entire event block.
+
 ## Hook Types
 
 Claude Code supports four hook types:
@@ -369,6 +399,136 @@ Updated matchers for notification events:
 - `auth_success` - Authentication success
 - `elicitation_dialog` - Dialog shown to user
 
+### InstructionsLoaded
+
+Runs after Claude loads instructions from `CLAUDE.md`, rules files, or other instruction sources. Use this when you want to react to the fact that instructions were loaded, not when a tool runs.
+
+Common uses:
+
+- annotate session startup context
+- log which instruction source was activated
+- branch behavior based on `session_start`, `nested_traversal`, or `path_glob_match`
+
+This event is not for changing already-loaded instructions in place. Treat it as a post-load reaction point.
+
+### PermissionDenied and PostToolUseFailure
+
+These are both failure-side follow-up events:
+
+- `PermissionDenied` runs after a user denies a permission prompt
+- `PostToolUseFailure` runs after a tool execution fails
+
+Use them for:
+
+- logging
+- analytics
+- remediation hints
+- follow-up context for the next assistant turn
+
+Unlike `PreToolUse` or `PermissionRequest`, these events do not decide whether the original action runs. They react after the action was already denied or failed.
+
+### TaskCreated and TaskCompleted
+
+These events are useful when you want task-system automation instead of tool-level automation.
+
+Use `TaskCreated` for:
+
+- task tracking
+- initial tagging
+- mailbox or dashboard synchronization
+
+Use `TaskCompleted` for:
+
+- post-task notifications
+- cleanup
+- verification prompts
+
+These are best paired with workflows that already rely on `TaskCreate` and `TaskUpdate`, not as a replacement for tool hooks.
+
+### StopFailure
+
+`StopFailure` runs when a turn ends because of an API or model failure instead of a normal assistant stop.
+
+Use it for:
+
+- error logging
+- recovery hints
+- operator notification
+
+Do not treat it like `Stop`. It is a failure-side event and should assume the turn ended unexpectedly.
+
+### TeammateIdle
+
+`TeammateIdle` is for team-mode coordination. It fires when a teammate is idle long enough to need a nudge or a policy decision.
+
+Use it for:
+
+- sending mailbox reminders
+- escalating blocked work
+- collecting teammate-heartbeat signals
+
+If you are not using agent teams, this event is irrelevant and can stay unconfigured.
+
+### ConfigChange
+
+`ConfigChange` runs when Claude Code configuration changes. It is useful for hooks that need to react to new settings before the next workflow step continues.
+
+Use it for:
+
+- reloading dependent local state
+- validating changed configuration
+- warning when required policy keys were removed
+
+Treat it as a configuration reaction point, not as a general-purpose startup hook.
+
+### CwdChanged and FileChanged
+
+These events are useful when your automation depends on the current directory or on watched files.
+
+Use `CwdChanged` for:
+
+- directory-specific setup
+- environment switching
+- local toolchain selection
+
+Use `FileChanged` for:
+
+- test runners
+- rebuild triggers
+- cache invalidation
+
+Both can work well with `CLAUDE_ENV_FILE` when you need to persist environment changes after the event.
+
+### WorktreeCreate and WorktreeRemove
+
+These events are specific to git-worktree workflows:
+
+- `WorktreeCreate` fires before or during worktree creation and can return worktree-specific setup information
+- `WorktreeRemove` fires during teardown for cleanup
+
+Use them for:
+
+- bootstrapping dependencies in a new worktree
+- creating local config files
+- removing temporary artifacts on teardown
+
+Keep `WorktreeCreate` logic fast and deterministic because it can sit on the critical path of the workflow.
+
+### Elicitation and ElicitationResult
+
+These events are tied to MCP servers that ask Claude Code to collect user input:
+
+- `Elicitation` runs when the server asks for input
+- `ElicitationResult` runs after the user responds
+
+Use them for:
+
+- validating the requested prompt shape
+- normalizing user input
+- logging or redacting sensitive answers
+
+These are especially useful when an MCP server acts like a semi-structured form flow instead of a simple tool call.
+
 ## Component-Scoped Hooks
 
 Hooks can be attached to specific components (skills, agents, commands) in their frontmatter:
@@ -534,6 +694,55 @@ For `Stop` and `SubagentStop` events, you can use LLM-based evaluation:
   "stopReason": "Task complete"
 }
 ```
+
+## Async Hooks
+
+### How Async Hooks Execute
+
+When a hook is configured with `"async": true`, Claude Code starts the hook without blocking the current operation. This makes async hooks useful for follow-up work that should not slow down the active tool call.
+
+Good async use cases:
+
+- enqueueing tests after a file changes
+- sending notifications
+- logging or analytics
+- low-priority cache warming
+
+Avoid async hooks when you need to:
+
+- block an action before it runs
+- modify tool input before execution
+- guarantee that the hook completes before the next step
+
+In other words: use async hooks for side work, not for gating.
+
+### Configure an Async Hook
+
+Minimal pattern:
+
+```json
+{
+  "hooks": {
+    "FileChanged": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/run-tests.sh",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Async Hook Limitations
+
+- Async hooks cannot reliably act as preconditions for the operation that triggered them.
+- They are best-effort follow-up tasks, so output timing is less predictable than blocking hooks.
+- If you need deterministic validation, use a blocking event such as `PreToolUse` or `PermissionRequest` instead.
 
 ## Examples
 
@@ -903,7 +1112,59 @@ if __name__ == "__main__":
 
 > **Note:** Anthropic hasn't released an official offline tokenizer. Both methods are approximations. The transcript includes user prompts, Claude's responses, and tool outputs, but NOT system prompts or internal context.
 
-### Example 7: Seed Auto-Mode Permissions (One-Time Setup Script)
+### Example 7: Run Tests After File Changes (Async)
+
+Use `FileChanged` for lightweight continuous verification when you want tests to start in the background instead of blocking the current interaction.
+
+**File:** `.claude/hooks/run-tests.sh`
+
+```bash
+#!/bin/bash
+set -euo pipefail
+
+INPUT=$(cat)
+CHANGED_PATH=$(echo "$INPUT" | python3 -c "import sys, json; print(json.load(sys.stdin).get('file_path', ''))")
+
+case "$CHANGED_PATH" in
+  *.py)
+    pytest -q
+    ;;
+  *.ts|*.tsx|*.js|*.jsx)
+    npm test -- --runInBand
+    ;;
+  *)
+    exit 0
+    ;;
+esac
+```
+
+**Configuration:**
+
+```json
+{
+  "hooks": {
+    "FileChanged": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/run-tests.sh",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**Why async here:**
+
+- test execution can outlive the triggering edit
+- the edit flow stays responsive
+- failures can be surfaced later through logs, notifications, or follow-up hooks
+
+### Example 8: Seed Auto-Mode Permissions (One-Time Setup Script)
 
 A one-time setup script that seeds `~/.claude/settings.json` with ~67 safe permission rules equivalent to Claude Code's auto-mode baseline — without any hook, without remembering future choices. Run it once; safe to re-run (skips rules already present).
 
@@ -1116,6 +1377,7 @@ echo $?
 | **Parallelization** | All matching hooks run in parallel |
 | **Deduplication** | Identical hook commands deduplicated |
 | **Environment** | Runs in current directory with Claude Code's environment |
+| **Async hooks** | Continue independently; not suitable for gating control flow |
 
 ## Troubleshooting
 

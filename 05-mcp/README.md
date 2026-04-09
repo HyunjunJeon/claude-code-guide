@@ -168,6 +168,54 @@ If your MCP server returns errors on the standard OAuth metadata endpoint (`/.we
 
 The URL must use `https://`. This option requires Claude Code v2.1.64 or later.
 
+#### Use a Fixed OAuth Callback Port
+
+If your environment requires a predictable local redirect target, specify `--callback-port` during setup:
+
+```bash
+claude mcp add --transport http my-service https://my-service.example.com/mcp \
+  --callback-port 8080
+```
+
+This is most useful when:
+
+- local firewalls only allow specific loopback ports
+- you need repeatable OAuth setup instructions for a team
+- browser redirect handling is flaky with random ephemeral ports
+
+Use a port that is available on the local machine and easy to document.
+
+#### Pre-Configured OAuth Credentials
+
+For non-interactive or semi-automated setup, you can preconfigure the OAuth client identity:
+
+```bash
+claude mcp add --transport http my-service https://my-service.example.com/mcp \
+  --client-id "your-client-id" \
+  --client-secret "your-client-secret" \
+  --callback-port 8080
+```
+
+This is useful when:
+
+- the OAuth client is already provisioned by your team
+- you want setup instructions that avoid manual client creation
+- CI or scripted bootstrap flows need stable client metadata
+
+Keep client secrets out of shared shell history and team docs unless they are meant to be public or machine-local.
+
+#### Dynamic Headers for Custom Authentication
+
+When OAuth is not the whole story, HTTP MCP servers may still need custom headers. Keep those headers dynamic via environment-backed configuration rather than hardcoding secrets.
+
+Practical pattern:
+
+- store sensitive values in environment variables
+- reference them in server configuration or wrapper scripts
+- keep header generation close to the connection definition so it is auditable
+
+Prefer OAuth when it is supported. Use custom headers for service-specific auth only when needed.
+
 ### Claude.ai MCP Connectors
 
 MCP servers configured in your Claude.ai account are automatically available in Claude Code. This means any MCP connections you set up through the Claude.ai web interface will be accessible without additional configuration.
@@ -217,6 +265,48 @@ When MCP tool descriptions exceed 10% of the context window, Claude Code automat
 
 **Tool description cap**: Each MCP server's tool descriptions are capped at 2 KB (v2.1.84+). Descriptions exceeding this limit are truncated.
 
+### How Tool Search Works
+
+Tool search changes the selection flow rather than sending every tool description into context at once.
+
+At a high level:
+
+1. Claude sees the MCP server set
+2. Claude narrows candidate tools through tool search
+3. only the relevant tool descriptions are surfaced in more detail
+
+This keeps large MCP installations usable without paying the context cost of every tool on every turn.
+
+The main benefit is that large toolboxes stay discoverable without flooding the prompt.
+
+### Configure Tool Search
+
+`ENABLE_TOOL_SEARCH` is the main control surface:
+
+- `auto` keeps the default adaptive behavior
+- `auto:<N>` lets you lower or raise the threshold
+- `true` forces tool search on
+- `false` disables it and sends full descriptions instead
+
+Use cases:
+
+- keep `auto` for normal projects
+- use `true` when you know the MCP surface is large and stable
+- use `false` only when debugging or when you explicitly want the full tool description set in context
+
+### Guidance for MCP Server Authors
+
+If you publish or maintain an MCP server, assume your tools may be used with tool search enabled.
+
+Good authoring rules:
+
+- keep tool names specific and distinct
+- make descriptions short, front-loaded, and unambiguous
+- avoid giant instruction blocks in tool descriptions
+- make the first sentence strong enough to survive truncation pressure
+
+Tool search works best when tools are easy to differentiate by name and one-line purpose.
+
 ## Dynamic Tool Updates
 
 Claude Code supports MCP `list_changed` notifications. When an MCP server dynamically adds, removes, or modifies its available tools, Claude Code receives the update and adjusts its tool list automatically -- no reconnection or restart required.
@@ -228,6 +318,18 @@ MCP Apps is the first official MCP extension, enabling MCP tool calls to return 
 ## MCP Elicitation
 
 MCP servers can request structured input from the user via interactive dialogs (v2.1.49+). This allows an MCP server to ask for additional information mid-workflow -- for example, prompting for a confirmation, selecting from a list of options, or filling in required fields -- adding interactivity to MCP server interactions.
+
+### Responding to MCP Elicitation Requests
+
+Treat elicitation like a semi-structured form exchange rather than a normal free-form prompt.
+
+Good practices:
+
+- validate what the server is asking for before submitting a response
+- keep requested fields explicit
+- normalize or redact sensitive answers if you log them later
+
+This is also the place where hook-based validation can help, especially if an MCP server drives a multi-step workflow with human input checkpoints.
 
 ## Tool Description and Instruction Cap
 
@@ -680,6 +782,51 @@ For enterprise deployments, IT administrators can enforce MCP server policies th
 
 > **Note:** When both `allowedMcpServers` and `deniedMcpServers` match a server, the deny rule takes precedence.
 
+### Managed Restriction Behavior
+
+Managed MCP policy works as a gate in front of ordinary user/project configuration.
+
+Think of it this way:
+
+- user/project config says what should be available
+- managed MCP policy says what is actually allowed to exist
+
+If the policy blocks a server, lower scopes do not get to override that decision.
+
+#### How Command-Based Restrictions Work
+
+Command-based restrictions are most useful for local stdio servers.
+
+Typical uses:
+
+- allow only audited launcher commands
+- block unsafe wrapper scripts
+- restrict package-manager-driven launcher patterns
+
+If your team depends on a local MCP binary, document the exact command form and make the allowlist match that form.
+
+#### How URL-Based Restrictions Work
+
+URL-based restrictions are most useful for remote HTTP, SSE, or WebSocket MCP servers.
+
+Typical uses:
+
+- allow only approved hostnames
+- deny insecure transport
+- constrain use to known internal domains
+
+This is the right layer for enforcing that team members only talk to approved MCP endpoints.
+
+#### Allowlist and Denylist Resolution
+
+Use these rules when reasoning about policy:
+
+- if only an allowlist exists, everything outside it is effectively excluded
+- if a denylist matches, the deny wins
+- if both match the same server, treat the server as blocked
+
+Document exact match examples in team policy so operators know why a given server was accepted or rejected.
+
 ## Plugin-Provided MCP Servers
 
 Plugins can bundle their own MCP servers, making them available automatically when the plugin is installed. Plugin-provided MCP servers can be defined in two ways:
@@ -736,6 +883,34 @@ The maximum output limit is configurable via the `MAX_MCP_OUTPUT_TOKENS` environ
 # Increase the max output to 50,000 tokens
 export MAX_MCP_OUTPUT_TOKENS=50000
 ```
+
+### Override Result Size per Tool
+
+Claude Code exposes a global output cap through `MAX_MCP_OUTPUT_TOKENS`, not a first-class per-tool cap in the main CLI configuration surface.
+
+Practical guidance:
+
+- use `MAX_MCP_OUTPUT_TOKENS` when you need a broader global increase
+- shape oversized payloads server-side when only one tool is noisy
+- prefer server-side paging, filtering, or summarization over globally raising the limit too far
+
+If one tool is the problem, fix that tool's output contract before increasing limits for everything else.
+
+### MCP and Channels
+
+Channels and MCP are closely related: channels are MCP-backed event streams rather than ordinary request/response tools.
+
+Use plain MCP tools when:
+
+- Claude needs to request data on demand
+- the interaction is request/response shaped
+
+Use channels when:
+
+- external systems need to push events into a live session
+- Claude should react to alerts, chat messages, or webhook-driven state changes
+
+This distinction matters because channels solve event ingress, while ordinary MCP tools solve data and action access.
 
 ## Solving Context Bloat with Code Execution
 

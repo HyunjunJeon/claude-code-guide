@@ -41,6 +41,15 @@ Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print 
 
 Claude Code의 고급 기능은 계획, 추론, 자동화 및 제어 메커니즘으로 핵심 기능을 확장합니다. 이러한 기능은 복잡한 개발 작업, 코드 리뷰, 자동화 및 다중 세션 관리를 위한 정교한 워크플로우를 가능하게 합니다.
 
+**이번 범위에서 추가한 companion guides:**
+
+- [Settings System Guide](./settings-system-guide.md)
+- [Output Styles](./output-styles.md)
+- [Fullscreen Rendering](./fullscreen-rendering.md)
+- [Terminal Configuration](./terminal-configuration.md)
+- [Channels Reference](./channels-reference.md)
+- [Use Claude Code in VS Code](./vscode.md)
+
 **주요 고급 기능:**
 - **Plan Mode**: 코딩 전에 상세한 구현 계획을 작성합니다
 - **Extended Thinking**: 복잡한 문제에 대한 깊은 추론을 수행합니다
@@ -1938,14 +1947,20 @@ Claude Code 및 관련 기능에 대한 자세한 정보:
 - [공식 대화형 모드 문서](https://code.claude.com/docs/en/interactive-mode)
 - [공식 Headless 모드 문서](https://code.claude.com/docs/en/headless)
 - [CLI 참조](https://code.claude.com/docs/en/cli-reference)
-- [Checkpoint 가이드](../../08-checkpoints/) - 세션 관리 및 rewind
-- [Slash Command](../../01-slash-commands/) - 명령어 참조
-- [메모리 가이드](../../02-memory/) - 영구 컨텍스트
-- [Skill 가이드](../../03-skills/) - 자율 기능
-- [Subagent 가이드](../../04-subagents/) - 위임 작업 실행
-- [MCP 가이드](../../05-mcp/) - 외부 데이터 접근
-- [Hook 가이드](../../06-hooks/) - 이벤트 기반 자동화
-- [Plugin 가이드](../../07-plugins/) - 번들 확장
+- [Settings System Guide](./settings-system-guide.md) - scope, precedence, settings file의 실제 동작 정리
+- [Output Styles](./output-styles.md) - built-in style, custom style, 비교 기준 정리
+- [Fullscreen Rendering](./fullscreen-rendering.md) - flicker 감소와 alternate-screen 동작 정리
+- [Terminal Configuration](./terminal-configuration.md) - 줄바꿈, notifications, tmux 관련 설정 정리
+- [Channels Reference](./channels-reference.md) - channel 기반 event stream의 builder-oriented 가이드
+- [Use Claude Code in VS Code](./vscode.md) - VS Code 확장 중심 IDE workflow 가이드
+- [Checkpoint 가이드](../08-checkpoints/) - 세션 관리 및 rewind
+- [Slash Command](../01-slash-commands/) - 명령어 참조
+- [메모리 가이드](../02-memory/) - 영구 컨텍스트
+- [Skill 가이드](../03-skills/) - 자율 기능
+- [Subagent 가이드](../04-subagents/) - 위임 작업 실행
+- [MCP 가이드](../05-mcp/) - 외부 데이터 접근
+- [Hook 가이드](../06-hooks/) - 이벤트 기반 자동화
+- [Plugin 가이드](../07-plugins/) - 번들 확장
 - [공식 Scheduled Tasks 문서](https://code.claude.com/docs/en/scheduled-tasks)
 - [공식 Chrome 통합 문서](https://code.claude.com/docs/en/chrome)
 - [공식 Remote Control 문서](https://code.claude.com/docs/en/remote-control)

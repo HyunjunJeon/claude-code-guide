@@ -7,6 +7,15 @@
 
 Comprehensive guide to Claude Code's advanced capabilities including planning mode, extended thinking, auto mode, background tasks, permission modes, print mode (non-interactive), session management, interactive features, channels, voice dictation, remote control, web sessions, desktop app, task list, prompt suggestions, git worktrees, sandboxing, managed settings, and configuration.
 
+**Companion guides added for parity-critical gaps:**
+
+- [Settings System Guide](./settings-system-guide.md)
+- [Output Styles](./output-styles.md)
+- [Fullscreen Rendering](./fullscreen-rendering.md)
+- [Terminal Configuration](./terminal-configuration.md)
+- [Channels Reference](./channels-reference.md)
+- [Use Claude Code in VS Code](./vscode.md)
+
 ## Table of Contents
 
 1. [Overview](#overview)
@@ -1938,6 +1947,12 @@ For more information about Claude Code and related features:
 - [Official Interactive Mode Documentation](https://code.claude.com/docs/en/interactive-mode)
 - [Official Headless Mode Documentation](https://code.claude.com/docs/en/headless)
 - [CLI Reference](https://code.claude.com/docs/en/cli-reference)
+- [Settings System Guide](./settings-system-guide.md) - Scopes, precedence, and how Claude Code configuration actually fits together
+- [Output Styles](./output-styles.md) - Built-in and custom output modes
+- [Fullscreen Rendering](./fullscreen-rendering.md) - Flicker-free rendering mode
+- [Terminal Configuration](./terminal-configuration.md) - Terminal-specific setup and newline/notification behavior
+- [Channels Reference](./channels-reference.md) - Builder-oriented guide for channel-backed MCP event streams
+- [Use Claude Code in VS Code](./vscode.md) - Extension-focused IDE workflow guide
 - [Checkpoints Guide](../08-checkpoints/) - Session management and rewinding
 - [Slash Commands](../01-slash-commands/) - Command reference
 - [Memory Guide](../02-memory/) - Persistent context

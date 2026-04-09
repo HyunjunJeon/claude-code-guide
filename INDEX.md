@@ -358,7 +358,7 @@ Save conversation state and explore alternative approaches.
 
 ---
 
-## 09. Advanced Features (3 files)
+## 09. Advanced Features (9 files)
 
 Advanced capabilities for complex workflows.
 
@@ -367,12 +367,12 @@ Advanced capabilities for complex workflows.
 | `README.md` | Complete guide | All advanced features documentation |
 | `config-examples.json` | Configuration examples | 10+ use-case-specific configurations |
 | `planning-mode-examples.md` | Planning examples | REST API, database migration, refactoring |
-| Scheduled Tasks | Recurring tasks with `/loop` and cron tools | Automated recurring workflows |
-| Chrome Integration | Browser automation via headless Chromium | Web testing and scraping |
-| Remote Control (expanded) | Connection methods, security, comparison table | Remote session management |
-| Keyboard Customization | Custom keybindings, chord support, contexts | Personalized shortcuts |
-| Desktop App (expanded) | Connectors, launch.json, enterprise features | Desktop integration |
-| | | |
+| `settings-system-guide.md` | Configuration-system guide | Scopes, precedence, settings files, verification |
+| `output-styles.md` | Output style guide | Built-in styles, custom styles, comparisons |
+| `fullscreen-rendering.md` | Rendering optimization guide | Flicker reduction, mouse mode, transcript search |
+| `terminal-configuration.md` | Terminal setup guide | Newline handling, notifications, tmux tips |
+| `channels-reference.md` | Builder-oriented channels guide | Webhook receivers, reply tools, permission relay |
+| `vscode.md` | VS Code integration guide | Extension workflow, shortcuts, settings, CLI interplay |
 
 **Advanced Features Covered**:
 
@@ -415,10 +415,30 @@ Advanced capabilities for complex workflows.
 - Tab completion
 - Multi-line input
 
+### Output Styles
+- Built-in styles: Default, Explanatory, Learning
+- Custom style files and frontmatter
+- Comparisons with `CLAUDE.md`, agents, and skills
+
+### Fullscreen Rendering
+- Flicker-free alternate-screen mode
+- Mouse support and transcript search
+- tmux considerations and selection tradeoffs
+
 ### Configuration
 - Comprehensive settings management
 - Environment-specific configs
 - Per-project customization
+
+### Settings System
+- Scope model: managed, user, project, local
+- Precedence and verification
+- Shared vs local configuration behavior
+
+### Terminal Configuration
+- Shift+Enter and newline setup
+- Native notifications and notification hooks
+- Large-input handling and terminal-specific tuning
 
 ### Scheduled Tasks
 - Recurring tasks with `/loop` command
@@ -428,6 +448,16 @@ Advanced capabilities for complex workflows.
 ### Chrome Integration
 - Browser automation via headless Chromium
 - Web testing and scraping capabilities
+
+### Channels
+- External events pushed into live sessions
+- MCP-backed channel architecture
+- Reply tools and permission relay patterns
+
+### VS Code
+- Native extension workflow
+- Editor-aware prompts and diff review
+- Extension settings vs shared Claude Code settings
 - Page interaction and data extraction
 
 ### Remote Control (expanded)
