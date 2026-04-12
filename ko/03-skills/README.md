@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # 에이전트 스킬 가이드
 
@@ -786,19 +782,10 @@ chmod +x ~/.claude/skills/my-skill/scripts/*.py
 
 더 넓은 배포를 위해 plugin의 `skills/` 디렉토리에 스킬을 패키징합니다.
 
-## 더 나아가기: 스킬 컬렉션과 스킬 매니저
-
-스킬을 본격적으로 구축하기 시작하면, 검증된 스킬 라이브러리와 이를 관리하는 도구 두 가지가 필수적입니다.
-
-**[luongnv89/skills](https://github.com/luongnv89/skills)** -- 거의 모든 프로젝트에서 매일 사용하는 스킬 컬렉션입니다. `logo-designer`(프로젝트 로고를 즉석에서 생성)와 `ollama-optimizer`(하드웨어에 맞게 로컬 LLM 성능 튜닝)가 주요 스킬입니다. 바로 사용할 수 있는 스킬을 원한다면 좋은 출발점입니다.
-
-**[luongnv89/asm](https://github.com/luongnv89/asm)** -- Agent Skill Manager입니다. 스킬 개발, 중복 감지, 테스트를 처리합니다. `asm link` 명령을 사용하면 파일을 복사하지 않고도 모든 프로젝트에서 스킬을 테스트할 수 있습니다. 스킬이 여러 개 이상이 되면 필수적입니다.
-
 ## 추가 리소스
 
-- [공식 스킬 문서](https://code.claude.com/docs/en/skills)
+- [공식 스킬 문서](https://code.claude.com/docs/ko/skills)
 - [에이전트 스킬 아키텍처 블로그](https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills)
-- [스킬 저장소](https://github.com/luongnv89/skills) - 바로 사용 가능한 스킬 컬렉션
 - [Slash Command 가이드](../../01-slash-commands/) - 사용자 시작 단축키
 - [Subagent 가이드](../../04-subagents/) - 위임된 AI 에이전트
 - [Memory 가이드](../../02-memory/) - 영구적인 컨텍스트
@@ -806,6 +793,3 @@ chmod +x ~/.claude/skills/my-skill/scripts/*.py
 - [Hook 가이드](../../06-hooks/) - 이벤트 기반 자동화
 
 ---
-**최종 업데이트**: 2026년 4월
-**Claude Code 버전**: 2.1+
-**호환 모델**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

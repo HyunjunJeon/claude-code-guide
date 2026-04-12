@@ -161,13 +161,13 @@ All icons center at the midpoint of their canvas:
 
 ### Web Header
 - Size: 520×120px logo
-- File: `logos/claude-howto-logo.svg`
+- File: `logos/claude-code-guide-logo.svg`
 - Background: White or dark (#0A0A0A)
 - Padding: 20px minimum
 
 ### App Icon
 - Size: 256×256px
-- File: `icons/claude-howto-icon.svg`
+- File: `icons/claude-code-guide-icon.svg`
 - Background: White or dark
 - Use: App shortcuts, avatars
 

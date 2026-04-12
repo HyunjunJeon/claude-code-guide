@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getModules } from "@/lib/content";
 import { TerminalContent } from "@/components/terminal/terminal-content";
 
@@ -41,7 +42,7 @@ export default function ModulesLayout({
               </div>
               <nav className="space-y-0.5">
                 {modules.map((mod) => (
-                  <a
+                  <Link
                     key={mod.slug}
                     href={`/modules/${mod.slug}`}
                     className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-mono text-[#888] hover:text-[#22C55E] hover:bg-[rgba(34,197,94,0.08)] transition-colors"
@@ -50,7 +51,7 @@ export default function ModulesLayout({
                       {mod.number}
                     </span>
                     <span className="truncate text-xs">{mod.title}</span>
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>

@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Checkpoint과 Rewind
 
@@ -52,6 +48,20 @@ Rewind할 때 다섯 가지 옵션이 제시됩니다:
 3. **코드 복원** -- 파일 변경만 되돌리고, 전체 대화 이력은 유지합니다
 4. **여기서부터 요약** -- 이 지점 이후의 대화를 AI가 생성한 요약으로 압축하여 컨텍스트 윈도우 공간을 확보합니다. 선택한 지점 이전의 메시지는 그대로 유지됩니다. 디스크의 파일은 변경되지 않습니다. 원본 메시지는 세션 기록에 보존됩니다. 선택적으로 특정 주제에 초점을 맞추도록 지시를 제공할 수 있습니다.
 5. **취소** -- 취소하고 현재 상태로 돌아갑니다
+
+### 복원과 요약의 차이
+
+앞의 세 가지 옵션은 진짜 복원 동작입니다. 선택한 checkpoint를 기준으로 코드, 대화, 또는 둘 다를 이전 상태 쪽으로 되돌립니다.
+
+반면 `여기서부터 요약`은 다르게 동작합니다:
+
+- 디스크의 파일을 복원하지 않습니다
+- 보존된 세션 transcript 자체를 다시 쓰지 않습니다
+- 대신 선택한 시점 이후의 대화 상세를 요약으로 압축해서 현재 컨텍스트 부담을 줄입니다
+
+이전 작업 상태로 실제로 돌아가고 싶다면 복원 계열 옵션을 사용합니다.
+
+현재 코드는 유지한 채 대화 이력만 압축하고 싶다면 `여기서부터 요약`을 사용합니다.
 
 > **참고**: 대화를 복원하거나 요약한 후, 선택한 메시지의 원본 프롬프트가 입력 필드에 복원되어 다시 전송하거나 편집할 수 있습니다.
 
@@ -287,7 +297,7 @@ Checkpoint은 git을 보완하지만 대체하지는 않습니다:
 
 Checkpoint을 사용하면 되돌아갈 수 있습니다 — 하지만 *언제* 되돌아가야 하는지 어떻게 알 수 있을까요? 대화가 길어지면 Claude의 컨텍스트 윈도우가 가득 차고 모델 품질이 눈에 띄지 않게 저하됩니다. 반쯤 눈이 먼 모델의 코드를 그대로 배포하고 있을 수도 있습니다.
 
-**[cc-context-stats](https://github.com/luongnv89/cc-context-stats)**는 Claude Code 상태 바에 실시간 **컨텍스트 영역**을 추가하여 이 문제를 해결합니다. 컨텍스트 윈도우에서 현재 위치를 추적합니다 — **Plan**(초록색, 계획 및 코딩에 안전)에서 **Code**(노란색, 새로운 계획 시작 지양)를 거쳐 **Dump**(주황색, 마무리 후 rewind)까지. 영역 전환이 보이면 checkpoint을 생성하고 저하된 출력으로 계속 진행하는 대신 새로 시작할 때라는 것을 알 수 있습니다.
+Claude Code의 컨텍스트 윈도우 사용량을 모니터링하면, 품질이 저하되기 전에 적절한 시점에 checkpoint를 만들고 rewind할 수 있습니다.
 
 ## 관련 개념
 
@@ -299,7 +309,7 @@ Checkpoint을 사용하면 되돌아갈 수 있습니다 — 하지만 *언제* 
 
 ## 추가 리소스
 
-- [공식 Checkpoint 문서](https://code.claude.com/docs/en/checkpointing)
+- [공식 Checkpoint 문서](https://code.claude.com/docs/ko/checkpointing)
 - [고급 기능 가이드](../../09-advanced-features/) - Extended thinking 및 기타 기능
 
 ## 요약
@@ -315,6 +325,3 @@ Checkpoint은 Claude Code의 자동 기능으로, 작업 손실에 대한 걱정
 기억하세요: checkpoint은 git을 대체하지 않습니다. 빠른 실험에는 checkpoint을, 영구적인 코드 변경에는 git을 사용하세요.
 
 ---
-**최종 업데이트**: 2026년 4월
-**Claude Code 버전**: 2.1+
-**호환 모델**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

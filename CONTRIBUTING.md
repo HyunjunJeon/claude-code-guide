@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Contributing to Claude How To
 
@@ -54,8 +50,8 @@ Help improve the guide:
 
 ### 1. Fork and Clone
 ```bash
-git clone https://github.com/luongnv89/claude-howto.git
-cd claude-howto
+git clone https://github.com/HyunjunJeon/claude-code-guide.git
+cd claude-code-guide
 ```
 
 ### 2. Create a Branch
@@ -378,4 +374,3 @@ By contributing to this project, you agree that your contributions will be licen
 Thank you for contributing! 🙏
 
 ---
-**Last Updated**: April 2026

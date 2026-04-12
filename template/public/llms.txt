@@ -1,0 +1,58 @@
+# Claude Code Guide
+
+> A structured, example-driven tutorial for mastering Claude Code — covering all 10 core features from slash commands to custom agent teams, with copy-paste templates, Mermaid diagrams, and a progressive learning path.
+
+## Modules
+
+- [Slash Commands](https://claude-code-guide.vercel.app/modules/01-slash-commands): How to create, install, and use user-invoked shortcuts stored as Markdown files in `.claude/commands/` — includes command syntax, argument passing, tool permissions, and YAML frontmatter configuration.
+  - [Commit Command](https://claude-code-guide.vercel.app/modules/01-slash-commands/commit): A slash command template that automates git staging, diff review, and conventional commit message generation with restricted tool permissions.
+  - [Documentation Refactor](https://claude-code-guide.vercel.app/modules/01-slash-commands/doc-refactor): A slash command template that restructures project documentation for clarity, accessibility, and consistent formatting across files.
+  - [API Docs Generator](https://claude-code-guide.vercel.app/modules/01-slash-commands/generate-api-docs): A slash command template that scans source code and generates comprehensive API documentation with endpoint descriptions, parameters, and response examples.
+  - [Code Optimizer](https://claude-code-guide.vercel.app/modules/01-slash-commands/optimize): A slash command template that analyzes code for performance bottlenecks, memory leaks, and algorithmic inefficiencies, then suggests targeted optimizations.
+  - [PR Preparation](https://claude-code-guide.vercel.app/modules/01-slash-commands/pr): A slash command template that cleans up code, runs linting and tests, stages changes, and prepares a pull request with a structured description.
+  - [Push All](https://claude-code-guide.vercel.app/modules/01-slash-commands/push-all): A slash command template that stages all changes, creates a commit with a generated message, and pushes to the remote branch in one step.
+  - [CI/CD Setup](https://claude-code-guide.vercel.app/modules/01-slash-commands/setup-ci-cd): A slash command template that generates pre-commit hooks and GitHub Actions workflows for automated linting, testing, and deployment.
+  - [Unit Test Expansion](https://claude-code-guide.vercel.app/modules/01-slash-commands/unit-test-expand): A slash command template that identifies untested code branches and edge cases, then generates targeted unit tests to increase coverage.
+
+- [Memory System](https://claude-code-guide.vercel.app/modules/02-memory): How Claude Code persists context across sessions using CLAUDE.md files — covers the three-tier memory hierarchy (personal, project, directory), auto-loading behavior, and best practices for writing effective instructions.
+  - [Directory-Level CLAUDE.md](https://claude-code-guide.vercel.app/modules/02-memory/directory-api-CLAUDE): A template for directory-scoped CLAUDE.md files that set module-specific coding standards, API conventions, and testing requirements for subdirectories like `src/api/`.
+  - [Personal CLAUDE.md](https://claude-code-guide.vercel.app/modules/02-memory/personal-CLAUDE): A template for `~/.claude/CLAUDE.md` that stores personal coding preferences, editor settings, communication style, and cross-project defaults.
+  - [Project CLAUDE.md](https://claude-code-guide.vercel.app/modules/02-memory/project-CLAUDE): A template for the root project CLAUDE.md that defines team-wide standards including tech stack, architecture decisions, testing strategy, and commit conventions.
+
+- [Skills](https://claude-code-guide.vercel.app/modules/03-skills): How to build reusable, auto-invoked capabilities that extend Claude Code — covers skill file structure (SKILL.md), trigger conditions, bundled scripts, and installation to personal or project scope.
+
+- [Subagents](https://claude-code-guide.vercel.app/modules/04-subagents): How Claude Code delegates tasks to specialized AI assistants with isolated contexts — covers agent definition files, tool permission scoping, custom system prompts, and when to use subagents vs direct execution.
+  - [Clean Code Reviewer](https://claude-code-guide.vercel.app/modules/04-subagents/clean-code-reviewer): An agent definition that enforces Clean Code principles (SRP, DRY, KISS, naming conventions) during code review with severity-rated feedback.
+  - [Code Reviewer](https://claude-code-guide.vercel.app/modules/04-subagents/code-reviewer): An agent definition for comprehensive code quality review covering logic defects, SOLID principles, error handling, and maintainability concerns.
+  - [Data Scientist](https://claude-code-guide.vercel.app/modules/04-subagents/data-scientist): An agent definition for data analysis tasks including SQL queries, BigQuery operations, statistical analysis, and data visualization.
+  - [Debugger](https://claude-code-guide.vercel.app/modules/04-subagents/debugger): An agent definition for systematic debugging — root cause analysis, stack trace interpretation, regression isolation, and fix verification.
+  - [Documentation Writer](https://claude-code-guide.vercel.app/modules/04-subagents/documentation-writer): An agent definition for generating technical documentation including API references, user guides, architecture docs, and inline code comments.
+  - [Implementation Agent](https://claude-code-guide.vercel.app/modules/04-subagents/implementation-agent): A full-stack agent definition with complete tool access for end-to-end feature implementation, from scaffolding to testing.
+  - [Performance Optimizer](https://claude-code-guide.vercel.app/modules/04-subagents/performance-optimizer): An agent definition that profiles code for bottlenecks, measures throughput and latency, and suggests targeted optimizations with benchmarks.
+  - [Security Reviewer](https://claude-code-guide.vercel.app/modules/04-subagents/secure-reviewer): A read-only agent definition for security audits — scans for OWASP Top 10 vulnerabilities, secrets exposure, and unsafe patterns without modifying code.
+  - [Test Engineer](https://claude-code-guide.vercel.app/modules/04-subagents/test-engineer): An agent definition for test automation — writes unit, integration, and e2e tests, identifies coverage gaps, and hardens flaky tests.
+
+- [MCP (Model Context Protocol)](https://claude-code-guide.vercel.app/modules/05-mcp): How to connect Claude Code to external tools and APIs via MCP servers — covers server configuration (`.mcp.json`), environment variables, authentication, and examples for GitHub, databases, and filesystem access.
+
+- [Hooks](https://claude-code-guide.vercel.app/modules/06-hooks): How to automate actions in response to Claude Code events using shell scripts — covers all 25 hook event types (PreToolUse, PostToolUse, SessionStart, etc.), matcher patterns, and real-world examples for formatting, security scanning, and notifications.
+
+- [Plugins](https://claude-code-guide.vercel.app/modules/07-plugins): How to bundle multiple Claude Code features (commands, agents, MCP configs, hooks) into a single installable package — includes complete plugin examples for PR review, DevOps automation, and documentation generation workflows.
+
+- [Checkpoints and Rewind](https://claude-code-guide.vercel.app/modules/08-checkpoints): How to save conversation state and rewind to previous points — covers automatic checkpoint creation, the five rewind options, branching strategies for A/B testing approaches, and safe experimentation patterns.
+  - [Checkpoint Examples](https://claude-code-guide.vercel.app/modules/08-checkpoints/checkpoint-examples): Step-by-step walkthroughs of checkpoint workflows including multi-approach comparison, mistake recovery, and iterative refinement with branch points.
+
+- [Advanced Features](https://claude-code-guide.vercel.app/modules/09-advanced-features): Deep coverage of Claude Code power-user capabilities — Plan mode, extended thinking, background tasks, permission modes (default/acceptEdits/plan/dontAsk/bypassPermissions), headless CI/CD mode, session management, and configuration.
+  - [Channels Reference](https://claude-code-guide.vercel.app/modules/09-advanced-features/channels-reference): Complete reference for Claude Code channels — multiplexed conversation streams that allow parallel workstreams within a single session.
+  - [Fullscreen Rendering](https://claude-code-guide.vercel.app/modules/09-advanced-features/fullscreen-rendering): How to use fullscreen mode for rich content rendering including Mermaid diagrams, tables, and long-form output in the terminal.
+  - [Output Styles](https://claude-code-guide.vercel.app/modules/09-advanced-features/output-styles): How to configure Claude Code output styles (concise, explanatory, educational) to control response verbosity and formatting behavior.
+  - [Planning Mode Examples](https://claude-code-guide.vercel.app/modules/09-advanced-features/planning-mode-examples): Real-world examples of Plan mode usage — creating implementation plans, reviewing before execution, and iterating on complex multi-file changes.
+  - [Settings System Guide](https://claude-code-guide.vercel.app/modules/09-advanced-features/settings-system-guide): Complete reference for `settings.json` configuration — all available settings, scoping rules (user/project/enterprise), and the settings precedence hierarchy.
+  - [Terminal Configuration](https://claude-code-guide.vercel.app/modules/09-advanced-features/terminal-configuration): How to configure the Claude Code terminal experience — themes, font settings, key bindings, and integration with popular terminal emulators.
+  - [VS Code Integration](https://claude-code-guide.vercel.app/modules/09-advanced-features/vscode): How to use Claude Code inside VS Code — installation, the inline diff experience, sidebar panel, keyboard shortcuts, and workspace-aware features.
+
+- [CLI Reference](https://claude-code-guide.vercel.app/modules/10-cli): Complete command-line reference for the `claude` binary — all flags, environment variables, output formats (JSON, streaming), pipe/stdin patterns, session management commands, and CI/CD integration examples.
+
+## Links
+
+- [GitHub Repository](https://github.com/HyunjunJeon/claude-code-guide-book)
+- [Full Site](https://claude-code-guide.vercel.app)

@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Subagent - 완전 참조 가이드
 
@@ -531,7 +527,7 @@ graph TB
 
 ## 생성 가능한 Subagent 제한
 
-`tools` 필드에서 `Agent(agent_type)` 구문을 사용하여 특정 subagent가 생성할 수 있는 subagent를 제어할 수 있습니다. 이는 위임을 위한 특정 subagent를 허용 목록에 추가하는 방법을 제공합니다.
+`claude --agent`로 메인 스레드에서 에이전트를 실행할 때, `tools` 필드의 `Agent(agent_type)` 구문을 사용하여 해당 에이전트가 생성할 수 있는 subagent를 제한할 수 있습니다. 이는 메인 에이전트의 위임 대상을 허용 목록으로 제어하는 기능입니다. **주의: 이 기능은 subagent 정의에서는 효과가 없습니다.** Subagent는 다른 subagent를 생성할 수 없습니다.
 
 > **참고**: v2.1.63에서 `Task` 도구가 `Agent`로 이름이 변경되었습니다. 기존 `Task(...)` 참조는 별칭으로 계속 작동합니다.
 
@@ -571,7 +567,7 @@ claude agents
 
 Agent Teams는 복잡한 작업에서 함께 일하는 여러 Claude Code 인스턴스를 조율합니다. subagent(하위 작업을 위임받고 결과를 반환)와 달리, 팀원은 자체 컨텍스트 윈도우를 가지고 독립적으로 작업하며 공유 메일박스 시스템을 통해 서로 직접 메시지를 보낼 수 있습니다.
 
-> **공식 문서**: [code.claude.com/docs/en/agent-teams](https://code.claude.com/docs/en/agent-teams)
+> **공식 문서**: [code.claude.com/docs/ko/agent-teams](https://code.claude.com/docs/ko/agent-teams)
 
 > **참고**: Agent Teams는 실험적 기능이며 기본적으로 비활성화되어 있습니다. Claude Code v2.1.32+가 필요합니다. 사용 전에 활성화하세요.
 
@@ -822,7 +818,7 @@ graph TB
 
 ### 주요 동작
 
-- **중첩 생성 불가** - Subagent는 다른 subagent를 생성할 수 없습니다
+- **중첩 생성 불가** - Subagent는 다른 subagent를 생성할 수 없습니다. `tools` 필드의 `Agent(agent_type)` 구문은 `claude --agent`로 메인 스레드에서 실행하는 에이전트에만 적용되며, subagent 정의에서는 효과가 없습니다
 - **백그라운드 권한** - 백그라운드 subagent는 사전 승인되지 않은 모든 권한을 자동으로 거부합니다
 - **백그라운드 전환** - `Ctrl+B`를 눌러 현재 실행 중인 작업을 백그라운드로 전환합니다
 - **트랜스크립트** - Subagent 트랜스크립트는 `~/.claude/projects/{project}/{sessionId}/subagents/agent-{agentId}.jsonl`에 저장됩니다
@@ -1131,14 +1127,11 @@ graph TD
 
 ## 추가 리소스
 
-- [공식 Subagent 문서](https://code.claude.com/docs/en/sub-agents)
-- [CLI 참조](https://code.claude.com/docs/en/cli-reference) - `--agents` 플래그 및 기타 CLI 옵션
+- [공식 Subagent 문서](https://code.claude.com/docs/ko/sub-agents)
+- [CLI 참조](https://code.claude.com/docs/ko/cli-reference) - `--agents` 플래그 및 기타 CLI 옵션
 - [Plugins 가이드](../../07-plugins/) - 다른 기능과 agent를 번들링
 - [Skills 가이드](../../03-skills/) - 자동 호출 기능
 - [Memory 가이드](../../02-memory/) - 영구 컨텍스트
 - [Hooks 가이드](../../06-hooks/) - 이벤트 기반 자동화
 
 ---
-**최종 업데이트**: 2026년 4월
-**Claude Code 버전**: 2.1+
-**호환 모델**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

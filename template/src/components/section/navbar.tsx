@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
@@ -32,24 +31,6 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-        </div>
-
-        {/* GitHub Link */}
-        <div className="hidden md:flex items-center gap-3">
-          <Link
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-[#888] hover:text-[#22C55E] font-mono text-xs"
-            >
-              <Icons.github className="size-4" />
-              GitHub
-            </Button>
-          </Link>
         </div>
 
         {/* Mobile Menu Button */}

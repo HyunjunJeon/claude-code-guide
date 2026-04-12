@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="resources/logos/claude-howto-logo.svg">
-</picture>
 
 # 📚 Claude Code Learning Roadmap
 
@@ -721,9 +717,6 @@ Once you've completed all milestones:
 - [Anthropic Documentation](https://docs.anthropic.com)
 - [MCP Protocol Specification](https://modelcontextprotocol.io)
 
-### Blog Posts
-- [Discovering Claude Code Slash Commands](https://medium.com/@luongnv89/discovering-claude-code-slash-commands-cdc17f0dfb29)
-
 ### Community
 - [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
 - [MCP Servers Repository](https://github.com/modelcontextprotocol/servers)
@@ -738,8 +731,6 @@ Once you've completed all milestones:
 
 ---
 
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
 **Maintained by**: Claude How-To Contributors
 **License**: Educational purposes, free to use and adapt
 

@@ -1,16 +1,19 @@
 "use client";
 
-import { useEffect, useState, useId } from "react";
+import { useEffect, useRef, useState, useId } from "react";
 import DOMPurify from "dompurify";
 
 interface MermaidDiagramProps {
   chart: string;
+  fontSize?: number;
+  fullWidth?: boolean;
 }
 
-export function MermaidDiagram({ chart }: MermaidDiagramProps) {
+export function MermaidDiagram({ chart, fontSize = 13, fullWidth = false }: MermaidDiagramProps) {
   const [svg, setSvg] = useState<string | null>(null);
   const [error, setError] = useState<string>("");
   const uniqueId = useId().replace(/:/g, "-");
+  const svgContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -38,7 +41,7 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
             signalTextColor: "#D8D8D8",
           },
           fontFamily: "JetBrains Mono, monospace",
-          fontSize: 13,
+          fontSize,
           securityLevel: "loose",
         });
 
@@ -63,7 +66,18 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
     return () => {
       cancelled = true;
     };
-  }, [chart, uniqueId]);
+  }, [chart, uniqueId, fontSize, fullWidth]);
+
+  // After SVG is inserted into DOM, resize it for fullWidth mode
+  useEffect(() => {
+    if (!fullWidth || !svg || !svgContainerRef.current) return;
+    const svgEl = svgContainerRef.current.querySelector("svg");
+    if (svgEl) {
+      svgEl.setAttribute("width", "100%");
+      svgEl.removeAttribute("height");
+      svgEl.style.maxWidth = "none";
+    }
+  }, [svg, fullWidth]);
 
   if (error) {
     return (
@@ -88,9 +102,9 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
           diagram
         </span>
       </div>
-      <div className="p-4 overflow-x-auto flex justify-center [&_svg]:max-w-full">
+      <div className={`p-4 overflow-x-auto ${fullWidth ? "[&_svg]:w-full [&_svg]:max-w-none" : "flex justify-center [&_svg]:max-w-full"}`}>
         {svg ? (
-          <div dangerouslySetInnerHTML={{ __html: svg }} />
+          <div ref={svgContainerRef} dangerouslySetInnerHTML={{ __html: svg }} /> /* sanitized by DOMPurify above */
         ) : (
           <span className="text-[#555] font-mono text-xs animate-pulse py-4">
             Loading diagram...

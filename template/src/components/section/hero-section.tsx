@@ -37,7 +37,7 @@ export function HeroSection() {
 
         {/* Description */}
         <BlurFade delay={0.3}>
-          <p className="mx-auto max-w-2xl text-base sm:text-lg text-[#888] mb-8">
+          <p className="mx-auto max-w-2xl text-base sm:text-lg text-[#888] mb-8 whitespace-pre-line">
             {heroConfig.description}
           </p>
         </BlurFade>
@@ -93,13 +93,12 @@ export function HeroSection() {
 
                 {/* Module list output */}
                 <div className="space-y-1 text-[#888] text-xs">
-                  {siteConfig.modules.slice(0, 5).map((mod) => (
+                  {siteConfig.modules.map((mod) => (
                     <div key={mod.slug} className="flex gap-3">
                       <span className="text-[#555] w-5">{mod.number}</span>
                       <span className="text-[#22C55E]">{mod.title}</span>
                     </div>
                   ))}
-                  <div className="text-[#555]">... +5 more modules</div>
                 </div>
               </div>
             </div>

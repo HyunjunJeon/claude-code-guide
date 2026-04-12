@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Claude Code Examples - Complete Index
 
@@ -518,7 +514,7 @@ Command-line interface usage patterns and reference.
 ## Complete File Tree
 
 ```
-claude-howto/
+claude-code-guide/
 ├── README.md                                    # Main overview
 ├── INDEX.md                                     # This file
 ├── QUICK_REFERENCE.md                           # Quick reference card
@@ -904,8 +900,6 @@ Want to add more examples? Follow the structure:
 
 ---
 
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
 **Total Examples**: 100+ files
 **Categories**: 10 features
 **Hooks**: 8 automation scripts

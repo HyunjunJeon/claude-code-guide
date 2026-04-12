@@ -40,21 +40,21 @@ export const siteConfig = {
   },
   nav: {
     links: [
-      { id: 1, name: "모듈", href: "/modules/01-slash-commands" },
-      { id: 2, name: "로드맵", href: "/modules/09-advanced-features" },
-      { id: 3, name: "빠른 참조", href: "/modules/10-cli" },
+      { id: 1, name: "학습 시작", href: "/modules" },
+      { id: 2, name: "고급 기능", href: "/modules/09-advanced-features" },
+      { id: 3, name: "CLI 레퍼런스", href: "/modules/10-cli" },
     ],
   },
   hero: {
-    badge: "Claude Code 2.1+ Guide",
-    title: "터미널에서 시작하는",
-    titleHighlight: "AI 코딩 마스터.",
+    badge: "Claude Code Guide",
+    title: "터미널로 시작하는",
+    titleHighlight: "Claude Code 가이드북.",
     description:
-      "Slash Commands부터 MCP, Hooks, Plugins까지 — Claude Code의 10가지 핵심 기능을 단계별로 학습합니다.",
+      "Slash Commands부터 MCP, Hooks, Plugins까지 —\nClaude Code의 핵심 기능을 단계별로 학습합니다.",
     cta: {
       primary: {
         text: "학습 시작",
-        href: "/modules/01-slash-commands",
+        href: "/modules",
       },
       secondary: {
         text: "GitHub",

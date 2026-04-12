@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="logos/claude-howto-logo.svg">
-</picture>
 
 # Claude How To - Brand Assets
 
@@ -12,11 +8,11 @@ Complete collection of logos, icons, and favicons for the Claude How To project.
 ```
 resources/
 ├── logos/
-│   ├── claude-howto-logo.svg       # Main logo - Light mode (520×120px)
-│   └── claude-howto-logo-dark.svg  # Main logo - Dark mode (520×120px)
+│   ├── claude-code-guide-logo.svg       # Main logo - Light mode (520×120px)
+│   └── claude-code-guide-logo-dark.svg  # Main logo - Dark mode (520×120px)
 ├── icons/
-│   ├── claude-howto-icon.svg       # App icon - Light mode (256×256px)
-│   └── claude-howto-icon-dark.svg  # App icon - Dark mode (256×256px)
+│   ├── claude-code-guide-icon.svg       # App icon - Light mode (256×256px)
+│   └── claude-code-guide-icon-dark.svg  # App icon - Dark mode (256×256px)
 └── favicons/
     ├── favicon-16.svg              # Favicon - 16×16px
     ├── favicon-32.svg              # Favicon - 32×32px (primary)
@@ -51,8 +47,8 @@ assets/logo/
 ### Logos
 
 **Files**:
-- `logos/claude-howto-logo.svg` (Light mode)
-- `logos/claude-howto-logo-dark.svg` (Dark mode)
+- `logos/claude-code-guide-logo.svg` (Light mode)
+- `logos/claude-code-guide-logo-dark.svg` (Dark mode)
 
 **Specifications**:
 - **Size**: 520×120 px
@@ -68,8 +64,8 @@ assets/logo/
 ### Icons
 
 **Files**:
-- `icons/claude-howto-icon.svg` (Light mode)
-- `icons/claude-howto-icon-dark.svg` (Dark mode)
+- `icons/claude-code-guide-icon.svg` (Light mode)
+- `icons/claude-code-guide-icon-dark.svg` (Dark mode)
 
 **Specifications**:
 - **Size**: 256×256 px

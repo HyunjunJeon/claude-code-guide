@@ -28,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly content" />
+      </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
         <ThemeProvider
           attribute="class"

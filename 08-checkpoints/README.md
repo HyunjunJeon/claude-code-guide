@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Checkpoints and Rewind
 
@@ -52,6 +48,20 @@ When you rewind, you are presented with a menu of five options:
 3. **Restore code** -- Revert file changes only, keep the full conversation history
 4. **Summarize from here** -- Compress the conversation from this point forward into an AI-generated summary, freeing context window space. Messages before the selected point stay intact. No files on disk are changed. The original messages are preserved in the session transcript. You can optionally provide instructions to focus the summary on specific topics.
 5. **Never mind** -- Cancel and return to the current state
+
+### Restore vs Summarize
+
+The first three options are true restore operations. They move the active session back toward the selected checkpoint by restoring code, conversation, or both.
+
+`Summarize from here` is different:
+
+- it does **not** restore files on disk
+- it does **not** rewrite the preserved session transcript
+- it **does** replace later conversational detail in the active context with a summary so you can keep moving with less context pressure
+
+Use a restore option when you want to go back to an earlier working state.
+
+Use `Summarize from here` when you want to keep the current code as-is but compress the conversational history after a chosen point.
 
 > **Note**: After restoring the conversation or summarizing, the original prompt from the selected message is restored into the input field so you can re-send or edit it.
 
@@ -287,7 +297,7 @@ Use both together:
 
 Checkpoints let you go back — but how do you know *when* you should? As your conversation grows, Claude's context window fills up and model quality silently degrades. You might be shipping code from a half-blind model without realizing it.
 
-**[cc-context-stats](https://github.com/luongnv89/cc-context-stats)** solves this by adding real-time **context zones** to your Claude Code status bar. It tracks where you are in the context window — from **Plan** (green, safe to plan and code) through **Code** (yellow, avoid starting new plans) to **Dump** (orange, finish up and rewind). When you see the zone shift, you know it's time to checkpoint and start fresh instead of pushing through with degraded output.
+Claude Code의 컨텍스트 윈도우 사용량을 모니터링하면, 품질이 저하되기 전에 적절한 시점에 checkpoint를 만들고 rewind할 수 있습니다.
 
 ## Related Concepts
 
@@ -315,6 +325,3 @@ Key benefits:
 Remember: checkpoints are not a replacement for git. Use checkpoints for rapid experimentation and git for permanent code changes.
 
 ---
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

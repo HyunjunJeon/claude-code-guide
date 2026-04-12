@@ -1,3 +1,7 @@
+# OMC state
+.omc/
+.omx/
+
 # macOS
 .DS_Store
 .AppleDouble
@@ -43,12 +47,14 @@ yarn-error.log*
 # Temporary files
 *.tmp
 *.temp
-# Keep .claude/ clean for hand-on section — except project skills
+# Keep .claude/ clean for hand-on section — except project skills and agents
 .claude/*
 !.claude/skills/
+!.claude/agents/
 .claude/skills/*
 !.claude/skills/self-assessment/
 !.claude/skills/lesson-quiz/
+!.claude/skills/doc-accuracy-tracker/
 blog-posts/
 
 # EPUB files in root directory

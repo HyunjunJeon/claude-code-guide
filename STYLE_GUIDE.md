@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Style Guide
 
@@ -55,7 +51,7 @@ The number reflects the learning path order from beginner to advanced.
 | **Config file** | Standard names | `.mcp.json`, `settings.json` |
 | **Memory file** | Scope-prefixed | `project-CLAUDE.md`, `personal-CLAUDE.md` |
 | **Top-level docs** | UPPER_CASE `.md` | `CATALOG.md`, `QUICK_REFERENCE.md`, `CONTRIBUTING.md` |
-| **Image assets** | Kebab-case | `pr-slash-command.png`, `claude-howto-logo.svg` |
+| **Image assets** | Kebab-case | `pr-slash-command.png`, `claude-code-guide-logo.svg` |
 
 ### Rules
 
@@ -509,8 +505,8 @@ All documents that start with a logo use the `<picture>` element for dark/light 
 
 ```html
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="resources/logos/claude-howto-logo.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/claude-code-guide-logo-dark.svg">
+  <img alt="Claude How To" src="resources/logos/claude-code-guide-logo.svg">
 </picture>
 ```
 
@@ -597,9 +593,6 @@ Lesson READMEs end with a metadata block:
 
 ```markdown
 ---
-**Last Updated**: March 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5
 ```
 
 - Use month + year format (e.g., "March 2026")
@@ -630,4 +623,3 @@ Before submitting content, verify:
 - [ ] Commit message follows conventional commits format
 
 ---
-**Last Updated**: April 2026

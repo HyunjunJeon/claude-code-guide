@@ -7,9 +7,7 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
-import { CommandBar } from "./command-bar";
 import { PagerBar } from "./pager-bar";
-import { TreeView } from "./tree-view";
 import { PromptLine } from "./prompt-line";
 
 interface Section {
@@ -32,7 +30,6 @@ export function TerminalContent({
   const [sections, setSections] = useState<Section[]>([]);
   const [currentSection, setCurrentSection] = useState(0);
   const [scrollPct, setScrollPct] = useState(0);
-  const [showTree, setShowTree] = useState(false);
 
   // Parse rendered content into sections by H1/H2 elements
   useEffect(() => {
@@ -70,12 +67,10 @@ export function TerminalContent({
         const { scrollTop, scrollHeight, clientHeight } = scrollEl;
         const maxScroll = scrollHeight - clientHeight;
 
-        // Update scroll percentage
         if (maxScroll > 0) {
           setScrollPct(Math.min(Math.round((scrollTop / maxScroll) * 100), 100));
         }
 
-        // Detect which section is currently visible
         if (sections.length > 0) {
           let active = 0;
           for (let i = sections.length - 1; i >= 0; i--) {
@@ -95,35 +90,13 @@ export function TerminalContent({
     return () => scrollEl.removeEventListener("scroll", onScroll);
   }, [sections]);
 
-  // Scroll to next section (Space key / command)
+  // Scroll to next section (Space key)
   const scrollToNextSection = useCallback(() => {
-    if (showTree) {
-      setShowTree(false);
-      return;
-    }
     const next = Math.min(currentSection + 1, sections.length - 1);
     sections[next]?.element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [currentSection, sections, showTree]);
+  }, [currentSection, sections]);
 
-  const scrollToSection = useCallback(
-    (idx: number) => {
-      setShowTree(false);
-      sections[idx]?.element.scrollIntoView({ behavior: "smooth", block: "start" });
-    },
-    [sections]
-  );
-
-  const scrollToAll = useCallback(() => {
-    setShowTree(false);
-    // Scroll to bottom
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({
-        top: scrollRef.current.scrollHeight,
-        behavior: "smooth",
-      });
-    }
-  }, []);
-
+  // Search handler
   const handleSearch = useCallback(
     (query: string) => {
       const q = query.toLowerCase();
@@ -140,12 +113,10 @@ export function TerminalContent({
       });
 
       if (results.length > 0) {
-        setShowTree(false);
         sections[results[0]]?.element.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-        // Highlight briefly
         const el = sections[results[0]]?.element;
         if (el) {
           el.style.outline = "2px solid #22C55E";
@@ -158,7 +129,7 @@ export function TerminalContent({
     [sections]
   );
 
-  // Keyboard shortcuts
+  // Keyboard: Space for next section
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       const tag = (document.activeElement as HTMLElement)?.tagName;
@@ -177,39 +148,23 @@ export function TerminalContent({
   return (
     <div className="flex flex-col h-full">
       {/* Prompt line */}
-      <PromptLine path={modulePath} />
+      <div className="px-6 pt-4 lg:px-8">
+        <PromptLine path={modulePath} />
+      </div>
 
       {/* Scrollable content area */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-6 py-4 lg:px-8">
-        {showTree ? (
-          <TreeView
-            sections={sections}
-            visibleCount={currentSection + 1}
-            onSelect={(idx) => scrollToSection(idx)}
-          />
-        ) : (
-          <div ref={contentRef} className="doc-content-area">
-            {children}
-          </div>
-        )}
+        <div ref={contentRef} className="doc-content-area">
+          {children}
+        </div>
       </div>
 
-      {/* Pager bar */}
+      {/* Status bar (less-style) */}
       <PagerBar
         current={currentSection + 1}
         total={sections.length}
         scrollPct={scrollPct}
-        isTreeView={showTree}
-      />
-
-      {/* Command bar */}
-      <CommandBar
-        onRevealNext={scrollToNextSection}
-        onRevealAll={scrollToAll}
-        onRevealUpTo={(n) => scrollToSection(n - 1)}
-        onShowTree={() => setShowTree(true)}
         onSearch={handleSearch}
-        totalSections={sections.length}
       />
     </div>
   );

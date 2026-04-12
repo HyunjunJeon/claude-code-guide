@@ -106,7 +106,7 @@ Each numbered folder (01-10) follows the pattern:
 
 4. **Pre-commit is the gatekeeper** — All quality checks must pass before a PR is accepted. CI workflows (`docs-check.yml`, `test.yml`) run the same checks as a second pass.
 
-5. **EPUB output** — The build system generates `claude-howto-guide.epub` (English) and `claude-howto-guide-ko.epub` (Korean).
+5. **EPUB output** — The build system generates `claude-code-guide.epub` (English) and `claude-code-guide-ko.epub` (Korean).
 
 6. **This is a tutorial, not a library** — Focus on clear explanations, copy-paste examples, and visual diagrams. The value is in teaching concepts, not providing reusable code.
 
