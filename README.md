@@ -4,8 +4,6 @@
 
 Claude Code의 핵심 기능을 단계별로 학습하는 한국어 가이드북입니다.
 
-**[사이트 바로가기](https://claude-code-guide.vercel.app)** | **[llms.txt](https://claude-code-guide.vercel.app/llms.txt)**
-
 ---
 
 ## 모듈

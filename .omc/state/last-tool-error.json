@@ -1,7 +1,0 @@
-{
-  "tool_name": "Grep",
-  "tool_input_preview": "{\"pattern\":\"--fork-session.*fork an existing|기존 세션을 새 세션으로 포크\",\"path\":\"/Users/jhj/Desktop/personal/claude-code-guide-book\",\"output_mode\":\"content\"}",
-  "error": "ENOENT: no such file or directory, posix_spawn 'rg'",
-  "timestamp": "2026-04-08T14:14:16.085Z",
-  "retry_count": 9
-}

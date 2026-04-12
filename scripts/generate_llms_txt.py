@@ -34,7 +34,7 @@ MODULE_DIRS = [
     "10-cli",
 ]
 
-SITE_URL = "https://claude-code-guide.vercel.app"
+SITE_URL = "https://github.com/HyunjunJeon/claude-code-guide/blob/main"
 
 
 def extract_title(content: str) -> str:
