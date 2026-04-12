@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Project — Terminal Theme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="terminal">
+    <!-- Terminal Header -->
+    <header class="terminal-header">
+      <div class="traffic-lights">
+        <span class="light close"></span>
+        <span class="light minimize"></span>
+        <span class="light maximize"></span>
+      </div>
+      <div class="terminal-title">your-project — terminal</div>
+      <div class="status">
+        Status <span class="status-online">Online</span>
+      </div>
+    </header>
+
+    <!-- Terminal Content -->
+    <main class="terminal-content">
+      <!-- Command Prompt -->
+      <div class="prompt-line">
+        <span class="prompt-user">user</span><span class="prompt-at">@</span><span class="prompt-host">project</span><span class="prompt-colon">:</span><span class="prompt-path">~</span><span class="prompt-dollar">$</span>
+        <span class="command">cat home.md</span>
+      </div>
+
+      <!-- Badge -->
+      <div class="badge">
+        <span class="badge-icon">✦</span>
+        <span>Your Tagline Here</span>
+      </div>
+
+      <!-- ASCII Logo - Replace with your own -->
+      <pre class="ascii-logo">
+██╗   ██╗ ██████╗ ██╗   ██╗██████╗
+╚██╗ ██╔╝██╔═══██╗██║   ██║██╔══██╗
+ ╚████╔╝ ██║   ██║██║   ██║██████╔╝
+  ╚██╔╝  ██║   ██║██║   ██║██╔══██╗
+   ██║   ╚██████╔╝╚██████╔╝██║  ██║
+   ╚═╝    ╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗
+██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝
+██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║
+██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║
+██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║
+╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝
+      </pre>
+
+      <!-- Subtitle -->
+      <div class="subtitle">—— Your Project Description 2024 ——</div>
+
+      <!-- Navigation Menu -->
+      <nav class="terminal-nav">
+        <a href="#about" class="nav-item">
+          <span class="nav-arrow">→</span>
+          <span class="nav-command">/about</span>
+          <span class="nav-description">프로젝트 소개</span>
+        </a>
+        <a href="#features" class="nav-item">
+          <span class="nav-arrow">→</span>
+          <span class="nav-command">/features</span>
+          <span class="nav-description">주요 기능</span>
+        </a>
+        <a href="#docs" class="nav-item">
+          <span class="nav-arrow">→</span>
+          <span class="nav-command">/docs</span>
+          <span class="nav-description">문서 및 가이드</span>
+        </a>
+        <a href="#contact" class="nav-item">
+          <span class="nav-arrow">→</span>
+          <span class="nav-command">/contact</span>
+          <span class="nav-description">연락처</span>
+        </a>
+      </nav>
+
+      <!-- System Info -->
+      <div class="system-info">
+        [system] built with claude-code-theme × Your Stack
+      </div>
+
+      <!-- Call to Action -->
+      <div class="cta-line">
+        <span class="cta-key">Enter</span>
+        <span class="cta-text">를 눌러 계속하기</span>
+      </div>
+    </main>
+
+    <!-- Terminal Footer / Status Bar -->
+    <footer class="terminal-footer">
+      <div class="footer-left">
+        <span class="footer-stat">MEM: 64MB</span>
+        <span class="footer-stat">CPU: 2%</span>
+      </div>
+      <div class="footer-center">
+        <span class="footer-prompt">&gt; 명령어 입력... 다음:</span>
+        <span class="footer-next">[1] /about</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-cursor">|</span>
+        <span class="footer-lang">Language: <span class="lang-value">한국어</span></span>
+        <button class="footer-action">↵</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

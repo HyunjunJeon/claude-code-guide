@@ -1,0 +1,236 @@
+{
+  "name": "Claude Code Terminal",
+  "version": "1.0.0",
+  "description": "Claude Code Terminal Dark Theme - Developer/SaaS focused design system",
+  "source": "https://claude.ai/code",
+
+  "identity": {
+    "brandName": "Claude Code",
+    "tagline": "Agentic Coding",
+    "headline": "CLAUDE CODE",
+    "subheadline": "Claude Code by Anthropic",
+    "philosophy": "Empowering developers with elegant, terminal-inspired interfaces that merge productivity with aesthetics."
+  },
+
+  "colors": {
+    "primary": {
+      "main": "#E07A5F",
+      "name": "Terra Cotta",
+      "role": "Primary Accent",
+      "rgb": "224, 122, 95",
+      "variants": {
+        "light": "#E89A84",
+        "lighter": "#F0B8A8",
+        "dark": "#C86A50",
+        "glow": "rgba(224, 122, 95, 0.2)"
+      }
+    },
+    "background": {
+      "primary": "#0F0F0F",
+      "secondary": "#1A1A1A",
+      "surface": "#252525",
+      "header": "#0F0F0F",
+      "card": "#1A1A1A",
+      "cardHover": "#252525"
+    },
+    "text": {
+      "primary": "#D8D8D8",
+      "secondary": "#888888",
+      "tertiary": "#666666",
+      "dimmed": "#555555",
+      "inverse": "#0F0F0F",
+      "foreground": "#F5F5F5"
+    },
+    "terminal": {
+      "red": {
+        "main": "#FF5F56",
+        "name": "Terminal Red",
+        "role": "Error / Close"
+      },
+      "green": {
+        "main": "#27C93F",
+        "name": "Terminal Green",
+        "role": "Success / Maximize"
+      },
+      "yellow": {
+        "main": "#FFBD2E",
+        "name": "Terminal Yellow",
+        "role": "Warning / Minimize"
+      },
+      "blue": {
+        "main": "#60A5FA",
+        "name": "Terminal Blue",
+        "role": "Info / Path"
+      },
+      "magenta": {
+        "main": "#c084fc",
+        "name": "Terminal Magenta",
+        "role": "Accent"
+      },
+      "cyan": {
+        "main": "#00ffff",
+        "name": "Terminal Cyan",
+        "role": "Host"
+      }
+    },
+    "chrome": {
+      "close": "#FF5F56",
+      "minimize": "#FFBD2E",
+      "maximize": "#27C93F"
+    },
+    "border": {
+      "default": "#333333",
+      "subtle": "#1A1A1A",
+      "strong": "#444444"
+    },
+    "status": {
+      "success": "#27C93F",
+      "successLight": "#4ADE80",
+      "info": "#60A5FA",
+      "warning": "#FBBF24",
+      "error": "#FF5F56"
+    },
+    "badges": {
+      "premium": "#E07A5F",
+      "raw": "#FF5F56",
+      "fp16": "#27C93F",
+      "fp32": "#60A5FA",
+      "live": "#FF5F56"
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "mono": "'JetBrains Mono', 'SF Mono', Consolas, monospace",
+      "pixel": "'Press Start 2P', 'VT323', monospace",
+      "sans": "'Pretendard Variable', 'Pretendard', -apple-system, sans-serif",
+      "heading": "'Inter', -apple-system, sans-serif"
+    },
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Press+Start+2P&family=VT323&display=swap",
+    "pretendardUrl": "https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css",
+    "fontWeight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "fontSize": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
+      "hero": "6rem"
+    },
+    "lineHeight": {
+      "tight": 1.2,
+      "normal": 1.6,
+      "relaxed": 1.625
+    }
+  },
+
+  "layout": {
+    "slideSize": {
+      "width": 1920,
+      "height": 1080,
+      "aspectRatio": "16:9"
+    },
+    "container": {
+      "maxWidth": "1440px",
+      "padding": "2rem"
+    },
+    "borderRadius": {
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px",
+      "xl": "16px"
+    },
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px"
+    }
+  },
+
+  "effects": {
+    "glow": {
+      "color": "rgba(224, 122, 95, 0.07)",
+      "shadow": "rgba(224, 122, 95, 0.07) 0px 0px 47.8701px 13.935px, rgba(224, 122, 95, 0.035) 0px 0px 95.7402px 47.8701px",
+      "sideGlow": "inset 0 0 200px rgba(224, 122, 95, 0.07)",
+      "sideGlowOpacity": 0.6
+    },
+    "cardHover": {
+      "shadow": "0 0 20px rgba(224, 122, 95, 0.2)",
+      "transform": "translateY(-1px)"
+    },
+    "buttonHover": {
+      "shadow": "0 4px 12px rgba(224, 122, 95, 0.2)",
+      "transform": "translateY(-1px)"
+    },
+    "transition": {
+      "default": "all 0.3s ease",
+      "fast": "all 0.15s ease",
+      "slow": "all 0.5s ease"
+    }
+  },
+
+  "components": {
+    "terminal": {
+      "titlebarPadding": "12px 16px",
+      "dotSize": "12px",
+      "dotGap": "8px",
+      "contentPadding": "24px"
+    },
+    "card": {
+      "padding": "24px",
+      "borderRadius": "12px"
+    },
+    "button": {
+      "paddingY": "12px",
+      "paddingX": "24px",
+      "borderRadius": "8px"
+    },
+    "badge": {
+      "paddingY": "4px",
+      "paddingX": "8px",
+      "borderRadius": "4px",
+      "fontSize": "0.75rem"
+    }
+  },
+
+  "prompt": {
+    "format": "{user}@{host}:{path}$ {command}",
+    "colors": {
+      "user": "terminal.green",
+      "at": "text.secondary",
+      "host": "terminal.cyan",
+      "colon": "text.secondary",
+      "path": "terminal.blue",
+      "dollar": "text.primary"
+    }
+  },
+
+  "animations": {
+    "blink": {
+      "keyframes": "0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; }",
+      "duration": "1s",
+      "timing": "step-end",
+      "iteration": "infinite"
+    },
+    "fadeIn": {
+      "keyframes": "from { opacity: 0; } to { opacity: 1; }",
+      "duration": "0.3s"
+    },
+    "slideIn": {
+      "keyframes": "from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); }",
+      "duration": "0.3s"
+    }
+  }
+}
