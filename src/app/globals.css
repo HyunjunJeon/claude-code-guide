@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  /* Claude Code Terminal Theme Colors */
+  --color-background: #0F0F0F;
+  --color-foreground: #E8E8E8;
+  --color-muted: #6B6B6B;
+  --color-muted-foreground: #8B8B8B;
+  --color-border: #2A2A2A;
+  --color-input: #1A1A1A;
+  --color-ring: #FF6B35;
+
+  /* Primary - Terminal Orange */
+  --color-primary: #FF6B35;
+  --color-primary-foreground: #0F0F0F;
+
+  /* Secondary - Dark Gray */
+  --color-secondary: #1E1E1E;
+  --color-secondary-foreground: #E8E8E8;
+
+  /* Accent Colors */
+  --color-accent: #FF8C5A;
+  --color-accent-foreground: #0F0F0F;
+
+  /* Terminal Colors */
+  --color-terminal-green: #4ADE80;
+  --color-terminal-yellow: #FACC15;
+  --color-terminal-red: #EF4444;
+  --color-terminal-blue: #60A5FA;
+  --color-terminal-purple: #A855F7;
+  --color-terminal-cyan: #22D3EE;
+
+  /* Card */
+  --color-card: #161616;
+  --color-card-foreground: #E8E8E8;
+
+  /* Popover */
+  --color-popover: #161616;
+  --color-popover-foreground: #E8E8E8;
+
+  /* Destructive */
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+
+  /* Gradients */
+  --color-gradient-primary: #FF6B35;
+  --color-gradient-secondary: #FF8C5A;
+
+  /* Shadows */
+  --shadow-glow: 0 0 20px rgba(255, 107, 53, 0.3);
+  --shadow-glow-lg: 0 0 40px rgba(255, 107, 53, 0.4);
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Font */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Terminal cursor blink animation */
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Scanline effect */
+  .scanlines {
+    position: relative;
+  }
+
+  .scanlines::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Terminal glow effect */
+  .terminal-glow {
+    text-shadow: 0 0 10px var(--color-primary);
+  }
+
+  /* Code block styling */
+  pre, code {
+    font-family: var(--font-mono);
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgba(255, 107, 53, 0.3);
+    color: #FFFFFF;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(to right, var(--color-primary), var(--color-accent)) 1;
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-lg {
+    box-shadow: var(--shadow-glow-lg);
+  }
+}

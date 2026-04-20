@@ -75,4 +75,3 @@ grep -r "os.system" --include="*.py"
 - **Remediation**: 수정 방법
 
 ---
-**최종 업데이트**: 2026년 4월

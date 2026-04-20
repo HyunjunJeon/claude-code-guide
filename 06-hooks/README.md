@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Hooks
 
@@ -184,7 +180,7 @@ Subagent-based verification hooks that spawn a dedicated agent to evaluate condi
 
 ## Hook Events
 
-Claude Code supports **26 hook events**:
+Claude Code supports **27 hook events**:
 
 | Event | When Triggered | Matcher Input | Can Block | Common Use |
 |-------|---------------|---------------|-----------|------------|
@@ -194,7 +190,7 @@ Claude Code supports **26 hook events**:
 | **PreToolUse** | Before tool execution | Tool name | Yes (allow/deny/ask) | Validate, modify inputs |
 | **PermissionRequest** | Permission dialog shown | Tool name | Yes | Auto-approve/deny |
 | **PermissionDenied** | User denies a permission prompt | Tool name | No | Logging, analytics, policy enforcement |
-| **PostToolUse** | After tool succeeds | Tool name | No | Add context, feedback |
+| **PostToolUse** | After tool succeeds | Tool name | Yes (`decision: "block"`) | Add context, feedback, result blocking |
 | **PostToolUseFailure** | Tool execution fails | Tool name | No | Error handling, logging |
 | **Notification** | Notification sent | Notification type | No | Custom notifications |
 | **SubagentStart** | Subagent spawned | Agent type name | No | Subagent setup |
@@ -203,11 +199,11 @@ Claude Code supports **26 hook events**:
 | **StopFailure** | API error ends turn | (none) | No | Error recovery, logging |
 | **TeammateIdle** | Agent team teammate idle | (none) | Yes | Teammate coordination |
 | **TaskCompleted** | Task marked complete | (none) | Yes | Post-task actions |
-| **TaskCreated** | Task created via TaskCreate | (none) | No | Task tracking, logging |
+| **TaskCreated** | Task created via TaskCreate | (none) | Yes | Task tracking, logging, creation blocking |
 | **ConfigChange** | Config file changes | (none) | Yes (except policy) | React to config updates |
 | **CwdChanged** | Working directory changes | (none) | No | Directory-specific setup |
 | **FileChanged** | Watched file changes | (none) | No | File monitoring, rebuild |
-| **PreCompact** | Before context compaction | manual/auto | No | Pre-compact actions |
+| **PreCompact** | Before context compaction | manual/auto | Yes | Pre-compact actions, compaction blocking |
 | **PostCompact** | After compaction completes | (none) | No | Post-compact actions |
 | **WorktreeCreate** | Worktree being created | (none) | Yes (path return) | Worktree initialization |
 | **WorktreeRemove** | Worktree being removed | (none) | No | Worktree cleanup |
@@ -1199,7 +1195,7 @@ python3 09-advanced-features/setup-auto-mode-permissions.py
 
 Plugins can include hooks in their `hooks/hooks.json` file:
 
-**File:** `plugins/hooks/hooks.json`
+**File:** `hooks/hooks.json`
 
 ```json
 {
@@ -1430,6 +1426,3 @@ Edit `~/.claude/settings.json` or `.claude/settings.json` with the hook configur
 - **[Memory Guide](../02-memory/)** - Persistent context configuration
 
 ---
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

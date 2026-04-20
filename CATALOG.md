@@ -1,13 +1,9 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Claude Code Feature Catalog
 
 > Quick reference guide to all Claude Code features: commands, agents, skills, plugins, and hooks.
 
-**Navigation**: [Commands](#slash-commands) | [Permission Modes](#permission-modes) | [Subagents](#subagents) | [Skills](#skills) | [Plugins](#plugins) | [MCP Servers](#mcp-servers) | [Hooks](#hooks) | [Memory](#memory-files) | [New Features](#new-features-march-2026)
+**Navigation**: [Commands](#slash-commands) | [Permission Modes](#permission-modes) | [Subagents](#subagents) | [Skills](#skills) | [Plugins](#plugins) | [MCP Servers](#mcp-servers) | [Hooks](#hooks) | [Memory](#memory-files) | [New Features](#new-features-april-2026)
 
 ---
 
@@ -20,7 +16,7 @@
 | **Skills** | 5 bundled | 4 | 9 | [03-skills/](03-skills/) |
 | **Plugins** | - | 3 | 3 | [07-plugins/](07-plugins/) |
 | **MCP Servers** | 1 | 8 | 9 | [05-mcp/](05-mcp/) |
-| **Hooks** | 25 events | 8 | 8 | [06-hooks/](06-hooks/) |
+| **Hooks** | 27 events | 8 | 8 | [06-hooks/](06-hooks/) |
 | **Memory** | 7 types | 3 | 3 | [02-memory/](02-memory/) |
 | **Total** | **99** | **45** | **119** | |
 
@@ -120,9 +116,9 @@ Claude Code supports 6 permission modes that control how tool use is authorized.
 | `default` | Prompt for each tool call | Standard interactive use |
 | `acceptEdits` | Auto-accept file edits, prompt for others | Trusted editing workflows |
 | `plan` | Read-only tools only, no writes | Planning and exploration |
-| `auto` | Accept all tools without prompting | Fully autonomous operation (Research Preview) |
-| `bypassPermissions` | Skip all permission checks | CI/CD, headless environments |
-| `dontAsk` | Skip tools that would require permission | Non-interactive scripting |
+| `auto` | Background safety classifier reviews actions | Long tasks, reducing prompt fatigue (Max/Team/Enterprise/API) |
+| `bypassPermissions` | Skip permission prompts (protected paths still prompt) | Isolated containers, VMs, devcontainers only |
+| `dontAsk` | Auto-deny all tools not in allow list | Locked-down CI and scripts |
 
 > **Note**: `auto` mode is a Research Preview feature (March 2026). Use `bypassPermissions` only in trusted, sandboxed environments.
 
@@ -149,13 +145,21 @@ Specialized AI assistants with isolated contexts for specific tasks.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | string | Agent identifier |
-| `description` | string | What the agent does |
-| `model` | string | Model override (e.g., `haiku-4.5`) |
-| `tools` | array | Allowed tools list |
-| `effort` | string | Reasoning effort level (`low`, `medium`, `high`) |
-| `initialPrompt` | string | System prompt injected at agent start |
-| `disallowedTools` | array | Tools explicitly denied to this agent |
+| `name` | string | Agent identifier (lowercase, hyphens) |
+| `description` | string | What the agent does and when to delegate |
+| `tools` | string | Comma-separated tool list (inherits all if omitted) |
+| `disallowedTools` | string | Tools explicitly denied |
+| `model` | string | Model override (`sonnet`, `opus`, `haiku`, or full ID) |
+| `effort` | string | Reasoning effort (`low`, `medium`, `high`, `xhigh`, `max`) |
+| `permissionMode` | string | Permission mode for this agent |
+| `skills` | string | Skills to preload into context |
+| `mcpServers` | string | MCP servers available to this agent |
+| `isolation` | string | `worktree` for git worktree isolation |
+| `autoMemory` | string | Persistent memory scope (`user`, `project`, `local`) |
+| `hooks` | object | Component-scoped hooks |
+| `background` | boolean | Run as background task |
+| `maxTurns` | number | Max agentic turns |
+| `initialPrompt` | string | Auto-submitted first turn prompt |
 
 ### Custom Subagents (Examples)
 
@@ -214,11 +218,20 @@ Skills support YAML frontmatter in `SKILL.md` for configuration:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | string | Skill display name |
-| `description` | string | What the skill does |
-| `autoInvoke` | array | Trigger phrases for auto-invocation |
-| `effort` | string | Reasoning effort level (`low`, `medium`, `high`) |
-| `shell` | string | Shell to use for scripts (`bash`, `zsh`, `sh`) |
+| `name` | string | Skill display name (lowercase, hyphens, max 64 chars) |
+| `description` | string | What the skill does and when to use it (combined with `when_to_use`, max 1,536 chars) |
+| `when_to_use` | string | Additional context for when Claude should invoke the skill |
+| `argument-hint` | string | Hint shown during autocomplete (e.g., `[filename]`) |
+| `disable-model-invocation` | boolean | `true` = only user can invoke via `/name` |
+| `user-invocable` | boolean | `false` = hidden from `/` menu, Claude-only |
+| `allowed-tools` | string/list | Tools usable without permission when skill is active |
+| `model` | string | Model override when skill is active |
+| `effort` | string | Reasoning effort level (`low`, `medium`, `high`, `xhigh`, `max`) |
+| `context` | string | `fork` to run in isolated subagent |
+| `agent` | string | Subagent type when `context: fork` (e.g., `Explore`) |
+| `hooks` | object | Skill-scoped hooks (same format as global hooks) |
+| `paths` | string/list | Glob patterns limiting when skill auto-activates |
+| `shell` | string | Shell for inline commands: `bash` (default) or `powershell` |
 
 **Reference**: [03-skills/](03-skills/) | [Official Docs](https://code.claude.com/docs/en/skills)
 
@@ -256,14 +269,20 @@ Bundled collections of commands, agents, MCP servers, and hooks.
 ### Plugin Structure
 
 ```
-.claude-plugin/
-├── plugin.json       # Manifest file
-├── commands/         # Slash commands
-├── agents/           # Subagents
-├── skills/           # Skills
-├── mcp/              # MCP configurations
-├── hooks/            # Hook scripts
-└── scripts/          # Utility scripts
+my-plugin/
+├── .claude-plugin/
+│   └── plugin.json       # Manifest (name, version, description)
+├── skills/               # SKILL.md directories
+├── commands/             # Legacy markdown commands
+├── agents/               # Custom agent definitions
+├── hooks/
+│   └── hooks.json        # Event handlers
+├── .mcp.json             # MCP server configurations
+├── .lsp.json             # LSP server configurations
+├── monitors/
+│   └── monitors.json     # Background monitors
+├── bin/                  # Executables added to PATH
+└── settings.json         # Default settings (agent, subagentStatusLine)
 ```
 
 **Reference**: [07-plugins/](07-plugins/) | [Official Docs](https://code.claude.com/docs/en/plugins)
@@ -380,13 +399,23 @@ Event-driven automation that executes shell commands on Claude Code events.
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "command": "~/.claude/hooks/validate-bash.py"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/validate-bash.py"
+          }
+        ]
       }
     ],
     "PostToolUse": [
       {
         "matcher": "Write",
-        "command": "~/.claude/hooks/format-code.sh"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/format-code.sh"
+          }
+        ]
       }
     ]
   }
@@ -415,7 +444,7 @@ Persistent context loaded automatically across sessions.
 | **Project Rules** | `.claude/rules/` | Project (team) | Modular project rules |
 | **User** | `~/.claude/CLAUDE.md` | User (personal) | Personal preferences |
 | **User Rules** | `~/.claude/rules/` | User (personal) | Modular personal rules |
-| **Local** | `./CLAUDE.local.md` | Local (git-ignored) | Machine-specific overrides (not in official docs as of March 2026; may be legacy) |
+| **Local** | `./CLAUDE.local.md` | Local (git-ignored) | Machine-specific overrides, personal project preferences |
 | **Auto Memory** | Automatic | Session | Auto-captured insights and corrections |
 
 > **Scope**: `Organization` = managed by admins, `Project` = shared with team via git, `User` = personal preferences, `Local` = not committed, `Session` = auto-managed
@@ -430,7 +459,7 @@ cp 02-memory/personal-CLAUDE.md ~/.claude/CLAUDE.md
 
 ---
 
-## New Features (March 2026)
+## New Features (April 2026)
 
 | Feature | Description | How to Use |
 |---------|-------------|------------|
@@ -456,6 +485,20 @@ cp 02-memory/personal-CLAUDE.md ~/.claude/CLAUDE.md
 | **WebSocket MCP Transport** | WebSocket-based transport for MCP server connections | Use `"transport": "websocket"` in MCP server config |
 | **Plugin LSP Support** | Language Server Protocol integration via plugins | Configure LSP servers in `plugin.json` for editor features |
 | **Managed Drop-ins** | Organization-managed drop-in configurations (v2.1.83) | Admin-configured via managed policies; auto-applied to all users |
+| `/ultrareview` | Parallel multi-agent code review in cloud | Invoke with `/ultrareview` or `/ultrareview <PR#>` (v2.1.111) |
+| `/less-permission-prompts` | Scan transcripts and propose allowlist | Run `/less-permission-prompts` to generate `.claude/settings.json` rules (v2.1.111) |
+| `/recap` | Session summary on demand | Run `/recap` or automatic after 3min away (v2.1.108) |
+| `/tui fullscreen` | Flicker-free fullscreen rendering | Run `/tui fullscreen` in same conversation (v2.1.110) |
+| `/btw` | Side question without adding to context | Ask quick questions during long tasks; ephemeral overlay (interactive mode) |
+| `xhigh` effort level | Between `high` and `max`, Opus 4.7 default | Use `--effort xhigh` or `/effort` interactive slider (v2.1.111) |
+| **Claude Opus 4.7** | Latest model with xhigh effort support | Use `--model opus` or `/model` selector (v2.1.111) |
+| **Session Recap** | Automatic one-line summary when returning | Configurable in `/config`; `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` (v2.1.108) |
+| **PR Review Status** | Colored PR status in terminal footer | Requires `gh` CLI; auto-updates every 60s (interactive mode) |
+| **Prompt Suggestions** | Context-aware command suggestions after responses | Press Tab/Right to accept; configurable (interactive mode) |
+| **Plugin Monitors** | Background process monitoring via plugins | `monitors/monitors.json` in plugin directory (v2.1.105) |
+| **Plugin LSP** | Language server protocol via plugins | `.lsp.json` for code intelligence (plugins) |
+| `claude setup-token` | Generate long-lived OAuth token for CI | Run `claude setup-token`; prints token without saving (CLI) |
+| **PowerShell Tool** | PowerShell support on Windows (preview) | `CLAUDE_CODE_USE_POWERSHELL_TOOL=1` (v2.1.111) |
 
 ---
 
@@ -515,5 +558,3 @@ chmod +x ~/.claude/hooks/*.sh
 
 ---
 
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+

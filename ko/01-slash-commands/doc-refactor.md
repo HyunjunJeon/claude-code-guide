@@ -1,7 +1,6 @@
 ---
 name: Documentation Refactor
 description: Restructure project documentation for clarity and accessibility
-tags: documentation, refactoring, organization
 ---
 
 # 문서 리팩터링
@@ -24,4 +23,3 @@ tags: documentation, refactoring, organization
 문서를 간결하고 스캔하기 쉽게, 프로젝트 유형에 맞게 작성합니다.
 
 ---
-**최종 업데이트**: 2026년 4월

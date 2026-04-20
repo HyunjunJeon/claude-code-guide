@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Slash Commands
 
@@ -204,6 +200,10 @@ Instructions for Claude to follow when this command is invoked.
 | `context` | Set to `fork` to run in isolated subagent | None |
 | `agent` | Agent type when using `context: fork` | `general-purpose` |
 | `hooks` | Skill-scoped hooks (PreToolUse, PostToolUse, Stop) | None |
+| `when_to_use` | Additional context for when Claude should invoke | None |
+| `effort` | Effort level override (`low`, `medium`, `high`, `xhigh`, `max`) | Inherit |
+| `paths` | Glob patterns limiting auto-activation | None |
+| `shell` | Shell for inline commands: `bash` (default) or `powershell` | `bash` |
 
 ### Arguments
 
@@ -561,8 +561,4 @@ If both exist with the same name, the **skill takes precedence**. Remove one or 
 - [CLI Reference](https://code.claude.com/docs/en/cli-reference) - Command-line options
 
 ---
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5
 
-*Part of the [Claude How To](../) guide series*

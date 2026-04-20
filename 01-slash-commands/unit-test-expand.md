@@ -1,7 +1,6 @@
 ---
 name: Expand Unit Tests
 description: Increase test coverage by targeting untested branches and edge cases
-tags: testing, coverage, unit-tests
 ---
 
 # Expand Unit Tests
@@ -25,4 +24,3 @@ Expand existing unit tests adapted to project's testing framework:
 Present new test code blocks only. Follow existing test patterns and naming conventions.
 
 ---
-**Last Updated**: April 2026

@@ -88,4 +88,3 @@
 - Admin Panel: `/projects/admin`
 
 ---
-**Last Updated**: April 2026

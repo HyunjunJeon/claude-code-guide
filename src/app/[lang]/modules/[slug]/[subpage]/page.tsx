@@ -5,22 +5,31 @@ import { createMdxComponents } from "@/components/docs/mdx-components";
 import { mdxOptions } from "@/lib/mdx-options";
 import { notFound } from "next/navigation";
 
+type Lang = "en" | "ko";
+
 interface PageProps {
-  params: Promise<{ slug: string; subpage: string }>;
+  params: Promise<{ lang: string; slug: string; subpage: string }>;
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllSlugs("ko");
-  return slugs
-    .filter((s) => s.subPageSlug)
-    .map((s) => ({ slug: s.moduleSlug, subpage: s.subPageSlug }));
+  const params: { lang: string; slug: string; subpage: string }[] = [];
+  for (const lang of ["en", "ko"] as Lang[]) {
+    const slugs = getAllSlugs(lang);
+    for (const s of slugs) {
+      if (s.subPageSlug) {
+        params.push({ lang, slug: s.moduleSlug, subpage: s.subPageSlug });
+      }
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug, subpage } = await params;
-  const page = getPageContent(slug, subpage);
+  const { lang: rawLang, slug, subpage } = await params;
+  const lang = (rawLang === "en" ? "en" : "ko") as Lang;
+  const page = getPageContent(slug, subpage, lang);
   if (!page) return { title: "Not Found" };
   return {
     title: `${page.title} — ${page.module.title} — Claude Code Guide`,
@@ -28,14 +37,15 @@ export async function generateMetadata({
 }
 
 export default async function SubPage({ params }: PageProps) {
-  const { slug, subpage } = await params;
-  const page = getPageContent(slug, subpage);
+  const { lang: rawLang, slug, subpage } = await params;
+  const lang = (rawLang === "en" ? "en" : "ko") as Lang;
+  const page = getPageContent(slug, subpage, lang);
 
   if (!page) notFound();
 
   const { content } = await compileMDX({
     source: page.content,
-    components: createMdxComponents(slug),
+    components: createMdxComponents(slug, lang),
     options: {
       mdxOptions: {
         format: "md",

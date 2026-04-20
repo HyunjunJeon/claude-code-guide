@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Settings System Guide
 
@@ -346,4 +342,4 @@ Expected result:
 
 ## Official Reference
 
-- https://code.claude.com/docs/en/settings
+- https://code.claude.com/docs/ko/settings

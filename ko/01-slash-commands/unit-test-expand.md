@@ -1,7 +1,6 @@
 ---
 name: Expand Unit Tests
 description: Increase test coverage by targeting untested branches and edge cases
-tags: testing, coverage, unit-tests
 ---
 
 # 단위 테스트 확장
@@ -25,4 +24,3 @@ tags: testing, coverage, unit-tests
 새로운 테스트 코드 블록만 제시합니다. 기존 테스트 패턴과 명명 규칙을 따릅니다.
 
 ---
-**최종 업데이트**: 2026년 4월

@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Memory 가이드
 
@@ -248,7 +244,7 @@ Claude Code는 다중 티어 계층적 memory 시스템을 사용합니다. Memo
 7. **로컬 프로젝트 Memory** - 개인 프로젝트별 설정
    - `./CLAUDE.local.md`
 
-> **참고**: `CLAUDE.local.md`는 [공식 문서](https://code.claude.com/docs/en/memory)에서 완전히 지원되고 문서화되어 있습니다. 버전 관리에 커밋되지 않는 개인 프로젝트별 설정을 제공합니다. `CLAUDE.local.md`를 `.gitignore`에 추가하십시오.
+> **참고**: `CLAUDE.local.md`는 [공식 문서](https://code.claude.com/docs/ko/memory)에서 완전히 지원되고 문서화되어 있습니다. 버전 관리에 커밋되지 않는 개인 프로젝트별 설정을 제공합니다. `CLAUDE.local.md`를 `.gitignore`에 추가하십시오.
 
 8. **자동 Memory** - Claude의 자동 메모 및 학습 내용
    - `~/.claude/projects/<project>/memory/`
@@ -407,7 +403,6 @@ sequenceDiagram
     User->>Claude: "Remember: use async/await"
     Claude->>User: "Which memory file?"
     User->>Claude: "Project memory"
-    Claude->>Editor: Open ~/.claude/settings.json
     Claude->>Memory: Write to ./CLAUDE.md
     Memory-->>Claude: File saved
     Claude->>Claude: Load updated memory
@@ -504,11 +499,19 @@ memory: local     # Load local memory only
 
 이를 통해 subagent가 전체 memory 계층을 상속하는 대신 집중된 컨텍스트로 작동할 수 있습니다.
 
-> **참고**: Subagent도 자체 자동 memory를 유지할 수 있습니다. 자세한 내용은 [공식 subagent memory 문서](https://code.claude.com/docs/en/sub-agents#enable-persistent-memory)를 참조하십시오.
+> **참고**: Subagent도 자체 자동 memory를 유지할 수 있습니다. 자세한 내용은 [공식 subagent memory 문서](https://code.claude.com/docs/ko/sub-agents#enable-persistent-memory)를 참조하십시오.
 
 ### 자동 Memory 제어
 
-자동 memory는 `CLAUDE_CODE_DISABLE_AUTO_MEMORY` 환경 변수로 제어할 수 있습니다:
+Auto Memory를 비활성화하려면 `/memory`에서 토글하거나 프로젝트 설정에서 `autoMemoryEnabled`를 설정하세요:
+
+```json
+{
+  "autoMemoryEnabled": false
+}
+```
+
+환경 변수로도 제어할 수 있습니다: `CLAUDE_CODE_DISABLE_AUTO_MEMORY`
 
 | 값 | 동작 |
 |-------|----------|
@@ -1119,9 +1122,9 @@ Claude가 어떤 memory 파일을 업데이트할지 묻습니다.
 
 최신 정보는 공식 Claude Code 문서를 참조하십시오:
 
-- **[Memory 문서](https://code.claude.com/docs/en/memory)** - Memory 시스템 전체 레퍼런스
-- **[Slash Command 레퍼런스](https://code.claude.com/docs/en/interactive-mode)** - `/init` 및 `/memory`를 포함한 모든 내장 명령
-- **[CLI 레퍼런스](https://code.claude.com/docs/en/cli-reference)** - 명령줄 인터페이스 문서
+- **[Memory 문서](https://code.claude.com/docs/ko/memory)** - Memory 시스템 전체 레퍼런스
+- **[Slash Command 레퍼런스](https://code.claude.com/docs/ko/interactive-mode)** - `/init` 및 `/memory`를 포함한 모든 내장 명령
+- **[CLI 레퍼런스](https://code.claude.com/docs/ko/cli-reference)** - 명령줄 인터페이스 문서
 
 ### 공식 문서의 주요 기술 세부사항
 
@@ -1161,9 +1164,6 @@ Claude가 어떤 memory 파일을 업데이트할지 묻습니다.
 
 ### 관련 Claude 기능
 - [Claude 웹 Memory](https://claude.ai) - 자동 합성
-- [공식 Memory 문서](https://code.claude.com/docs/en/memory) - Anthropic 문서
+- [공식 Memory 문서](https://code.claude.com/docs/ko/memory) - Anthropic 문서
 
 ---
-**최종 업데이트**: 2026년 4월
-**Claude Code 버전**: 2.1+
-**호환 모델**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

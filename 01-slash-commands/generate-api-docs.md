@@ -19,4 +19,3 @@ Output format:
 - Add TypeScript types
 
 ---
-**Last Updated**: April 2026

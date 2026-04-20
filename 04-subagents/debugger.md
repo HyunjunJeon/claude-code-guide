@@ -80,4 +80,3 @@ npm test -- --grep "test name"
 - [ ] No regressions introduced
 
 ---
-**Last Updated**: April 2026

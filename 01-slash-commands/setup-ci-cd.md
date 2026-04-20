@@ -1,7 +1,6 @@
 ---
 name: Setup CI/CD Pipeline
 description: Implement pre-commit hooks and GitHub Actions for quality assurance
-tags: ci-cd, devops, automation
 ---
 
 # Setup CI/CD Pipeline
@@ -25,4 +24,3 @@ Implement comprehensive DevOps quality gates adapted to project type:
 Use free/open-source tools. Respect existing configs. Keep execution fast.
 
 ---
-**Last Updated**: April 2026

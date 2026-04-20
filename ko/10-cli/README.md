@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # CLI 참조
 
@@ -45,6 +41,7 @@ graph TD
 | `claude auth login` | 로그인 (`--email`, `--sso` 지원) | `claude auth login --email user@example.com` |
 | `claude auth logout` | 현재 계정에서 로그아웃 | `claude auth logout` |
 | `claude auth status` | 인증 상태 확인 (로그인 시 exit 0, 아닐 시 1) | `claude auth status` |
+| `claude setup-token` | CI/스크립트용 장기 OAuth 토큰 생성. 토큰을 터미널에 출력하며 저장하지 않음. Claude 구독 필요 | `claude setup-token` |
 
 ## 핵심 플래그
 
@@ -62,7 +59,7 @@ graph TD
 | `--teleport` | 웹 세션을 로컬에서 재개 | `claude --teleport` |
 | `--teammate-mode` | Agent team 표시 모드 | `claude --teammate-mode tmux` |
 | `--bare` | 최소 모드 (hook, skill, plugin, MCP, 자동 메모리, CLAUDE.md 건너뜀) | `claude --bare` |
-| `--enable-auto-mode` | Auto 권한 모드 잠금 해제 | `claude --enable-auto-mode` |
+| ~~`--enable-auto-mode`~~ | ~~Auto 권한 모드 잠금 해제~~ (v2.1.111에서 제거됨, `--permission-mode auto` 사용) | `claude --permission-mode auto` |
 | `--channels` | MCP 채널 플러그인 구독 | `claude --channels discord,telegram` |
 | `--chrome` / `--no-chrome` | Chrome 브라우저 통합 활성화/비활성화 | `claude --chrome` |
 | `--effort` | Thinking 노력 수준 설정 | `claude --effort high` |
@@ -115,12 +112,12 @@ claude -p "list todos" | grep "URGENT"
 | `--fallback-model` | 과부하 시 자동 모델 폴백 | `claude -p --fallback-model sonnet "query"` |
 | `--agent` | 세션에 사용할 agent 지정 | `claude --agent my-custom-agent` |
 | `--agents` | JSON으로 사용자 정의 subagent 정의 | [Agent 구성](#agent-구성) 참조 |
-| `--effort` | 노력 수준 설정 (low, medium, high, max) | `claude --effort high` |
+| `--effort` | 노력 수준 설정 (low, medium, high, xhigh, max) | `claude --effort high` |
 
 ### 모델 선택 예제
 
 ```bash
-# 복잡한 작업에 Opus 4.6 사용
+# 복잡한 작업에 Opus 4.7 사용
 claude --model opus "design a caching strategy"
 
 # 빠른 작업에 Haiku 4.5 사용
@@ -177,7 +174,7 @@ claude -p --system-prompt-file ./prompts/code-reviewer.txt "review main.py"
 | `--dangerously-skip-permissions` | 모든 권한 프롬프트 건너뛰기 | `claude --dangerously-skip-permissions` |
 | `--permission-mode` | 지정된 권한 모드에서 시작 | `claude --permission-mode auto` |
 | `--permission-prompt-tool` | 권한 처리를 위한 MCP 도구 | `claude -p --permission-prompt-tool mcp_auth "query"` |
-| `--enable-auto-mode` | Auto 권한 모드 잠금 해제 | `claude --enable-auto-mode` |
+| ~~`--enable-auto-mode`~~ | ~~Auto 권한 모드 잠금 해제~~ (v2.1.111에서 제거됨, `--permission-mode auto` 사용) | `claude --permission-mode auto` |
 | `--max-budget-usd <amount>` | 세션의 최대 비용 한도 설정 | `claude -p --max-budget-usd 5.00 "query"` |
 | `--allow-dangerously-skip-permissions` | 다른 플래그가 권한을 우회할 수 있도록 허용 | `claude --allow-dangerously-skip-permissions` |
 
@@ -325,7 +322,7 @@ claude -r "feature-auth" --fork-session "test with different architecture"
 | `--enable-lsp-logging` | 상세 LSP 로깅 활성화 | `claude --enable-lsp-logging` |
 | `--betas` | API 요청을 위한 베타 헤더 | `claude --betas interleaved-thinking` |
 | `--plugin-dir` | 디렉토리에서 plugin 로드 (반복 가능) | `claude --plugin-dir ./my-plugin` |
-| `--enable-auto-mode` | Auto 권한 모드 잠금 해제 | `claude --enable-auto-mode` |
+| ~~`--enable-auto-mode`~~ | ~~Auto 권한 모드 잠금 해제~~ (v2.1.111에서 제거됨, `--permission-mode auto` 사용) | `claude --permission-mode auto` |
 | `--effort` | Thinking 노력 수준 설정 | `claude --effort high` |
 | `--bare` | 최소 모드 (hook, skill, plugin, MCP, 자동 메모리, CLAUDE.md 건너뜀) | `claude --bare` |
 | `--channels` | MCP 채널 플러그인 구독 | `claude --channels discord` |
@@ -672,7 +669,8 @@ Claude Code는 다양한 기능을 가진 여러 모델을 지원합니다:
 
 | 모델 | ID | 컨텍스트 윈도우 | 참고 |
 |-------|-----|----------------|-------|
-| Opus 4.6 | `claude-opus-4-6` | 1M 토큰 | 가장 강력, 적응형 노력 수준 |
+| Opus 4.7 | `claude-opus-4-7` | 1M | 가장 강력, `xhigh` 노력 기본값, adaptive thinking |
+| Opus 4.6 | `claude-opus-4-6` | 1M 토큰 | 적응형 노력 수준 |
 | Sonnet 4.6 | `claude-sonnet-4-6` | 1M 토큰 | 속도와 성능의 균형 |
 | Haiku 4.5 | `claude-haiku-4-5` | 1M 토큰 | 가장 빠름, 빠른 작업에 최적 |
 
@@ -691,9 +689,24 @@ claude --model opusplan "design and implement the API"
 /fast
 ```
 
-### 노력 수준 (Opus 4.6)
+### 모델 별칭 (Model Aliases)
 
-Opus 4.6는 노력 수준에 따른 적응형 추론을 지원합니다:
+| Alias | 설명 |
+|-------|------|
+| `opus` | 최신 Opus 모델 (현재 claude-opus-4-7) |
+| `sonnet` | 최신 Sonnet 모델 (현재 claude-sonnet-4-6) |
+| `haiku` | 최신 Haiku 모델 (현재 claude-haiku-4-5) |
+| `opusplan` | Opus로 계획 수립, Sonnet으로 실행 |
+
+### 업그레이드 채널 (Upgrade Channels)
+
+기본 Opus 모델 ID를 환경 변수로 고정할 수 있습니다:
+
+```bash
+export ANTHROPIC_DEFAULT_OPUS_MODEL=claude-opus-4-7
+```
+
+### 노력 수준 (Effort Levels)
 
 ```bash
 # CLI 플래그로 노력 수준 설정
@@ -703,10 +716,10 @@ claude --effort high "complex review"
 /effort high
 
 # 환경 변수로 노력 수준 설정
-export CLAUDE_CODE_EFFORT_LEVEL=high   # low, medium, high, or max (Opus 4.6 only)
+export CLAUDE_CODE_EFFORT_LEVEL=high   # low, medium, high, xhigh (Opus 4.7 기본값), or max
 ```
 
-프롬프트에서 "ultrathink" 키워드가 딥 추론을 활성화합니다. `max` 노력 수준은 Opus 4.6 전용입니다.
+프롬프트에서 "ultrathink" 키워드가 딥 추론을 활성화합니다. `xhigh` 노력 수준은 Opus 4.7의 기본값이며, `max`는 모든 최신 모델에서 지원됩니다.
 
 ---
 
@@ -774,7 +787,7 @@ claude -p --output-format json "query"
 | 빠른 코드 리뷰 | `cat file | claude -p "review"` |
 | 구조화된 출력 | `claude -p --output-format json "query"` |
 | 안전한 탐색 | `claude --permission-mode plan` |
-| 안전 가드레일이 있는 자율 작업 | `claude --enable-auto-mode --permission-mode auto` |
+| 안전 가드레일이 있는 자율 작업 | `claude --permission-mode auto` |
 | CI/CD 통합 | `claude -p --max-turns 3 --output-format json` |
 | 작업 재개 | `claude -r "session-name"` |
 | 사용자 정의 모델 | `claude --model opus "complex task"` |
@@ -834,8 +847,8 @@ claude -p --output-format json "query"
 
 ## 추가 리소스
 
-- **[공식 CLI 참조](https://code.claude.com/docs/en/cli-reference)** - 전체 명령어 참조
-- **[Headless 모드 문서](https://code.claude.com/docs/en/headless)** - 자동화 실행
+- **[공식 CLI 참조](https://code.claude.com/docs/ko/cli-reference)** - 전체 명령어 참조
+- **[Headless 모드 문서](https://code.claude.com/docs/ko/headless)** - 자동화 실행
 - **[Slash Command](../../01-slash-commands/)** - Claude 내 사용자 정의 단축키
 - **[메모리 가이드](../../02-memory/)** - CLAUDE.md를 통한 영구 컨텍스트
 - **[MCP 프로토콜](../../05-mcp/)** - 외부 도구 통합
@@ -844,9 +857,5 @@ claude -p --output-format json "query"
 
 ---
 
-*[Claude How To](../../) 가이드 시리즈의 일부입니다*
 
 ---
-**최종 업데이트**: 2026년 4월
-**Claude Code 버전**: 2.1+
-**호환 모델**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

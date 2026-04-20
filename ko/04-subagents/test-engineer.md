@@ -74,4 +74,3 @@ describe('Feature: User Authentication', () => {
 ```
 
 ---
-**최종 업데이트**: 2026년 4월

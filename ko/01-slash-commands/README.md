@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Slash Command
 
@@ -204,6 +200,10 @@ Instructions for Claude to follow when this command is invoked.
 | `context` | `fork`로 설정하면 격리된 subagent에서 실행 | 없음 |
 | `agent` | `context: fork` 사용 시 agent 유형 | `general-purpose` |
 | `hooks` | Skill 범위 hook (PreToolUse, PostToolUse, Stop) | 없음 |
+| `when_to_use` | Claude가 스킬을 호출할 추가 맥락 | 없음 |
+| `effort` | 노력 수준 재정의 (`low`, `medium`, `high`, `xhigh`, `max`) | 상속 |
+| `paths` | 스킬 자동 활성화를 제한하는 glob 패턴 | 없음 |
+| `shell` | 인라인 명령 셸: `bash` (기본) 또는 `powershell` | `bash` |
 
 ### 인수
 
@@ -556,13 +556,9 @@ Deploy the application to production:
 
 ## 추가 리소스
 
-- [공식 대화형 모드 문서](https://code.claude.com/docs/en/interactive-mode) - 내장 명령 레퍼런스
-- [공식 Skill 문서](https://code.claude.com/docs/en/skills) - Skill 전체 레퍼런스
-- [CLI 레퍼런스](https://code.claude.com/docs/en/cli-reference) - 명령줄 옵션
+- [공식 대화형 모드 문서](https://code.claude.com/docs/ko/interactive-mode) - 내장 명령 레퍼런스
+- [공식 Skill 문서](https://code.claude.com/docs/ko/skills) - Skill 전체 레퍼런스
+- [CLI 레퍼런스](https://code.claude.com/docs/ko/cli-reference) - 명령줄 옵션
 
 ---
-**최종 업데이트**: 2026년 4월
-**Claude Code 버전**: 2.1+
-**호환 모델**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5
 
-*[Claude How To](../../) 가이드 시리즈의 일부*

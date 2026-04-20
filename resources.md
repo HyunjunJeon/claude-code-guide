@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="resources/logos/claude-howto-logo.svg">
-</picture>
 
 # List of good resources
 
@@ -248,4 +244,3 @@ These steps capture the core recommendations for smooth workflows with Claude Co
 | **Keyboard Customization** | Customize keybindings including chord sequences | [Advanced Features](09-advanced-features/) |
 
 ---
-**Last Updated**: April 2026

@@ -98,4 +98,3 @@ curl -X GET https://api.example.com/api/users/abc123 \
 ```
 
 ---
-**최종 업데이트**: 2026년 4월

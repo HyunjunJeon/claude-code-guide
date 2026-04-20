@@ -19,4 +19,3 @@ description: Analyze code for performance issues and suggest optimizations
 - 코드 예제가 포함된 권장 수정사항
 
 ---
-**최종 업데이트**: 2026년 4월

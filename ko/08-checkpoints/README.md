@@ -29,14 +29,14 @@ Checkpoint은 다양한 접근 방식을 탐색하거나, 실수를 복구하거
 `Esc`를 두 번 누르면(`Esc` + `Esc`) checkpoint 인터페이스가 열리고 저장된 checkpoint을 탐색할 수 있습니다.
 
 ### Slash Command 사용
-`/rewind` 명령어(별칭: `/checkpoint`)를 사용하여 빠르게 접근할 수 있습니다:
+`/rewind` 명령어(별칭: `/undo`)를 사용하여 빠르게 접근할 수 있습니다:
 
 ```bash
 # Rewind 인터페이스 열기
 /rewind
 
 # 또는 별칭 사용
-/checkpoint
+/undo
 ```
 
 ## Rewind 옵션
@@ -291,7 +291,7 @@ Checkpoint은 git을 보완하지만 대체하지는 않습니다:
 
 - **`Esc` + `Esc`** - Checkpoint 브라우저 열기
 - **`/rewind`** - Checkpoint에 접근하는 대체 방법
-- **`/checkpoint`** - `/rewind`의 별칭
+- **`/undo`** - `/rewind`의 별칭
 
 ## Rewind 시점 판단: 컨텍스트 모니터링
 

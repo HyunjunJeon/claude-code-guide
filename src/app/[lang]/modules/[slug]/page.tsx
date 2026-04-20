@@ -5,20 +5,29 @@ import { createMdxComponents } from "@/components/docs/mdx-components";
 import { mdxOptions } from "@/lib/mdx-options";
 import { notFound } from "next/navigation";
 
+type Lang = "en" | "ko";
+
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
-  const modules = getModules("ko");
-  return modules.map((m) => ({ slug: m.slug }));
+  const params: { lang: string; slug: string }[] = [];
+  for (const lang of ["en", "ko"] as Lang[]) {
+    const modules = getModules(lang);
+    for (const m of modules) {
+      params.push({ lang, slug: m.slug });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const page = getPageContent(slug);
+  const { lang: rawLang, slug } = await params;
+  const lang = (rawLang === "en" ? "en" : "ko") as Lang;
+  const page = getPageContent(slug, undefined, lang);
   if (!page) return { title: "Not Found" };
   return {
     title: `${page.title} — Claude Code Guide`,
@@ -27,14 +36,15 @@ export async function generateMetadata({
 }
 
 export default async function ModulePage({ params }: PageProps) {
-  const { slug } = await params;
-  const page = getPageContent(slug);
+  const { lang: rawLang, slug } = await params;
+  const lang = (rawLang === "en" ? "en" : "ko") as Lang;
+  const page = getPageContent(slug, undefined, lang);
 
   if (!page) notFound();
 
   const { content } = await compileMDX({
     source: page.content,
-    components: createMdxComponents(slug),
+    components: createMdxComponents(slug, lang),
     options: {
       mdxOptions: {
         format: "md",

@@ -102,8 +102,10 @@ my-plugin/
 │   └── hooks.json
 ├── .mcp.json             # MCP 서버 설정
 ├── .lsp.json             # 코드 인텔리전스를 위한 LSP 서버 설정
+├── monitors/             # monitors.json에 정의된 백그라운드 모니터
+│   └── monitors.json
 ├── bin/                  # plugin 활성화 시 Bash 도구의 PATH에 추가되는 실행 파일
-├── settings.json         # plugin 활성화 시 적용되는 기본 설정 (현재 `agent` 키만 지원)
+├── settings.json         # plugin 활성화 시 적용되는 기본 설정 (현재 `agent` 및 `subagentStatusLine` 키 지원)
 ├── templates/
 │   └── issue-template.md
 ├── scripts/
@@ -114,6 +116,20 @@ my-plugin/
 │   └── USAGE.md
 └── tests/
     └── plugin.test.js
+```
+
+### 백그라운드 모니터
+
+Plugin은 `monitors/monitors.json` 파일을 통해 백그라운드 모니터를 정의할 수 있습니다. 모니터는 plugin이 활성화되면 자동으로 시작되며, stdout의 각 줄이 Claude에게 알림으로 전달됩니다.
+
+```json
+[
+  {
+    "name": "error-log",
+    "command": "tail -F ./logs/error.log",
+    "description": "Application error log"
+  }
+]
 ```
 
 ### LSP 서버 설정
@@ -303,7 +319,7 @@ Plugin은 `source: 'settings'` 필드를 사용하여 설정 파일에 마켓플
 
 ## Plugin 설정
 
-Plugin은 기본 설정을 제공하기 위해 `settings.json` 파일을 포함할 수 있습니다. 현재 `agent` 키를 지원하며, plugin의 메인 스레드 에이전트를 설정합니다:
+Plugin은 기본 설정을 제공하기 위해 `settings.json` 파일을 포함할 수 있습니다. 현재 `agent` 및 `subagentStatusLine` 키를 지원하며, `agent` 키는 plugin의 메인 스레드 에이전트를 설정합니다:
 
 ```json
 {
@@ -700,7 +716,7 @@ claude plugin update
 
 ```bash
 claude plugin install <name>@<marketplace>   # Install from a marketplace
-claude plugin uninstall <name>               # Remove a plugin
+claude plugin remove <name>               # Remove a plugin
 claude plugin list                           # List installed plugins
 claude plugin enable <name>                  # Enable a disabled plugin
 claude plugin disable <name>                 # Disable a plugin
@@ -980,7 +996,7 @@ Complete PR review workflow with security, testing, and documentation checks.
 ### Plugin 제거
 
 ```bash
-/plugin uninstall plugin-name
+/plugin remove plugin-name
 ```
 
 ## 관련 개념

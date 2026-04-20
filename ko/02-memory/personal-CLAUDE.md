@@ -60,4 +60,3 @@ project/
 - **테스트 프레임워크**: React Testing Library가 있는 Jest
 
 ---
-**최종 업데이트**: 2026년 4월

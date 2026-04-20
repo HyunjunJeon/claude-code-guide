@@ -26,4 +26,3 @@ description: Create a git commit with context
 - `chore:` 유지보수 작업
 
 ---
-**최종 업데이트**: 2026년 4월

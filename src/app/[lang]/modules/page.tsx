@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { MermaidDiagram } from "@/components/docs/mermaid-diagram";
 import { siteConfig } from "@/lib/config";
 
@@ -60,6 +61,8 @@ const FEATURE_TABLE = [
 ];
 
 export default function ModulesIndex() {
+  const { lang } = useParams<{ lang: string }>();
+
   return (
     <article className="doc-content">
       <h1 className="text-2xl sm:text-3xl font-bold font-mono text-[#E8E8E8] mb-2">
@@ -133,7 +136,7 @@ export default function ModulesIndex() {
                 <td className="px-3 py-2.5 text-[#555]">{row.num}</td>
                 <td className="px-3 py-2.5">
                   <Link
-                    href={`/modules/${siteConfig.modules[idx]?.slug || ""}`}
+                    href={`/${lang}/modules/${siteConfig.modules[idx]?.slug || ""}`}
                     className="text-[#60A5FA] hover:text-[#22C55E] transition-colors"
                   >
                     {row.name}
@@ -154,7 +157,7 @@ export default function ModulesIndex() {
           어디서부터 시작할지 모르겠다면?
         </p>
         <p className="text-xs font-mono text-[#888]">
-          <Link href="/modules/01-slash-commands" className="text-[#22C55E] hover:text-[#4ADE80] transition-colors">
+          <Link href={`/${lang}/modules/01-slash-commands`} className="text-[#22C55E] hover:text-[#4ADE80] transition-colors">
             01 Slash Commands
           </Link>
           {" "}부터 시작하세요. 15분이면 첫 번째 명령어를 만들 수 있습니다.

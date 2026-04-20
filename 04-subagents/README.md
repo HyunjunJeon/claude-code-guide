@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Subagents - Complete Reference Guide
 
@@ -97,7 +93,7 @@ skills: skill1, skill2  # Optional - skills to preload into context
 mcpServers: server1  # Optional - MCP servers to make available
 memory: user  # Optional - persistent memory scope (user, project, local)
 background: false  # Optional - run as background task
-effort: high  # Optional - reasoning effort (low, medium, high, max)
+effort: high  # Optional - reasoning effort (low, medium, high, xhigh, max)
 isolation: worktree  # Optional - git worktree isolation
 initialPrompt: "Start by analyzing the codebase"  # Optional - auto-submitted first turn
 hooks:  # Optional - component-scoped hooks
@@ -129,7 +125,7 @@ to solving problems.
 | `hooks` | No | Component-scoped hooks (PreToolUse, PostToolUse, Stop) |
 | `memory` | No | Persistent memory directory scope: `user`, `project`, or `local` |
 | `background` | No | Set to `true` to always run this subagent as a background task |
-| `effort` | No | Reasoning effort level: `low`, `medium`, `high`, or `max` |
+| `effort` | No | Reasoning effort level: `low`, `medium`, `high`, `xhigh`, or `max` |
 | `isolation` | No | Set to `worktree` to give the subagent its own git worktree |
 | `initialPrompt` | No | Auto-submitted first turn when the subagent runs as the main agent |
 
@@ -637,11 +633,51 @@ You can also set the display mode in `settings.json`:
 }
 ```
 
-> **Note**: Split-pane mode requires tmux or iTerm2. It is not available in VS Code terminal, Windows Terminal, or Ghostty.
+> **Note**: Split-pane mode requires tmux or iTerm2. It is not available in VS Code terminal, Windows Terminal, or Ghostty. Using `tmux -CC` in iTerm2 is suggested.
 
-### Navigation
+### Messaging teammates directly
 
-Use `Shift+Down` to navigate between teammates in split-pane mode.
+Each teammate is a full, independent Claude Code session. You can message any teammate directly to give additional instructions, ask follow-up questions, or redirect their approach.
+
+- **In-process mode**: use `Shift+Down` to cycle through teammates, then type to send them a message. Press `Enter` to view a teammate's session, then `Escape` to interrupt their current turn. Press `Ctrl+T` to toggle the task list.
+- **Split-pane mode**: click into a teammate's pane to interact with their session directly. Each teammate has a full view of their own terminal.
+
+### Task dependency management
+
+The shared task list supports automatic dependency tracking:
+
+- Tasks can have **dependencies** on other tasks
+- Pending tasks with unresolved dependencies are **automatically blocked** until their dependencies complete
+- When a teammate completes a task that other tasks depend on, blocked tasks **unblock automatically** without manual intervention
+- Task claiming uses **file locking** to prevent race conditions when multiple teammates try to claim the same task simultaneously
+
+### Plan approval workflow details
+
+For complex or risky tasks, you can require teammates to plan before implementing:
+
+```
+Spawn an architect teammate to refactor the authentication module.
+Require plan approval before they make any changes.
+```
+
+- The teammate works in **read-only plan mode** until the lead approves
+- The lead **reviews and approves or rejects** the plan
+- If rejected, the teammate revises based on feedback and resubmits
+- Once approved, the teammate exits plan mode and begins implementation
+- To influence the lead's judgment, give it criteria in your prompt (e.g., "only approve plans that include test coverage")
+
+### Using subagent definitions as teammates
+
+Existing subagent definitions can be reused as teammate roles. When spawning a teammate, reference the subagent type by name:
+
+```
+Spawn a teammate using the security-reviewer agent type to audit the auth module.
+```
+
+- The teammate honors that definition's `tools` allowlist and `model`
+- The definition's body is **appended to the teammate's system prompt** rather than replacing it
+- Team coordination tools like `SendMessage` and task management tools are **always available** to a teammate, even when `tools` restricts other tools
+- The `skills` and `mcpServers` frontmatter fields are not applied when running as a teammate
 
 ### Team Configuration
 
@@ -699,20 +735,62 @@ For complex tasks, the team lead creates an execution plan before teammates begi
 
 ### Hook events for teams
 
-Agent Teams introduce two additional [hook events](../06-hooks/):
+Agent Teams introduce three additional [hook events](../06-hooks/). Exit code 2 blocks the action:
 
 | Event | Fires When | Use Case |
 |-------|-----------|----------|
-| `TeammateIdle` | A teammate finishes its current task and has no pending work | Trigger notifications, assign follow-up tasks |
-| `TaskCompleted` | A task in the shared task list is marked complete | Run validation, update dashboards, chain dependent work |
+| `TeammateIdle` | A teammate is about to go idle after finishing its current task | Prevent idling, assign follow-up tasks. Exit code 2 keeps the teammate working |
+| `TaskCreated` | A task is being created via `TaskCreate` | Enforce naming conventions, require descriptions, prevent task creation |
+| `TaskCompleted` | A task in the shared task list is being marked complete | Validate completion criteria, update dashboards, prevent premature closure |
+
+### Cost considerations
+
+Agent Teams use **significantly more tokens** than a single session:
+
+- **Token costs scale linearly**: each teammate has its own context window and consumes tokens independently
+- **Recommended team size**: start with **3-5 teammates** for most workflows
+- **Optimal task count**: **5-6 tasks per teammate** keeps everyone productive without excessive context switching
+- For research, review, and new feature work, the extra tokens are usually worthwhile
+- For routine tasks, a single session is more cost-effective
+
+### Use case examples
+
+#### Example 1: Parallel code review
+
+A single reviewer tends to gravitate toward one type of issue at a time. Splitting review criteria into independent domains means security, performance, and test coverage all get thorough attention simultaneously:
+
+```
+Create an agent team to review PR #142. Spawn three reviewers:
+- One focused on security implications
+- One checking performance impact
+- One validating test coverage
+Have them each review and report findings.
+```
+
+Each reviewer works from the same PR but applies a different filter. The lead synthesizes findings across all three after they finish.
+
+#### Example 2: Competing hypotheses debugging
+
+When the root cause is unclear, a single agent tends to find one plausible explanation and stop looking. Making teammates explicitly adversarial means each one investigates its own theory while actively trying to disprove others':
+
+```
+Users report the app exits after one message instead of staying connected.
+Spawn 5 agent teammates to investigate different hypotheses. Have them talk to
+each other to try to disprove each other's theories, like a scientific
+debate. Update the findings doc with whatever consensus emerges.
+```
+
+The debate structure is the key mechanism. Sequential investigation suffers from anchoring bias. With multiple independent investigators actively trying to disprove each other, the theory that survives is much more likely to be the actual root cause.
 
 ### Best practices
 
 - **Team size**: Keep teams at 3-5 teammates for optimal coordination
-- **Task sizing**: Break work into tasks that take 5-15 minutes each — small enough to parallelize, large enough to be meaningful
+- **Task sizing**: Break work into tasks that take 5-15 minutes each -- small enough to parallelize, large enough to be meaningful. 5-6 tasks per teammate is optimal
 - **Avoid file conflicts**: Assign different files or directories to different teammates to prevent merge conflicts
 - **Start simple**: Use in-process mode for your first team; switch to split-panes once comfortable
 - **Clear task descriptions**: Provide specific, actionable task descriptions so teammates can work independently
+- **Start with research and review**: If you're new to agent teams, start with tasks that don't require writing code
+- **Monitor teammates**: Check in on progress, redirect approaches that aren't working, and synthesize findings
 
 ### Limitations
 
@@ -1139,6 +1217,3 @@ graph TD
 - [Hooks Guide](../06-hooks/) - For event-driven automation
 
 ---
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

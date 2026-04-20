@@ -131,8 +131,8 @@ Show concrete examples of using this Skill.
 
 ### Required Fields
 
-- **name**: lowercase letters, numbers, hyphens only (max 64 characters). Cannot contain "anthropic" or "claude".
-- **description**: what the Skill does AND when to use it (max 250 characters). This is critical for Claude to know when to activate the skill.
+- **name**: lowercase letters, numbers, hyphens only (max 64 characters).
+- **description**: what the Skill does AND when to use it (combined with `when_to_use`, max 1,536 chars). This is critical for Claude to know when to activate the skill.
 
 ### Optional Frontmatter Fields
 
@@ -145,7 +145,8 @@ disable-model-invocation: true              # Only user can invoke
 user-invocable: false                       # Hide from slash menu
 allowed-tools: Read, Grep, Glob             # Restrict tool access
 model: opus                                 # Specific model to use
-effort: high                                # Effort level override (low, medium, high, max)
+effort: high                                # Effort level override (low, medium, high, xhigh, max)
+when_to_use: "When the user asks about..."  # Additional context for invocation
 context: fork                               # Run in isolated subagent
 agent: Explore                              # Which agent type (with context: fork)
 shell: bash                                 # Shell for commands: bash (default) or powershell
@@ -161,18 +162,19 @@ paths: "src/api/**/*.ts"               # Glob patterns limiting when skill activ
 
 | Field | Description |
 |-------|-------------|
-| `name` | Lowercase letters, numbers, hyphens only (max 64 chars). Cannot contain "anthropic" or "claude". |
-| `description` | What the Skill does AND when to use it (max 250 chars). Critical for auto-invocation matching. |
+| `name` | Lowercase letters, numbers, hyphens only (max 64 chars). |
+| `description` | What the Skill does AND when to use it (combined with `when_to_use`, max 1,536 chars). Critical for auto-invocation matching. |
 | `argument-hint` | Hint shown in the `/` autocomplete menu (e.g., `"[filename] [format]"`). |
 | `disable-model-invocation` | `true` = only the user can invoke via `/name`. Claude will never auto-invoke. |
 | `user-invocable` | `false` = hidden from the `/` menu. Only Claude can invoke it automatically. |
 | `allowed-tools` | Comma-separated list of tools the skill may use without permission prompts. |
 | `model` | Model override while the skill is active (e.g., `opus`, `sonnet`). |
-| `effort` | Effort level override while the skill is active: `low`, `medium`, `high`, or `max`. |
+| `effort` | Effort level override while the skill is active: `low`, `medium`, `high`, `xhigh`, or `max`. |
 | `context` | `fork` to run the skill in a forked subagent context with its own context window. |
 | `agent` | Subagent type when `context: fork` (e.g., `Explore`, `Plan`, `general-purpose`). |
 | `shell` | Shell used for `!`command`` substitutions and scripts: `bash` (default) or `powershell`. |
 | `hooks` | Hooks scoped to this skill's lifecycle (same format as global hooks). |
+| `when_to_use` | Additional context for when Claude should invoke the skill. Appended to `description` in skill listings; combined limit is 1,536 chars. |
 | `paths` | Glob patterns that limit when the skill is auto-activated. Comma-separated string or YAML list. Same format as path-specific rules. |
 
 ## Skill Content Types
@@ -722,7 +724,7 @@ If Claude uses your skill when you don't want it:
 
 ### Claude Doesn't See All Skills
 
-Skill descriptions are loaded at **1% of the context window** (fallback: **8,000 characters**). Each entry is capped at 250 characters regardless of budget. Run `/context` to check for warnings about excluded skills. Override the budget with the `SLASH_COMMAND_TOOL_CHAR_BUDGET` environment variable.
+Skill descriptions are loaded at **1% of the context window** (fallback: **8,000 characters**). Each entry (combined `description` + `when_to_use`) is capped at 1,536 characters regardless of budget. Run `/context` to check for warnings about excluded skills. Override the budget with the `SLASH_COMMAND_TOOL_CHAR_BUDGET` environment variable.
 
 ## Security Considerations
 

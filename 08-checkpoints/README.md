@@ -29,14 +29,14 @@ You can access and manage checkpoints in two primary ways:
 Press `Esc` twice (`Esc` + `Esc`) to open the checkpoint interface and browse saved checkpoints.
 
 ### Using Slash Command
-Use the `/rewind` command (alias: `/checkpoint`) for quick access:
+Use the `/rewind` command (alias: `/undo`) for quick access:
 
 ```bash
 # Open rewind interface
 /rewind
 
 # Or use the alias
-/checkpoint
+/undo
 ```
 
 ## Rewind Options
@@ -291,7 +291,7 @@ Use both together:
 
 - **`Esc` + `Esc`** - Open checkpoint browser
 - **`/rewind`** - Alternative way to access checkpoints
-- **`/checkpoint`** - Alias for `/rewind`
+- **`/undo`** - Alias for `/rewind`
 
 ## Knowing When to Rewind: Context Monitoring
 

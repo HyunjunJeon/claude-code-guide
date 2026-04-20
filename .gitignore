@@ -93,3 +93,12 @@ promo-video/
 *.mp4
 
 update-plan*.md
+
+# Next.js
+.next/
+out/
+node_modules/
+
+# E2E screenshots
+e2e-*.png
+*.tsbuildinfo

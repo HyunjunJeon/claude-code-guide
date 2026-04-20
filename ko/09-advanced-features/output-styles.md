@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Output Styles
 
@@ -229,4 +225,4 @@ Expected result:
 
 ## Official Reference
 
-- https://code.claude.com/docs/en/output-styles
+- https://code.claude.com/docs/ko/output-styles

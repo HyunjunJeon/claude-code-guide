@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Memory Guide
 
@@ -407,7 +403,6 @@ sequenceDiagram
     User->>Claude: "Remember: use async/await"
     Claude->>User: "Which memory file?"
     User->>Claude: "Project memory"
-    Claude->>Editor: Open ~/.claude/settings.json
     Claude->>Memory: Write to ./CLAUDE.md
     Memory-->>Claude: File saved
     Claude->>Claude: Load updated memory
@@ -508,7 +503,15 @@ This allows subagents to operate with focused context rather than inheriting the
 
 ### Controlling Auto Memory
 
-Auto memory can be controlled via the `CLAUDE_CODE_DISABLE_AUTO_MEMORY` environment variable:
+To disable Auto Memory, toggle it via `/memory` or set `autoMemoryEnabled` in your project settings:
+
+```json
+{
+  "autoMemoryEnabled": false
+}
+```
+
+You can also control it via the `CLAUDE_CODE_DISABLE_AUTO_MEMORY` environment variable:
 
 | Value | Behavior |
 |-------|----------|
@@ -1164,6 +1167,3 @@ For the most up-to-date information, refer to the official Claude Code documenta
 - [Official Memory Docs](https://code.claude.com/docs/en/memory) - Anthropic documentation
 
 ---
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

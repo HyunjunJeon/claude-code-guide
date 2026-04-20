@@ -5,6 +5,13 @@ import matter from "gray-matter";
 // Content lives in the parent repo's module directories
 const CONTENT_ROOT = path.resolve(process.cwd(), "..");
 
+// Validate content root at module load time — fail fast if cwd is wrong
+if (!fs.existsSync(path.join(CONTENT_ROOT, "01-slash-commands"))) {
+  throw new Error(
+    `Content root not found: ${CONTENT_ROOT}. Run 'next build' from the template/ directory.`
+  );
+}
+
 export interface ModuleMeta {
   slug: string; // e.g. "01-slash-commands"
   number: string; // e.g. "01"
@@ -85,11 +92,14 @@ function extractDescription(content: string): string {
   return desc.slice(0, 200);
 }
 
-function getSubPages(moduleDir: string): SubPageMeta[] {
-  const fullDir = path.join(getContentDir(), moduleDir);
+function getSubPages(moduleDir: string, lang: "en" | "ko" = "ko"): SubPageMeta[] {
+  const fullDir = path.join(getContentDir(lang), moduleDir);
   if (!fs.existsSync(fullDir)) return [];
 
-  const files = fs.readdirSync(fullDir).filter(
+  const entries = fs.readdirSync(fullDir);
+
+  // Flat .md files (e.g. commit.md, optimize.md)
+  const mdFiles = entries.filter(
     (f) =>
       f.endsWith(".md") &&
       f !== "README.md" &&
@@ -97,17 +107,32 @@ function getSubPages(moduleDir: string): SubPageMeta[] {
       !f.startsWith(".")
   );
 
-  return files.map((filename) => {
+  const pages: SubPageMeta[] = mdFiles.map((filename) => {
     const filePath = path.join(fullDir, filename);
     const raw = fs.readFileSync(filePath, "utf-8");
     const title = extractTitle(raw) || filename.replace(".md", "");
-
-    return {
-      slug: filename.replace(".md", ""),
-      title,
-      filename,
-    };
+    return { slug: filename.replace(".md", ""), title, filename };
   });
+
+  // Directory-based subpages (e.g. 07-plugins/devops-automation/README.md)
+  const dirs = entries.filter((f) => {
+    const full = path.join(fullDir, f);
+    return (
+      fs.statSync(full).isDirectory() &&
+      !f.startsWith("_") &&
+      !f.startsWith(".") &&
+      fs.existsSync(path.join(full, "README.md"))
+    );
+  });
+
+  for (const dirName of dirs) {
+    const readmePath = path.join(fullDir, dirName, "README.md");
+    const raw = fs.readFileSync(readmePath, "utf-8");
+    const title = extractTitle(raw) || dirName;
+    pages.push({ slug: dirName, title, filename: `${dirName}/README.md` });
+  }
+
+  return pages;
 }
 
 export function getModules(lang: "en" | "ko" = "ko"): ModuleMeta[] {
@@ -130,7 +155,7 @@ export function getModules(lang: "en" | "ko" = "ko"): ModuleMeta[] {
       number: dir.slice(0, 2),
       title,
       description,
-      subPages: getSubPages(dir),
+      subPages: getSubPages(dir, lang),
     };
   });
 }
@@ -150,9 +175,19 @@ export function getPageContent(
 ): PageContent | null {
   const contentDir = getContentDir(lang);
   const filename = subPageSlug ? `${subPageSlug}.md` : "README.md";
-  const filePath = path.join(contentDir, moduleSlug, filename);
+  let filePath = path.join(contentDir, moduleSlug, filename);
 
-  if (!fs.existsSync(filePath)) return null;
+  // Fallback: directory-based subpage (e.g. 07-plugins/devops-automation/README.md)
+  if (subPageSlug && !fs.existsSync(filePath)) {
+    const dirReadme = path.join(contentDir, moduleSlug, subPageSlug, "README.md");
+    if (fs.existsSync(dirReadme)) {
+      filePath = dirReadme;
+    } else {
+      return null;
+    }
+  } else if (!fs.existsSync(filePath)) {
+    return null;
+  }
 
   const raw = fs.readFileSync(filePath, "utf-8");
   const { content, data: frontmatter } = matter(raw);

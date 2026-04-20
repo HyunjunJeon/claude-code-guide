@@ -93,6 +93,24 @@ claude mcp add --transport stdio myserver -- npx @myorg/mcp-server
 claude mcp add --transport stdio myserver --env KEY=value -- npx server
 ```
 
+### Scope 지정
+
+`--scope` 플래그를 사용하여 MCP 구성이 저장되는 위치를 지정합니다:
+
+```bash
+# Local 범위 (기본값) - 현재 프로젝트, 현재 사용자 전용
+claude mcp add --transport http github https://api.github.com/mcp
+
+# 명시적으로 local scope 지정
+claude mcp add --transport http stripe --scope local https://mcp.stripe.com
+
+# User 범위 - 모든 프로젝트에서 사용 가능
+claude mcp add --transport http hubspot --scope user https://mcp.hubspot.com/anthropic
+
+# Project 범위 - .mcp.json에 저장, 팀과 공유 가능
+claude mcp add --transport http paypal --scope project https://mcp.paypal.com/mcp
+```
+
 ### SSE 전송 (지원 중단 예정)
 
 Server-Sent Events 전송은 `http`를 위해 지원 중단되었지만 여전히 지원됩니다:
@@ -325,7 +343,7 @@ Elicitation은 자유 형식 prompt라기보다 반구조화 form exchange처럼
 - 필요한 필드를 명확히 유지
 - 이후 로그를 남길 경우 민감한 응답은 정규화하거나 redaction
 
-MCP 서버가 multi-step workflow와 human input checkpoint를 섞어 쓰는 경우, 이 지점에서 hook 기반 validation도 특히 유용합니다.
+MCP 서버가 multi-step workflow와 human input checkpoint를 섞어 쓰는 경우, 이 지점에서 hook 기반 validation도 특히 유용합니다. `Elicitation` 및 `ElicitationResult` hook 이벤트를 통해 elicitation 요청에 프로그래밍 방식으로 자동 응답하거나, 사용자 응답을 서버로 보내기 전에 가로채서 수정할 수 있습니다.
 
 ## 도구 설명 및 지시 제한
 

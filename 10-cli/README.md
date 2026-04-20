@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # CLI Reference
 
@@ -45,6 +41,7 @@ graph TD
 | `claude auth login` | Log in (supports `--email`, `--sso`) | `claude auth login --email user@example.com` |
 | `claude auth logout` | Log out of current account | `claude auth logout` |
 | `claude auth status` | Check auth status (exit 0 if logged in, 1 if not) | `claude auth status` |
+| `claude setup-token` | Generate long-lived OAuth token for CI/scripts. Prints token without saving. Requires Claude subscription | `claude setup-token` |
 
 ## Core Flags
 
@@ -62,7 +59,7 @@ graph TD
 | `--teleport` | Resume web session locally | `claude --teleport` |
 | `--teammate-mode` | Agent team display mode | `claude --teammate-mode tmux` |
 | `--bare` | Minimal mode (skip hooks, skills, plugins, MCP, auto memory, CLAUDE.md) | `claude --bare` |
-| `--enable-auto-mode` | Unlock auto permission mode | `claude --enable-auto-mode` |
+| ~~`--enable-auto-mode`~~ | ~~Unlock auto permission mode~~ (removed in v2.1.111, use `--permission-mode auto`) | `claude --permission-mode auto` |
 | `--channels` | Subscribe to MCP channel plugins | `claude --channels discord,telegram` |
 | `--chrome` / `--no-chrome` | Enable/disable Chrome browser integration | `claude --chrome` |
 | `--effort` | Set thinking effort level | `claude --effort high` |
@@ -115,7 +112,7 @@ claude -p "list todos" | grep "URGENT"
 | `--fallback-model` | Automatic model fallback when overloaded | `claude -p --fallback-model sonnet "query"` |
 | `--agent` | Specify agent for session | `claude --agent my-custom-agent` |
 | `--agents` | Define custom subagents via JSON | See [Agents Configuration](#agents-configuration) |
-| `--effort` | Set effort level (low, medium, high, max) | `claude --effort high` |
+| `--effort` | Set effort level (low, medium, high, xhigh, max) | `claude --effort high` |
 
 ### Model Selection Examples
 
@@ -177,7 +174,7 @@ claude -p --system-prompt-file ./prompts/code-reviewer.txt "review main.py"
 | `--dangerously-skip-permissions` | Skip all permission prompts | `claude --dangerously-skip-permissions` |
 | `--permission-mode` | Begin in specified permission mode | `claude --permission-mode auto` |
 | `--permission-prompt-tool` | MCP tool for permission handling | `claude -p --permission-prompt-tool mcp_auth "query"` |
-| `--enable-auto-mode` | Unlock auto permission mode | `claude --enable-auto-mode` |
+| ~~`--enable-auto-mode`~~ | ~~Unlock auto permission mode~~ (removed in v2.1.111, use `--permission-mode auto`) | `claude --permission-mode auto` |
 | `--max-budget-usd <amount>` | Set maximum spend limit for session | `claude -p --max-budget-usd 5.00 "query"` |
 | `--allow-dangerously-skip-permissions` | Allow other flags to bypass permissions | `claude --allow-dangerously-skip-permissions` |
 
@@ -325,7 +322,7 @@ The original session remains unchanged, and the fork becomes a new independent s
 | `--enable-lsp-logging` | Enable verbose LSP logging | `claude --enable-lsp-logging` |
 | `--betas` | Beta headers for API requests | `claude --betas interleaved-thinking` |
 | `--plugin-dir` | Load plugins from directory (repeatable) | `claude --plugin-dir ./my-plugin` |
-| `--enable-auto-mode` | Unlock auto permission mode | `claude --enable-auto-mode` |
+| ~~`--enable-auto-mode`~~ | ~~Unlock auto permission mode~~ (removed in v2.1.111, use `--permission-mode auto`) | `claude --permission-mode auto` |
 | `--effort` | Set thinking effort level | `claude --effort high` |
 | `--bare` | Minimal mode (skip hooks, skills, plugins, MCP, auto memory, CLAUDE.md) | `claude --bare` |
 | `--channels` | Subscribe to MCP channel plugins | `claude --channels discord` |
@@ -672,7 +669,8 @@ Claude Code supports multiple models with different capabilities:
 
 | Model | ID | Context Window | Notes |
 |-------|-----|----------------|-------|
-| Opus 4.6 | `claude-opus-4-6` | 1M tokens | Most capable, adaptive effort levels |
+| Opus 4.7 | `claude-opus-4-7` | 1M | Most capable, `xhigh` effort default, adaptive thinking |
+| Opus 4.6 | `claude-opus-4-6` | 1M tokens | Adaptive effort levels |
 | Sonnet 4.6 | `claude-sonnet-4-6` | 1M tokens | Balanced speed and capability |
 | Haiku 4.5 | `claude-haiku-4-5` | 1M tokens | Fastest, best for quick tasks |
 
@@ -691,22 +689,55 @@ claude --model opusplan "design and implement the API"
 /fast
 ```
 
-### Effort Levels (Opus 4.6)
+### Model Aliases
 
-Opus 4.6 supports adaptive reasoning with effort levels:
+| Alias | Anthropic API | Bedrock / Vertex |
+|-------|--------------|-----------------|
+| `opus` | claude-opus-4-7 | claude-opus-4-6 |
+| `sonnet` | claude-sonnet-4-6 | claude-sonnet-4-5 |
+| `haiku` | claude-haiku-4-5 | claude-haiku-4-5 |
+| `best` | claude-opus-4-7 | — |
+| `opusplan` | Opus plans, Sonnet executes | same |
+
+> **Note:** On Bedrock/Vertex/Foundry, the `opus` alias still resolves to Opus 4.6. Use the explicit model ID `claude-opus-4-7` or set `ANTHROPIC_DEFAULT_OPUS_MODEL=claude-opus-4-7` to override.
+
+### Upgrade Channels
+
+| Channel | Behavior | Homebrew cask |
+|---------|----------|--------------|
+| `latest` (default) | Receives new versions immediately | `claude-code@latest` |
+| `stable` | ~1 week behind, skips regressions | `claude-code` |
+
+Configure in `settings.json`:
+```json
+{
+  "autoUpdatesChannel": "stable"
+}
+```
+
+The `minimumVersion` setting prevents downgrades when switching channels:
+```json
+{
+  "minimumVersion": "2.1.100"
+}
+```
+
+### Effort Levels
+
+Opus 4.7 defaults to `xhigh` effort; Opus 4.6 defaults to `high`:
 
 ```bash
 # Set effort level via CLI flag
-claude --effort high "complex review"
+claude --effort xhigh "complex review"
 
 # Set effort level via slash command
-/effort high
+/effort xhigh
 
 # Set effort level via environment variable
-export CLAUDE_CODE_EFFORT_LEVEL=high   # low, medium, high, or max (Opus 4.6 only)
+export CLAUDE_CODE_EFFORT_LEVEL=xhigh   # low, medium, high, xhigh (Opus 4.7 default), or max
 ```
 
-The "ultrathink" keyword in prompts activates deep reasoning. The `max` effort level is exclusive to Opus 4.6.
+The "ultrathink" keyword in prompts activates deep reasoning. Opus 4.7 always uses adaptive reasoning regardless of `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING`.
 
 ---
 
@@ -774,7 +805,7 @@ claude -p --output-format json "query"
 | Quick code review | `cat file | claude -p "review"` |
 | Structured output | `claude -p --output-format json "query"` |
 | Safe exploration | `claude --permission-mode plan` |
-| Autonomous with safety | `claude --enable-auto-mode --permission-mode auto` |
+| Autonomous with safety | `claude --permission-mode auto` |
 | CI/CD integration | `claude -p --max-turns 3 --output-format json` |
 | Resume work | `claude -r "session-name"` |
 | Custom model | `claude --model opus "complex task"` |
@@ -844,9 +875,5 @@ claude -p --output-format json "query"
 
 ---
 
-*Part of the [Claude How To](../) guide series*
 
 ---
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

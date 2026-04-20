@@ -1,7 +1,6 @@
 ---
 name: Documentation Refactor
 description: Restructure project documentation for clarity and accessibility
-tags: documentation, refactoring, organization
 ---
 
 # Documentation Refactor
@@ -24,4 +23,3 @@ Refactor project documentation structure adapted to project type:
 Keep docs concise, scannable, and contextual to project type.
 
 ---
-**Last Updated**: April 2026

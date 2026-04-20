@@ -19,4 +19,3 @@ description: Create comprehensive API documentation from source code
 - TypeScript 타입 추가
 
 ---
-**최종 업데이트**: 2026년 4월

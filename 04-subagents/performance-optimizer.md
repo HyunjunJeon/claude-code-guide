@@ -126,4 +126,3 @@ For each optimization delivered:
 - [ ] Monitoring / alerting recommended
 
 ---
-**Last Updated**: April 2026

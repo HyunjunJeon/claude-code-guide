@@ -19,4 +19,3 @@ Format your response with:
 - Recommended fix with code example
 
 ---
-**Last Updated**: April 2026

@@ -533,4 +533,3 @@ Proceed with this plan? (yes/no/modify)
 7. 각 단계에서 **테스트를 계획**하세요
 
 ---
-**최종 업데이트**: 2026년 4월

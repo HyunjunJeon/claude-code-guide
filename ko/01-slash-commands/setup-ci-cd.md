@@ -1,7 +1,6 @@
 ---
 name: Setup CI/CD Pipeline
 description: Implement pre-commit hooks and GitHub Actions for quality assurance
-tags: ci-cd, devops, automation
 ---
 
 # CI/CD 파이프라인 설정
@@ -25,4 +24,3 @@ tags: ci-cd, devops, automation
 무료/오픈소스 도구를 사용합니다. 기존 구성을 존중합니다. 실행 속도를 빠르게 유지합니다.
 
 ---
-**최종 업데이트**: 2026년 4월

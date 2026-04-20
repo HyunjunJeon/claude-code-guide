@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # Claude Code Plugins
 
@@ -106,8 +102,10 @@ my-plugin/
 │   └── hooks.json
 ├── .mcp.json             # MCP server configurations
 ├── .lsp.json             # LSP server configurations for code intelligence
+├── monitors/             # Background monitors defined in monitors.json
+│   └── monitors.json
 ├── bin/                  # Executables added to Bash tool's PATH while plugin is enabled
-├── settings.json         # Default settings applied when plugin is enabled (currently only `agent` key supported)
+├── settings.json         # Default settings applied when plugin is enabled (currently `agent` and `subagentStatusLine` keys supported)
 ├── templates/
 │   └── issue-template.md
 ├── scripts/
@@ -118,6 +116,20 @@ my-plugin/
 │   └── USAGE.md
 └── tests/
     └── plugin.test.js
+```
+
+### Background Monitors
+
+Plugins can define background monitors via a `monitors/monitors.json` file. Monitors start automatically when the plugin is enabled, and each line of stdout is delivered to Claude as a notification.
+
+```json
+[
+  {
+    "name": "error-log",
+    "command": "tail -F ./logs/error.log",
+    "description": "Application error log"
+  }
+]
 ```
 
 ### LSP server configuration
@@ -307,7 +319,7 @@ Plugins can be defined inline in settings files as marketplace entries using the
 
 ## Plugin Settings
 
-Plugins can ship a `settings.json` file to provide default configuration. This currently supports the `agent` key, which sets the main thread agent for the plugin:
+Plugins can ship a `settings.json` file to provide default configuration. Currently the `agent` and `subagentStatusLine` keys are supported. The `agent` key sets the main thread agent for the plugin:
 
 ```json
 {
@@ -326,6 +338,24 @@ Plugins can also package channel-oriented workflows, but the channel behavior is
 - optional hooks, commands, and skills that react to inbound events
 
 If a plugin participates in a specific release channel or communication channel policy, keep that policy explicit in managed settings rather than only in prose. The managed setting `allowedChannelPlugins` is the main policy hook for channel-specific plugin governance.
+
+### Channel-oriented plugin reference
+
+There is no standalone `channels` block in `plugin.json`. Channel-capable plugins are assembled from ordinary plugin primitives:
+
+| Concern | Where it lives | Notes |
+|---|---|---|
+| Channel transport/server | Bundled MCP server | The MCP server declares and implements the channel behavior |
+| Channel-facing commands | `commands/` | Optional user entrypoints for channel workflows |
+| Inbound event reactions | `hooks/` or MCP server logic | Depends on whether the reaction belongs in Claude or in the server |
+| Durable state | `${CLAUDE_PLUGIN_DATA}` | Use for channel caches, cursors, and runtime state |
+| Policy gating | Managed settings | `allowedChannelPlugins` is the main governance control |
+
+Practical implication:
+
+- use plugin structure to ship the pieces
+- use managed settings to govern whether the plugin is allowed in a given channel/release context
+- do not invent a fake plugin-manifest schema key when the real behavior lives in MCP, hooks, and managed policy
 
 ## Standalone vs Plugin Approach
 
@@ -651,6 +681,21 @@ Key expectations:
 - explicit update flows are better for reproducibility than silent background upgrades
 - version pinning remains the safest option when a team depends on stable behavior
 
+### What controls updates today
+
+| Concern | Control surface | Notes |
+|---|---|---|
+| Update installed plugin | `claude plugin update` | Explicit operator action |
+| Pin install source | Marketplace source / git ref / version | Best option for reproducibility |
+| Reload definitions after local edits | `/reload-plugins` | Re-reads definitions, does not rebuild artifacts |
+| Auto-update policy | none documented as a user-tunable background setting | Do not imply a silent-update control plane unless explicitly documented |
+
+In other words:
+
+- updates are explicit
+- reload is not update
+- version/source pinning is the safest operational control
+
 ## Plugin Features Comparison
 
 | Feature | Slash Command | Skill | Subagent | Plugin |
@@ -671,7 +716,7 @@ All plugin operations are available as CLI commands:
 
 ```bash
 claude plugin install <name>@<marketplace>   # Install from a marketplace
-claude plugin uninstall <name>               # Remove a plugin
+claude plugin remove <name>               # Remove a plugin
 claude plugin list                           # List installed plugins
 claude plugin enable <name>                  # Enable a disabled plugin
 claude plugin disable <name>                 # Disable a plugin
@@ -952,7 +997,7 @@ Complete PR review workflow with security, testing, and documentation checks.
 ### Uninstalling a Plugin
 
 ```bash
-/plugin uninstall plugin-name
+/plugin remove plugin-name
 ```
 
 ## Related Concepts
@@ -1030,6 +1075,3 @@ The following Claude Code features work together with plugins:
 - [Hook System Reference](../06-hooks/README.md)
 
 ---
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

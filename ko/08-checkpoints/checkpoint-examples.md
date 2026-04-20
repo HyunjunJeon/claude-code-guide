@@ -339,4 +339,3 @@ User: Now let's continue with the approach that worked.
 6. **긴 세션 요약**: "여기서부터 요약"을 사용하여 대화를 관리 가능하게 유지하세요
 
 ---
-**최종 업데이트**: 2026년 4월

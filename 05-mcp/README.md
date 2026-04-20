@@ -1,7 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../resources/logos/claude-howto-logo.svg">
-</picture>
 
 # MCP (Model Context Protocol)
 
@@ -95,6 +91,24 @@ claude mcp add --transport stdio myserver -- npx @myorg/mcp-server
 
 # With environment variables
 claude mcp add --transport stdio myserver --env KEY=value -- npx server
+```
+
+### Scope Flag
+
+Use the `--scope` flag to specify where the MCP configuration is stored:
+
+```bash
+# Local scope (default) - current project, current user only
+claude mcp add --transport http github https://api.github.com/mcp
+
+# Explicitly specify local scope
+claude mcp add --transport http stripe --scope local https://mcp.stripe.com
+
+# User scope - available across all projects
+claude mcp add --transport http hubspot --scope user https://mcp.hubspot.com/anthropic
+
+# Project scope - stored in .mcp.json, shareable with team via version control
+claude mcp add --transport http paypal --scope project https://mcp.paypal.com/mcp
 ```
 
 ### SSE Transport (Deprecated)
@@ -329,7 +343,7 @@ Good practices:
 - keep requested fields explicit
 - normalize or redact sensitive answers if you log them later
 
-This is also the place where hook-based validation can help, especially if an MCP server drives a multi-step workflow with human input checkpoints.
+This is also the place where hook-based validation can help, especially if an MCP server drives a multi-step workflow with human input checkpoints. Elicitation can be automated via `Elicitation` and `ElicitationResult` hook events -- the former lets you programmatically respond to MCP elicitation requests, while the latter lets you intercept and modify user responses before they are sent back to the server.
 
 ## Tool Description and Instruction Cap
 
@@ -1295,6 +1309,3 @@ export GITHUB_TOKEN="your_token"
 - [Claude API Documentation](https://docs.anthropic.com)
 
 ---
-**Last Updated**: April 2026
-**Claude Code Version**: 2.1+
-**Compatible Models**: Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5

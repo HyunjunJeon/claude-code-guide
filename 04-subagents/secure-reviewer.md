@@ -75,4 +75,3 @@ For each vulnerability:
 - **Remediation**: How to fix it
 
 ---
-**Last Updated**: April 2026
