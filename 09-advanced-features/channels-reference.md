@@ -240,4 +240,4 @@ Expected result:
 
 ## Official Reference
 
-- https://code.claude.com/docs/en/channels-reference
+- https://code.claude.com/docs/ko/channels-reference

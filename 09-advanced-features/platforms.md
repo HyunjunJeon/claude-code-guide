@@ -167,7 +167,7 @@ Download from [claude.ai](https://claude.ai) for your platform:
 - **macOS**: Universal build (Apple Silicon and Intel)
 - **Windows**: x64 and ARM64 installers available
 
-See the [Desktop Quickstart](https://code.claude.com/docs/en/desktop-quickstart) for setup instructions.
+See the [Desktop Quickstart](https://code.claude.com/docs/ko/desktop-quickstart) for setup instructions.
 
 ### Handing off from CLI
 

@@ -7,6 +7,10 @@ This folder contains complete plugin examples that bundle multiple Claude Code f
 
 Claude Code Plugins are bundled collections of customizations (slash commands, subagents, MCP servers, and hooks) that install with a single command. They represent the highest-level extension mechanism—combining multiple features into cohesive, shareable packages.
 
+**Companion guide:**
+
+- [Discover Plugins](./discover-plugins.md)
+
 ## Plugin Architecture
 
 ```mermaid
@@ -1066,10 +1070,10 @@ The following Claude Code features work together with plugins:
 
 ## Additional Resources
 
-- [Official Plugins Documentation](https://code.claude.com/docs/en/plugins)
-- [Discover Plugins](https://code.claude.com/docs/en/discover-plugins)
-- [Plugin Marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
-- [Plugins Reference](https://code.claude.com/docs/en/plugins-reference)
+- [Official Plugins Documentation](https://code.claude.com/docs/ko/plugins)
+- [Discover Plugins](https://code.claude.com/docs/ko/discover-plugins)
+- [Plugin Marketplaces](https://code.claude.com/docs/ko/plugin-marketplaces)
+- [Plugins Reference](https://code.claude.com/docs/ko/plugins-reference)
 - [MCP Server Reference](https://modelcontextprotocol.io/)
 - [Subagent Configuration Guide](../04-subagents/README.md)
 - [Hook System Reference](../06-hooks/README.md)

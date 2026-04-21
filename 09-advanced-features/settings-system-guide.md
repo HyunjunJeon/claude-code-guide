@@ -342,4 +342,4 @@ Expected result:
 
 ## Official Reference
 
-- https://code.claude.com/docs/en/settings
+- https://code.claude.com/docs/ko/settings

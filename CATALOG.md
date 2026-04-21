@@ -1,7 +1,7 @@
 
 # Claude Code Feature Catalog
 
-> Quick reference guide to all Claude Code features: commands, agents, skills, plugins, and hooks.
+> Quick reference guide to major Claude Code feature areas: commands, agents, skills, plugins, and hooks.
 
 **Navigation**: [Commands](#slash-commands) | [Permission Modes](#permission-modes) | [Subagents](#subagents) | [Skills](#skills) | [Plugins](#plugins) | [MCP Servers](#mcp-servers) | [Hooks](#hooks) | [Memory](#memory-files) | [New Features](#new-features-april-2026)
 
@@ -98,7 +98,7 @@ Commands are user-invoked shortcuts that execute specific actions.
 
 > **Scope**: `User` = personal workflows (`~/.claude/commands/`), `Project` = team-shared (`.claude/commands/`)
 
-**Reference**: [01-slash-commands/](01-slash-commands/) | [Official Docs](https://code.claude.com/docs/en/interactive-mode)
+**Reference**: [01-slash-commands/](01-slash-commands/) | [Official Docs](https://code.claude.com/docs/ko/interactive-mode)
 
 **Quick Install (All Custom Commands)**:
 ```bash
@@ -122,7 +122,7 @@ Claude Code supports 6 permission modes that control how tool use is authorized.
 
 > **Note**: `auto` mode is a Research Preview feature (March 2026). Use `bypassPermissions` only in trusted, sandboxed environments.
 
-**Reference**: [Official Docs](https://code.claude.com/docs/en/permissions)
+**Reference**: [Official Docs](https://code.claude.com/docs/ko/permissions)
 
 ---
 
@@ -179,7 +179,7 @@ Specialized AI assistants with isolated contexts for specific tasks.
 
 > **Scope**: `User` = personal (`~/.claude/agents/`), `Project` = team-shared (`.claude/agents/`)
 
-**Reference**: [04-subagents/](04-subagents/) | [Official Docs](https://code.claude.com/docs/en/sub-agents)
+**Reference**: [04-subagents/](04-subagents/) | [Official Docs](https://code.claude.com/docs/ko/sub-agents)
 
 **Quick Install (All Custom Agents)**:
 ```bash
@@ -233,7 +233,7 @@ Skills support YAML frontmatter in `SKILL.md` for configuration:
 | `paths` | string/list | Glob patterns limiting when skill auto-activates |
 | `shell` | string | Shell for inline commands: `bash` (default) or `powershell` |
 
-**Reference**: [03-skills/](03-skills/) | [Official Docs](https://code.claude.com/docs/en/skills)
+**Reference**: [03-skills/](03-skills/) | [Official Docs](https://code.claude.com/docs/ko/skills)
 
 **Quick Install (All Skills)**:
 ```bash
@@ -285,7 +285,7 @@ my-plugin/
 └── settings.json         # Default settings (agent, subagentStatusLine)
 ```
 
-**Reference**: [07-plugins/](07-plugins/) | [Official Docs](https://code.claude.com/docs/en/plugins)
+**Reference**: [07-plugins/](07-plugins/) | [Official Docs](https://code.claude.com/docs/ko/plugins)
 
 **Plugin Management Commands**:
 ```bash
@@ -422,7 +422,7 @@ Event-driven automation that executes shell commands on Claude Code events.
 }
 ```
 
-**Reference**: [06-hooks/](06-hooks/) | [Official Docs](https://code.claude.com/docs/en/hooks)
+**Reference**: [06-hooks/](06-hooks/) | [Official Docs](https://code.claude.com/docs/ko/hooks)
 
 **Quick Install (All Hooks)**:
 ```bash
@@ -449,7 +449,7 @@ Persistent context loaded automatically across sessions.
 
 > **Scope**: `Organization` = managed by admins, `Project` = shared with team via git, `User` = personal preferences, `Local` = not committed, `Session` = auto-managed
 
-**Reference**: [02-memory/](02-memory/) | [Official Docs](https://code.claude.com/docs/en/memory)
+**Reference**: [02-memory/](02-memory/) | [Official Docs](https://code.claude.com/docs/ko/memory)
 
 **Quick Install**:
 ```bash
@@ -551,10 +551,9 @@ chmod +x ~/.claude/hooks/*.sh
 
 ## Additional Resources
 
-- [Official Claude Code Documentation](https://code.claude.com/docs/en/overview)
+- [Official Claude Code Documentation](https://code.claude.com/docs/ko/overview)
 - [MCP Protocol Specification](https://modelcontextprotocol.io)
 - [Learning Roadmap](LEARNING-ROADMAP.md)
 - [Main README](README.md)
 
 ---
-

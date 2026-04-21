@@ -91,12 +91,11 @@ def main() -> int:
             errors.append(f"{file_path}: unmatched code fences")
 
     # All numbered lesson dirs must have README.md
-    for i in range(1, 11):
-        errors.extend(
-            f"{d}: missing README.md"
-            for d in Path().glob(f"{i:02d}-*")
-            if d.is_dir() and not (d / "README.md").exists()
-        )
+    errors.extend(
+        f"{d}: missing README.md"
+        for d in Path().glob("[0-9][0-9]-*")
+        if d.is_dir() and not (d / "README.md").exists()
+    )
 
     if errors:
         print("❌ Cross-reference errors:")

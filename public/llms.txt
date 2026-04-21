@@ -1,6 +1,6 @@
 # Claude Code 가이드북
 
-> Slash Commands부터 MCP, Hooks, Plugins까지 — Claude Code의 핵심 기능을 단계별로 학습하는 가이드입니다.
+> Slash Commands부터 MCP, Deployment/Admin, Agent SDK까지 — Claude Code의 주요 기능 영역을 단계별로 학습하는 가이드입니다.
 
 ## Modules
 
@@ -35,13 +35,63 @@
   - [Checkpoint 예제](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/08-checkpoints/checkpoint-examples)
 - [고급 기능](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features): Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print mode(비대화형), 세션 관리, 대화형 기능, channel, 음성 입력, remote control, 웹 세션, 데스크톱 앱, task list, 프롬프트 제안, git worktree, sandboxing, 관리형 설정, 그
   - [Channels Reference](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/channels-reference)
+  - [Computer Use](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/computer-use)
+  - [실행 모드](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/execution-modes)
   - [Fullscreen Rendering](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/fullscreen-rendering)
   - [Output Styles](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/output-styles)
+  - [권한 & 보안](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/permissions-and-security)
+  - [플래닝 모드 & 확장 사고](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/planning-and-thinking)
   - [Plan Mode 예제](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/planning-mode-examples)
+  - [플랫폼 & 통합](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/platforms)
+  - [세션 & 인터랙션](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/session-and-interaction)
   - [Settings System Guide](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/settings-system-guide)
+  - [Slack의 Claude Code](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/slack)
   - [Terminal Configuration](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/terminal-configuration)
   - [Use Claude Code in VS Code](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/09-advanced-features/vscode)
 - [CLI 참조](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/10-cli)
+  - [오류 참고](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/10-cli/errors)
+  - [도구 참고](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/10-cli/tools-reference)
+  - [문제 해결](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/10-cli/troubleshooting)
+- [Deployment Administration](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin): This module is the Korean counterpart for deployment administration topics, covering cloud provider setup, network boundaries, gateway patterns, identity, and usage controls.
+  - [Amazon Bedrock](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/amazon-bedrock)
+  - [Authentication and IAM](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/authentication-and-iam)
+  - [Data Usage](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/data-usage)
+  - [Dev Container Setup](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/devcontainer)
+  - [Google Vertex AI](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/google-vertex-ai)
+  - [LLM Gateway](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/llm-gateway)
+  - [Microsoft Foundry](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/microsoft-foundry)
+  - [Monitoring and Usage](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/monitoring-usage)
+  - [Network Configuration](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/network-config)
+  - [Server-Managed Settings](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/server-managed-settings)
+  - [Zero Data Retention](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/11-deployment-admin/zero-data-retention)
+- [Agent SDK](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk): This module mirrors the English Agent SDK reference set and keeps the same page structure for translation work.
+  - [Agent Loop](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/agent-loop)
+  - [Cost Tracking](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/cost-tracking)
+  - [Custom Tools](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/custom-tools)
+  - [File Checkpointing](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/file-checkpointing)
+  - [Hooks](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/hooks)
+  - [Hosting](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/hosting)
+  - [MCP](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/mcp)
+  - [Migration Guide](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/migration-guide)
+  - [Modifying System Prompts](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/modifying-system-prompts)
+  - [Observability](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/observability)
+  - [Overview](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/overview)
+  - [Permissions](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/permissions)
+  - [Plugins](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/plugins)
+  - [Python](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/python)
+  - [Secure Deployment](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/secure-deployment)
+  - [Sessions](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/sessions)
+  - [Skills](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/skills)
+  - [Slash Commands](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/slash-commands)
+  - [Streaming Output](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/streaming-output)
+  - [Streaming vs Single Mode](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/streaming-vs-single-mode)
+  - [Structured Outputs](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/structured-outputs)
+  - [Subagents](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/subagents)
+  - [Todo Tracking](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/todo-tracking)
+  - [Tool Search](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/tool-search)
+  - [TypeScript v2 Preview](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/typescript-v2-preview)
+  - [TypeScript](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/typescript)
+  - [User Input](https://github.com/HyunjunJeon/claude-code-guide/blob/main/modules/12-agent-sdk/user-input)
 
 ## Links
 

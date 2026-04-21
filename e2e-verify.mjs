@@ -51,9 +51,9 @@ async function main() {
       const text = await p.textContent("body");
       return text.includes("터미널에서") || text.includes("Claude Code Guide");
     },
-    "모듈 카드 10개": async (p) => {
+    "모듈 카드 12개": async (p) => {
       const text = await p.textContent("body");
-      return text.includes("슬래시 명령어") && text.includes("CLI 레퍼런스");
+      return text.includes("슬래시 명령어") && text.includes("Agent SDK");
     },
     "트래픽 라이트": async (p) => {
       const dots = await p.$$('.rounded-full');
@@ -86,9 +86,9 @@ async function main() {
       const text = await p.textContent("body");
       return text.length > 500;
     },
-    "사이드바 모듈 10개": async (p) => {
+    "사이드바 모듈 12개": async (p) => {
       const links = await p.$$('aside a[href*="/modules/"]');
-      return links.length >= 10;
+      return links.length >= 12;
     },
     "터미널 헤더": async (p) => {
       const dots = await p.$$('.rounded-full');
@@ -191,7 +191,88 @@ async function main() {
     "모듈 링크 ko prefix": async (p) => (await p.$('a[href*="/ko/modules/01"]')) !== null,
   });
 
-  // ═══ 12. 404 page ═══
+  // ═══ 12. Newly added parity pages ═══
+  await check(page, "KO 웹 퀵스타트", `${BASE}/ko/modules/09-advanced-features/web-quickstart/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "웹 세션 내용": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("claude.ai/code") || text.includes("GitHub") || text.length > 300;
+    },
+  });
+
+  await check(page, "KO 웹 레퍼런스", `${BASE}/ko/modules/09-advanced-features/claude-code-on-the-web/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "handoff 내용": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("--remote") || text.includes("--teleport") || text.includes("cloud");
+    },
+  });
+
+  await check(page, "KO 데스크톱 퀵스타트", `${BASE}/ko/modules/09-advanced-features/desktop-quickstart/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "데스크톱 핵심 흐름": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("Code 탭") || text.includes("Desktop") || text.length > 250;
+    },
+  });
+
+  await check(page, "KO Agent Teams", `${BASE}/ko/modules/04-subagents/agent-teams/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "실험 기능 표기": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS") || text.includes("experimental");
+    },
+  });
+
+  await check(page, "KO Plugin 탐색", `${BASE}/ko/modules/07-plugins/discover-plugins/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "plugin 구조 설명": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes(".codex-plugin") || text.includes("plugin") || text.length > 250;
+    },
+  });
+
+  await check(page, "KO Interactive Mode", `${BASE}/ko/modules/10-cli/interactive-mode/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "입력 패턴 설명": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("Ctrl+T") || text.includes("Ctrl+B") || text.includes("interactive");
+    },
+  });
+
+  await check(page, "KO 환경 변수", `${BASE}/ko/modules/10-cli/env-vars/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "핵심 env 예시": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("ANTHROPIC_API_KEY") || text.includes("CLAUDE_CODE_USE_BEDROCK");
+    },
+  });
+
+  await check(page, "KO 설정 가이드", `${BASE}/ko/modules/09-advanced-features/configuration/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "설정 우선순위": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("/status") || text.includes("settings.json") || text.includes("우선순위");
+    },
+  });
+
+  await check(page, "KO ultraplan", `${BASE}/ko/modules/01-slash-commands/ultraplan/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "slash command 표기": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("/ultraplan");
+    },
+  });
+
+  await check(page, "KO ultrareview", `${BASE}/ko/modules/01-slash-commands/ultrareview/`, {
+    "article 존재": async (p) => (await p.$("article")) !== null,
+    "slash command 표기": async (p) => {
+      const text = await p.textContent("article");
+      return text.includes("/ultrareview");
+    },
+  });
+
+  // ═══ 13. 404 page ═══
   await check(page, "404 페이지", `${BASE}/nonexistent-page/`, {
     "404 콘텐츠": async (p) => {
       const text = await p.textContent("body");
@@ -199,10 +280,11 @@ async function main() {
     },
   });
 
-  // ═══ 13. All 10 modules — KO ═══
+  // ═══ 14. All 12 modules — KO ═══
   const moduleSlugs = [
     "01-slash-commands", "02-memory", "03-skills", "04-subagents", "05-mcp",
     "06-hooks", "07-plugins", "08-checkpoints", "09-advanced-features", "10-cli",
+    "11-deployment-admin", "12-agent-sdk",
   ];
   for (const slug of moduleSlugs) {
     await check(page, `KO ${slug}`, `${BASE}/ko/modules/${slug}/`, {
@@ -211,7 +293,7 @@ async function main() {
     });
   }
 
-  // ═══ 14. All 10 modules — EN ═══
+  // ═══ 15. All 12 modules — EN ═══
   for (const slug of moduleSlugs) {
     await check(page, `EN ${slug}`, `${BASE}/en/modules/${slug}/`, {
       "article": async (p) => (await p.$("article")) !== null,

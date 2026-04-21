@@ -24,7 +24,7 @@ export const BLUR_FADE_DELAY = 0.15;
 export const siteConfig = {
   name: "Claude Code Guide",
   description:
-    "Claude Code의 모든 기능을 마스터하기 위한 실전 가이드. 터미널에서 배우는 AI 코딩의 미래.",
+    "Claude Code의 주요 기능 영역을 폭넓게 학습하는 실전 가이드. 터미널에서 배우는 AI 코딩의 미래.",
   cta: "시작하기",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: [
@@ -50,7 +50,7 @@ export const siteConfig = {
     title: "터미널로 시작하는",
     titleHighlight: "Claude Code 가이드북.",
     description:
-      "Slash Commands부터 MCP, Hooks, Plugins까지 —\nClaude Code의 핵심 기능을 단계별로 학습합니다.",
+      "Slash Commands부터 MCP, 배포/관리, Agent SDK까지 —\nClaude Code의 주요 기능 영역을 단계별로 학습합니다.",
     cta: {
       primary: {
         text: "학습 시작",
@@ -133,6 +133,20 @@ export const siteConfig = {
       title: "CLI 레퍼런스",
       description: "커맨드라인 옵션과 설정 완전 가이드",
       icon: "code",
+    },
+    {
+      number: "11",
+      slug: "11-deployment-admin",
+      title: "배포와 관리",
+      description: "Bedrock, Vertex, Foundry, 네트워크, 정책, 사용량 관리",
+      icon: "layers",
+    },
+    {
+      number: "12",
+      slug: "12-agent-sdk",
+      title: "Agent SDK",
+      description: "세션, 도구, 스트리밍, 권한을 포함한 SDK 레퍼런스",
+      icon: "zap",
     },
   ],
   footer: {

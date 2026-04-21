@@ -3115,7 +3115,7 @@ Complete configuration example:
 
 ## Resources
 
-- [Claude Code Documentation](https://code.claude.com/docs/en/overview)
+- [Claude Code Documentation](https://code.claude.com/docs/ko/overview)
 - [Anthropic Documentation](https://docs.anthropic.com)
 - [MCP GitHub Servers](https://github.com/modelcontextprotocol/servers)
 - [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)

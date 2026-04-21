@@ -203,4 +203,4 @@ Expected result:
 
 ## Official Reference
 
-- https://code.claude.com/docs/en/terminal-config
+- https://code.claude.com/docs/ko/terminal-config

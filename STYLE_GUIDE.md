@@ -348,7 +348,7 @@ From a lesson folder back to root or sibling:
 Use full URLs with descriptive anchor text:
 
 ```markdown
-[Anthropic's official documentation](https://code.claude.com/docs/en/overview)
+[Anthropic's official documentation](https://code.claude.com/docs/ko/overview)
 ```
 
 - Never use "click here" or "this link" as anchor text

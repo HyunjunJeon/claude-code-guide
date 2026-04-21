@@ -1421,8 +1421,8 @@ Edit `~/.claude/settings.json` or `.claude/settings.json` with the hook configur
 
 ## Additional Resources
 
-- **[Official Hooks Documentation](https://code.claude.com/docs/en/hooks)** - Complete hooks reference
-- **[CLI Reference](https://code.claude.com/docs/en/cli-reference)** - Command-line interface documentation
+- **[Official Hooks Documentation](https://code.claude.com/docs/ko/hooks)** - Complete hooks reference
+- **[CLI Reference](https://code.claude.com/docs/ko/cli-reference)** - Command-line interface documentation
 - **[Memory Guide](../02-memory/)** - Persistent context configuration
 
 ---

@@ -5,27 +5,63 @@ Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print 
 
 **관련 가이드:**
 
+- [How Claude Code Works](./how-claude-code-works.md)
+- [Features Overview](./features-overview.md)
+- [`.claude` 디렉터리 살펴보기](./claude-directory.md)
+- [컨텍스트 윈도우 살펴보기](./context-window.md)
+- [공통 워크플로](./common-workflows.md)
+- [모범 사례](./best-practices.md)
 - [Settings System Guide](./settings-system-guide.md)
 - [Output Styles](./output-styles.md)
 - [Fullscreen Rendering](./fullscreen-rendering.md)
 - [Terminal Configuration](./terminal-configuration.md)
 - [Channels Reference](./channels-reference.md)
+- [Computer Use](./computer-use.md)
+- [Slack의 Claude Code](./slack.md)
 - [Use Claude Code in VS Code](./vscode.md)
+- [Claude Code 웹 시작하기](./web-quickstart.md)
+- [웹에서 Claude Code 사용하기](./claude-code-on-the-web.md)
+- [Claude Code Desktop](./desktop.md)
+- [Desktop Quickstart](./desktop-quickstart.md)
+- [Desktop Scheduled Tasks](./desktop-scheduled-tasks.md)
+- [Routines](./routines.md)
+- [Code Review](./code-review.md)
+- [GitHub Actions](./github-actions.md)
+- [GitHub Enterprise Server](./github-enterprise-server.md)
+- [GitLab CI/CD](./gitlab-ci-cd.md)
 
 ## 목차
 
 1. [개요](#개요)
-2. [플래닝 모드 & 확장 사고](./planning-and-thinking.md)
-3. [실행 모드](./execution-modes.md) — Auto Mode, Background Tasks, Scheduled Tasks, Headless Mode
-4. [권한 & 보안](./permissions-and-security.md) — 권한 모드, Sandboxing
-5. [세션 & 인터랙션](./session-and-interaction.md) — 세션 관리, 대화형 기능, 음성 입력, Task List, 프롬프트 제안
-6. [플랫폼 & 통합](./platforms.md) — Chrome 통합, Remote Control, 웹 세션, 데스크톱 앱, Git Worktree
-7. [Channel](#channel)
-8. [관리형 설정 (엔터프라이즈)](#관리형-설정-엔터프라이즈)
-9. [구성 및 설정](#구성-및-설정)
-10. [Agent Teams](#agent-teams)
-11. [모범 사례](#모범-사례)
-12. [추가 리소스](#추가-리소스)
+2. [How Claude Code Works](./how-claude-code-works.md)
+3. [Features Overview](./features-overview.md)
+4. [`.claude` 디렉터리 살펴보기](./claude-directory.md)
+5. [컨텍스트 윈도우 살펴보기](./context-window.md)
+6. [플래닝 모드 & 확장 사고](./planning-and-thinking.md)
+7. [실행 모드](./execution-modes.md) — Auto Mode, Background Tasks, Scheduled Tasks, Headless Mode
+8. [권한 & 보안](./permissions-and-security.md) — 권한 모드, Sandboxing
+9. [세션 & 인터랙션](./session-and-interaction.md) — 세션 관리, 대화형 기능, 음성 입력, Task List, 프롬프트 제안
+10. [공통 워크플로](./common-workflows.md)
+11. [모범 사례](./best-practices.md)
+12. [플랫폼 & 통합](./platforms.md) — Chrome 통합, Remote Control, 웹 세션, 데스크톱 앱, Git Worktree
+13. [Claude Code 웹 시작하기](./web-quickstart.md)
+14. [웹에서 Claude Code 사용하기](./claude-code-on-the-web.md)
+15. [Claude Code Desktop](./desktop.md)
+16. [Desktop Quickstart](./desktop-quickstart.md)
+17. [Desktop Scheduled Tasks](./desktop-scheduled-tasks.md)
+18. [Routines](./routines.md)
+19. [Computer Use](./computer-use.md)
+20. [Slack의 Claude Code](./slack.md)
+21. [Code Review](./code-review.md)
+22. [GitHub Actions](./github-actions.md)
+23. [GitHub Enterprise Server](./github-enterprise-server.md)
+24. [GitLab CI/CD](./gitlab-ci-cd.md)
+25. [Configuration](./configuration.md)
+26. [Channel](#channel)
+27. [관리형 설정 (엔터프라이즈)](#관리형-설정-엔터프라이즈)
+28. [구성 및 설정](#구성-및-설정)
+29. [Agent Teams](#agent-teams)
+30. [추가 리소스](#추가-리소스)
 
 ---
 

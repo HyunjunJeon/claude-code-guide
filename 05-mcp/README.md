@@ -1299,13 +1299,13 @@ export GITHUB_TOKEN="your_token"
 
 ## Additional Resources
 
-- [Official MCP Documentation](https://code.claude.com/docs/en/mcp)
+- [Official MCP Documentation](https://code.claude.com/docs/ko/mcp)
 - [MCP Protocol Specification](https://modelcontextprotocol.io/specification)
 - [MCP GitHub Repository](https://github.com/modelcontextprotocol/servers)
 - [Available MCP Servers](https://github.com/modelcontextprotocol/servers)
 - [MCPorter](https://github.com/steipete/mcporter) — TypeScript runtime & CLI for calling MCP servers without boilerplate
 - [Code Execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp) — Anthropic's engineering blog on solving context bloat
-- [Claude Code CLI Reference](https://code.claude.com/docs/en/cli-reference)
+- [Claude Code CLI Reference](https://code.claude.com/docs/ko/cli-reference)
 - [Claude API Documentation](https://docs.anthropic.com)
 
 ---

@@ -186,4 +186,4 @@ Expected result:
 
 ## Official Reference
 
-- https://code.claude.com/docs/en/fullscreen
+- https://code.claude.com/docs/ko/fullscreen

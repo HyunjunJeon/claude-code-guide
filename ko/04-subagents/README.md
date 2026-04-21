@@ -45,6 +45,10 @@ Subagent는 Claude Code에서 위임된 작업 실행을 가능하게 합니다:
 
 **빠른 시작**: `/agents` 명령어를 사용하여 subagent를 대화식으로 생성, 확인, 편집 및 관리할 수 있습니다.
 
+**관련 가이드:**
+
+- [Agent Teams](./agent-teams.md)
+
 ---
 
 ## 주요 이점

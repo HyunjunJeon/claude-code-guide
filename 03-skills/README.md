@@ -786,7 +786,7 @@ Package skills in a plugin's `skills/` directory for broader distribution.
 
 ## Additional Resources
 
-- [Official Skills Documentation](https://code.claude.com/docs/en/skills)
+- [Official Skills Documentation](https://code.claude.com/docs/ko/skills)
 - [Agent Skills Architecture Blog](https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills)
 - [Slash Commands Guide](../01-slash-commands/) - User-initiated shortcuts
 - [Subagents Guide](../04-subagents/) - Delegated AI agents

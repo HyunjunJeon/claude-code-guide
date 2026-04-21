@@ -2,6 +2,8 @@ import { Navbar } from "@/components/section/navbar";
 
 type Lang = "en" | "ko";
 
+export const dynamicParams = false;
+
 const SKIP_LABELS: Record<Lang, string> = {
   ko: "본문으로 건너뛰기",
   en: "Skip to content",

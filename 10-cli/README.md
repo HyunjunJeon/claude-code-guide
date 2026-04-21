@@ -5,6 +5,16 @@
 
 The Claude Code CLI (Command Line Interface) is the primary way to interact with Claude Code. It provides powerful options for running queries, managing sessions, configuring models, and integrating Claude into your development workflows.
 
+**Companion guides added for parity-critical gaps:**
+
+- [Quickstart](./quickstart.md)
+- [Changelog](./changelog.md)
+- [Interactive Mode](./interactive-mode.md)
+- [Environment Variables](./env-vars.md)
+- [Tools Reference](./tools-reference.md)
+- [Troubleshooting](./troubleshooting.md)
+- [Error Reference](./errors.md)
+
 ## Architecture
 
 ```mermaid
@@ -865,8 +875,8 @@ claude -p --output-format json "query"
 
 ## Additional Resources
 
-- **[Official CLI Reference](https://code.claude.com/docs/en/cli-reference)** - Complete command reference
-- **[Headless Mode Documentation](https://code.claude.com/docs/en/headless)** - Automated execution
+- **[Official CLI Reference](https://code.claude.com/docs/ko/cli-reference)** - Complete command reference
+- **[Headless Mode Documentation](https://code.claude.com/docs/ko/headless)** - Automated execution
 - **[Slash Commands](../01-slash-commands/)** - Custom shortcuts within Claude
 - **[Memory Guide](../02-memory/)** - Persistent context via CLAUDE.md
 - **[MCP Protocol](../05-mcp/)** - External tool integrations

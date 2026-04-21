@@ -115,6 +115,8 @@ The hooks that run on every commit are:
 ├── 08-checkpoints/         # Session snapshots
 ├── 09-advanced-features/   # Planning, thinking, backgrounds
 ├── 10-cli/                 # CLI reference
+├── 11-deployment-admin/    # Deployment, providers, governance
+├── 12-agent-sdk/           # SDK reference and examples
 ├── scripts/                # Build and utility scripts
 └── README.md               # Main guide
 ```

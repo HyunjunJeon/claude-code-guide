@@ -12,6 +12,11 @@ Slash commands are shortcuts that control Claude's behavior during an interactiv
 
 > **Note**: Custom slash commands have been merged into skills. Files in `.claude/commands/` still work, but skills (`.claude/skills/`) are now the recommended approach. Both create `/command-name` shortcuts. See the [Skills Guide](../03-skills/) for the full reference.
 
+**Companion guides for newer built-in workflows:**
+
+- [Ultraplan](./ultraplan.md)
+- [Ultrareview](./ultrareview.md)
+
 ## Built-in Commands Reference
 
 Built-in commands are shortcuts for common actions. There are **60+ built-in commands** and **5 bundled skills** available. Type `/` in Claude Code to see the full list, or type `/` followed by any letters to filter.
@@ -556,9 +561,8 @@ If both exist with the same name, the **skill takes precedence**. Remove one or 
 
 ## Additional Resources
 
-- [Official Interactive Mode Documentation](https://code.claude.com/docs/en/interactive-mode) - Built-in commands reference
-- [Official Skills Documentation](https://code.claude.com/docs/en/skills) - Complete skills reference
-- [CLI Reference](https://code.claude.com/docs/en/cli-reference) - Command-line options
+- [Official Interactive Mode Documentation](https://code.claude.com/docs/ko/interactive-mode) - Built-in commands reference
+- [Official Skills Documentation](https://code.claude.com/docs/ko/skills) - Complete skills reference
+- [CLI Reference](https://code.claude.com/docs/ko/cli-reference) - Command-line options
 
 ---
-

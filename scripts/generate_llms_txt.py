@@ -32,6 +32,8 @@ MODULE_DIRS = [
     "08-checkpoints",
     "09-advanced-features",
     "10-cli",
+    "11-deployment-admin",
+    "12-agent-sdk",
 ]
 
 SITE_URL = "https://github.com/HyunjunJeon/claude-code-guide/blob/main"
@@ -91,8 +93,8 @@ def generate_llms_txt(root: Path, site_url: str) -> str:
     lines.append("# Claude Code 가이드북")
     lines.append("")
     lines.append(
-        "> Slash Commands부터 MCP, Hooks, Plugins까지 — "
-        "Claude Code의 핵심 기능을 단계별로 학습하는 가이드입니다."
+        "> Slash Commands부터 MCP, Deployment/Admin, Agent SDK까지 — "
+        "Claude Code의 주요 기능 영역을 단계별로 학습하는 가이드입니다."
     )
     lines.append("")
 

@@ -12,7 +12,9 @@ This document defines how the repository should decide:
 The source of truth for parity status is:
 
 - page-level matrix:
-  - `.omx/plans/claude-code-feature-doc-coverage-matrix-20260409.md`
+  - `docs/claude-code-feature-doc-coverage-matrix-20260421.md`
+- scope decisions:
+  - `docs/SCOPE-DECISION-20260421.md`
 - section-level audits:
   - hooks
   - MCP
@@ -49,18 +51,21 @@ Strong claims are allowed only when all of the following are true:
 2. Any remaining `partial` row has an explicit rationale and is accepted intentionally.
 3. The relevant section-level audit does not contradict the matrix status.
 4. The matrix has been refreshed against the current Claude Code docs version.
+5. Any excluded official page is explicitly marked `out-of-scope` in the scope decision.
 
 ### Current gate state
 
 At the time this document was added, strong claims are **not allowed**.
 
-Current blocking `missing` items:
+Current blocking `missing` items include:
 
-- `Computer use`
-- `JetBrains IDEs`
-- `Claude Code in Slack`
+- broader hub surfaces that remain `partial`, especially `platforms`
+- scheduled/background automation mapping that still spans multiple pages
+- resources-family alignment and ongoing weekly-digest maintenance
 
-Until those are either covered or explicitly removed from scope, use safe claims only.
+`JetBrains IDEs` is currently treated as `out-of-scope` and does not block the gate while that scope decision remains in force.
+
+Until the remaining in-scope `missing` rows are either covered or explicitly removed from scope, use safe claims only.
 
 ## T-091: Public Wording Policy
 
@@ -70,6 +75,8 @@ Public wording must follow the parity gate state.
 
 - `README.md`
 - `INDEX.md`
+- `CATALOG.md`
+- landing copy in `src/lib/config.tsx`
 - roadmap or plan summaries if they describe overall coverage
 
 ### If the gate is not passed
@@ -94,10 +101,11 @@ Only do this after checking the current matrix and section-level audits together
 ### Public wording update procedure
 
 1. Read the current page-level matrix.
-2. Check whether any `missing` rows remain.
+2. Check whether any `missing` in-scope rows remain.
 3. Check whether any `partial` rows still need explicit rationale.
-4. Choose the correct claim tier: `safe` or `strong`.
-5. Update the public-facing files only after that decision.
+4. Check whether any `out-of-scope` rows are still intentionally excluded and documented.
+5. Choose the correct claim tier: `safe` or `strong`.
+6. Update the public-facing files only after that decision.
 
 ## T-092: Release Refresh Procedure
 
@@ -110,8 +118,9 @@ Every Claude Code release should trigger a parity refresh review.
 3. Add any new pages or rename changed pages in the matrix.
 4. Refresh the relevant section-level audit for any changed official surface.
 5. Re-evaluate `covered`, `partial`, and `missing` statuses.
-6. Update `docs/TASKS-20260401.md` if new gaps create new work.
-7. Re-run the public wording gate from `T-090`.
+6. Re-evaluate whether any `out-of-scope` decision still stands.
+7. Update `docs/TASKS-20260401.md` if new gaps create new work.
+8. Re-run the public wording gate from `T-090`.
 
 ### Timing rule
 
@@ -122,6 +131,7 @@ New official pages or substantial page changes should be triaged within 7 days o
 Each refresh should leave behind:
 
 - an updated matrix
+- updated scope decision when exclusions change
 - updated section-level audits when needed
 - updated task status or new backlog items when needed
 

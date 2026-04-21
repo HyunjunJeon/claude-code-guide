@@ -244,7 +244,7 @@ Claude Code uses a multi-tier hierarchical memory system. Memory files are autom
 7. **Local Project Memory** - Personal project-specific preferences
    - `./CLAUDE.local.md`
 
-> **Note**: `CLAUDE.local.md` is fully supported and documented in the [official documentation](https://code.claude.com/docs/en/memory). It provides personal project-specific preferences that are not committed to version control. Add `CLAUDE.local.md` to your `.gitignore`.
+> **Note**: `CLAUDE.local.md` is fully supported and documented in the [official documentation](https://code.claude.com/docs/ko/memory). It provides personal project-specific preferences that are not committed to version control. Add `CLAUDE.local.md` to your `.gitignore`.
 
 8. **Auto Memory** - Claude's automatic notes and learnings
    - `~/.claude/projects/<project>/memory/`
@@ -499,7 +499,7 @@ memory: local     # Load local memory only
 
 This allows subagents to operate with focused context rather than inheriting the full memory hierarchy.
 
-> **Note**: Subagents can also maintain their own auto memory. See the [official subagent memory documentation](https://code.claude.com/docs/en/sub-agents#enable-persistent-memory) for details.
+> **Note**: Subagents can also maintain their own auto memory. See the [official subagent memory documentation](https://code.claude.com/docs/ko/sub-agents#enable-persistent-memory) for details.
 
 ### Controlling Auto Memory
 
@@ -1122,9 +1122,9 @@ Claude will prompt you to choose which memory file to update.
 
 For the most up-to-date information, refer to the official Claude Code documentation:
 
-- **[Memory Documentation](https://code.claude.com/docs/en/memory)** - Complete memory system reference
-- **[Slash Commands Reference](https://code.claude.com/docs/en/interactive-mode)** - All built-in commands including `/init` and `/memory`
-- **[CLI Reference](https://code.claude.com/docs/en/cli-reference)** - Command-line interface documentation
+- **[Memory Documentation](https://code.claude.com/docs/ko/memory)** - Complete memory system reference
+- **[Slash Commands Reference](https://code.claude.com/docs/ko/interactive-mode)** - All built-in commands including `/init` and `/memory`
+- **[CLI Reference](https://code.claude.com/docs/ko/cli-reference)** - Command-line interface documentation
 
 ### Key Technical Details from Official Docs
 
@@ -1164,6 +1164,6 @@ For the most up-to-date information, refer to the official Claude Code documenta
 
 ### Related Claude Features
 - [Claude Web Memory](https://claude.ai) - Automatic synthesis
-- [Official Memory Docs](https://code.claude.com/docs/en/memory) - Anthropic documentation
+- [Official Memory Docs](https://code.claude.com/docs/ko/memory) - Anthropic documentation
 
 ---

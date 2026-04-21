@@ -18,7 +18,7 @@ Compare the Korean module content under `ko/` against the latest official Claude
 Fetch the official docs index first to discover ALL pages:
 
 ```
-https://code.claude.com/docs/en/overview
+https://code.claude.com/docs/ko/overview
 ```
 
 From the index, extract the full navigation to find all available doc pages. Then fetch each relevant page for the module(s) being audited.

@@ -309,7 +309,7 @@ Claude Code의 컨텍스트 윈도우 사용량을 모니터링하면, 품질이
 
 ## Additional Resources
 
-- [Official Checkpointing Documentation](https://code.claude.com/docs/en/checkpointing)
+- [Official Checkpointing Documentation](https://code.claude.com/docs/ko/checkpointing)
 - [Advanced Features Guide](../09-advanced-features/) - Extended thinking and other capabilities
 
 ## Summary

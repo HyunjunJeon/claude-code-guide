@@ -36,15 +36,21 @@ const DIAGRAM_ADVANCED = `graph LR
   H["<b>05 MCP</b><br/>외부 도구 연결<br/><i>GitHub, DB, API 서버</i>"]
   I["<b>07 Plugins</b><br/>기능 번들 패키지<br/><i>명령어+에이전트+훅 통합</i>"]
   J["<b>09 Advanced</b><br/>고급 기능<br/><i>Plan모드, 백그라운드, 권한</i>"]
+  K["<b>11 Deployment</b><br/>배포와 관리<br/><i>Bedrock, Vertex, 정책</i>"]
+  L["<b>12 Agent SDK</b><br/>SDK 기반 에이전트 개발<br/><i>세션, 도구, 스트리밍</i>"]
 
   G -->|"외부 연동"| H
   H -->|"패키지화"| I
   G -->|"워크플로 최적화"| J
+  J -->|"운영 환경 확장"| K
+  G -->|"커스텀 에이전트 구축"| L
 
   style G fill:#1a0a2e,stroke:#A78BFA,stroke-width:2px,color:#D8D8D8
   style H fill:#1a0a2e,stroke:#A78BFA,stroke-width:2px,color:#D8D8D8
   style I fill:#1a0a2e,stroke:#A78BFA,stroke-width:2px,color:#D8D8D8
   style J fill:#1a0a2e,stroke:#A78BFA,stroke-width:2px,color:#D8D8D8
+  style K fill:#1a0a2e,stroke:#A78BFA,stroke-width:2px,color:#D8D8D8
+  style L fill:#1a0a2e,stroke:#A78BFA,stroke-width:2px,color:#D8D8D8
 `;
 
 const FEATURE_TABLE = [
@@ -58,6 +64,8 @@ const FEATURE_TABLE = [
   { num: "08", name: "Checkpoints", invoke: "자동/수동", persist: "세션 기반", best: "안전한 실험, 접근법 비교" },
   { num: "09", name: "Advanced", invoke: "다양", persist: "다양", best: "플래닝 모드, 백그라운드 작업" },
   { num: "10", name: "CLI Reference", invoke: "터미널 명령", persist: "스크립트", best: "CI/CD 통합, 배치 처리" },
+  { num: "11", name: "Deployment & Admin", invoke: "환경 설정", persist: "조직 정책", best: "공급자 설정, 네트워크, 관리 정책" },
+  { num: "12", name: "Agent SDK", invoke: "코드 작성", persist: "라이브러리", best: "커스텀 에이전트, 세션, 스트리밍" },
 ];
 
 export default function ModulesIndex() {
@@ -69,7 +77,7 @@ export default function ModulesIndex() {
         Claude Code 기능 개요
       </h1>
       <p className="text-sm text-[#888] font-mono mb-8">
-        10개 핵심 기능의 학습 경로와 비교 — 기초부터 고급까지 단계별로 학습하세요.
+        12개 주요 기능 영역의 학습 경로와 비교 — 기초부터 운영과 SDK까지 단계별로 학습하세요.
       </p>
 
       {/* Learning Path Diagrams */}

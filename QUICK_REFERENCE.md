@@ -306,6 +306,8 @@ User Home/
 - **Checkpoints**: `08-checkpoints/`
 - **Advanced Features**: `09-advanced-features/`
 - **CLI**: `10-cli/`
+- **Deployment & Admin**: `11-deployment-admin/`
+- **Agent SDK**: `12-agent-sdk/`
 
 ### By Use Case
 - **Performance**: `01-slash-commands/optimize.md`
@@ -447,6 +449,8 @@ echo $GITHUB_TOKEN
 | Fully autonomous | Auto Mode | `--enable-auto-mode` or `Shift+Tab` |
 | Chat integrations | Channels | `--channels` (Discord, Telegram) |
 | CI/CD pipeline | CLI | `10-cli/README.md` |
+| Managed rollout | Deployment/Admin | `11-deployment-admin/README.md` |
+| Custom agent runtime | Agent SDK | `12-agent-sdk/README.md` |
 
 ---
 

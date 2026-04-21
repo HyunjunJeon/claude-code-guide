@@ -7,6 +7,10 @@
 
 Claude Code Plugins는 커스터마이징(slash command, subagent, MCP 서버, hooks)의 번들 컬렉션으로, 단일 명령으로 설치할 수 있습니다. 여러 기능을 응집력 있고 공유 가능한 패키지로 결합하는 최상위 확장 메커니즘입니다.
 
+**관련 가이드:**
+
+- [플러그인 찾기](./discover-plugins.md)
+
 ## Plugin 아키텍처
 
 ```mermaid

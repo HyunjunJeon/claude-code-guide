@@ -5,27 +5,63 @@ Comprehensive guide to Claude Code's advanced capabilities including planning mo
 
 **Companion guides added for parity-critical gaps:**
 
+- [How Claude Code Works](./how-claude-code-works.md)
+- [Features Overview](./features-overview.md)
+- [Explore the `.claude` Directory](./claude-directory.md)
+- [Explore the Context Window](./context-window.md)
+- [Common Workflows](./common-workflows.md)
+- [Best Practices](./best-practices.md)
 - [Settings System Guide](./settings-system-guide.md)
 - [Output Styles](./output-styles.md)
 - [Fullscreen Rendering](./fullscreen-rendering.md)
 - [Terminal Configuration](./terminal-configuration.md)
 - [Channels Reference](./channels-reference.md)
+- [Computer Use](./computer-use.md)
+- [Claude Code in Slack](./slack.md)
 - [Use Claude Code in VS Code](./vscode.md)
+- [Claude Code on the Web](./web-quickstart.md)
+- [Claude Code On The Web](./claude-code-on-the-web.md)
+- [Claude Code Desktop](./desktop.md)
+- [Desktop Quickstart](./desktop-quickstart.md)
+- [Desktop Scheduled Tasks](./desktop-scheduled-tasks.md)
+- [Routines](./routines.md)
+- [Code Review](./code-review.md)
+- [GitHub Actions](./github-actions.md)
+- [GitHub Enterprise Server](./github-enterprise-server.md)
+- [GitLab CI/CD](./gitlab-ci-cd.md)
 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Planning Mode & Extended Thinking](./planning-and-thinking.md)
-3. [Execution Modes](./execution-modes.md) — Auto Mode, Background Tasks, Scheduled Tasks, Headless Mode
-4. [Permissions & Security](./permissions-and-security.md) — Permission Modes, Sandboxing
-5. [Session & Interaction](./session-and-interaction.md) — Session Management, Interactive Features, Voice Dictation, Task List, Prompt Suggestions
-6. [Platforms & Integrations](./platforms.md) — Chrome Integration, Remote Control, Web Sessions, Desktop App, Git Worktrees
-7. [Channels](#channels)
-8. [Managed Settings (Enterprise)](#managed-settings-enterprise)
-9. [Configuration and Settings](#configuration-and-settings)
-10. [Agent Teams](#agent-teams)
-11. [Best Practices](#best-practices)
-12. [Additional Resources](#additional-resources)
+2. [How Claude Code Works](./how-claude-code-works.md)
+3. [Features Overview](./features-overview.md)
+4. [Explore the `.claude` Directory](./claude-directory.md)
+5. [Explore the Context Window](./context-window.md)
+6. [Planning Mode & Extended Thinking](./planning-and-thinking.md)
+7. [Execution Modes](./execution-modes.md) — Auto Mode, Background Tasks, Scheduled Tasks, Headless Mode
+8. [Permissions & Security](./permissions-and-security.md) — Permission Modes, Sandboxing
+9. [Session & Interaction](./session-and-interaction.md) — Session Management, Interactive Features, Voice Dictation, Task List, Prompt Suggestions
+10. [Common Workflows](./common-workflows.md)
+11. [Best Practices](./best-practices.md)
+12. [Platforms & Integrations](./platforms.md) — Chrome Integration, Remote Control, Web Sessions, Desktop App, Git Worktrees
+13. [Claude Code on the Web](./web-quickstart.md)
+14. [Claude Code On The Web](./claude-code-on-the-web.md)
+15. [Claude Code Desktop](./desktop.md)
+16. [Desktop Quickstart](./desktop-quickstart.md)
+17. [Desktop Scheduled Tasks](./desktop-scheduled-tasks.md)
+18. [Routines](./routines.md)
+19. [Computer Use](./computer-use.md)
+20. [Claude Code in Slack](./slack.md)
+21. [Code Review](./code-review.md)
+22. [GitHub Actions](./github-actions.md)
+23. [GitHub Enterprise Server](./github-enterprise-server.md)
+24. [GitLab CI/CD](./gitlab-ci-cd.md)
+25. [Configuration](./configuration.md)
+26. [Channels](#channels)
+27. [Managed Settings (Enterprise)](#managed-settings-enterprise)
+28. [Configuration and Settings](#configuration-and-settings)
+29. [Agent Teams](#agent-teams)
+30. [Additional Resources](#additional-resources)
 
 ---
 
@@ -367,7 +403,7 @@ claude --teammate-mode in-process
 - Parallel code review and implementation
 - Coordinated multi-file changes across a codebase
 
-> **Note**: Agent Teams is experimental and may change in future releases. See [code.claude.com/docs/en/agent-teams](https://code.claude.com/docs/en/agent-teams) for the full reference.
+> **Note**: Agent Teams is experimental and may change in future releases. See [code.claude.com/docs/ko/agent-teams](https://code.claude.com/docs/ko/agent-teams) for the full reference.
 
 ---
 
@@ -410,9 +446,9 @@ claude --teammate-mode in-process
 
 For more information about Claude Code and related features:
 
-- [Official Interactive Mode Documentation](https://code.claude.com/docs/en/interactive-mode)
-- [Official Headless Mode Documentation](https://code.claude.com/docs/en/headless)
-- [CLI Reference](https://code.claude.com/docs/en/cli-reference)
+- [Official Interactive Mode Documentation](https://code.claude.com/docs/ko/interactive-mode)
+- [Official Headless Mode Documentation](https://code.claude.com/docs/ko/headless)
+- [CLI Reference](https://code.claude.com/docs/ko/cli-reference)
 - [Settings System Guide](./settings-system-guide.md) - Scopes, precedence, and how Claude Code configuration actually fits together
 - [Output Styles](./output-styles.md) - Built-in and custom output modes
 - [Fullscreen Rendering](./fullscreen-rendering.md) - Flicker-free rendering mode
@@ -427,9 +463,9 @@ For more information about Claude Code and related features:
 - [MCP Guide](../05-mcp/) - External data access
 - [Hooks Guide](../06-hooks/) - Event-driven automation
 - [Plugins Guide](../07-plugins/) - Bundled extensions
-- [Official Scheduled Tasks Documentation](https://code.claude.com/docs/en/scheduled-tasks)
-- [Official Chrome Integration Documentation](https://code.claude.com/docs/en/chrome)
-- [Official Remote Control Documentation](https://code.claude.com/docs/en/remote-control)
-- [Official Keybindings Documentation](https://code.claude.com/docs/en/keybindings)
-- [Official Desktop App Documentation](https://code.claude.com/docs/en/desktop)
-- [Official Agent Teams Documentation](https://code.claude.com/docs/en/agent-teams)
+- [Official Scheduled Tasks Documentation](https://code.claude.com/docs/ko/scheduled-tasks)
+- [Official Chrome Integration Documentation](https://code.claude.com/docs/ko/chrome)
+- [Official Remote Control Documentation](https://code.claude.com/docs/ko/remote-control)
+- [Official Keybindings Documentation](https://code.claude.com/docs/ko/keybindings)
+- [Official Desktop App Documentation](https://code.claude.com/docs/ko/desktop)
+- [Official Agent Teams Documentation](https://code.claude.com/docs/ko/agent-teams)

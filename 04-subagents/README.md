@@ -45,6 +45,10 @@ Each subagent operates independently with a clean slate, receiving only the spec
 
 **Quick Start**: Use the `/agents` command to create, view, edit, and manage your subagents interactively.
 
+**Companion guide:**
+
+- [Agent Teams](./agent-teams.md)
+
 ---
 
 ## Key Benefits
@@ -567,7 +571,7 @@ This command:
 
 Agent Teams coordinate multiple Claude Code instances working together on complex tasks. Unlike subagents (which are delegated subtasks returning results), teammates work independently with their own context windows and can message each other directly through a shared mailbox system.
 
-> **Official Documentation**: [code.claude.com/docs/en/agent-teams](https://code.claude.com/docs/en/agent-teams)
+> **Official Documentation**: [code.claude.com/docs/ko/agent-teams](https://code.claude.com/docs/ko/agent-teams)
 
 > **Note**: Agent Teams is experimental and disabled by default. Requires Claude Code v2.1.32+. Enable it before use.
 
@@ -1209,8 +1213,8 @@ graph TD
 
 ## Additional Resources
 
-- [Official Subagents Documentation](https://code.claude.com/docs/en/sub-agents)
-- [CLI Reference](https://code.claude.com/docs/en/cli-reference) - `--agents` flag and other CLI options
+- [Official Subagents Documentation](https://code.claude.com/docs/ko/sub-agents)
+- [CLI Reference](https://code.claude.com/docs/ko/cli-reference) - `--agents` flag and other CLI options
 - [Plugins Guide](../07-plugins/) - For bundling agents with other features
 - [Skills Guide](../03-skills/) - For auto-invoked capabilities
 - [Memory Guide](../02-memory/) - For persistent context

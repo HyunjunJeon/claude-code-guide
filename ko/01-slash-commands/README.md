@@ -12,6 +12,11 @@ Slash command는 대화형 세션에서 Claude의 동작을 제어하는 단축 
 
 > **참고**: 사용자 정의 slash command는 skill로 통합되었습니다. `.claude/commands/`에 있는 파일은 여전히 작동하지만, skill(`.claude/skills/`)이 현재 권장 방식입니다. 두 가지 모두 `/command-name` 단축 명령을 생성합니다. 전체 레퍼런스는 [Skill 가이드](../../03-skills/)를 참조하십시오.
 
+**신규 내장 워크플로 관련 가이드:**
+
+- [Ultraplan](./ultraplan.md)
+- [Ultrareview](./ultrareview.md)
+
 ## 내장 명령 레퍼런스
 
 내장 명령은 일반적인 작업을 위한 단축 명령입니다. **60개 이상의 내장 명령**과 **5개의 번들 skill**을 사용할 수 있습니다. Claude Code에서 `/`를 입력하면 전체 목록을 볼 수 있고, `/` 뒤에 문자를 입력하면 필터링됩니다.
@@ -561,4 +566,3 @@ Deploy the application to production:
 - [CLI 레퍼런스](https://code.claude.com/docs/ko/cli-reference) - 명령줄 옵션
 
 ---
-

@@ -6,7 +6,7 @@ This document provides a complete index of all example files organized by featur
 ## Summary Statistics
 
 - **Total Files**: 100+ files
-- **Categories**: 10 feature categories
+- **Categories**: 12 feature categories
 - **Plugins**: 3 complete plugins
 - **Skills**: 6 complete skills
 - **Hooks**: 8 example hooks
@@ -508,6 +508,8 @@ Command-line interface usage patterns and reference.
 | `README.md` | `/08-checkpoints/` | Checkpoints guide |
 | `README.md` | `/09-advanced-features/` | Advanced features guide |
 | `README.md` | `/10-cli/` | CLI guide |
+| `README.md` | `/11-deployment-admin/` | Deployment and administration guide |
+| `README.md` | `/12-agent-sdk/` | Agent SDK guide |
 
 ---
 
@@ -675,7 +677,13 @@ claude-code-guide/
 │   ├── planning-mode-examples.md
 │   └── README.md
 │
-└── 10-cli/                                      # CLI Usage
+├── 10-cli/                                      # CLI Usage
+│   └── README.md
+│
+├── 11-deployment-admin/                         # Deployment and Administration
+│   └── README.md
+│
+└── 12-agent-sdk/                                # Agent SDK
     └── README.md
 ```
 
@@ -901,7 +909,7 @@ Want to add more examples? Follow the structure:
 ---
 
 **Total Examples**: 100+ files
-**Categories**: 10 features
+**Categories**: 12 features
 **Hooks**: 8 automation scripts
 **Configuration Examples**: 10+ scenarios
 **Ready to Use**: All examples

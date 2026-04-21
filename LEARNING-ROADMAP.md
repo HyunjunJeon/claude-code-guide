@@ -713,7 +713,7 @@ Once you've completed all milestones:
 ## 📚 Additional Resources
 
 ### Official Documentation
-- [Claude Code Documentation](https://code.claude.com/docs/en/overview)
+- [Claude Code Documentation](https://code.claude.com/docs/ko/overview)
 - [Anthropic Documentation](https://docs.anthropic.com)
 - [MCP Protocol Specification](https://modelcontextprotocol.io)
 

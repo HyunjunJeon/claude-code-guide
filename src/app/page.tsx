@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
+import { RootRedirect } from "@/components/root-redirect";
 
 export const metadata: Metadata = {
   title: "Redirecting — Claude Code Guide",
 };
 
-export default function RootRedirect() {
-  return (
-    <html>
-      <head>
-        <meta httpEquiv="refresh" content="0;url=ko/" />
-        <link rel="canonical" href="ko/" />
-      </head>
-      <body />
-    </html>
-  );
+export default function HomeRedirectPage() {
+  return <RootRedirect />;
 }

@@ -14,6 +14,8 @@ const MODULES: Record<string, { path: string; name: string }> = {
   "/08": { path: "/modules/08-checkpoints", name: "체크포인트" },
   "/09": { path: "/modules/09-advanced-features", name: "고급 기능" },
   "/10": { path: "/modules/10-cli", name: "CLI 레퍼런스" },
+  "/11": { path: "/modules/11-deployment-admin", name: "배포와 관리" },
+  "/12": { path: "/modules/12-agent-sdk", name: "Agent SDK" },
 };
 
 interface CommandBarProps {
@@ -96,7 +98,7 @@ export function CommandBar({
       switch (lower) {
         case "/help":
           showMsg(
-            "/01~/10 모듈 | /tree 목차 | /all 전체 | /find 키워드 | Space 다음 | /home 홈 | /clear | 숫자 섹션이동"
+            "/01~/12 모듈 | /tree 목차 | /all 전체 | /find 키워드 | Space 다음 | /home 홈 | /clear | 숫자 섹션이동"
           );
           break;
         case "/home":
@@ -183,7 +185,7 @@ export function CommandBar({
               inputRef.current?.blur();
             }
           }}
-          placeholder="/01~/10 이동 | /find 검색 | /tree 목차 | Space 다음 | /help"
+          placeholder="/01~/12 이동 | /find 검색 | /tree 목차 | Space 다음 | /help"
           className="flex-1 bg-transparent border-none outline-none font-mono text-sm text-[#D8D8D8] placeholder:text-[#555] caret-[#22C55E]"
         />
       </div>

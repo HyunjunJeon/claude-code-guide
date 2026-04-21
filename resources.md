@@ -5,21 +5,24 @@
 
 | Resource | Description | Link |
 |----------|-------------|------|
-| Claude Code Docs | Official Claude Code documentation | [code.claude.com/docs/en/overview](https://code.claude.com/docs/en/overview) |
+| Claude Code Docs | Official Claude Code documentation | [code.claude.com/docs/ko/overview](https://code.claude.com/docs/ko/overview) |
 | Anthropic Docs | Full Anthropic documentation | [docs.anthropic.com](https://docs.anthropic.com) |
 | MCP Protocol | Model Context Protocol specification | [modelcontextprotocol.io](https://modelcontextprotocol.io) |
 | MCP Servers | Official MCP server implementations | [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) |
 | Anthropic Cookbook | Code examples and tutorials | [github.com/anthropics/anthropic-cookbook](https://github.com/anthropics/anthropic-cookbook) |
 | Claude Code Skills | Community skills repository | [github.com/anthropics/skills](https://github.com/anthropics/skills) |
-| Agent Teams | Multi-agent coordination and collaboration | [code.claude.com/docs/en/agent-teams](https://code.claude.com/docs/en/agent-teams) |
-| Scheduled Tasks | Recurring tasks with /loop and cron | [code.claude.com/docs/en/scheduled-tasks](https://code.claude.com/docs/en/scheduled-tasks) |
-| Chrome Integration | Browser automation | [code.claude.com/docs/en/chrome](https://code.claude.com/docs/en/chrome) |
-| Keybindings | Keyboard shortcut customization | [code.claude.com/docs/en/keybindings](https://code.claude.com/docs/en/keybindings) |
-| Desktop App | Native desktop application | [code.claude.com/docs/en/desktop](https://code.claude.com/docs/en/desktop) |
-| Remote Control | Remote session control | [code.claude.com/docs/en/remote-control](https://code.claude.com/docs/en/remote-control) |
-| Auto Mode | Automatic permission management | [code.claude.com/docs/en/permissions](https://code.claude.com/docs/en/permissions) |
-| Channels | Multi-channel communication | [code.claude.com/docs/en/channels](https://code.claude.com/docs/en/channels) |
-| Voice Dictation | Voice input for Claude Code | [code.claude.com/docs/en/voice-dictation](https://code.claude.com/docs/en/voice-dictation) |
+| Agent Teams | Multi-agent coordination and collaboration | [code.claude.com/docs/ko/agent-teams](https://code.claude.com/docs/ko/agent-teams) |
+| Scheduled Tasks | Recurring tasks with /loop and cron | [code.claude.com/docs/ko/scheduled-tasks](https://code.claude.com/docs/ko/scheduled-tasks) |
+| Chrome Integration | Browser automation | [code.claude.com/docs/ko/chrome](https://code.claude.com/docs/ko/chrome) |
+| Keybindings | Keyboard shortcut customization | [code.claude.com/docs/ko/keybindings](https://code.claude.com/docs/ko/keybindings) |
+| Desktop App | Native desktop application | [code.claude.com/docs/ko/desktop](https://code.claude.com/docs/ko/desktop) |
+| Remote Control | Remote session control | [code.claude.com/docs/ko/remote-control](https://code.claude.com/docs/ko/remote-control) |
+| Auto Mode | Automatic permission management | [code.claude.com/docs/ko/permissions](https://code.claude.com/docs/ko/permissions) |
+| Channels | Multi-channel communication | [code.claude.com/docs/ko/channels](https://code.claude.com/docs/ko/channels) |
+| Voice Dictation | Voice input for Claude Code | [code.claude.com/docs/ko/voice-dictation](https://code.claude.com/docs/ko/voice-dictation) |
+| What's New | Weekly Claude Code digest | [code.claude.com/docs/ko/whats-new](https://code.claude.com/docs/ko/whats-new) |
+| Changelog | Version-by-version release notes | [code.claude.com/docs/ko/changelog](https://code.claude.com/docs/ko/changelog) |
+| Legal and Compliance | Terms, BAA, usage policy, trust references | [code.claude.com/docs/ko/legal-and-compliance](https://code.claude.com/docs/ko/legal-and-compliance) |
 
 ## Anthropic Engineering Blog
 
@@ -233,7 +236,7 @@ These steps capture the core recommendations for smooth workflows with Claude Co
 | **Auto Memory** | Claude automatically learns and remembers your preferences across sessions | [Memory Guide](02-memory/) |
 | **Remote Control** | Programmatically control Claude Code sessions from external tools and scripts | [Advanced Features](09-advanced-features/) |
 | **Web Sessions** | Access Claude Code through browser-based interfaces for remote development | [CLI Reference](10-cli/) |
-| **Desktop App** | Native desktop application for Claude Code with enhanced UI | [Claude Code Docs](https://code.claude.com/docs/en/desktop) |
+| **Desktop App** | Native desktop application for Claude Code with enhanced UI | [Claude Code Docs](https://code.claude.com/docs/ko/desktop) |
 | **Extended Thinking** | Deep reasoning toggle via `Alt+T`/`Option+T` or `MAX_THINKING_TOKENS` env var | [Advanced Features](09-advanced-features/) |
 | **Permission Modes** | Fine-grained control: default, acceptEdits, plan, auto, dontAsk, bypassPermissions | [Advanced Features](09-advanced-features/) |
 | **7-Tier Memory** | Managed Policy, Project, Project Rules, User, User Rules, Local, Auto Memory | [Memory Guide](02-memory/) |

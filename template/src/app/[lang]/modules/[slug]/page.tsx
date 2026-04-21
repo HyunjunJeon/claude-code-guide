@@ -11,6 +11,8 @@ interface PageProps {
   params: Promise<{ lang: string; slug: string }>;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const params: { lang: string; slug: string }[] = [];
   for (const lang of ["en", "ko"] as Lang[]) {
