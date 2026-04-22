@@ -68,8 +68,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.pytest_cache/
-.mypy_cache/
+.*_cache/
 *.egg-info/
 dist/
 build/

@@ -1,7 +1,5 @@
 # Claude Code Guide
 
-[![Claude Code](https://img.shields.io/badge/Claude_Code-2.1+-purple)](https://code.claude.com)
-
 Claude Code의 주요 기능 영역을 단계별로 학습하는 한국어 가이드북입니다.
 
 ---
@@ -31,14 +29,6 @@ Claude Code의 주요 기능 영역을 단계별로 학습하는 한국어 가�
 npm install
 npm run dev
 # http://localhost:3000
-```
-
-### EPUB 빌드
-
-```bash
-pip install uv
-uv run scripts/build_epub.py
-uv run scripts/build_epub.py --lang ko
 ```
 
 ### llms.txt 생성
