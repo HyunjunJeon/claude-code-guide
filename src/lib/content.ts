@@ -21,7 +21,7 @@ export interface PageContent {
   module: ModuleMeta;
 }
 
-type Lang = "en" | "ko";
+type Lang = "ko";
 
 interface ManifestPageEntry {
   content: string;

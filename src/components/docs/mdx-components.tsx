@@ -171,7 +171,7 @@ function Blockquote({ children, ...props }: React.ComponentProps<"blockquote">) 
 }
 
 /* Links — created per-module to rewrite relative paths */
-function createAnchor(moduleSlug?: string, lang: "en" | "ko" = "ko") {
+function createAnchor(moduleSlug?: string, lang: "ko" = "ko") {
   return function Anchor({ children, href, ...props }: React.ComponentProps<"a">) {
     const resolved = href ? rewriteLink(href, moduleSlug, lang) : href;
     const isExternal = resolved?.startsWith("http");
@@ -256,7 +256,7 @@ function createImg(moduleSlug?: string) {
 }
 
 /** Create MDX components with module-aware link rewriting */
-export function createMdxComponents(moduleSlug?: string, lang: "en" | "ko" = "ko"): MDXComponents {
+export function createMdxComponents(moduleSlug?: string, lang: "ko" = "ko"): MDXComponents {
   return {
     pre: CodeBlock,
     code: InlineCode,

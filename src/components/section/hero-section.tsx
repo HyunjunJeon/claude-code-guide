@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const heroConfig = siteConfig.hero;
 
-export function HeroSection({ lang = "ko" }: { lang?: "en" | "ko" }) {
+export function HeroSection({ lang = "ko" }: { lang?: "ko" }) {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center pt-16 overflow-hidden bg-[#0F0F0F]">
       {/* Background Effects */}

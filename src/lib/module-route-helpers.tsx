@@ -5,7 +5,7 @@ import { getAllSlugs, getModules, getPageContent } from "@/lib/content";
 import { createMdxComponents } from "@/components/docs/mdx-components";
 import { mdxOptions } from "@/lib/mdx-options";
 
-export type Lang = "en" | "ko";
+export type Lang = "ko";
 
 export function getModuleStaticParams(lang: Lang) {
   return getModules(lang).map((module) => ({ slug: module.slug }));

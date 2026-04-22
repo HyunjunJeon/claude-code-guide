@@ -2,16 +2,13 @@ import Link from "next/link";
 import { getModules } from "@/lib/content";
 import { TerminalContent } from "@/components/terminal/terminal-content";
 
-type Lang = "en" | "ko";
-
 export function ModulesLayoutShell({
-  lang,
   children,
 }: {
-  lang: Lang;
+  lang: "ko";
   children: React.ReactNode;
 }) {
-  const modules = getModules(lang);
+  const modules = getModules("ko");
 
   return (
     <div className="min-h-screen bg-[#0F0F0F]">
@@ -41,7 +38,7 @@ export function ModulesLayoutShell({
                 {modules.map((module) => (
                   <Link
                     key={module.slug}
-                    href={`/${lang}/modules/${module.slug}`}
+                    href={`/ko/modules/${module.slug}`}
                     className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-mono text-[#888] hover:text-[#22C55E] hover:bg-[rgba(34,197,94,0.08)] transition-colors"
                   >
                     <span className="text-[#555] text-xs w-5">{module.number}</span>

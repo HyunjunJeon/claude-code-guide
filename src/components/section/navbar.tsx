@@ -6,9 +6,8 @@ import { Icons } from "@/components/icons";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 
-export function Navbar({ lang = "ko" }: { lang?: "en" | "ko" }) {
+export function Navbar({ lang = "ko" }: { lang?: "ko" }) {
   const [isOpen, setIsOpen] = useState(false);
-  const otherLang = lang === "ko" ? "en" : "ko";
 
   // Prefix nav links with current language
   const navLinks = siteConfig.nav.links.map((link) => ({
@@ -38,13 +37,6 @@ export function Navbar({ lang = "ko" }: { lang?: "en" | "ko" }) {
               {link.name}
             </Link>
           ))}
-          {/* Language Switcher */}
-          <Link
-            href={`/${otherLang}`}
-            className="text-xs font-mono text-[#555] hover:text-[#22C55E] transition-colors border border-[#333] rounded px-2 py-1"
-          >
-            {otherLang === "en" ? "EN" : "KO"}
-          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -79,13 +71,6 @@ export function Navbar({ lang = "ko" }: { lang?: "en" | "ko" }) {
               {link.name}
             </Link>
           ))}
-          <Link
-            href={`/${otherLang}`}
-            className="block text-sm font-mono text-[#555] hover:text-[#22C55E] transition-colors"
-            onClick={() => setIsOpen(false)}
-          >
-            {otherLang === "en" ? "English" : "한국어"}
-          </Link>
         </div>
       </div>
     </header>

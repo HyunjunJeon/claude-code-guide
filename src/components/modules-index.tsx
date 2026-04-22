@@ -4,8 +4,6 @@ import Link from "next/link";
 import { MermaidDiagram } from "@/components/docs/mermaid-diagram";
 import { siteConfig } from "@/lib/config";
 
-type Lang = "en" | "ko";
-
 const DIAGRAM_BEGINNER = `graph LR
   A["<b>01 Slash Commands</b><br/>사용자 명령어 단축키<br/><i>mkdir .claude/commands/</i>"]
   B["<b>02 Memory</b><br/>세션 간 컨텍스트 유지<br/><i>CLAUDE.md 파일 작성</i>"]
@@ -69,7 +67,7 @@ const FEATURE_TABLE = [
   { num: "12", name: "Agent SDK", invoke: "코드 작성", persist: "라이브러리", best: "커스텀 에이전트, 세션, 스트리밍" },
 ];
 
-export function ModulesIndex({ lang }: { lang: Lang }) {
+export function ModulesIndex({ lang }: { lang: "ko" }) {
   return (
     <article className="doc-content">
       <h1 className="text-2xl sm:text-3xl font-bold font-mono text-[#E8E8E8] mb-2">

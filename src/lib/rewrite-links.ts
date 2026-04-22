@@ -10,7 +10,7 @@
  *   ../../02-memory/             → /modules/02-memory
  *   ../../02-memory/README.md    → /modules/02-memory
  */
-export function rewriteLink(href: string, currentModule?: string, lang: "en" | "ko" = "ko"): string {
+export function rewriteLink(href: string, currentModule?: string, lang: "ko" = "ko"): string {
   const prefix = `/${lang}/modules`;
 
   // Skip external, anchor-only, mailto, and already-rewritten links

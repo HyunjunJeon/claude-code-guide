@@ -3,7 +3,7 @@ import { chromium } from "playwright";
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
 
-await page.goto("http://localhost:3333/modules/01-slash-commands.html", { waitUntil: "load" });
+await page.goto("http://localhost:3333/ko/modules/01-slash-commands/", { waitUntil: "load" });
 await page.waitForTimeout(2000);
 
 // Screenshot before scroll

@@ -50,7 +50,7 @@ export default function NotFound() {
             </div>
             <div>
               <Link
-                href="/modules/01-slash-commands"
+                href="/ko/modules/01-slash-commands"
                 className="text-[#22C55E] hover:text-[#4ADE80]"
               >
                 /01

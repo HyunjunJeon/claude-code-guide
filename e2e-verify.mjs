@@ -35,7 +35,7 @@ async function main() {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   const page = await ctx.newPage();
 
-  console.log("\n🖥  Template E2E Verification (post-migration)\n");
+  console.log("\n🖥  Korean-only E2E Verification\n");
 
   // ═══ 1. Root redirect ═══
   await check(page, "루트 → /ko/ 리다이렉트", BASE, {
@@ -62,25 +62,13 @@ async function main() {
     "네비바 존재": async (p) => {
       return (await p.$("header")) !== null;
     },
-    "언어 전환 버튼": async (p) => {
+    "언어 전환 버튼 없음": async (p) => {
       const text = await p.textContent("header");
-      return text.includes("EN");
+      return !text.includes("EN") && !text.includes("KO");
     },
   });
 
-  // ═══ 3. English homepage ═══
-  await check(page, "EN 홈페이지", `${BASE}/en/`, {
-    "페이지 로드": async (p) => {
-      const text = await p.textContent("body");
-      return text.includes("Claude Code Guide");
-    },
-    "KO 전환 버튼": async (p) => {
-      const text = await p.textContent("header");
-      return text.includes("KO");
-    },
-  });
-
-  // ═══ 4. KO Module 01 ═══
+  // ═══ 3. KO Module 01 ═══
   await check(page, "KO 모듈 01 (슬래시 명령어)", `${BASE}/ko/modules/01-slash-commands/`, {
     "콘텐츠 길이 > 500": async (p) => {
       const text = await p.textContent("body");
@@ -107,26 +95,13 @@ async function main() {
     },
   });
 
-  // ═══ 5. EN Module 01 ═══
-  await check(page, "EN 모듈 01 (Slash Commands)", `${BASE}/en/modules/01-slash-commands/`, {
-    "영어 콘텐츠": async (p) => {
-      const text = await p.textContent("article");
-      return text.includes("Slash") || text.includes("command") || text.includes("Command");
-    },
-    "사이드바 en prefix": async (p) => {
-      const link = await p.$('aside a[href*="/modules/"]');
-      const href = await link.getAttribute("href");
-      return href.startsWith("/en/");
-    },
-  });
-
-  // ═══ 6. Subpage ═══
+  // ═══ 4. Subpage ═══
   await check(page, "KO 서브페이지 (commit)", `${BASE}/ko/modules/01-slash-commands/commit/`, {
     "article 존재": async (p) => (await p.$("article")) !== null,
     "콘텐츠 > 100자": async (p) => (await p.textContent("article")).length > 100,
   });
 
-  // ═══ 7. Module 05 (MCP - has tables) ═══
+  // ═══ 5. Module 05 (MCP - has tables) ═══
   await check(page, "KO 모듈 05 (MCP 테이블)", `${BASE}/ko/modules/05-mcp/`, {
     "MCP 콘텐츠": async (p) => {
       const text = await p.textContent("body");
@@ -135,7 +110,7 @@ async function main() {
     "테이블 존재": async (p) => (await p.$$("table")).length >= 1,
   });
 
-  // ═══ 8. 07-plugins nested subpages ═══
+  // ═══ 6. 07-plugins nested subpages ═══
   await check(page, "KO 07-plugins/devops-automation", `${BASE}/ko/modules/07-plugins/devops-automation/`, {
     "article 존재": async (p) => (await p.$("article")) !== null,
     "DevOps 콘텐츠": async (p) => {
@@ -144,20 +119,12 @@ async function main() {
     },
   });
 
-  await check(page, "EN 07-plugins/pr-review", `${BASE}/en/modules/07-plugins/pr-review/`, {
-    "article 존재": async (p) => (await p.$("article")) !== null,
-    "PR Review 콘텐츠": async (p) => {
-      const text = await p.textContent("article");
-      return text.includes("PR") || text.includes("review") || text.includes("Review");
-    },
-  });
-
   await check(page, "KO 07-plugins/documentation", `${BASE}/ko/modules/07-plugins/documentation/`, {
     "article 존재": async (p) => (await p.$("article")) !== null,
     "Documentation 콘텐츠": async (p) => (await p.textContent("article")).length > 100,
   });
 
-  // ═══ 9. Mermaid diagram rendering ═══
+  // ═══ 7. Mermaid diagram rendering ═══
   await check(page, "Mermaid 다이어그램 렌더링", `${BASE}/ko/modules/06-hooks/`, {
     "훅 콘텐츠": async (p) => {
       const text = await p.textContent("body");
@@ -170,7 +137,7 @@ async function main() {
     },
   });
 
-  // ═══ 10. Image loading ═══
+  // ═══ 8. Image loading ═══
   await check(page, "이미지 경로 재작성", `${BASE}/ko/modules/01-slash-commands/`, {
     "img 태그 존재": async (p) => (await p.$$("article img")).length >= 1,
     "img src /images/ prefix": async (p) => {
@@ -181,7 +148,7 @@ async function main() {
     },
   });
 
-  // ═══ 11. Module index page ═══
+  // ═══ 9. Module index page ═══
   await check(page, "KO 모듈 인덱스", `${BASE}/ko/modules/`, {
     "기능 개요": async (p) => {
       const text = await p.textContent("body");
@@ -191,7 +158,7 @@ async function main() {
     "모듈 링크 ko prefix": async (p) => (await p.$('a[href*="/ko/modules/01"]')) !== null,
   });
 
-  // ═══ 12. Newly added parity pages ═══
+  // ═══ 10. Newly added parity pages ═══
   await check(page, "KO 웹 퀵스타트", `${BASE}/ko/modules/09-advanced-features/web-quickstart/`, {
     "article 존재": async (p) => (await p.$("article")) !== null,
     "웹 세션 내용": async (p) => {
@@ -272,7 +239,7 @@ async function main() {
     },
   });
 
-  // ═══ 13. 404 page ═══
+  // ═══ 11. 404 page ═══
   await check(page, "404 페이지", `${BASE}/nonexistent-page/`, {
     "404 콘텐츠": async (p) => {
       const text = await p.textContent("body");
@@ -280,7 +247,7 @@ async function main() {
     },
   });
 
-  // ═══ 14. All 12 modules — KO ═══
+  // ═══ 12. All 12 modules — KO ═══
   const moduleSlugs = [
     "01-slash-commands", "02-memory", "03-skills", "04-subagents", "05-mcp",
     "06-hooks", "07-plugins", "08-checkpoints", "09-advanced-features", "10-cli",
@@ -288,14 +255,6 @@ async function main() {
   ];
   for (const slug of moduleSlugs) {
     await check(page, `KO ${slug}`, `${BASE}/ko/modules/${slug}/`, {
-      "article": async (p) => (await p.$("article")) !== null,
-      "콘텐츠 > 100자": async (p) => (await p.textContent("article")).length > 100,
-    });
-  }
-
-  // ═══ 15. All 12 modules — EN ═══
-  for (const slug of moduleSlugs) {
-    await check(page, `EN ${slug}`, `${BASE}/en/modules/${slug}/`, {
       "article": async (p) => (await p.$("article")) !== null,
       "콘텐츠 > 100자": async (p) => (await p.textContent("article")).length > 100,
     });
