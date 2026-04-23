@@ -8,7 +8,8 @@
     "prebuild": "node scripts/generate-content-manifest.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "export:wikidocs": "node scripts/export-wikidocs.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
