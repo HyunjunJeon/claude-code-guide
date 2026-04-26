@@ -251,7 +251,9 @@ Claude Code는 다중 티어 계층적 memory 시스템을 사용합니다. Memo
 7. **로컬 프로젝트 Memory** - 개인 프로젝트별 설정
    - `./CLAUDE.local.md`
 
-> **참고**: `CLAUDE.local.md`는 [공식 문서](https://code.claude.com/docs/ko/memory)에서 완전히 지원되고 문서화되어 있습니다. 버전 관리에 커밋되지 않는 개인 프로젝트별 설정을 제공합니다. `CLAUDE.local.md`를 `.gitignore`에 추가하십시오.
+[[TIP("참고")]]
+`CLAUDE.local.md`는 [공식 문서](https://code.claude.com/docs/ko/memory)에서 완전히 지원되고 문서화되어 있습니다. 버전 관리에 커밋되지 않는 개인 프로젝트별 설정을 제공합니다. `CLAUDE.local.md`를 `.gitignore`에 추가하십시오.
+[[/TIP]]
 
 8. **자동 Memory** - Claude의 자동 메모 및 학습 내용
    - `~/.claude/projects/<project>/memory/`
@@ -482,7 +484,9 @@ npm install -g @anthropic-ai/claude-code@latest
 }
 ```
 
-> **참고**: `autoMemoryDirectory`는 사용자 수준(`~/.claude/settings.json`) 또는 로컬 설정(`.claude/settings.local.json`)에서만 설정할 수 있으며, 프로젝트 또는 관리 정책 설정에서는 설정할 수 없습니다.
+[[TIP("참고")]]
+`autoMemoryDirectory`는 사용자 수준(`~/.claude/settings.json`) 또는 로컬 설정(`.claude/settings.local.json`)에서만 설정할 수 있으며, 프로젝트 또는 관리 정책 설정에서는 설정할 수 없습니다.
+[[/TIP]]
 
 다음과 같은 경우에 유용합니다:
 
@@ -506,7 +510,9 @@ memory: local     # Load local memory only
 
 이를 통해 subagent가 전체 memory 계층을 상속하는 대신 집중된 컨텍스트로 작동할 수 있습니다.
 
-> **참고**: Subagent도 자체 자동 memory를 유지할 수 있습니다. 자세한 내용은 [공식 subagent memory 문서](https://code.claude.com/docs/ko/sub-agents#enable-persistent-memory)를 참조하십시오.
+[[TIP("참고")]]
+Subagent도 자체 자동 memory를 유지할 수 있습니다. 자세한 내용은 [공식 subagent memory 문서](https://code.claude.com/docs/ko/sub-agents#enable-persistent-memory)를 참조하십시오.
+[[/TIP]]
 
 ### 자동 Memory 제어
 

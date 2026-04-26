@@ -1,5 +1,3 @@
-# 10. CLI 참조
-
 Claude Code CLI(Command Line Interface)는 Claude Code와 상호 작용하는 주요 방법입니다. 대화형 세션부터 스크립트, CI/CD, 백그라운드 작업까지 모든 진입점이 이 한 가지 명령에서 시작됩니다.
 
 ## 언제 읽으면 좋은가

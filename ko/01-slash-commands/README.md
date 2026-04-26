@@ -19,7 +19,9 @@ Slash command는 대화형 세션에서 Claude의 동작을 제어하는 단축 
 - **Plugin 명령**: 설치된 plugin에서 제공하는 명령 (`/frontend-design:frontend-design`)
 - **MCP prompt**: MCP 서버에서 제공하는 명령 (`/mcp__github__list_prs`)
 
-> **참고**: 사용자 정의 slash command는 skill로 통합되었습니다. `.claude/commands/`에 있는 파일은 여전히 작동하지만, skill(`.claude/skills/`)이 현재 권장 방식입니다. 두 가지 모두 `/command-name` 단축 명령을 생성합니다. 전체 레퍼런스는 [Skill 가이드](../../03-skills/)를 참조하십시오.
+[[TIP("참고")]]
+사용자 정의 slash command는 skill로 통합되었습니다. `.claude/commands/`에 있는 파일은 여전히 작동하지만, skill(`.claude/skills/`)이 현재 권장 방식입니다. 두 가지 모두 `/command-name` 단축 명령을 생성합니다. 전체 레퍼런스는 [Skill 가이드](../../03-skills/)를 참조하십시오.
+[[/TIP]]
 
 **신규 내장 워크플로 관련 가이드:**
 
@@ -30,7 +32,9 @@ Slash command는 대화형 세션에서 Claude의 동작을 제어하는 단축 
 
 내장 명령은 일반적인 작업을 위한 단축 명령입니다. **60개 이상의 내장 명령**과 **5개의 번들 skill**을 사용할 수 있습니다. Claude Code에서 `/`를 입력하면 전체 목록을 볼 수 있고, `/` 뒤에 문자를 입력하면 필터링됩니다.
 
-> **참고**: 일부 명령은 조건부입니다 — 구독 티어(예: `/privacy-settings`), 플랫폼(예: `/desktop`), 또는 환경 설정(예: `/setup-bedrock`)에 따라 표시됩니다.
+[[TIP("참고")]]
+일부 명령은 조건부입니다 — 구독 티어(예: `/privacy-settings`), 플랫폼(예: `/desktop`), 또는 환경 설정(예: `/setup-bedrock`)에 따라 표시됩니다.
+[[/TIP]]
 
 | Command | 용도 |
 |---------|---------|

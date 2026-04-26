@@ -1,6 +1,6 @@
-# 09. 고급 기능
-
 Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print mode(비대화형), 세션 관리, 대화형 기능, channel, 음성 입력, remote control, 웹 세션, 데스크톱 앱, task list, 프롬프트 제안, git worktree, sandboxing, 관리형 설정, 그리고 구성을 포함하는 Claude Code의 고급 기능에 대한 종합 가이드입니다.
+
+[TOC]
 
 ## 언제 읽으면 좋은가
 
@@ -409,7 +409,9 @@ claude --teammate-mode in-process
 - 병렬 코드 리뷰 및 구현
 - 코드베이스 전반에 걸친 조율된 다중 파일 변경
 
-> **참고**: Agent Teams는 실험적 기능이며 향후 릴리스에서 변경될 수 있습니다. 전체 참조는 [code.claude.com/docs/ko/agent-teams](https://code.claude.com/docs/ko/agent-teams)를 참조하세요.
+[[TIP("참고")]]
+Agent Teams는 실험적 기능이며 향후 릴리스에서 변경될 수 있습니다. 전체 참조는 [code.claude.com/docs/ko/agent-teams](https://code.claude.com/docs/ko/agent-teams)를 참조하세요.
+[[/TIP]]
 
 ---
 
@@ -4169,7 +4171,9 @@ claude --effort high "complex architectural review"
 
 > **참고:** 프롬프트에서 "ultrathink" 키워드를 사용하면 딥 추론 모드가 활성화됩니다. 노력 수준 `low`, `medium`, `high`, `xhigh` (Opus 4.7 기본값), `max`는 Claude가 수행하는 추론의 양을 제어합니다.
 
-> **참고**: v2.1.94부터 API 키, Bedrock/Vertex/Foundry, Team, Enterprise 사용자의 기본 노력 수준이 `medium`에서 `high`로 변경되었습니다 (Opus 4.6). Opus 4.7의 기본값은 `xhigh`입니다.
+[[TIP("참고")]]
+v2.1.94부터 API 키, Bedrock/Vertex/Foundry, Team, Enterprise 사용자의 기본 노력 수준이 `medium`에서 `high`로 변경되었습니다 (Opus 4.6). Opus 4.7의 기본값은 `xhigh`입니다.
+[[/TIP]]
 
 #### Extended Thinking의 이점
 
@@ -5023,7 +5027,9 @@ Claude Code 데스크톱 앱은 시각적 diff 검토, 병렬 세션, 통합 커
 | **Asana** | 작업 관리, 프로젝트 추적 |
 | **Calendar** | 일정 인식, 회의 컨텍스트 |
 
-> **참고**: 커넥터는 원격(클라우드) 세션에서 사용할 수 없습니다.
+[[TIP("참고")]]
+커넥터는 원격(클라우드) 세션에서 사용할 수 없습니다.
+[[/TIP]]
 
 #### 원격 및 SSH 세션
 

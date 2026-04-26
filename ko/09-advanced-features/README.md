@@ -3,6 +3,8 @@
 
 Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print mode(비대화형), 세션 관리, 대화형 기능, channel, 음성 입력, remote control, 웹 세션, 데스크톱 앱, task list, 프롬프트 제안, git worktree, sandboxing, 관리형 설정, 그리고 구성을 포함하는 Claude Code의 고급 기능에 대한 종합 가이드입니다.
 
+[TOC]
+
 ## 언제 읽으면 좋은가
 
 - 기본 명령과 메모리, 스킬, MCP를 이미 한 번 써봤을 때
@@ -410,7 +412,9 @@ claude --teammate-mode in-process
 - 병렬 코드 리뷰 및 구현
 - 코드베이스 전반에 걸친 조율된 다중 파일 변경
 
-> **참고**: Agent Teams는 실험적 기능이며 향후 릴리스에서 변경될 수 있습니다. 전체 참조는 [code.claude.com/docs/ko/agent-teams](https://code.claude.com/docs/ko/agent-teams)를 참조하세요.
+[[TIP("참고")]]
+Agent Teams는 실험적 기능이며 향후 릴리스에서 변경될 수 있습니다. 전체 참조는 [code.claude.com/docs/ko/agent-teams](https://code.claude.com/docs/ko/agent-teams)를 참조하세요.
+[[/TIP]]
 
 ---
 

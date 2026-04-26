@@ -204,7 +204,9 @@ claude --effort high "complex architectural review"
 
 > **참고:** 프롬프트에서 "ultrathink" 키워드를 사용하면 딥 추론 모드가 활성화됩니다. 노력 수준 `low`, `medium`, `high`, `xhigh` (Opus 4.7 기본값), `max`는 Claude가 수행하는 추론의 양을 제어합니다.
 
-> **참고**: v2.1.94부터 API 키, Bedrock/Vertex/Foundry, Team, Enterprise 사용자의 기본 노력 수준이 `medium`에서 `high`로 변경되었습니다 (Opus 4.6). Opus 4.7의 기본값은 `xhigh`입니다.
+[[TIP("참고")]]
+v2.1.94부터 API 키, Bedrock/Vertex/Foundry, Team, Enterprise 사용자의 기본 노력 수준이 `medium`에서 `high`로 변경되었습니다 (Opus 4.6). Opus 4.7의 기본값은 `xhigh`입니다.
+[[/TIP]]
 
 ### Extended Thinking의 이점
 

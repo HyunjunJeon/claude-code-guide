@@ -471,7 +471,10 @@ async function main() {
       .filter(Boolean)
       .join("\n\n---\n\n");
 
-    const pageContent = `# ${page.title}\n\n${mergedContent}\n`;
+    // WikiDocs displays the page title from TOC.md, and its guide
+    // recommends starting body content at H2 (H1 in body is treated
+    // as an ebook chapter). Emit body only.
+    const pageContent = `${mergedContent.trim()}\n`;
     await fs.writeFile(path.join(pagesDir, page.outputName), pageContent);
   }
 

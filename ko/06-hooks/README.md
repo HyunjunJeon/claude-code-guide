@@ -88,7 +88,7 @@ Hooks는 특정 구조의 설정 파일에서 구성합니다:
 
 | 필드 | 설명 | 예시 |
 |-------|-------------|---------|
-| `matcher` | 도구 이름과 매칭하는 패턴 (대소문자 구분) | `"Write"`, `"Edit\|Write"`, `"*"` |
+| `matcher` | 도구 이름과 매칭하는 패턴 (대소문자 구분) | `"Write"`, `"Edit&#124;Write"`, `"*"` |
 | `hooks` | hook 정의 배열 | `[{ "type": "command", ... }]` |
 | `type` | Hook 타입: `"command"` (bash), `"prompt"` (LLM), `"http"` (웹훅), 또는 `"agent"` (subagent) | `"command"` |
 | `command` | 실행할 셸 명령 | `"$CLAUDE_PROJECT_DIR/.claude/hooks/format.sh"` |
@@ -103,7 +103,7 @@ Hooks는 특정 구조의 설정 파일에서 구성합니다:
 | 패턴 | 설명 | 예시 |
 |---------|-------------|---------|
 | 정확한 문자열 | 특정 도구와 매칭 | `"Write"` |
-| 정규식 패턴 | 여러 도구와 매칭 | `"Edit\|Write"` |
+| 정규식 패턴 | 여러 도구와 매칭 | `"Edit&#124;Write"` |
 | 와일드카드 | 모든 도구와 매칭 | `"*"` 또는 `""` |
 | MCP 도구 | 서버 및 도구 패턴 | `"mcp__memory__.*"` |
 

@@ -657,7 +657,9 @@ GitHub shorthand는 편리하지만 유일한 배포 경로는 아닙니다. mar
 }
 ```
 
-> **경고**: `strictKnownMarketplaces`가 적용된 strict 모드에서는 사용자가 허용 목록에 있는 마켓플레이스에서만 plugin을 설치할 수 있습니다. 이는 통제된 plugin 배포가 필요한 엔터프라이즈 환경에 유용합니다.
+[[TIP("경고")]]
+`strictKnownMarketplaces`가 적용된 strict 모드에서는 사용자가 허용 목록에 있는 마켓플레이스에서만 plugin을 설치할 수 있습니다. 이는 통제된 plugin 배포가 필요한 엔터프라이즈 환경에 유용합니다.
+[[/TIP]]
 
 ## Plugin 설치 및 수명 주기
 

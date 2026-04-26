@@ -1,5 +1,3 @@
-# 12. Agent SDK
-
 Claude Code Agent SDK는 Claude의 에이전트 루프를 본인의 앱이나 워크플로에 코드 수준에서 임베드할 수 있게 해주는 라이브러리입니다.  
 대화형 CLI 사용자가 아니라, TypeScript 또는 Python으로 세션, 도구, 권한, 스트리밍, 호스팅을 직접 제어해야 하는 빌더 관점의 모듈입니다.
 
