@@ -32,5 +32,5 @@
 
 - 스킬
 - Tool Search
-- Plugins 모듈
+- [Plugins 모듈](https://wikidocs.net/345497)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/plugins

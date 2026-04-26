@@ -28,5 +28,5 @@
 
 - 슬래시 명령
 - 플러그인
-- Skills 모듈
+- [Skills 모듈](https://wikidocs.net/345381)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/skills

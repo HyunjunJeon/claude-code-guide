@@ -232,8 +232,8 @@ settings system은 이런 기능군이 어떻게 활성화되고 제약되는지
 각 기능 상세는 전용 가이드를 참고하세요:
 
 - Hook 가이드
-- Plugin 가이드
-- Subagent 가이드
+- [Plugin 가이드](https://wikidocs.net/345497)
+- [Subagent 가이드](https://wikidocs.net/345414)
 
 ## Excluding Sensitive or Irrelevant Files
 

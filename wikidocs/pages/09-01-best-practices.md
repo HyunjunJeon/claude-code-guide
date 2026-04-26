@@ -119,7 +119,7 @@ Claude Code는 대화형이고 중간에 끊을 수 있습니다. 잘못 가기 
 - [How Claude Code Works](https://wikidocs.net/345346)
 - [Common Workflows](https://wikidocs.net/345348)
 - [Permissions and Security](https://wikidocs.net/345697)
-- Settings System Guide
+- [Settings System Guide](https://wikidocs.net/345696)
 
 ## 공식 출처
 

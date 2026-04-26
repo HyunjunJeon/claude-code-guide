@@ -61,8 +61,8 @@
 
 ## 관련 가이드
 
-- Plugins Guide
-- Skills
+- [Plugins Guide](https://wikidocs.net/345497)
+- [Skills](https://wikidocs.net/345381)
 - MCP
 
 ## 공식 출처

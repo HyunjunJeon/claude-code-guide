@@ -217,8 +217,8 @@ Expected result:
 
 - 고급 기능 README
 - 메모리 가이드
-- Skills 가이드
-- Subagents 가이드
+- [Skills 가이드](https://wikidocs.net/345381)
+- [Subagents 가이드](https://wikidocs.net/345414)
 
 ## Official Reference
 

@@ -170,6 +170,6 @@
 
 ## 관련 가이드
 
-- Settings System Guide
+- [Settings System Guide](https://wikidocs.net/345696)
 - CLI 참조
 - 문제 해결

@@ -64,9 +64,9 @@ When invoked:
 - [CLI 참조](https://code.claude.com/docs/ko/cli-reference) — `--agents` 플래그 및 기타 CLI 옵션
 - 01. Slash Commands — 빠른 사용자 호출 단축키
 - 02. Memory — 영구 세션 간 컨텍스트
-- 03. Skills — 재사용 가능한 자율 기능
+- [03. Skills](https://wikidocs.net/345381) — 재사용 가능한 자율 기능
 - 05. MCP — 실시간 외부 데이터 접근
 - 06. Hooks — 이벤트 기반 셸 명령 자동화
-- 07. Plugins — 번들 확장 패키지
+- [07. Plugins](https://wikidocs.net/345497) — 번들 확장 패키지
 
 ---

@@ -50,9 +50,9 @@ claude mcp add --transport stdio github -- npx @modelcontextprotocol/server-gith
 - [공식 MCP 문서](https://code.claude.com/docs/ko/mcp)
 - [MCP 프로토콜 사양](https://modelcontextprotocol.io/specification)
 - 02. Memory — MCP가 못 다루는 영구 컨텍스트 영역
-- 04. Subagents — subagent 단위로 MCP 서버 격리
+- [04. Subagents](https://wikidocs.net/345414) — subagent 단위로 MCP 서버 격리
 - 06. Hooks — Elicitation/도구 호출에 hook을 끼워 검증
-- 07. Plugins — Plugin 번들에 MCP 서버 포함하기
+- [07. Plugins](https://wikidocs.net/345497) — Plugin 번들에 MCP 서버 포함하기
 - 더 깊이 파고들 외부 자료는 mcp-resources.md에 모아 두었다.
 
 ---

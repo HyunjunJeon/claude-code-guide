@@ -17,11 +17,11 @@ Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print 
 - 컨텍스트 윈도우 살펴보기
 - [공통 워크플로](https://wikidocs.net/345348)
 - [모범 사례](https://wikidocs.net/345349)
-- Settings System Guide
+- [Settings System Guide](https://wikidocs.net/345696)
 - Output Styles
 - Fullscreen Rendering
 - Terminal Configuration
-- Channels Reference
+- [Channels Reference](https://wikidocs.net/345693)
 - Computer Use
 - Slack의 Claude Code
 - Use Claude Code in VS Code
@@ -141,7 +141,7 @@ claude --channels discord,telegram,imessage,webhooks
 4. 채널 플러그인은 `allowedChannelPlugins` 관리형 설정을 통해 승인되어야 합니다
 5. 폴링이 필요 없습니다 — 이벤트가 실시간으로 푸시됩니다
 
-전체 빌더 지향 참조는 Channels Reference를 참조하세요.
+전체 빌더 지향 참조는 [Channels Reference](https://wikidocs.net/345693)를 참조하세요.
 
 ---
 
@@ -469,20 +469,20 @@ Claude Code 및 관련 기능에 대한 자세한 정보:
 - [공식 대화형 모드 문서](https://code.claude.com/docs/ko/interactive-mode)
 - [공식 Headless 모드 문서](https://code.claude.com/docs/ko/headless)
 - [CLI 참조](https://code.claude.com/docs/ko/cli-reference)
-- Settings System Guide - scope, precedence, settings file의 실제 동작 정리
+- [Settings System Guide](https://wikidocs.net/345696) - scope, precedence, settings file의 실제 동작 정리
 - Output Styles - built-in style, custom style, 비교 기준 정리
 - Fullscreen Rendering - flicker 감소와 alternate-screen 동작 정리
 - Terminal Configuration - 줄바꿈, notifications, tmux 관련 설정 정리
-- Channels Reference - channel 기반 event stream의 builder-oriented 가이드
+- [Channels Reference](https://wikidocs.net/345693) - channel 기반 event stream의 builder-oriented 가이드
 - Use Claude Code in VS Code - VS Code 확장 중심 IDE workflow 가이드
 - Checkpoint 가이드 - 세션 관리 및 rewind
 - Slash Command - 명령어 참조
 - 메모리 가이드 - 영구 컨텍스트
-- Skill 가이드 - 자율 기능
-- Subagent 가이드 - 위임 작업 실행
+- [Skill 가이드](https://wikidocs.net/345381) - 자율 기능
+- [Subagent 가이드](https://wikidocs.net/345414) - 위임 작업 실행
 - MCP 가이드 - 외부 데이터 접근
 - Hook 가이드 - 이벤트 기반 자동화
-- Plugin 가이드 - 번들 확장
+- [Plugin 가이드](https://wikidocs.net/345497) - 번들 확장
 - [공식 Scheduled Tasks 문서](https://code.claude.com/docs/ko/scheduled-tasks)
 - [공식 Chrome 통합 문서](https://code.claude.com/docs/ko/chrome)
 - [공식 Remote Control 문서](https://code.claude.com/docs/ko/remote-control)

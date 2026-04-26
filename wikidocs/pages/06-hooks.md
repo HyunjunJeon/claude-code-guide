@@ -58,9 +58,9 @@ Hooks는 Claude Code 세션의 특정 이벤트에 반응해 자동으로 실행
 - [공식 Hooks 문서](https://code.claude.com/docs/ko/hooks) — 전체 hooks 참조
 - [CLI 참조](https://code.claude.com/docs/ko/cli-reference) — 명령줄 인터페이스 문서
 - 01. Slash Commands — hook과 함께 자주 결합되는 사용자 정의 명령
-- 03. Skills — 컴포넌트 frontmatter에 hook을 첨부할 수 있는 단위
-- 04. Subagents — agent hook과 SubagentStop의 대상
-- 07. Plugins — `hooks/hooks.json`으로 hook을 번들링하는 방법
+- [03. Skills](https://wikidocs.net/345381) — 컴포넌트 frontmatter에 hook을 첨부할 수 있는 단위
+- [04. Subagents](https://wikidocs.net/345414) — agent hook과 SubagentStop의 대상
+- [07. Plugins](https://wikidocs.net/345497) — `hooks/hooks.json`으로 hook을 번들링하는 방법
 - 08. Checkpoints — 대화 상태 저장 및 복원
 - 09. 고급 기능 — 자동 모드 권한 시드 등 hook과 결합하는 운영 기능
 

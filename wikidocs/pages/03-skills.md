@@ -72,9 +72,9 @@ For each file:
 - [에이전트 스킬 아키텍처 블로그](https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills)
 - 01. Slash Command — 사용자 시작 단축키
 - 02. Memory — 영구적인 컨텍스트
-- 04. Subagents — 위임된 AI 에이전트
+- [04. Subagents](https://wikidocs.net/345414) — 위임된 AI 에이전트
 - 05. MCP (Model Context Protocol) — 실시간 외부 데이터
 - 06. Hooks — 이벤트 기반 자동화
-- 07. Plugins — 스킬·명령·훅 번들 배포
+- [07. Plugins](https://wikidocs.net/345497) — 스킬·명령·훅 번들 배포
 
 ---

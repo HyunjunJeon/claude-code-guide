@@ -309,7 +309,7 @@ Expected result:
 ## Related Guides
 
 - 고급 기능 README
-- Settings System Guide
+- [Settings System Guide](https://wikidocs.net/345696)
 - Checkpoint 가이드
 - CLI 참조
 - MCP 가이드

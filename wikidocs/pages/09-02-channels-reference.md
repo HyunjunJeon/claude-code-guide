@@ -230,7 +230,7 @@ Expected result:
 
 - 고급 기능 README
 - MCP 가이드
-- Plugin 가이드
+- [Plugin 가이드](https://wikidocs.net/345497)
 - Hook 가이드
 
 ## Official Reference

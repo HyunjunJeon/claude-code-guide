@@ -64,8 +64,8 @@ print(result.output)
 
 - CLI 참조
 - Hooks
-- Subagents
-- Plugins
+- [Subagents](https://wikidocs.net/345414)
+- [Plugins](https://wikidocs.net/345497)
 
 ## Official reference
 

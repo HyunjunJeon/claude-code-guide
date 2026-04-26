@@ -70,8 +70,8 @@ claude --plugin-dir ./my-first-plugin
 - [MCP 서버 참조](https://modelcontextprotocol.io/)
 - 01. Slash Commands — plugin에 번들되는 개별 명령
 - 02. Memory — plugin을 위한 영구 컨텍스트
-- 03. Skills — plugin으로 래핑할 수 있는 도메인 전문성
-- 04. Subagents — plugin 구성요소로 포함되는 전문 에이전트
+- [03. Skills](https://wikidocs.net/345381) — plugin으로 래핑할 수 있는 도메인 전문성
+- [04. Subagents](https://wikidocs.net/345414) — plugin 구성요소로 포함되는 전문 에이전트
 - 05. MCP — plugin에 번들되는 Model Context Protocol 통합
 - 06. Hooks — plugin 워크플로우를 트리거하는 이벤트 핸들러
 

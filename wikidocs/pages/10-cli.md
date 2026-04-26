@@ -869,7 +869,7 @@ claude -p --output-format json "query"
 - **메모리 가이드** - CLAUDE.md를 통한 영구 컨텍스트
 - **MCP 프로토콜** - 외부 도구 통합
 - **고급 기능** - Plan mode, extended thinking
-- **Subagent 가이드** - 위임 작업 실행
+- **[Subagent 가이드](https://wikidocs.net/345414)** - 위임 작업 실행
 
 ---
 
