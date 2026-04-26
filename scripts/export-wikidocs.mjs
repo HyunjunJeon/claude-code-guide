@@ -106,6 +106,22 @@ async function readOverrideDoc(outputName) {
   };
 }
 
+async function collectMarkdownRecursively(dir, excludeNames = new Set()) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const results = [];
+
+  for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isFile() && entry.name.endsWith(".md") && !excludeNames.has(entry.name)) {
+      results.push(fullPath);
+    } else if (entry.isDirectory()) {
+      results.push(...(await collectMarkdownRecursively(fullPath)));
+    }
+  }
+
+  return results;
+}
+
 async function getModuleSubpages(moduleDir) {
   const entries = await fs.readdir(moduleDir, { withFileTypes: true });
   const subpages = [];
@@ -117,10 +133,22 @@ async function getModuleSubpages(moduleDir) {
     }
 
     if (entry.isDirectory()) {
-      const readmePath = path.join(moduleDir, entry.name, "README.md");
+      const subDir = path.join(moduleDir, entry.name);
+      const readmePath = path.join(subDir, "README.md");
+      const skillPath = path.join(subDir, "SKILL.md");
+
+      let entryFileName = null;
       if (await pathExists(readmePath)) {
+        entryFileName = "README.md";
         subpages.push(readmePath);
+      } else if (await pathExists(skillPath)) {
+        entryFileName = "SKILL.md";
+        subpages.push(skillPath);
       }
+
+      const exclude = entryFileName ? new Set([entryFileName]) : new Set();
+      const nested = await collectMarkdownRecursively(subDir, exclude);
+      subpages.push(...nested);
     }
   }
 

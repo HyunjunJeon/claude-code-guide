@@ -8,7 +8,7 @@ Claude Code Plugins는 커스터마이징(slash command, subagent, MCP 서버, h
 
 **관련 가이드:**
 
-- [플러그인 찾기](07-plugins.md#07-plugins-02-플러그인-찾기)
+- [플러그인 찾기](07-plugins.md#07-plugins-09-플러그인-찾기)
 
 ## Plugin 아키텍처
 
@@ -1187,9 +1187,108 @@ Result:
 
 ---
 
-<a id="07-plugins-02-플러그인-찾기"></a>
+<a id="07-plugins-02-alert-analyzer"></a>
 
-## 07-02. 플러그인 찾기
+## 07-02. Alert Analyzer
+
+시스템 상태와 알림을 분석합니다:
+- 알림 상관관계 분석
+- 트렌드 분석
+- 근본 원인 식별
+- 메트릭 시각화
+- 선제적 문제 감지
+
+---
+
+<a id="07-plugins-03-deployment-specialist"></a>
+
+## 07-03. Deployment Specialist
+
+배포 운영 전문가입니다:
+- 블루-그린 배포
+- 카나리 릴리스
+- 롤백 절차
+- 상태 확인
+- 데이터베이스 마이그레이션
+
+---
+
+<a id="07-plugins-04-incident-commander"></a>
+
+## 07-04. Incident Commander
+
+인시던트 대응을 관리합니다:
+- 심각도 평가
+- 팀 조율
+- 상태 업데이트
+- 해결 추적
+- 사후 분석 진행
+
+---
+
+<a id="07-plugins-05-애플리케이션-배포"></a>
+
+## 07-05. 애플리케이션 배포
+
+배포 워크플로우를 실행합니다:
+
+1. 배포 전 검사 실행
+2. 애플리케이션 빌드
+3. 테스트 실행
+4. 대상 환경에 배포
+5. 상태 확인 실행
+6. Slack으로 팀에 알림
+
+---
+
+<a id="07-plugins-06-인시던트-대응"></a>
+
+## 07-06. 인시던트 대응
+
+구조화된 인시던트 대응 워크플로우:
+
+1. 인시던트 기록 생성
+2. 심각도 및 영향 평가
+3. 당직 팀에 알림
+4. 진단 정보 수집
+5. 대응 노력 조율
+6. 해결 문서화
+7. 사후 분석 일정 수립
+
+---
+
+<a id="07-plugins-07-배포-롤백"></a>
+
+## 07-07. 배포 롤백
+
+이전 안정 버전으로 롤백합니다:
+
+1. 이전 배포 식별
+2. 롤백 대상이 정상인지 확인
+3. 롤백 절차 실행
+4. 상태 확인 실행
+5. 팀에 알림
+
+---
+
+<a id="07-plugins-08-시스템-상태-확인"></a>
+
+## 07-08. 시스템 상태 확인
+
+모든 서비스의 시스템 상태를 확인합니다:
+
+1. Kubernetes 파드 상태 조회
+2. 데이터베이스 연결 확인
+3. API 응답 시간 모니터링
+4. 오류율 검토
+5. 리소스 사용률 확인
+6. 전체 상태 보고
+
+---
+
+<a id="07-plugins-09-플러그인-찾기"></a>
+
+## 07-09. 플러그인 찾기
 
 이 문서는 Claude Code plugin을 찾고, 평가하고, 안전하게 설치하는 과정에 초점을 둡니다.
 
@@ -1264,9 +1363,9 @@ Result:
 
 ---
 
-<a id="07-plugins-03-documentation-plugin"></a>
+<a id="07-plugins-10-documentation-plugin"></a>
 
-## 07-03. Documentation Plugin
+## 07-10. Documentation Plugin
 
 프로젝트를 위한 포괄적인 문서 생성 및 유지보수입니다.
 
@@ -1383,9 +1482,311 @@ export GITHUB_TOKEN="your_github_token"
 
 ---
 
-<a id="07-plugins-04-pr-review-plugin"></a>
+<a id="07-plugins-11-api-documenter"></a>
 
-## 07-04. PR Review Plugin
+## 07-11. API Documenter
+
+포괄적인 API 문서를 생성합니다:
+- 엔드포인트 문서화
+- 매개변수 설명
+- 응답 스키마
+- 코드 예제 (curl, JS, Python)
+- 오류 코드
+
+---
+
+<a id="07-plugins-12-code-commentator"></a>
+
+## 07-12. Code Commentator
+
+코드 문서를 개선합니다:
+- JSDoc/docstring 주석
+- 인라인 설명
+- 매개변수 설명
+- 반환 타입 문서화
+- 사용 예제
+
+---
+
+<a id="07-plugins-13-example-generator"></a>
+
+## 07-13. Example Generator
+
+실용적인 코드 예제를 생성합니다:
+- 시작하기 가이드
+- 일반적인 사용 사례
+- 통합 예제
+- 모범 사례
+- 문제 해결 시나리오
+
+---
+
+<a id="07-plugins-14-api-문서-생성기"></a>
+
+## 07-14. API 문서 생성기
+
+완전한 API 문서를 생성합니다:
+
+1. API 엔드포인트 스캔
+2. 함수 시그니처 및 JSDoc 추출
+3. 모듈/엔드포인트별 정리
+4. 예제가 포함된 마크다운 생성
+5. 요청/응답 스키마 포함
+6. 오류 문서 추가
+
+---
+
+<a id="07-plugins-15-readme-생성기"></a>
+
+## 07-15. README 생성기
+
+포괄적인 README를 생성합니다:
+
+1. 프로젝트 개요 및 설명
+2. 설치 안내
+3. 사용 예제
+4. API 문서 링크
+5. 기여 가이드라인
+6. 라이선스 정보
+
+---
+
+<a id="07-plugins-16-문서-동기화"></a>
+
+## 07-16. 문서 동기화
+
+문서를 코드베이스와 동기화합니다:
+
+1. 코드 변경 감지
+2. 오래된 문서 식별
+3. 영향받는 문서 업데이트
+4. 예제가 여전히 작동하는지 검증
+5. 버전 번호 업데이트
+
+---
+
+<a id="07-plugins-17-문서-검증"></a>
+
+## 07-17. 문서 검증
+
+문서 품질을 검증합니다:
+
+1. 깨진 링크 확인
+2. 코드 예제 검증
+3. 완전성 확인
+4. 포맷 확인
+5. 실제 코드와 대조 검증
+
+---
+
+<a id="07-plugins-18-adr-number-title"></a>
+
+## 07-18. ADR [Number]: [Title]
+
+### 상태
+[제안됨 | 수락됨 | 폐기됨 | 대체됨]
+
+### 배경
+이 결정이나 변경을 촉발하는 문제는 무엇인가?
+
+### 결정
+제안하거나 실행하고자 하는 변경은 무엇인가?
+
+### 결과
+이 변경으로 인해 무엇이 더 쉬워지거나 어려워지는가?
+
+#### 긍정적
+- 이점 1
+- 이점 2
+
+#### 부정적
+- 단점 1
+- 단점 2
+
+#### 중립적
+- 고려사항 1
+- 고려사항 2
+
+### 검토한 대안
+어떤 다른 옵션이 고려되었으며 왜 선택되지 않았는가?
+
+#### 대안 1
+설명 및 선택하지 않은 이유.
+
+#### 대안 2
+설명 및 선택하지 않은 이유.
+
+### 참조
+- 관련 ADR
+- 외부 문서
+- 토론 링크
+
+---
+
+<a id="07-plugins-19-method-api-v1-endpoint"></a>
+
+## 07-19. [METHOD] /api/v1/[endpoint]
+
+### 설명
+이 엔드포인트가 수행하는 작업에 대한 간단한 설명.
+
+### 인증
+필요한 인증 방법 (예: Bearer 토큰).
+
+### 매개변수
+
+#### 경로 매개변수
+| 이름 | 타입 | 필수 | 설명 |
+|------|------|----------|-------------|
+| id | string | 예 | 리소스 ID |
+
+#### 쿼리 매개변수
+| 이름 | 타입 | 필수 | 설명 |
+|------|------|----------|-------------|
+| page | integer | 아니오 | 페이지 번호 (기본값: 1) |
+| limit | integer | 아니오 | 페이지당 항목 수 (기본값: 20) |
+
+#### 요청 본문
+```json
+{
+  "field": "value"
+}
+```
+
+### 응답
+
+#### 200 OK
+```json
+{
+  "success": true,
+  "data": {
+    "id": "123",
+    "name": "Example"
+  }
+}
+```
+
+#### 400 Bad Request
+```json
+{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid input"
+  }
+}
+```
+
+#### 404 Not Found
+```json
+{
+  "success": false,
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "Resource not found"
+  }
+}
+```
+
+### 예제
+
+#### cURL
+```bash
+curl -X GET "https://api.example.com/api/v1/endpoint" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+#### JavaScript
+```javascript
+const response = await fetch('/api/v1/endpoint', {
+  headers: {
+    'Authorization': 'Bearer token',
+    'Content-Type': 'application/json'
+  }
+});
+const data = await response.json();
+```
+
+#### Python
+```python
+import requests
+
+response = requests.get(
+    'https://api.example.com/api/v1/endpoint',
+    headers={'Authorization': 'Bearer token'}
+)
+data = response.json()
+```
+
+### 속도 제한
+- 인증된 사용자: 시간당 1000건 요청
+- 공개 엔드포인트: 시간당 100건 요청
+
+### 관련 엔드포인트
+- [GET /api/v1/related](#)
+- [POST /api/v1/related](#)
+
+---
+
+<a id="07-plugins-20-function-functionname"></a>
+
+## 07-20. Function: `functionName`
+
+### 설명
+함수가 수행하는 작업에 대한 간단한 설명.
+
+### 시그니처
+```typescript
+function functionName(param1: Type1, param2: Type2): ReturnType
+```
+
+### 매개변수
+
+| 매개변수 | 타입 | 필수 | 설명 |
+|-----------|------|----------|-------------|
+| param1 | Type1 | 예 | param1에 대한 설명 |
+| param2 | Type2 | 아니오 | param2에 대한 설명 |
+
+### 반환값
+**타입**: `ReturnType`
+
+반환되는 값에 대한 설명.
+
+### 예외
+- `Error`: 유효하지 않은 입력이 제공된 경우
+- `TypeError`: 잘못된 타입이 전달된 경우
+
+### 예제
+
+#### 기본 사용법
+```typescript
+const result = functionName('value1', 'value2');
+console.log(result);
+```
+
+#### 고급 사용법
+```typescript
+const result = functionName(
+  complexParam1,
+  { option: true }
+);
+```
+
+### 참고사항
+- 추가 참고사항 또는 경고
+- 성능 고려사항
+- 모범 사례
+
+### 관련 항목
+- [관련 함수](#)
+- [API 문서](#)
+
+---
+
+<a id="07-plugins-21-pr-review-plugin"></a>
+
+## 07-21. PR Review Plugin
 
 보안, 테스트, 문서 확인을 포함한 완전한 PR 리뷰 워크플로우입니다.
 
@@ -1471,3 +1872,81 @@ Result:
 ✅ Performance: No significant impact
 📝 Recommendations: Add tests for edge cases
 ```
+
+---
+
+<a id="07-plugins-22-performance-analyzer"></a>
+
+## 07-22. Performance Analyzer
+
+변경 사항의 성능 영향을 평가합니다:
+- 알고리즘 복잡도
+- 데이터베이스 쿼리 효율성
+- 메모리 사용량
+- 캐싱 기회
+
+---
+
+<a id="07-plugins-23-security-reviewer"></a>
+
+## 07-23. Security Reviewer
+
+보안 취약점을 찾는 전문가입니다:
+- 인증/권한 부여 문제
+- 데이터 노출
+- 인젝션 공격
+- 보안 설정
+
+---
+
+<a id="07-plugins-24-test-checker"></a>
+
+## 07-24. Test Checker
+
+테스트 커버리지와 품질을 분석합니다:
+- 커버리지 비율
+- 누락된 테스트 케이스
+- 테스트 품질 평가
+- 에지 케이스 식별
+
+---
+
+<a id="07-plugins-25-보안-검사"></a>
+
+## 07-25. 보안 검사
+
+코드 변경 사항에 대한 집중적인 보안 분석을 수행합니다:
+
+1. 인증/권한 부여 검사
+2. 데이터 노출 위험
+3. 인젝션 취약점
+4. 암호화 약점
+5. 로그의 민감한 데이터
+
+---
+
+<a id="07-plugins-26-테스트-커버리지-검사"></a>
+
+## 07-26. 테스트 커버리지 검사
+
+테스트 커버리지와 품질을 분석합니다:
+
+1. 테스트 커버리지 비율 확인
+2. 테스트되지 않은 코드 경로 식별
+3. 테스트 품질 검토
+4. 누락된 테스트 케이스 제안
+5. 에지 케이스가 다루어지는지 확인
+
+---
+
+<a id="07-plugins-27-pr-리뷰"></a>
+
+## 07-27. PR 리뷰
+
+이 명령은 다음을 포함하는 완전한 풀 리퀘스트 리뷰를 시작합니다:
+
+1. 보안 분석
+2. 테스트 커버리지 검증
+3. 문서 업데이트
+4. 코드 품질 검사
+5. 성능 영향 평가
