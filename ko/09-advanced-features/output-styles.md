@@ -79,7 +79,7 @@ Custom output styles는 다음 위치의 Markdown 파일입니다:
 
 최소 예시:
 
-```md
+```markdown
 ---
 name: Architecture Reviewer
 description: Focus on tradeoffs, risks, and boundary decisions.
@@ -119,7 +119,7 @@ Claude Code를 계속 coding agent처럼 유지하면서 presentation이나 emph
 
 ## Example Project Layout
 
-```text
+```plaintext
 .claude/
 └── output-styles/
     ├── architecture-reviewer.md

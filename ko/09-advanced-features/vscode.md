@@ -96,11 +96,11 @@ Prompt box의 mode controls로 현재 작업에서 Claude가 edit와 approval을
 
 예시:
 
-```text
+```plaintext
 Explain the logic in @src/auth
 ```
 
-```text
+```plaintext
 Review @server.ts#120-180
 ```
 

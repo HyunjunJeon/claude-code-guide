@@ -95,7 +95,7 @@ claude
 
 Claude Code 안에서:
 
-```text
+```plaintext
 /status
 /permissions
 ```

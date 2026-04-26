@@ -61,7 +61,7 @@ macOS, Linux, WSL에서는 npm 권한이나 optional dependency 문제가 있을
 
 가장 먼저 아래 순서로 재시도하세요.
 
-```text
+```plaintext
 /logout
 claude
 ```

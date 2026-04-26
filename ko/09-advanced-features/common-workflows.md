@@ -8,7 +8,7 @@
 
 예시 프롬프트:
 
-```text
+```plaintext
 give me an overview of this codebase
 explain the main architecture patterns used here
 what are the key data models?
@@ -25,7 +25,7 @@ how is authentication handled?
 
 파일 이름만이 아니라 도메인 언어와 실행 흐름을 같이 묻는 편이 좋습니다.
 
-```text
+```plaintext
 find the files that handle user authentication
 how do these authentication files work together?
 trace the login process from front-end to database
@@ -37,7 +37,7 @@ trace the login process from front-end to database
 
 증상만 말하지 말고 재현 방법을 함께 줍니다.
 
-```text
+```plaintext
 I'm seeing an error when I run npm test
 suggest a few ways to fix the @ts-ignore in user.ts
 update user.ts to add the null check you suggested
@@ -54,7 +54,7 @@ update user.ts to add the null check you suggested
 
 리팩터링은 범위와 호환성 기준이 분명할수록 잘 됩니다.
 
-```text
+```plaintext
 find deprecated API usage in our codebase
 suggest how to refactor utils.js to use modern JavaScript features
 refactor utils.js to use ES2024 features while maintaining the same behavior

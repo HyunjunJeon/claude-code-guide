@@ -7,7 +7,7 @@ description: Draft a blog post from ideas and resources. Use when users want to 
 
 ## 사용자 입력
 
-```text
+```plaintext
 $ARGUMENTS
 ```
 

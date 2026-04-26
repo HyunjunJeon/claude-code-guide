@@ -8,7 +8,7 @@ Claude Code는 일시적 실패를 바로 보여주지 않고 먼저 여러 번 
 
 조절 가능한 환경 변수는 다음과 같습니다.
 
-```text
+```plaintext
 CLAUDE_CODE_MAX_RETRIES
 API_TIMEOUT_MS
 ```

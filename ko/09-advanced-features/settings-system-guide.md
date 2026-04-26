@@ -109,7 +109,7 @@ Claude Code는 네 가지 주요 scope를 사용합니다:
 
 ### User settings
 
-```text
+```plaintext
 ~/.claude/settings.json
 ```
 
@@ -117,7 +117,7 @@ Claude Code는 네 가지 주요 scope를 사용합니다:
 
 ### Project settings
 
-```text
+```plaintext
 .claude/settings.json
 ```
 
@@ -125,7 +125,7 @@ Claude Code는 네 가지 주요 scope를 사용합니다:
 
 ### Local project settings
 
-```text
+```plaintext
 .claude/settings.local.json
 ```
 
@@ -133,7 +133,7 @@ gitignored 되는 개인용 project override에 사용합니다.
 
 ### Other important files
 
-```text
+```plaintext
 ~/.claude.json
 .mcp.json
 CLAUDE.md

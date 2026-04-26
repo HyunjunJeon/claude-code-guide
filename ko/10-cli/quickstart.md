@@ -50,7 +50,7 @@ claude
 
 대화형 세션 안에서는 다음 명령으로도 로그인할 수 있습니다.
 
-```text
+```plaintext
 /login
 ```
 
@@ -73,7 +73,7 @@ claude
 
 처음에 자주 쓰는 명령:
 
-```text
+```plaintext
 /help
 /resume
 /status
@@ -83,7 +83,7 @@ claude
 
 바로 수정보다 먼저 저장소 이해 질문부터 던지는 편이 좋습니다.
 
-```text
+```plaintext
 what does this project do?
 what technologies does this project use?
 where is the main entry point?
@@ -96,7 +96,7 @@ Claude Code는 필요할 때 프로젝트 파일을 읽기 때문에, 대부분�
 
 처음에는 범위가 작은 변경이 적합합니다.
 
-```text
+```plaintext
 add a hello world function to the main file
 ```
 
@@ -113,7 +113,7 @@ add a hello world function to the main file
 
 자주 쓰는 Git 프롬프트:
 
-```text
+```plaintext
 what files have I changed?
 commit my changes with a descriptive message
 create a new branch called feature/quickstart
@@ -127,13 +127,13 @@ Claude Code가 Git 상태를 읽고 명령을 제안할 수는 있지만, 브랜
 
 원하는 작업을 자연어로 설명합니다.
 
-```text
+```plaintext
 there's a bug where users can submit empty forms - fix it
 ```
 
 또는:
 
-```text
+```plaintext
 add input validation to the user registration form
 ```
 

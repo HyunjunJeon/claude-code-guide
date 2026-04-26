@@ -80,7 +80,7 @@ HTTPS_PROXY=https://proxy.example.com:8080 curl -I https://api.anthropic.com
 
 Claude Code 안에서는 다음을 실행합니다.
 
-```text
+```plaintext
 /status
 ```
 

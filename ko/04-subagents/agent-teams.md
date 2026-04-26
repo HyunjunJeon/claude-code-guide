@@ -56,7 +56,7 @@ Agent team은:
 
 기능을 켠 뒤 자연어로 팀을 만들라고 요청하면 됩니다.
 
-```text
+```plaintext
 Create an agent team to investigate this bug: one teammate on frontend, one on backend, one on test coverage.
 ```
 

@@ -7,7 +7,7 @@ description: Create or update CLAUDE.md files following best practices for optim
 
 ## 사용자 입력
 
-```text
+```plaintext
 $ARGUMENTS
 ```
 
