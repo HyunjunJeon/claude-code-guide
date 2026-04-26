@@ -1,20 +1,24 @@
 # Claude Code 빠르게 마스터 하기
 
-`claude`를 입력하는 것부터 에이전트, 훅, 스킬, MCP 서버를 오케스트레이션하는 것까지 — 시각적 튜토리얼, 복사-붙여넣기 템플릿, 가이드 학습 경로로 배웁니다.
+`claude`를 처음 실행하는 단계부터 Memory, Skill, Subagent, MCP, Hooks, Plugin, 배포와 Agent SDK까지 학습 흐름대로 정리한 Claude Code 가이드입니다.
 
 ---
 
-## 목차
+## 학습 경로
 
-| 모듈 | 주제 | 설명 |
+| 순서 | 주제 | 설명 |
 |------|------|------|
-| [01](pages/01-getting-started.md) | 슬래시 커맨드 | 사용자 호출 단축키 |
-| [02](pages/02-memory.md) | 메모리 | 영구 컨텍스트 관리 |
-| [03](pages/03-skills.md) | 스킬 | 재사용 가능한 기능 정의 |
-| [04](pages/04-subagents.md) | 서브에이전트 | 전문화된 AI 어시스턴트 |
-| [05](pages/05-mcp.md) | MCP | Model Context Protocol |
-| [06](pages/06-hooks.md) | 훅 | 이벤트 기반 자동화 |
-| [07](pages/07-plugins.md) | 플러그인 | 번들 기능 패키지 |
-| [08](pages/08-checkpoints.md) | 체크포인트 | 세션 스냅샷과 되감기 |
-| [09](pages/09-advanced-features.md) | 고급 기능 | 플래닝, 씽킹, 백그라운드 |
-| [10](pages/10-cli.md) | CLI 레퍼런스 | 명령줄 인터페이스 참조 |
+| [00](pages/00-start-here.md) | Claude Code 시작하기 | 설치 후 첫 작업까지 이어지는 큰 그림과 기본 워크플로 |
+| [01](pages/01-interaction.md) | CLI와 Slash Command | CLI, 대화형 모드, slash command, 출력 형식 |
+| [02](pages/02-memory.md) | Memory | CLAUDE.md와 자동 Memory로 지속 컨텍스트 관리 |
+| [03](pages/03-skills.md) | Skills | 재사용 가능한 지식과 워크플로를 skill로 패키징 |
+| [04](pages/04-subagents.md) | Subagents | 격리된 전문 agent로 병렬 작업과 컨텍스트 분리 |
+| [05](pages/05-mcp.md) | MCP | 외부 도구, API, 실시간 데이터를 연결하는 표준 프로토콜 |
+| [06](pages/06-hooks.md) | Hooks | 이벤트 기반 자동화, 검증, 권한 통제 |
+| [07](pages/07-plugins.md) | Plugins | skills, agents, hooks, MCP를 묶어 배포하는 패키징 계층 |
+| [08](pages/08-checkpoints.md) | Checkpoints & Rewind | 안전한 실험과 되돌리기를 위한 checkpoint와 rewind |
+| [09](pages/09-advanced-workflows.md) | 고급 워크플로 | planning, routines, code review, 실행 모드 등 고급 흐름 |
+| [10](pages/10-platforms-integrations.md) | 플랫폼과 통합 | Web, Desktop, IDE, Slack, CI/CD 등 실행 표면과 통합 |
+| [11](pages/11-configuration-security.md) | 설정·권한·보안 | 설정 계층, 권한, 보안, context window, 문제 해결 |
+| [12](pages/11-deployment-admin.md) | Deployment Administration | 조직 배포, 공급자 선택, 네트워크, 데이터 정책 |
+| [13](pages/12-agent-sdk.md) | Agent SDK | Claude Code agent loop를 앱과 백엔드에 임베드하는 SDK |
