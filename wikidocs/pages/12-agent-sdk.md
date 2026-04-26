@@ -62,10 +62,10 @@ print(result.output)
 
 ## 관련 가이드
 
-- CLI 참조
-- Hooks
+- [CLI 참조](https://wikidocs.net/345354)
+- [Hooks](https://wikidocs.net/344613)
 - [Subagents](https://wikidocs.net/345414)
-- [Plugins](https://wikidocs.net/345497)
+- [Plugins](https://wikidocs.net/345638)
 
 ## Official reference
 

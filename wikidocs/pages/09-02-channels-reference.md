@@ -228,10 +228,10 @@ Expected result:
 
 ## Related Guides
 
-- 고급 기능 README
-- MCP 가이드
-- [Plugin 가이드](https://wikidocs.net/345497)
-- Hook 가이드
+- [고급 기능 README](https://wikidocs.net/345672)
+- [MCP 가이드](https://wikidocs.net/345445)
+- [Plugin 가이드](https://wikidocs.net/345638)
+- [Hook 가이드](https://wikidocs.net/344613)
 
 ## Official Reference
 

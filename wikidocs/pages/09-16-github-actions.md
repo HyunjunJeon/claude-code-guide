@@ -152,6 +152,6 @@ Bedrock / Vertex라면:
 - [공식 GitHub Actions 문서](https://code.claude.com/docs/ko/github-actions)
 - [Claude Code Action 저장소](https://github.com/anthropics/claude-code-action)
 - [공식 Code Review 문서](https://code.claude.com/docs/ko/code-review)
-- AWS Bedrock
-- Google Vertex AI
-- 지침과 메모 관리
+- [AWS Bedrock](https://wikidocs.net/345706)
+- [Google Vertex AI](https://wikidocs.net/345707)
+- [지침과 메모 관리](https://wikidocs.net/345360)

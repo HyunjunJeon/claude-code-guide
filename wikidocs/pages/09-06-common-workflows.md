@@ -142,9 +142,9 @@ Claude Code는 코드 외 작업에도 잘 맞습니다.
 ## 관련 가이드
 
 - [Best Practices](https://wikidocs.net/345349)
-- Planning Mode Examples
+- [Planning Mode Examples](https://wikidocs.net/345675)
 - [Session and Interaction](https://wikidocs.net/345358)
-- Execution Modes
+- [Execution Modes](https://wikidocs.net/345673)
 
 ## 공식 출처
 

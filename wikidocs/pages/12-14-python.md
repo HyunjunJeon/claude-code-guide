@@ -38,6 +38,6 @@ print(result)
 
 ## 관련 링크
 
-- 세션
-- 구조화된 출력
+- [세션](https://wikidocs.net/345719)
+- [구조화된 출력](https://wikidocs.net/345724)
 - 공식 가이드: https://code.claude.com/docs/ko/agent-sdk/python

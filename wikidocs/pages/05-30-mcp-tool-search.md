@@ -1,4 +1,4 @@
-이 페이지는 도구 설명이 컨텍스트 윈도우의 10%를 넘으면 자동으로 켜지는 Tool Search 기능을 정리한다. 큰 MCP surface를 운영하는 팀이나 MCP 서버를 직접 만드는 사람이 우선 봐야 할 페이지다. 컨텍스트 팽창을 더 근본적으로 줄이는 방법은 mcp-code-execution.md, 도구 설명·지시 자체의 크기 제한은 mcp-tool-restrictions.md에서 다룬다.
+이 페이지는 도구 설명이 컨텍스트 윈도우의 10%를 넘으면 자동으로 켜지는 Tool Search 기능을 정리한다. 큰 MCP surface를 운영하는 팀이나 MCP 서버를 직접 만드는 사람이 우선 봐야 할 페이지다. 컨텍스트 팽창을 더 근본적으로 줄이는 방법은 [mcp-code-execution.md](https://wikidocs.net/345461), 도구 설명·지시 자체의 크기 제한은 [mcp-tool-restrictions.md](https://wikidocs.net/345460)에서 다룬다.
 
 MCP 도구 설명이 컨텍스트 윈도우의 10%를 초과하면, Claude Code는 모델 컨텍스트를 과부하하지 않고 적절한 도구를 효율적으로 선택하기 위해 자동으로 도구 검색을 활성화합니다.
 

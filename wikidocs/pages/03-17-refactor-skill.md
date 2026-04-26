@@ -131,7 +131,7 @@ Phase 6: Review & Iteration
 
 ### 확인할 일반적인 코드 스멜
 
-전체 카탈로그는 references/code-smells.md를 참조하십시오.
+전체 카탈로그는 [references/code-smells.md](https://wikidocs.net/345411)를 참조하십시오.
 
 #### 빠른 참조
 
@@ -182,7 +182,7 @@ Phase 6: Review & Iteration
 
 각 스멜에 대해 카탈로그에서 적절한 리팩토링을 선택합니다.
 
-전체 목록은 references/refactoring-catalog.md를 참조하십시오.
+전체 목록은 [references/refactoring-catalog.md](https://wikidocs.net/345412)를 참조하십시오.
 
 #### 스멜-리팩토링 매핑
 
@@ -201,7 +201,7 @@ Phase 6: Review & Iteration
 
 ### 계획 구조
 
-templates/refactoring-plan.md의 템플릿을 사용합니다.
+[templates/refactoring-plan.md](https://wikidocs.net/345413)의 템플릿을 사용합니다.
 
 각 리팩토링에 대해:
 1. **대상**: 어떤 코드가 변경될 것인지
@@ -405,9 +405,9 @@ function processOrder(order) {
 
 ## 참고 자료
 
-- 코드 스멜 카탈로그 - 코드 스멜 전체 목록
-- 리팩토링 카탈로그 - 리팩토링 기법
-- 리팩토링 계획 템플릿 - 계획 템플릿
+- [코드 스멜 카탈로그](https://wikidocs.net/345411) - 코드 스멜 전체 목록
+- [리팩토링 카탈로그](https://wikidocs.net/345412) - 리팩토링 기법
+- [리팩토링 계획 템플릿](https://wikidocs.net/345413) - 계획 템플릿
 
 ## 스크립트
 

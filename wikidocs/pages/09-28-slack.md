@@ -93,4 +93,4 @@ Slack 맥락은 신뢰 경계의 일부입니다.
 - [Claude Code on the web](https://claude.ai/code)
 - [Slack App Marketplace](https://slack.com/apps)
 - [Claude for Slack](https://support.claude.com)
-- Claude Code 개요
+- [Claude Code 개요](https://wikidocs.net/345672)

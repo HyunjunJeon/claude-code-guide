@@ -27,7 +27,7 @@
 
 ## 관련 링크
 
-- 스킬
-- 플러그인
-- Slash Commands 모듈
+- [스킬](https://wikidocs.net/345728)
+- [플러그인](https://wikidocs.net/345727)
+- [Slash Commands 모듈](https://wikidocs.net/345351)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/slash-commands

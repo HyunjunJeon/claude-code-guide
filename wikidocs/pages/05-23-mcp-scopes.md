@@ -1,4 +1,4 @@
-이 페이지는 MCP 설정을 저장하는 세 가지 범위(Local, Project, User)와 각 범위의 위치·공유 대상·승인 동작을 한 번에 정리한다. 어디에 저장해야 팀과 공유될지, 어디는 본인만 쓸지를 결정할 때 본다. 같은 서버가 여러 범위에 정의됐을 때의 우선순위는 mcp-server-deduplication.md, 등록 명령은 mcp-installation.md에서 다룬다.
+이 페이지는 MCP 설정을 저장하는 세 가지 범위(Local, Project, User)와 각 범위의 위치·공유 대상·승인 동작을 한 번에 정리한다. 어디에 저장해야 팀과 공유될지, 어디는 본인만 쓸지를 결정할 때 본다. 같은 서버가 여러 범위에 정의됐을 때의 우선순위는 [mcp-server-deduplication.md](https://wikidocs.net/345453), 등록 명령은 [mcp-installation.md](https://wikidocs.net/345448)에서 다룬다.
 
 MCP 구성은 서로 다른 공유 수준의 범위에 저장할 수 있습니다:
 

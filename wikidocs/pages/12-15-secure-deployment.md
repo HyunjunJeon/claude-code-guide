@@ -26,7 +26,7 @@
 
 ## 관련 링크
 
-- 권한
-- 호스팅
-- 관측성
+- [권한](https://wikidocs.net/345720)
+- [호스팅](https://wikidocs.net/345736)
+- [관측성](https://wikidocs.net/345735)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/secure-deployment

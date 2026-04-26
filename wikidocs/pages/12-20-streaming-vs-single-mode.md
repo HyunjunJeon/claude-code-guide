@@ -46,7 +46,7 @@ Agent SDK에는 크게 두 가지 실행 스타일이 있습니다. 이벤트를
 
 ## 관련 링크
 
-- 에이전트 루프
-- 스트리밍 출력
-- 사용자 입력
+- [에이전트 루프](https://wikidocs.net/345718)
+- [스트리밍 출력](https://wikidocs.net/345722)
+- [사용자 입력](https://wikidocs.net/345743)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/streaming-vs-single-mode

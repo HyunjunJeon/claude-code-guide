@@ -31,6 +31,6 @@
 
 ## 관련 링크
 
-- 스트리밍 출력
-- Streaming vs Single Mode
+- [스트리밍 출력](https://wikidocs.net/345722)
+- [Streaming vs Single Mode](https://wikidocs.net/345723)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/structured-outputs

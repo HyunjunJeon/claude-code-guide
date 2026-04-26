@@ -71,7 +71,7 @@ For each piece of code reviewed, provide:
 - **Severity**: Critical/High/Medium
 - **Fix**: Code example
 
-For detailed checklists, see [templates/review-checklist.md](templates/review-checklist.md).
+For detailed checklists, see templates/review-checklist.md.
 ```
 
 ## 예시 2: 코드베이스 시각화 스킬
@@ -233,6 +233,6 @@ Phase 5: Incremental Implementation → Phase 6: Review & Iteration
 3. **Test-Driven**: Tests are the safety net
 4. **Continuous**: Refactoring is ongoing, not a one-time event
 
-For code smell catalog, see [references/code-smells.md](references/code-smells.md).
-For refactoring techniques, see [references/refactoring-catalog.md](references/refactoring-catalog.md).
+For code smell catalog, see references/code-smells.md.
+For refactoring techniques, see references/refactoring-catalog.md.
 ```

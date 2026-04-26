@@ -1,4 +1,4 @@
-이 페이지는 자주 쓰는 MCP 서버(Filesystem, GitHub, Slack, Database, Google Docs, Asana, Stripe, Memory)의 용도·주요 도구·인증 방식·실시간 여부를 한 표로 정리한다. "어떤 서버부터 붙일까"를 빠르게 결정해야 할 때 본다. 각 서버의 구체적인 설정 예시는 mcp-examples.md에서 다룬다.
+이 페이지는 자주 쓰는 MCP 서버(Filesystem, GitHub, Slack, Database, Google Docs, Asana, Stripe, Memory)의 용도·주요 도구·인증 방식·실시간 여부를 한 표로 정리한다. "어떤 서버부터 붙일까"를 빠르게 결정해야 할 때 본다. 각 서버의 구체적인 설정 예시는 [mcp-examples.md](https://wikidocs.net/345469)에서 다룬다.
 
 | MCP 서버 | 용도 | 주요 도구 | 인증 | 실시간 |
 |------------|---------|--------------|------|-----------|

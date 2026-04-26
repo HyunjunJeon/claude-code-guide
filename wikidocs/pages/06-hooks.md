@@ -13,12 +13,12 @@ Hooks는 Claude Code 세션의 특정 이벤트에 반응해 자동으로 실행
 
 | 주제 | 왜 중요한가 | 먼저 볼 페이지 |
 | --- | --- | --- |
-| 기본 개념 | hook이 무엇이고 어떻게 이벤트 루프에 끼어드는가 | hooks-overview.md · hook-types.md |
-| 설정·관리 | settings.json 구조와 우선순위, 비활성화 절차 | hooks-configuration.md · hooks-management.md |
-| 이벤트 | 27개 hook 이벤트 전체 레퍼런스 | hook-events.md |
-| 입력·출력 | stdin JSON, 종료 코드, 환경 변수 | hook-io.md · hook-env-vars.md |
-| 고급 | LLM 평가·async·plugin·MCP·컴포넌트 범위 | prompt-based-hooks.md · async-hooks.md · plugin-hooks.md · mcp-tool-hooks.md · component-scope-hooks.md · permission-request-event.md |
-| 운영 | 보안·디버깅·예제 모음 | hooks-security.md · hooks-debugging.md · hook-examples.md |
+| 기본 개념 | hook이 무엇이고 어떻게 이벤트 루프에 끼어드는가 | [hooks-overview.md](https://wikidocs.net/345476) · [hook-types.md](https://wikidocs.net/345478) |
+| 설정·관리 | settings.json 구조와 우선순위, 비활성화 절차 | [hooks-configuration.md](https://wikidocs.net/345479) · [hooks-management.md](https://wikidocs.net/345480) |
+| 이벤트 | 27개 hook 이벤트 전체 레퍼런스 | [hook-events.md](https://wikidocs.net/345477) |
+| 입력·출력 | stdin JSON, 종료 코드, 환경 변수 | [hook-io.md](https://wikidocs.net/345194) · [hook-env-vars.md](https://wikidocs.net/345481) |
+| 고급 | LLM 평가·async·plugin·MCP·컴포넌트 범위 | [prompt-based-hooks.md](https://wikidocs.net/345483) · [async-hooks.md](https://wikidocs.net/345484) · [plugin-hooks.md](https://wikidocs.net/345487) · [mcp-tool-hooks.md](https://wikidocs.net/345486) · [component-scope-hooks.md](https://wikidocs.net/345485) · [permission-request-event.md](https://wikidocs.net/345482) |
+| 운영 | 보안·디버깅·예제 모음 | [hooks-security.md](https://wikidocs.net/345489) · [hooks-debugging.md](https://wikidocs.net/345490) · [hook-examples.md](https://wikidocs.net/345488) |
 
 ## 빠른 시작
 
@@ -43,7 +43,7 @@ Hooks는 Claude Code 세션의 특정 이벤트에 반응해 자동으로 실행
 }
 ```
 
-스크립트는 stdin으로 JSON을 받고, 종료 코드 0(허용)·2(차단) 중 하나를 반환하면 됩니다. 더 풍부한 입출력 제어가 필요하면 hook-io.md와 hook-examples.md를 참고하세요.
+스크립트는 stdin으로 JSON을 받고, 종료 코드 0(허용)·2(차단) 중 하나를 반환하면 됩니다. 더 풍부한 입출력 제어가 필요하면 [hook-io.md](https://wikidocs.net/345194)와 [hook-examples.md](https://wikidocs.net/345488)를 참고하세요.
 
 ## 자주 하는 실수
 
@@ -57,11 +57,11 @@ Hooks는 Claude Code 세션의 특정 이벤트에 반응해 자동으로 실행
 
 - [공식 Hooks 문서](https://code.claude.com/docs/ko/hooks) — 전체 hooks 참조
 - [CLI 참조](https://code.claude.com/docs/ko/cli-reference) — 명령줄 인터페이스 문서
-- 01. Slash Commands — hook과 함께 자주 결합되는 사용자 정의 명령
+- [01. Slash Commands](https://wikidocs.net/345351) — hook과 함께 자주 결합되는 사용자 정의 명령
 - [03. Skills](https://wikidocs.net/345381) — 컴포넌트 frontmatter에 hook을 첨부할 수 있는 단위
 - [04. Subagents](https://wikidocs.net/345414) — agent hook과 SubagentStop의 대상
-- [07. Plugins](https://wikidocs.net/345497) — `hooks/hooks.json`으로 hook을 번들링하는 방법
-- 08. Checkpoints — 대화 상태 저장 및 복원
-- 09. 고급 기능 — 자동 모드 권한 시드 등 hook과 결합하는 운영 기능
+- [07. Plugins](https://wikidocs.net/345638) — `hooks/hooks.json`으로 hook을 번들링하는 방법
+- [08. Checkpoints](https://wikidocs.net/345666) — 대화 상태 저장 및 복원
+- [09. 고급 기능](https://wikidocs.net/345672) — 자동 모드 권한 시드 등 hook과 결합하는 운영 기능
 
 ---

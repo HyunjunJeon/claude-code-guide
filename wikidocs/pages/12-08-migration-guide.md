@@ -25,7 +25,7 @@
 
 ## 관련 링크
 
-- 개요
-- TypeScript
-- Python
+- [개요](https://wikidocs.net/345717)
+- [TypeScript](https://wikidocs.net/345741)
+- [Python](https://wikidocs.net/345740)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/migration-guide

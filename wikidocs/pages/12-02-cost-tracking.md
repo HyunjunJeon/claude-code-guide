@@ -30,6 +30,6 @@
 
 ## 관련 링크
 
-- 관측성
-- 세션
+- [관측성](https://wikidocs.net/345735)
+- [세션](https://wikidocs.net/345719)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/cost-tracking

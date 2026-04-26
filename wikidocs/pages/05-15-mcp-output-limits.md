@@ -1,4 +1,4 @@
-이 페이지는 MCP 도구 출력에 적용되는 토큰·문자 한도(경고 10K, 기본 max 25K, 디스크 저장 50K 문자)와 `MAX_MCP_OUTPUT_TOKENS` 환경변수, 그리고 channels와의 차이를 정리한다. MCP 출력이 컨텍스트를 잡아먹는 문제를 만났을 때 가장 먼저 보는 페이지다. 같은 문제를 더 근본적으로 푸는 코드 실행 전략은 mcp-code-execution.md에서 본다.
+이 페이지는 MCP 도구 출력에 적용되는 토큰·문자 한도(경고 10K, 기본 max 25K, 디스크 저장 50K 문자)와 `MAX_MCP_OUTPUT_TOKENS` 환경변수, 그리고 channels와의 차이를 정리한다. MCP 출력이 컨텍스트를 잡아먹는 문제를 만났을 때 가장 먼저 보는 페이지다. 같은 문제를 더 근본적으로 푸는 코드 실행 전략은 [mcp-code-execution.md](https://wikidocs.net/345461)에서 본다.
 
 Claude Code는 컨텍스트 오버플로우를 방지하기 위해 MCP 도구 출력에 제한을 적용합니다:
 

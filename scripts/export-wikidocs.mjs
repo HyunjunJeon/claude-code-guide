@@ -31,18 +31,8 @@ const pagesDir = path.join(outputDir, "pages");
 const assetsDir = path.join(outputDir, "assets");
 const overridesDir = path.join(rootDir, "wikidocs-overrides");
 const wikidocsBookTitle = "Claude Code 빠르게 마스터 하기";
-const wikidocsLivePageUrls = new Map([
-  ["03-skills.md", "https://wikidocs.net/345381"],
-  ["04-subagents.md", "https://wikidocs.net/345414"],
-  ["07-plugins.md", "https://wikidocs.net/345497"],
-  ["09-01-best-practices.md", "https://wikidocs.net/345349"],
-  ["09-02-channels-reference.md", "https://wikidocs.net/345693"],
-  ["09-06-common-workflows.md", "https://wikidocs.net/345348"],
-  ["09-19-how-claude-code-works.md", "https://wikidocs.net/345346"],
-  ["09-21-permissions-and-security.md", "https://wikidocs.net/345697"],
-  ["09-26-session-and-interaction.md", "https://wikidocs.net/345358"],
-  ["09-27-settings-system-guide.md", "https://wikidocs.net/345696"],
-]);
+const wikidocsLivePageUrlsPath = path.join(rootDir, "wikidocs-live-page-urls.json");
+let wikidocsLivePageUrls = new Map();
 const excludedWikidocsPages = new Set([
   "01-slash-commands-commit.md",
   "01-slash-commands-doc-refactor.md",
@@ -452,6 +442,33 @@ async function pathExists(targetPath) {
   }
 }
 
+async function loadWikidocsLivePageUrls() {
+  const raw = await fs.readFile(wikidocsLivePageUrlsPath, "utf8");
+  const parsed = JSON.parse(raw);
+  return new Map(Object.entries(parsed));
+}
+
+function validateWikidocsLivePageUrls(pages) {
+  const pageNames = new Set(pages.map((page) => page.outputName));
+  const missing = [...pageNames]
+    .filter((outputName) => !wikidocsLivePageUrls.has(outputName))
+    .sort();
+  const extras = [...wikidocsLivePageUrls.keys()]
+    .filter((outputName) => !pageNames.has(outputName))
+    .sort();
+
+  if (missing.length || extras.length) {
+    const lines = ["WikiDocs live URL 맵이 현재 export 페이지와 일치하지 않습니다."];
+    if (missing.length) {
+      lines.push(`누락: ${missing.join(", ")}`);
+    }
+    if (extras.length) {
+      lines.push(`초과: ${extras.join(", ")}`);
+    }
+    throw new Error(lines.join("\n"));
+  }
+}
+
 function normalizeMarkdown(value) {
   return value.replace(/\r\n/g, "\n").trim();
 }
@@ -523,6 +540,7 @@ async function readOverrideDoc(outputName) {
   return {
     content: normalizeMarkdown(raw),
     title: extractTitle(raw, path.basename(overridePath, path.extname(overridePath))),
+    sourcePath: overridePath,
   };
 }
 
@@ -761,8 +779,10 @@ async function resolveImageTarget(sourcePath, pathname) {
   return { lookupPath, sourceAssetPath: lookupPath };
 }
 
-async function rewriteMarkdownLinks(content, sourcePath, pageMap, assetMap, warnings, pagePrefix = "") {
+async function rewriteMarkdownLinks(content, sourcePath, pageMap, assetMap, warnings) {
   const parts = content.split(/(```[\s\S]*?```)/g);
+  const overridePagesDir = path.join(overridesDir, "pages");
+  const isOverridePage = !path.relative(overridePagesDir, sourcePath).startsWith("..");
 
   const rewrittenParts = [];
 
@@ -786,49 +806,64 @@ async function rewriteMarkdownLinks(content, sourcePath, pageMap, assetMap, warn
         continue;
       }
 
-        if (isExternalTarget(target)) {
+      if (isExternalTarget(target)) {
         rewrittenPart += fullMatch;
         continue;
-        }
+      }
 
-        const { pathname, hash } = splitHash(target);
-        if (!pathname) {
+      const { pathname, hash } = splitHash(target);
+      if (!pathname) {
         rewrittenPart += fullMatch;
         continue;
-        }
+      }
 
-        const extension = path.extname(pathname).toLowerCase();
+      const extension = path.extname(pathname).toLowerCase();
 
-        if (marker === "!" || IMAGE_EXTENSIONS.has(extension)) {
+      if (marker === "!" || IMAGE_EXTENSIONS.has(extension)) {
         const { lookupPath } = await resolveImageTarget(sourcePath, pathname);
-          const assetName = assetMap.get(lookupPath);
-          if (!assetName) {
+        const assetName = assetMap.get(lookupPath);
+        if (!assetName) {
           warnings.push(`이미지 파일을 찾지 못했습니다: ${path.relative(rootDir, lookupPath)} (${path.relative(rootDir, sourcePath)})`);
           rewrittenPart += fullMatch;
           continue;
-          }
+        }
         rewrittenPart += `![${text}](../assets/${assetName}${hash})`;
         continue;
-        }
+      }
+
+      const directPageName = pathname.replace(/^\.\//, "");
+      const directLivePageUrl =
+        !directPageName.includes("/") && wikidocsLivePageUrls.get(directPageName);
+      if (directLivePageUrl) {
+        rewrittenPart += `[${text}](${directLivePageUrl}${hash})`;
+        continue;
+      }
 
       const resolvedTarget = await resolveMarkdownTarget(sourcePath, pathname);
       const pageName = pageMap.get(resolvedTarget);
-        if (pageName) {
+      if (pageName) {
         const livePageUrl = wikidocsLivePageUrls.get(pageName);
-        if (livePageUrl) {
-          rewrittenPart += `[${text}](${livePageUrl}${hash})`;
-          continue;
+        if (!livePageUrl) {
+          throw new Error(
+            `WikiDocs live URL 맵에 내부 링크 대상이 없습니다: ${pageName} (${path.relative(rootDir, sourcePath)} -> ${target})`
+          );
         }
-        rewrittenPart += `[${text}](${pagePrefix}${pageName}${hash})`;
+        rewrittenPart += `[${text}](${livePageUrl}${hash})`;
         continue;
-        }
+      }
 
       if (target.includes("WHATS-NEW.md")) {
         rewrittenPart += text;
         continue;
       }
 
-        warnings.push(`문서 링크를 변환하지 못했습니다: ${target} (${path.relative(rootDir, sourcePath)})`);
+      if (isOverridePage && extension === ".md") {
+        throw new Error(
+          `WikiDocs override 내부 링크를 live URL로 변환하지 못했습니다: ${target} (${path.relative(rootDir, sourcePath)})`
+        );
+      }
+
+      warnings.push(`문서 링크를 변환하지 못했습니다: ${target} (${path.relative(rootDir, sourcePath)})`);
       rewrittenPart += fullMatch;
     }
 
@@ -1055,6 +1090,8 @@ async function main() {
   pages.sort((a, b) => a.outputName.localeCompare(b.outputName));
   const wikidocsNavigation = buildWikidocsNavigation(pages);
   const pageMap = new Map(routeMapEntries);
+  wikidocsLivePageUrls = await loadWikidocsLivePageUrls();
+  validateWikidocsLivePageUrls(pages);
   const assetMap = await copyAssets(pages);
   const warnings = [];
 
@@ -1065,9 +1102,7 @@ async function main() {
     const overrideDoc = await readOverrideDoc(page.outputName);
     const doc = overrideDoc || (await readMarkdownDoc(page.sourcePath));
     const rewrittenContent = stripWikidocsLocalMarkdownLinks(
-      overrideDoc
-        ? doc.content
-        : await rewriteMarkdownLinks(doc.content, page.sourcePath, pageMap, assetMap, warnings)
+      await rewriteMarkdownLinks(doc.content, doc.sourcePath || page.sourcePath, pageMap, assetMap, warnings)
     );
     const mergedSections = [];
 

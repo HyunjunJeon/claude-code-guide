@@ -4,19 +4,19 @@ Claude Code는 터미널만의 도구가 아니라 Remote Control, Web, Desktop,
 
 | 순서 | 문서 | 읽는 이유 |
 |---|---|---|
-| 1 | 플랫폼 & 통합 | Chrome 통합, Remote Control, Web, Desktop의 전체 지형도 |
-| 2 | Remote Control | 로컬 세션을 모바일·브라우저에서 이어서 제어하는 방식 |
-| 3 | Claude Code 웹 시작하기 | 브라우저에서 cloud session을 시작하는 방법 |
-| 4 | 웹에서 Claude Code 사용하기 | 웹 세션의 장점과 로컬 세션과의 차이 |
-| 5 | Desktop Quickstart | 데스크톱 앱 시작 경로 |
-| 6 | Claude Code Desktop 사용하기 | 데스크톱 앱의 diff review, 세션 관리, 예약 작업 |
-| 7 | Use Claude Code in VS Code | 에디터 안에서 Claude Code를 쓰는 방식 |
-| 8 | Slack의 Claude Code | 팀 채팅에서 작업을 요청하고 결과를 받는 흐름 |
-| 9 | GitHub Actions | CI에서 리뷰, triage, 자동화를 실행 |
-| 10 | GitLab CI/CD | GitLab 환경에서 자동화 흐름 구성 |
-| 11 | GitHub Enterprise Server | 엔터프라이즈 GitHub 환경 고려사항 |
-| 12 | Computer Use | 브라우저나 GUI를 직접 다루는 preview 기능 |
-| 13 | Channels Reference | 외부 채널과 이벤트 기반 진입점 |
+| 1 | [플랫폼 & 통합](https://wikidocs.net/345681) | Chrome 통합, Remote Control, Web, Desktop의 전체 지형도 |
+| 2 | [Remote Control](https://wikidocs.net/345682) | 로컬 세션을 모바일·브라우저에서 이어서 제어하는 방식 |
+| 3 | [Claude Code 웹 시작하기](https://wikidocs.net/345683) | 브라우저에서 cloud session을 시작하는 방법 |
+| 4 | [웹에서 Claude Code 사용하기](https://wikidocs.net/345684) | 웹 세션의 장점과 로컬 세션과의 차이 |
+| 5 | [Desktop Quickstart](https://wikidocs.net/345685) | 데스크톱 앱 시작 경로 |
+| 6 | [Claude Code Desktop 사용하기](https://wikidocs.net/345686) | 데스크톱 앱의 diff review, 세션 관리, 예약 작업 |
+| 7 | [Use Claude Code in VS Code](https://wikidocs.net/345687) | 에디터 안에서 Claude Code를 쓰는 방식 |
+| 8 | [Slack의 Claude Code](https://wikidocs.net/345688) | 팀 채팅에서 작업을 요청하고 결과를 받는 흐름 |
+| 9 | [GitHub Actions](https://wikidocs.net/345689) | CI에서 리뷰, triage, 자동화를 실행 |
+| 10 | [GitLab CI/CD](https://wikidocs.net/345690) | GitLab 환경에서 자동화 흐름 구성 |
+| 11 | [GitHub Enterprise Server](https://wikidocs.net/345691) | 엔터프라이즈 GitHub 환경 고려사항 |
+| 12 | [Computer Use](https://wikidocs.net/345692) | 브라우저나 GUI를 직접 다루는 preview 기능 |
+| 13 | [Channels Reference](https://wikidocs.net/345693) | 외부 채널과 이벤트 기반 진입점 |
 
 ## 선택 기준
 

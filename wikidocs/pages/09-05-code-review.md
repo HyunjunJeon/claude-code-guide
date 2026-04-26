@@ -125,5 +125,5 @@ Manual 모드라면 `@claude review` 또는 `@claude review once`를 top-level c
 - [공식 GitHub Actions 문서](https://code.claude.com/docs/ko/github-actions)
 - [공식 GitHub Enterprise Server 문서](https://code.claude.com/docs/ko/github-enterprise-server)
 - [공식 GitLab CI/CD 문서](https://code.claude.com/docs/ko/gitlab-ci-cd)
-- Zero Data Retention
-- 지침과 메모 관리
+- [Zero Data Retention](https://wikidocs.net/345714)
+- [지침과 메모 관리](https://wikidocs.net/345360)

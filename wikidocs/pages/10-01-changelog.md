@@ -77,9 +77,9 @@ changelog는 버전 단위의 정확한 변화 확인용입니다. 모든 수정
 
 ## 관련 가이드
 
-- Quickstart
-- 문제 해결
-- 오류 참고
+- [Quickstart](https://wikidocs.net/345345)
+- [문제 해결](https://wikidocs.net/345703)
+- [오류 참고](https://wikidocs.net/345702)
 - What's New
 
 ## 공식 출처

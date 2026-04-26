@@ -31,6 +31,6 @@
 
 ## 관련 링크
 
-- 세션
-- Todo Tracking
+- [세션](https://wikidocs.net/345719)
+- [Todo Tracking](https://wikidocs.net/345732)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/file-checkpointing

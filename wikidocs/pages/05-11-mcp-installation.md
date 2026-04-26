@@ -1,4 +1,4 @@
-이 페이지는 `claude mcp add` 명령으로 MCP 서버를 등록하는 모든 전송 방식(HTTP, stdio, SSE, WebSocket)과 scope 옵션을 한자리에 모아 둔다. 새로운 MCP 서버를 처음 붙일 때 가장 먼저 보는 레퍼런스 페이지다. OAuth가 필요한 서버는 mcp-oauth.md, JSON 설정 파일 구조는 mcp-configuration-process.md와 mcp-scopes.md에서 이어 본다.
+이 페이지는 `claude mcp add` 명령으로 MCP 서버를 등록하는 모든 전송 방식(HTTP, stdio, SSE, WebSocket)과 scope 옵션을 한자리에 모아 둔다. 새로운 MCP 서버를 처음 붙일 때 가장 먼저 보는 레퍼런스 페이지다. OAuth가 필요한 서버는 [mcp-oauth.md](https://wikidocs.net/345454), JSON 설정 파일 구조는 [mcp-configuration-process.md](https://wikidocs.net/345450)와 [mcp-scopes.md](https://wikidocs.net/345452)에서 이어 본다.
 
 Claude Code는 MCP 서버 연결을 위해 여러 전송 프로토콜을 지원합니다:
 

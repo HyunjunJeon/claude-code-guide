@@ -1,4 +1,4 @@
-이 페이지는 MCP를 운영할 때 지켜야 할 보안·구성·성능 모범 사례를 권장/비권장 항목으로 정리한다. 신규 MCP 도입을 결정한 직후, 그리고 분기별 보안 점검 때 한 번씩 보면 좋다. 자격 증명 처리는 mcp-environment-variables.md, 조직 차원의 정책 시행은 mcp-managed-config.md에서 더 자세히 다룬다.
+이 페이지는 MCP를 운영할 때 지켜야 할 보안·구성·성능 모범 사례를 권장/비권장 항목으로 정리한다. 신규 MCP 도입을 결정한 직후, 그리고 분기별 보안 점검 때 한 번씩 보면 좋다. 자격 증명 처리는 [mcp-environment-variables.md](https://wikidocs.net/345455), 조직 차원의 정책 시행은 [mcp-managed-config.md](https://wikidocs.net/345472)에서 더 자세히 다룬다.
 
 ## 보안 고려 사항
 

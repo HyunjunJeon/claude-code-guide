@@ -19,19 +19,19 @@
 
 | 주제 | 왜 중요한가 | 먼저 볼 페이지 |
 | --- | --- | --- |
-| 작동 원리 | 점진적 공개로 컨텍스트를 절약하면서 무제한 확장 | how-skills-work.md |
-| 로딩 흐름 | 요청 → 매칭 → SKILL.md 로드 시퀀스 이해 | skill-loading-process.md |
-| 유형과 위치 | enterprise·personal·project·plugin 우선순위 | skill-types-and-locations.md |
-| 만들기 | 디렉토리 구조와 SKILL.md frontmatter 전체 | creating-custom-skills.md |
-| 콘텐츠 유형 | 참조 콘텐츠 vs 작업 콘텐츠 구분 | skill-content-types.md |
-| 호출 제어 | 누가(사용자 vs Claude) 호출할 수 있게 할지 | controlling-skill-invocation.md |
-| 동적 입력 | `$ARGUMENTS`, `${CLAUDE_SESSION_ID}`, `` !`cmd` `` | string-substitution.md · dynamic-context-injection.md |
-| Subagent 실행 | `context: fork`로 격리된 컨텍스트에서 실행 | running-skills-in-subagents.md |
-| 실전 예시 | 코드 리뷰·시각화·배포 등 6가지 패턴 | skills-real-world-examples.md |
-| 운영 | 보기·테스트·업데이트·권한 제한 | managing-skills.md |
-| 모범 사례 | 자동 호출 정확도를 높이는 5가지 원칙 | skills-best-practices.md |
-| 문제 해결 | 트리거 안 됨·과다 호출·예산 초과 | skills-troubleshooting.md |
-| 기타 운영 | 지원 파일·보안·번들·공유·다른 기능과 비교 | skill-supporting-files.md 외 |
+| 작동 원리 | 점진적 공개로 컨텍스트를 절약하면서 무제한 확장 | [how-skills-work.md](https://wikidocs.net/345382) |
+| 로딩 흐름 | 요청 → 매칭 → SKILL.md 로드 시퀀스 이해 | [skill-loading-process.md](https://wikidocs.net/345383) |
+| 유형과 위치 | enterprise·personal·project·plugin 우선순위 | [skill-types-and-locations.md](https://wikidocs.net/345384) |
+| 만들기 | 디렉토리 구조와 SKILL.md frontmatter 전체 | [creating-custom-skills.md](https://wikidocs.net/345387) |
+| 콘텐츠 유형 | 참조 콘텐츠 vs 작업 콘텐츠 구분 | [skill-content-types.md](https://wikidocs.net/345385) |
+| 호출 제어 | 누가(사용자 vs Claude) 호출할 수 있게 할지 | [controlling-skill-invocation.md](https://wikidocs.net/345389) |
+| 동적 입력 | `$ARGUMENTS`, `${CLAUDE_SESSION_ID}`, `` !`cmd` `` | [string-substitution.md](https://wikidocs.net/345390) · [dynamic-context-injection.md](https://wikidocs.net/345391) |
+| Subagent 실행 | `context: fork`로 격리된 컨텍스트에서 실행 | [running-skills-in-subagents.md](https://wikidocs.net/345392) |
+| 실전 예시 | 코드 리뷰·시각화·배포 등 6가지 패턴 | [skills-real-world-examples.md](https://wikidocs.net/345399) |
+| 운영 | 보기·테스트·업데이트·권한 제한 | [managing-skills.md](https://wikidocs.net/345388) |
+| 모범 사례 | 자동 호출 정확도를 높이는 5가지 원칙 | [skills-best-practices.md](https://wikidocs.net/345395) |
+| 문제 해결 | 트리거 안 됨·과다 호출·예산 초과 | [skills-troubleshooting.md](https://wikidocs.net/345397) |
+| 기타 운영 | 지원 파일·보안·번들·공유·다른 기능과 비교 | [skill-supporting-files.md](https://wikidocs.net/345386) 외 |
 
 ## 빠른 시작
 
@@ -57,7 +57,7 @@ For each file:
 ```
 
 저장하면 다음 세션부터 "Can you review this code?" 같은 요청에 자동으로 호출됩니다.
-디렉토리 구조와 frontmatter 옵션 전체는 creating-custom-skills.md를 참고하세요.
+디렉토리 구조와 frontmatter 옵션 전체는 [creating-custom-skills.md](https://wikidocs.net/345387)를 참고하세요.
 
 ## 자주 하는 실수
 
@@ -70,11 +70,11 @@ For each file:
 
 - [공식 스킬 문서](https://code.claude.com/docs/ko/skills)
 - [에이전트 스킬 아키텍처 블로그](https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills)
-- 01. Slash Command — 사용자 시작 단축키
-- 02. Memory — 영구적인 컨텍스트
+- [01. Slash Command](https://wikidocs.net/345351) — 사용자 시작 단축키
+- [02. Memory](https://wikidocs.net/345360) — 영구적인 컨텍스트
 - [04. Subagents](https://wikidocs.net/345414) — 위임된 AI 에이전트
-- 05. MCP (Model Context Protocol) — 실시간 외부 데이터
-- 06. Hooks — 이벤트 기반 자동화
-- [07. Plugins](https://wikidocs.net/345497) — 스킬·명령·훅 번들 배포
+- [05. MCP (Model Context Protocol)](https://wikidocs.net/345445) — 실시간 외부 데이터
+- [06. Hooks](https://wikidocs.net/344613) — 이벤트 기반 자동화
+- [07. Plugins](https://wikidocs.net/345638) — 스킬·명령·훅 번들 배포
 
 ---

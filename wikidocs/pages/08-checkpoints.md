@@ -307,16 +307,16 @@ Claude Code의 컨텍스트 윈도우 사용량을 모니터링하면, 품질이
 
 ## 관련 개념
 
-- **고급 기능** - Plan mode 및 기타 고급 기능
-- **메모리 관리** - 대화 이력 및 컨텍스트 관리
-- **Slash Command** - 사용자 호출 단축키
-- **Hook** - 이벤트 기반 자동화
-- **[Plugin](https://wikidocs.net/345497)** - 번들 확장 패키지
+- **[고급 기능](https://wikidocs.net/345672)** - Plan mode 및 기타 고급 기능
+- **[메모리 관리](https://wikidocs.net/345360)** - 대화 이력 및 컨텍스트 관리
+- **[Slash Command](https://wikidocs.net/345351)** - 사용자 호출 단축키
+- **[Hook](https://wikidocs.net/344613)** - 이벤트 기반 자동화
+- **[Plugin](https://wikidocs.net/345638)** - 번들 확장 패키지
 
 ## 추가 리소스
 
 - [공식 Checkpoint 문서](https://code.claude.com/docs/ko/checkpointing)
-- 고급 기능 가이드 - Extended thinking 및 기타 기능
+- [고급 기능 가이드](https://wikidocs.net/345672) - Extended thinking 및 기타 기능
 
 ## 요약
 

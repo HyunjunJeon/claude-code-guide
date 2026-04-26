@@ -21,6 +21,6 @@ TypeScript v2 preview는 다음 세대 TypeScript SDK 표면을 다루는 문서
 
 ## 관련 링크
 
-- TypeScript
-- 마이그레이션 가이드
+- [TypeScript](https://wikidocs.net/345741)
+- [마이그레이션 가이드](https://wikidocs.net/345738)
 - 공식 가이드: https://code.claude.com/docs/ko/agent-sdk/typescript-v2-preview

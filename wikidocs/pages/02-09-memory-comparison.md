@@ -23,4 +23,4 @@ graph LR
     E -->|24 hours later| F["Memory Refreshed"]
 ```
 
-**Memory 요약 예시:** `claude-memory-of-user.md` 참조
+**Memory 요약 예시:** [`claude-memory-of-user.md`](https://wikidocs.net/345373) 참조

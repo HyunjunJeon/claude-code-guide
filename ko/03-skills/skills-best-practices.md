@@ -32,8 +32,8 @@ description: Analyze Excel spreadsheets, generate pivot tables, create charts. U
 ```markdown
 ## Additional resources
 
-- For complete API details, see [reference.md](reference.md)
-- For usage examples, see [examples.md](examples.md)
+- For complete API details, see reference.md
+- For usage examples, see examples.md
 ```
 
 ## 해야 할 것

@@ -1,4 +1,4 @@
-이 페이지는 MCP를 다른 Claude 기능(특히 Memory)과 비교해 어느 쪽을 어떤 상황에서 써야 하는지 한 줄 가이드로 정리한다. MCP만 쓰는 게 아니라 Memory와 결합해서 풍부한 컨텍스트를 만들고 싶을 때 본다. 결정 트리 형태가 더 익숙하다면 mcp-vs-memory.md, Memory 자체는 02. Memory에서 본다.
+이 페이지는 MCP를 다른 Claude 기능(특히 Memory)과 비교해 어느 쪽을 어떤 상황에서 써야 하는지 한 줄 가이드로 정리한다. MCP만 쓰는 게 아니라 Memory와 결합해서 풍부한 컨텍스트를 만들고 싶을 때 본다. 결정 트리 형태가 더 익숙하다면 [mcp-vs-memory.md](https://wikidocs.net/345471), Memory 자체는 [02. Memory](https://wikidocs.net/345360)에서 본다.
 
 ## Memory vs MCP
 

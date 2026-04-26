@@ -36,7 +36,7 @@
 
 ## 관련 링크
 
-- 권한
-- 개요
+- [권한](https://wikidocs.net/345720)
+- [개요](https://wikidocs.net/345717)
 - 공식 훅 레퍼런스: https://code.claude.com/docs/ko/hooks
 - 공식 훅 가이드: https://platform.claude.com/docs/en/agent-sdk/hooks

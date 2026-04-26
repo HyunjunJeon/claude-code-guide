@@ -26,6 +26,6 @@
 
 ## 관련 링크
 
-- 권한
-- 훅
+- [권한](https://wikidocs.net/345720)
+- [훅](https://wikidocs.net/345725)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/modifying-system-prompts

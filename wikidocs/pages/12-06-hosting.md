@@ -30,6 +30,6 @@
 
 ## 관련 링크
 
-- 보안 배포
-- 관측성
+- [보안 배포](https://wikidocs.net/345737)
+- [관측성](https://wikidocs.net/345735)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/hosting

@@ -30,7 +30,7 @@
 
 ## 관련 링크
 
-- 스킬
-- Tool Search
-- [Plugins 모듈](https://wikidocs.net/345497)
+- [스킬](https://wikidocs.net/345728)
+- [Tool Search](https://wikidocs.net/345731)
+- [Plugins 모듈](https://wikidocs.net/345638)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/plugins

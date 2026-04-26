@@ -106,7 +106,7 @@ terminal-native notification이 불안정하면 hook를 사용합니다:
 - desktop notification
 - Slack 또는 다른 서비스로 알림
 
-구체적인 패턴은 Hook 가이드를 참고하세요.
+구체적인 패턴은 [Hook 가이드](https://wikidocs.net/344613)를 참고하세요.
 
 ## Handling Large Inputs
 
@@ -138,7 +138,7 @@ cat logs/error.log | claude -p "Summarize the root cause"
 CLAUDE_CODE_NO_FLICKER=1 claude
 ```
 
-자세한 동작과 tradeoff는 Fullscreen Rendering을 참고하세요.
+자세한 동작과 tradeoff는 [Fullscreen Rendering](https://wikidocs.net/345679)을 참고하세요.
 
 ## Vim Mode
 
@@ -198,10 +198,10 @@ Expected result:
 
 ## Related Guides
 
-- 고급 기능 README
-- Fullscreen Rendering
-- Hook 가이드
-- CLI 참조
+- [고급 기능 README](https://wikidocs.net/345672)
+- [Fullscreen Rendering](https://wikidocs.net/345679)
+- [Hook 가이드](https://wikidocs.net/344613)
+- [CLI 참조](https://wikidocs.net/345354)
 
 ## Official Reference
 

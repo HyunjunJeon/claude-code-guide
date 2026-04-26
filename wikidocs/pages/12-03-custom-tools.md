@@ -40,8 +40,8 @@
 
 ## 관련 링크
 
-- 권한
-- 에이전트 루프
+- [권한](https://wikidocs.net/345720)
+- [에이전트 루프](https://wikidocs.net/345718)
 - 공식 커스텀 도구 가이드: https://platform.claude.com/docs/en/agent-sdk/custom-tools
 - 공식 MCP 가이드: https://platform.claude.com/docs/en/agent-sdk/mcp
 - TypeScript SDK: https://code.claude.com/docs/ko/agent-sdk/typescript

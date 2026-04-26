@@ -102,6 +102,6 @@ export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1
 ## 관련 링크
 
 - [공식 LLM gateway 문서](https://code.claude.com/docs/ko/llm-gateway)
-- Network Configuration
-- Data Usage
-- 문제 해결
+- [Network Configuration](https://wikidocs.net/345710)
+- [Data Usage](https://wikidocs.net/345713)
+- [문제 해결](https://wikidocs.net/345703)

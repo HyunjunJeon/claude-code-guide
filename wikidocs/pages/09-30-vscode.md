@@ -308,11 +308,11 @@ Expected result:
 
 ## Related Guides
 
-- 고급 기능 README
+- [고급 기능 README](https://wikidocs.net/345672)
 - [Settings System Guide](https://wikidocs.net/345696)
-- Checkpoint 가이드
-- CLI 참조
-- MCP 가이드
+- [Checkpoint 가이드](https://wikidocs.net/345666)
+- [CLI 참조](https://wikidocs.net/345354)
+- [MCP 가이드](https://wikidocs.net/345445)
 
 ## Official Reference
 

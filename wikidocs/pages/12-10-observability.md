@@ -32,7 +32,7 @@
 
 ## 관련 링크
 
-- 비용 추적
-- 훅
-- 세션
+- [비용 추적](https://wikidocs.net/345734)
+- [훅](https://wikidocs.net/345725)
+- [세션](https://wikidocs.net/345719)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/observability

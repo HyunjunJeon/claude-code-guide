@@ -41,6 +41,6 @@ for await (const message of query({
 
 ## 관련 링크
 
-- 개요
-- 스트리밍 출력
+- [개요](https://wikidocs.net/345717)
+- [스트리밍 출력](https://wikidocs.net/345722)
 - 공식 가이드: https://code.claude.com/docs/ko/agent-sdk/typescript

@@ -89,9 +89,9 @@ Desktop은 다음 두 가지를 함께 노출합니다.
 
 ## 관련 가이드
 
-- Desktop
-- Desktop Scheduled Tasks
-- Claude Code On The Web
+- [Desktop](https://wikidocs.net/345686)
+- [Desktop Scheduled Tasks](https://wikidocs.net/345678)
+- [Claude Code On The Web](https://wikidocs.net/345684)
 
 ## 공식 출처
 

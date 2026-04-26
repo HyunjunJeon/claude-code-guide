@@ -91,5 +91,5 @@ Claude Code를 완전히 종료한 뒤 새 세션을 시작합니다. 그다음 
 - [Computer use safety guide](https://support.claude.com)
 - [Computer use in Desktop](https://code.claude.com/docs/ko/desktop)
 - [Claude in Chrome](https://code.claude.com/docs/ko/chrome)
-- MCP 개요
+- [MCP 개요](https://wikidocs.net/345445)
 - [권한 및 보안](https://wikidocs.net/345697)

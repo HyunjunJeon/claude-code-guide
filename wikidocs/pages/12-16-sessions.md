@@ -36,8 +36,8 @@
 
 ## 관련 링크
 
-- 에이전트 루프
-- 파일 체크포인팅
+- [에이전트 루프](https://wikidocs.net/345718)
+- [파일 체크포인팅](https://wikidocs.net/345733)
 - 공식 세션 가이드: https://code.claude.com/docs/ko/agent-sdk/sessions
 - Python SDK: https://code.claude.com/docs/ko/agent-sdk/python
 - TypeScript SDK: https://code.claude.com/docs/ko/agent-sdk/typescript

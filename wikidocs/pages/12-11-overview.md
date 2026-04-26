@@ -58,10 +58,10 @@ for await (const message of query({
 
 ## 관련 링크
 
-- 에이전트 루프
-- 세션
-- 커스텀 도구
-- 권한
-- 훅
+- [에이전트 루프](https://wikidocs.net/345718)
+- [세션](https://wikidocs.net/345719)
+- [커스텀 도구](https://wikidocs.net/345721)
+- [권한](https://wikidocs.net/345720)
+- [훅](https://wikidocs.net/345725)
 - 공식 개요: https://code.claude.com/docs/ko/agent-sdk/overview
 - 공식 문서 맵: https://code.claude.com/docs/ko/claude_code_docs_map

@@ -40,7 +40,7 @@
 
 ## 관련 링크
 
-- Streaming vs Single Mode
-- 구조화된 출력
-- 관측성
+- [Streaming vs Single Mode](https://wikidocs.net/345723)
+- [구조화된 출력](https://wikidocs.net/345724)
+- [관측성](https://wikidocs.net/345735)
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/streaming-output
