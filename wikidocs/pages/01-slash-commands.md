@@ -8,6 +8,13 @@ Slash command는 Claude Code 세션 안에서 자주 쓰는 동작을 빠르게 
 - skill, plugin, MCP prompt가 slash command처럼 어떻게 동작하는지
 - 팀 또는 개인 워크플로에 맞는 사용자 정의 명령을 어떻게 구성하는지
 
+## 언제 읽으면 좋은가
+
+- Claude Code의 기본 동작(`/help`, `/clear`, `/model` 등)을 빠르게 확인하고 싶을 때
+- 팀이나 개인의 자주 쓰는 워크플로를 단축 명령으로 정리하고 싶을 때
+- skill, plugin, MCP prompt가 어떻게 slash command 형태로 노출되는지 이해하고 싶을 때
+- 기존 사용자 정의 slash command를 skill 구조로 마이그레이션해야 할 때
+
 ## 먼저 알아둘 것
 
 - 가장 빠른 확인 방법은 Claude Code에서 `/`를 입력하는 것입니다.

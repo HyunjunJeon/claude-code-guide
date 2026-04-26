@@ -2,6 +2,13 @@
 
 이 폴더에는 여러 Claude Code 기능을 하나의 설치 가능한 패키지로 묶은 완전한 plugin 예제가 포함되어 있습니다.
 
+## 언제 읽으면 좋은가
+
+- 여러 customization(slash command + subagent + hooks + MCP 서버)을 한 번에 설치/배포하고 싶을 때
+- 팀 표준 워크플로(PR 리뷰, DevOps 자동화, 문서화 등)를 단일 명령으로 보급하고 싶을 때
+- 외부 plugin marketplace에서 검증된 기능을 가져와 사용하고 싶을 때
+- 조직 내에서 plugin source와 권한을 중앙에서 통제해야 할 때
+
 ## 개요
 
 Claude Code Plugins는 커스터마이징(slash command, subagent, MCP 서버, hooks)의 번들 컬렉션으로, 단일 명령으로 설치할 수 있습니다. 여러 기능을 응집력 있고 공유 가능한 패키지로 결합하는 최상위 확장 메커니즘입니다.

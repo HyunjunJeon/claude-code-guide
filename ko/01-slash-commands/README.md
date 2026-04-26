@@ -1,6 +1,15 @@
 
 # Slash Command
 
+Slash command는 Claude Code 세션 안에서 자주 쓰는 동작을 빠르게 호출하는 단축 명령입니다. 내장 명령부터 skill, plugin, MCP prompt까지 다양한 출처가 동일한 `/이름` 형태로 노출됩니다.
+
+## 언제 읽으면 좋은가
+
+- Claude Code의 기본 동작(`/help`, `/clear`, `/model` 등)을 빠르게 확인하고 싶을 때
+- 팀이나 개인의 자주 쓰는 워크플로를 단축 명령으로 정리하고 싶을 때
+- skill, plugin, MCP prompt가 어떻게 slash command 형태로 노출되는지 이해하고 싶을 때
+- 기존 사용자 정의 slash command를 skill 구조로 마이그레이션해야 할 때
+
 ## 개요
 
 Slash command는 대화형 세션에서 Claude의 동작을 제어하는 단축 명령입니다. 여러 유형이 있습니다:

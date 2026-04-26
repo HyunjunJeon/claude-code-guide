@@ -2,6 +2,13 @@
 
 Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print mode(비대화형), 세션 관리, 대화형 기능, channel, 음성 입력, remote control, 웹 세션, 데스크톱 앱, task list, 프롬프트 제안, git worktree, sandboxing, 관리형 설정, 그리고 구성을 포함하는 Claude Code의 고급 기능에 대한 종합 가이드입니다.
 
+## 언제 읽으면 좋은가
+
+- 기본 명령과 메모리, 스킬, MCP를 이미 한 번 써봤을 때
+- 장시간 작업이나 자동화를 안정적으로 굴리고 싶을 때
+- 팀 환경에서 권한, sandbox, 관리형 설정 같은 운영 감각을 잡고 싶을 때
+- 음성, 데스크톱, 웹, 원격 제어처럼 다양한 채널에서 Claude Code를 쓰고 싶을 때
+
 **관련 가이드:**
 
 - [How Claude Code Works](09-advanced-features.md#09-advanced-features-19-claude-code는-어떻게-동작하는가)
@@ -438,6 +445,18 @@ claude --teammate-mode in-process
 - ✅ 중요한 세션 상태를 저장합니다
 - ✅ 오래된 세션을 정리합니다
 - ❌ 하나의 세션에서 관련 없는 작업을 혼합하지 마세요
+
+---
+
+## 자주 보는 오류
+
+| 증상 | 원인 | 진단/해결 |
+| --- | --- | --- |
+| 권한 모드 충돌 | managed settings와 로컬 settings의 우선순위 혼동 | `/status`로 활성 설정 source 확인 |
+| Auto mode가 신뢰할 수 있는 동작을 차단 | `autoMode.environment` 또는 allow 규칙 미설정 | `claude auto-mode critique`로 진단 |
+| Channel webhook 401/403 | 환경 변수에 인증 토큰 누락 | `/status` 출력에서 channel 인증 상태 확인 |
+| Plan mode에서 코드 수정이 안 됨 | 의도된 동작 (Plan mode는 read-only) | 계획 승인 후 일반 모드로 전환 |
+| Git worktree에서 특정 명령이 실패 | base 디렉터리 경계 밖 접근 | worktree 안에서만 작업하거나 `--add-dir`로 명시 |
 
 ---
 

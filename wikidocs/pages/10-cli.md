@@ -1,5 +1,14 @@
 # 10. CLI 참조
 
+Claude Code CLI(Command Line Interface)는 Claude Code와 상호 작용하는 주요 방법입니다. 대화형 세션부터 스크립트, CI/CD, 백그라운드 작업까지 모든 진입점이 이 한 가지 명령에서 시작됩니다.
+
+## 언제 읽으면 좋은가
+
+- 대화형 모드 외에 스크립트, CI/CD, 백그라운드 작업에서 Claude Code를 호출해야 할 때
+- 모델 선택, 권한 설정, 출력 형식을 명령줄 옵션으로 정밀하게 제어하고 싶을 때
+- jq나 다른 CLI 도구와 파이프라인으로 연결해 자동화 흐름을 만들 때
+- 여러 세션을 명령으로 관리하거나 print mode로 한 번에 결과를 받을 때
+
 ## 개요
 
 Claude Code CLI(Command Line Interface)는 Claude Code와 상호 작용하는 주요 방법입니다. 쿼리 실행, 세션 관리, 모델 구성, Claude를 개발 워크플로우에 통합하기 위한 강력한 옵션을 제공합니다.
