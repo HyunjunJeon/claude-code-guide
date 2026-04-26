@@ -5,6 +5,25 @@ import matter from "gray-matter";
 const MODULE_DIR_RE = /^\d{2}-[a-z0-9-]+$/;
 const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".gif"]);
 
+// 위키북스 1:1 분할 대상 모듈. 옵트인된 모듈은 ko/<module>/<sub>.md 한 개당
+// 위키북스 페이지 한 개로 익스포트되며, TOC.md에 들여쓰기로 계층화된다.
+// sub-file이 없는 모듈을 포함해도 무해 — getModuleSubpages가 빈 배열을 반환하면
+// 메인 페이지만 단일 출력되어 비분할 동작과 동일하다.
+const SPLIT_MODULES = new Set([
+  "01-slash-commands",
+  "02-memory",
+  "03-skills",
+  "04-subagents",
+  "05-mcp",
+  "06-hooks",
+  "07-plugins",
+  "08-checkpoints",
+  "09-advanced-features",
+  "10-cli",
+  "11-deployment-admin",
+  "12-agent-sdk",
+]);
+
 const rootDir = process.cwd();
 const contentDir = path.join(rootDir, "ko");
 const outputDir = path.join(rootDir, "wikidocs");
@@ -176,36 +195,60 @@ async function collectPages() {
       originalTitle: moduleDoc.title,
       level: 0,
       children: [],
+      subpages: [],
     };
     routeMapEntries.push([path.normalize(modulePath), modulePage.outputName]);
+    pages.push(modulePage);
 
+    const isSplitModule = SPLIT_MODULES.has(moduleName);
     const subpagePaths = await getModuleSubpages(moduleDir);
     let subpageIndex = 1;
 
     for (const subpagePath of subpagePaths) {
       const subpageDoc = await readMarkdownDoc(subpagePath);
-      const outputName = `${slugifyFilename(path.relative(rootDir, subpagePath))}.md`;
-      if (excludedWikidocsPages.has(outputName)) {
+      const legacyOutputName = `${slugifyFilename(path.relative(rootDir, subpagePath))}.md`;
+      if (excludedWikidocsPages.has(legacyOutputName)) {
         continue;
       }
       const index = String(subpageIndex).padStart(2, "0");
-      const subpage = {
-        sourcePath: subpagePath,
-        title: `${moduleNumber}-${index}. ${subpageDoc.title}`,
-        originalTitle: subpageDoc.title,
-        level: 1,
-        anchor: `${moduleName}-${index}-${toAnchorId(subpageDoc.title)}`,
-      };
 
-      modulePage.children.push(subpage);
-      routeMapEntries.push([
-        path.normalize(subpagePath),
-        `${modulePage.outputName}#${subpage.anchor}`,
-      ]);
+      if (isSplitModule) {
+        // 모듈 내 상대경로 전체를 슬러그화하여 nested dir의 SKILL.md 등이
+        // 동일 basename으로 충돌하지 않도록 보장한다.
+        // 예: brand-voice/SKILL.md → brand-voice-skill
+        //     blog-draft/templates/draft-template.md → blog-draft-templates-draft-template
+        const relWithinModule = path.relative(moduleDir, subpagePath).replace(/\.md$/i, "");
+        const subFilenameSlug = slugifyFilename(relWithinModule);
+        const outputName = `${moduleNumber}-${index}-${subFilenameSlug}.md`;
+        const subpage = {
+          sourcePath: subpagePath,
+          outputName,
+          title: `${moduleNumber}-${index}. ${subpageDoc.title}`,
+          originalTitle: subpageDoc.title,
+          level: 0,
+          parentOutputName: modulePage.outputName,
+          children: [],
+          subpages: [],
+        };
+        pages.push(subpage);
+        modulePage.subpages.push(subpage);
+        routeMapEntries.push([path.normalize(subpagePath), outputName]);
+      } else {
+        const subpage = {
+          sourcePath: subpagePath,
+          title: `${moduleNumber}-${index}. ${subpageDoc.title}`,
+          originalTitle: subpageDoc.title,
+          level: 1,
+          anchor: `${moduleName}-${index}-${toAnchorId(subpageDoc.title)}`,
+        };
+        modulePage.children.push(subpage);
+        routeMapEntries.push([
+          path.normalize(subpagePath),
+          `${modulePage.outputName}#${subpage.anchor}`,
+        ]);
+      }
       subpageIndex += 1;
     }
-
-    pages.push(modulePage);
   }
 
   return {
@@ -405,6 +448,11 @@ function buildToc(pagesByTreeOrder) {
 
   for (const page of pagesByTreeOrder) {
     lines.push(`- [${page.title}](pages/${page.outputName})`);
+    if (page.subpages && page.subpages.length) {
+      for (const sub of page.subpages) {
+        lines.push(`    - [${sub.title}](pages/${sub.outputName})`);
+      }
+    }
   }
 
   return `${lines.join("\n")}\n`;
@@ -420,7 +468,9 @@ async function main() {
   await fs.mkdir(assetsDir, { recursive: true });
 
   const { pages, routeMapEntries } = await collectPages();
-  const treePages = pages.filter((page) => page.level === 0).sort((a, b) => a.outputName.localeCompare(b.outputName));
+  const treePages = pages
+    .filter((page) => page.level === 0 && !page.parentOutputName)
+    .sort((a, b) => a.outputName.localeCompare(b.outputName));
   const pageMap = new Map(routeMapEntries);
   const assetMap = await copyAssets(pages);
   const warnings = [];
