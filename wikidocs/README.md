@@ -8,7 +8,7 @@
 
 | 모듈 | 주제 | 설명 |
 |------|------|------|
-| [01](pages/01-slash-commands.md) | 슬래시 커맨드 | 사용자 호출 단축키 |
+| [01](pages/01-getting-started.md) | 슬래시 커맨드 | 사용자 호출 단축키 |
 | [02](pages/02-memory.md) | 메모리 | 영구 컨텍스트 관리 |
 | [03](pages/03-skills.md) | 스킬 | 재사용 가능한 기능 정의 |
 | [04](pages/04-subagents.md) | 서브에이전트 | 전문화된 AI 어시스턴트 |

@@ -62,7 +62,7 @@ When invoked:
 
 - [공식 Subagent 문서](https://code.claude.com/docs/ko/sub-agents)
 - [CLI 참조](https://code.claude.com/docs/ko/cli-reference) — `--agents` 플래그 및 기타 CLI 옵션
-- [01. Slash Commands](01-slash-commands.md) — 빠른 사용자 호출 단축키
+- [01. Slash Commands](01-getting-started.md) — 빠른 사용자 호출 단축키
 - [02. Memory](02-memory.md) — 영구 세션 간 컨텍스트
 - [03. Skills](03-skills.md) — 재사용 가능한 자율 기능
 - [05. MCP](05-mcp.md) — 실시간 외부 데이터 접근

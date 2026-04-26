@@ -41,6 +41,10 @@ const excludedWikidocsPages = new Set([
   "01-slash-commands-setup-ci-cd.md",
   "01-slash-commands-unit-test-expand.md",
 ]);
+const stableModuleOutputNames = new Map([
+  // Preserve the original WikiDocs page id for the first generated page.
+  ["01-slash-commands", "01-getting-started.md"],
+]);
 
 async function pathExists(targetPath) {
   try {
@@ -190,7 +194,9 @@ async function collectPages() {
     const moduleNumber = moduleName.slice(0, 2);
     const modulePage = {
       sourcePath: modulePath,
-      outputName: `${slugifyFilename(path.relative(rootDir, modulePath))}.md`,
+      outputName:
+        stableModuleOutputNames.get(moduleName) ??
+        `${slugifyFilename(path.relative(rootDir, modulePath))}.md`,
       title: `${moduleNumber}. ${moduleDoc.title.replace(/^\d+[\s.-]+/, "")}`,
       originalTitle: moduleDoc.title,
       level: 0,
@@ -450,7 +456,7 @@ function buildToc(pagesByTreeOrder) {
     lines.push(`- [${page.title}](pages/${page.outputName})`);
     if (page.subpages && page.subpages.length) {
       for (const sub of page.subpages) {
-        lines.push(`    - [${sub.title}](pages/${sub.outputName})`);
+        lines.push(`  - [${sub.title}](pages/${sub.outputName})`);
       }
     }
   }

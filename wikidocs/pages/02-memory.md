@@ -59,7 +59,7 @@ Memory는 Claude가 세션과 대화 간에 컨텍스트를 유지할 수 있게
 
 ### 다른 모듈
 
-- [Slash Command](01-slash-commands.md) — `/init`·`/memory` 등 Memory 관련 명령 전체
+- [Slash Command](01-getting-started.md) — `/init`·`/memory` 등 Memory 관련 명령 전체
 - [Skill](03-skills.md) — Memory 컨텍스트를 활용한 자동화 워크플로
 - [MCP Protocol](05-mcp.md) — Memory와 함께 사용하는 외부 데이터 접근
 

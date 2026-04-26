@@ -68,7 +68,7 @@ claude --plugin-dir ./my-first-plugin
 - [Plugin 마켓플레이스](https://code.claude.com/docs/ko/plugin-marketplaces)
 - [Plugins 참조](https://code.claude.com/docs/ko/plugins-reference)
 - [MCP 서버 참조](https://modelcontextprotocol.io/)
-- [01. Slash Commands](01-slash-commands.md) — plugin에 번들되는 개별 명령
+- [01. Slash Commands](01-getting-started.md) — plugin에 번들되는 개별 명령
 - [02. Memory](02-memory.md) — plugin을 위한 영구 컨텍스트
 - [03. Skills](03-skills.md) — plugin으로 래핑할 수 있는 도메인 전문성
 - [04. Subagents](04-subagents.md) — plugin 구성요소로 포함되는 전문 에이전트

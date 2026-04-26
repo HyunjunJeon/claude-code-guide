@@ -865,7 +865,7 @@ claude -p --output-format json "query"
 
 - **[공식 CLI 참조](https://code.claude.com/docs/ko/cli-reference)** - 전체 명령어 참조
 - **[Headless 모드 문서](https://code.claude.com/docs/ko/headless)** - 자동화 실행
-- **[Slash Command](01-slash-commands.md)** - Claude 내 사용자 정의 단축키
+- **[Slash Command](01-getting-started.md)** - Claude 내 사용자 정의 단축키
 - **[메모리 가이드](02-memory.md)** - CLAUDE.md를 통한 영구 컨텍스트
 - **[MCP 프로토콜](05-mcp.md)** - 외부 도구 통합
 - **[고급 기능](09-advanced-features.md)** - Plan mode, extended thinking

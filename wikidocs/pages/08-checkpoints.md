@@ -309,7 +309,7 @@ Claude Code의 컨텍스트 윈도우 사용량을 모니터링하면, 품질이
 
 - **[고급 기능](09-advanced-features.md)** - Plan mode 및 기타 고급 기능
 - **[메모리 관리](02-memory.md)** - 대화 이력 및 컨텍스트 관리
-- **[Slash Command](01-slash-commands.md)** - 사용자 호출 단축키
+- **[Slash Command](01-getting-started.md)** - 사용자 호출 단축키
 - **[Hook](06-hooks.md)** - 이벤트 기반 자동화
 - **[Plugin](07-plugins.md)** - 번들 확장 패키지
 

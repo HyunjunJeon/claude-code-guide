@@ -70,7 +70,7 @@ For each file:
 
 - [공식 스킬 문서](https://code.claude.com/docs/ko/skills)
 - [에이전트 스킬 아키텍처 블로그](https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-skills)
-- [01. Slash Command](01-slash-commands.md) — 사용자 시작 단축키
+- [01. Slash Command](01-getting-started.md) — 사용자 시작 단축키
 - [02. Memory](02-memory.md) — 영구적인 컨텍스트
 - [04. Subagents](04-subagents.md) — 위임된 AI 에이전트
 - [05. MCP (Model Context Protocol)](05-mcp.md) — 실시간 외부 데이터

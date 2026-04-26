@@ -476,7 +476,7 @@ Claude Code 및 관련 기능에 대한 자세한 정보:
 - [Channels Reference](09-02-channels-reference.md) - channel 기반 event stream의 builder-oriented 가이드
 - [Use Claude Code in VS Code](09-30-vscode.md) - VS Code 확장 중심 IDE workflow 가이드
 - [Checkpoint 가이드](08-checkpoints.md) - 세션 관리 및 rewind
-- [Slash Command](01-slash-commands.md) - 명령어 참조
+- [Slash Command](01-getting-started.md) - 명령어 참조
 - [메모리 가이드](02-memory.md) - 영구 컨텍스트
 - [Skill 가이드](03-skills.md) - 자율 기능
 - [Subagent 가이드](04-subagents.md) - 위임 작업 실행
