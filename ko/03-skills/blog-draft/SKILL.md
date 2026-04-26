@@ -3,6 +3,8 @@ name: blog-draft
 description: Draft a blog post from ideas and resources. Use when users want to write a blog post, create content from research, or draft articles. Guides through research, brainstorming, outlining, and iterative drafting with version control.
 ---
 
+# 블로그 초안 작성 스킬
+
 ## 사용자 입력
 
 ```text

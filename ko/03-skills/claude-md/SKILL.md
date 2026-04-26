@@ -3,6 +3,8 @@ name: claude-md
 description: Create or update CLAUDE.md files following best practices for optimal AI agent onboarding
 ---
 
+# CLAUDE.md 작성 스킬
+
 ## 사용자 입력
 
 ```text

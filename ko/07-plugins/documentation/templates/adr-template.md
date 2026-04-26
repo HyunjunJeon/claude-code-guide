@@ -1,4 +1,6 @@
-# ADR [Number]: [Title]
+# ADR (Architecture Decision Record) 템플릿
+
+> 사용 시 첫 줄을 "ADR [번호]: [결정 제목]" 형식으로 교체해 활용하세요.
 
 ## 상태
 [제안됨 | 수락됨 | 폐기됨 | 대체됨]

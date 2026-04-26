@@ -1579,9 +1579,11 @@ export GITHUB_TOKEN="your_github_token"
 
 ---
 
-<a id="07-plugins-18-adr-number-title"></a>
+<a id="07-plugins-18-adr-architecture-decision-record-템플릿"></a>
 
-## 07-18. ADR [Number]: [Title]
+## 07-18. ADR (Architecture Decision Record) 템플릿
+
+> 사용 시 첫 줄을 "ADR [번호]: [결정 제목]" 형식으로 교체해 활용하세요.
 
 ### 상태
 [제안됨 | 수락됨 | 폐기됨 | 대체됨]
@@ -1623,9 +1625,11 @@ export GITHUB_TOKEN="your_github_token"
 
 ---
 
-<a id="07-plugins-19-method-api-v1-endpoint"></a>
+<a id="07-plugins-19-api-엔드포인트-문서-템플릿"></a>
 
-## 07-19. [METHOD] /api/v1/[endpoint]
+## 07-19. API 엔드포인트 문서 템플릿
+
+> 사용 시 첫 줄을 "[METHOD] /api/v1/[endpoint]" 형식으로 교체해 활용하세요 (예: "GET /api/v1/users").
 
 ### 설명
 이 엔드포인트가 수행하는 작업에 대한 간단한 설명.
@@ -1729,9 +1733,11 @@ data = response.json()
 
 ---
 
-<a id="07-plugins-20-function-functionname"></a>
+<a id="07-plugins-20-함수-문서-템플릿"></a>
 
-## 07-20. Function: `functionName`
+## 07-20. 함수 문서 템플릿
+
+> 사용 시 첫 줄을 "Function: `실제함수명`" 형식으로 교체해 활용하세요.
 
 ### 설명
 함수가 수행하는 작업에 대한 간단한 설명.
