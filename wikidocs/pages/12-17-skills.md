@@ -26,7 +26,7 @@
 
 ## 관련 링크
 
-- [슬래시 명령](12-18-slash-commands.md)
-- [플러그인](12-13-plugins.md)
-- [Skills 모듈](03-skills.md)
+- 슬래시 명령
+- 플러그인
+- Skills 모듈
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/skills

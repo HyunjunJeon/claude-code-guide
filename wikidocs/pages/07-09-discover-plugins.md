@@ -61,9 +61,9 @@
 
 ## 관련 가이드
 
-- [Plugins Guide](07-plugins.md)
-- [Skills](03-skills.md)
-- [MCP](05-mcp.md)
+- Plugins Guide
+- Skills
+- MCP
 
 ## 공식 출처
 

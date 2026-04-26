@@ -80,9 +80,9 @@ claude -p "summarize this diff"
 
 ## 관련 가이드
 
-- [Configuration](09-08-configuration.md)
-- [문제 해결](10-07-troubleshooting.md)
-- [Authentication and IAM](11-02-authentication-and-iam.md)
+- Configuration
+- 문제 해결
+- Authentication and IAM
 
 ## 공식 출처
 

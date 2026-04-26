@@ -82,9 +82,9 @@ team lead가 전체를 조정하지만, teammates는 단순 수동 작업자가 
 
 ## 관련 가이드
 
-- [Subagents Guide](04-subagents.md)
-- [How Claude Code Works](09-19-how-claude-code-works.md)
-- [Common Workflows](09-06-common-workflows.md)
+- Subagents Guide
+- How Claude Code Works
+- Common Workflows
 
 ## 공식 출처
 

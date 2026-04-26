@@ -13,23 +13,23 @@ Memory는 Claude가 세션과 대화 간에 컨텍스트를 유지할 수 있게
 
 | 주제 | 무엇인가 | 먼저 볼 페이지 |
 | --- | --- | --- |
-| 개요 | Memory 기능과 CLAUDE.md의 핵심 가치 | [memory-overview.md](02-13-memory-overview.md) |
-| 명령 치트시트 | `/init`, `#`, `/memory` 한눈 정리 | [memory-commands-quick-reference.md](02-08-memory-commands-quick-reference.md) |
-| 초기화·업데이트 | Memory를 만들고 점진적으로 갱신하는 세 가지 핵심 명령 | [memory-init-and-update.md](02-11-memory-init-and-update.md) |
-| 아키텍처 | Memory 시스템의 계층적 구조 다이어그램 | [memory-architecture.md](02-06-memory-architecture.md) |
-| Memory 계층 | 8단계 우선순위와 충돌 해소 규칙 | [memory-hierarchy.md](02-10-memory-hierarchy.md) |
-| 위치 테이블 | 어떤 CLAUDE.md가 어느 범위에서 적용되는지 | [memory-location-table.md](02-12-memory-location-table.md) |
-| 설정 파일 계층 | `claudeMdExcludes` 등 옵션이 어디에서 적용되는지 | [settings-file-hierarchy.md](02-20-settings-file-hierarchy.md) |
-| 모듈식 규칙 | `.claude/rules/`로 규칙을 모듈별로 쪼개기 | [modular-rules-system.md](02-17-modular-rules-system.md) |
-| `claudeMdExcludes` | 특정 CLAUDE.md를 컨텍스트 로딩에서 제외 | [claude-md-excludes.md](02-03-claude-md-excludes.md) |
-| 업데이트 라이프사이클 | "Remember:" 지시 후 갱신되는 절차 | [memory-update-lifecycle.md](02-16-memory-update-lifecycle.md) |
-| 자동 Memory | Claude가 스스로 학습한 패턴을 저장하는 기능 | [auto-memory.md](02-02-auto-memory.md) |
-| `--add-dir` | 작업 디렉터리 외부의 CLAUDE.md도 함께 로드 | [add-dir-flag.md](02-01-add-dir-flag.md) |
-| 실용 예시 | 프로젝트·디렉터리·개인 메모리 4개 완성형 예시 | [memory-practical-examples.md](02-14-memory-practical-examples.md) |
-| 자동 Memory 샘플 | 24시간 합성 후 생성되는 사용자 프로필 형식 | [claude-memory-of-user.md](02-04-claude-memory-of-user.md) |
-| 환경 비교 | Claude 웹/데스크톱 vs Claude Code Memory | [memory-comparison.md](02-09-memory-comparison.md) |
-| 모범 사례 | 권장·비권장 패턴과 보안 함정 정리 | [memory-best-practices.md](02-07-memory-best-practices.md) |
-| 설치 가이드 | 새 프로젝트나 새 머신에서 Memory 설정 | [memory-setup-guide.md](02-15-memory-setup-guide.md) |
+| 개요 | Memory 기능과 CLAUDE.md의 핵심 가치 | memory-overview.md |
+| 명령 치트시트 | `/init`, `#`, `/memory` 한눈 정리 | memory-commands-quick-reference.md |
+| 초기화·업데이트 | Memory를 만들고 점진적으로 갱신하는 세 가지 핵심 명령 | memory-init-and-update.md |
+| 아키텍처 | Memory 시스템의 계층적 구조 다이어그램 | memory-architecture.md |
+| Memory 계층 | 8단계 우선순위와 충돌 해소 규칙 | memory-hierarchy.md |
+| 위치 테이블 | 어떤 CLAUDE.md가 어느 범위에서 적용되는지 | memory-location-table.md |
+| 설정 파일 계층 | `claudeMdExcludes` 등 옵션이 어디에서 적용되는지 | settings-file-hierarchy.md |
+| 모듈식 규칙 | `.claude/rules/`로 규칙을 모듈별로 쪼개기 | modular-rules-system.md |
+| `claudeMdExcludes` | 특정 CLAUDE.md를 컨텍스트 로딩에서 제외 | claude-md-excludes.md |
+| 업데이트 라이프사이클 | "Remember:" 지시 후 갱신되는 절차 | memory-update-lifecycle.md |
+| 자동 Memory | Claude가 스스로 학습한 패턴을 저장하는 기능 | auto-memory.md |
+| `--add-dir` | 작업 디렉터리 외부의 CLAUDE.md도 함께 로드 | add-dir-flag.md |
+| 실용 예시 | 프로젝트·디렉터리·개인 메모리 4개 완성형 예시 | memory-practical-examples.md |
+| 자동 Memory 샘플 | 24시간 합성 후 생성되는 사용자 프로필 형식 | claude-memory-of-user.md |
+| 환경 비교 | Claude 웹/데스크톱 vs Claude Code Memory | memory-comparison.md |
+| 모범 사례 | 권장·비권장 패턴과 보안 함정 정리 | memory-best-practices.md |
+| 설치 가이드 | 새 프로젝트나 새 머신에서 Memory 설정 | memory-setup-guide.md |
 
 ## 빠른 시작
 
@@ -45,23 +45,23 @@ Memory는 Claude가 세션과 대화 간에 컨텍스트를 유지할 수 있게
 /memory
 ```
 
-세 명령의 차이와 각 명령에 어울리는 상황은 [memory-init-and-update.md](02-11-memory-init-and-update.md)를, 모든 단축 입력의 한눈 정리는 [memory-commands-quick-reference.md](02-08-memory-commands-quick-reference.md)를 참고하세요.
+세 명령의 차이와 각 명령에 어울리는 상황은 memory-init-and-update.md를, 모든 단축 입력의 한눈 정리는 memory-commands-quick-reference.md를 참고하세요.
 
 ## 자주 하는 실수
 
 - **시크릿을 CLAUDE.md에 저장**: 비밀번호·토큰을 직접 넣으면 git에 커밋된 채 새어나갑니다. 환경 변수 이름만 적고 값은 외부에서 주입하세요.
 - **모호한 지시**: "코드 잘 짜줘"처럼 측정 불가능한 규칙은 Claude가 적용 여부를 판단할 수 없습니다. 검증 가능한 규칙(예: "테스트 파일은 `*.test.ts`로 끝낸다")으로 적습니다.
 - **README 내용 복붙**: 이미 git에 있는 문서를 CLAUDE.md에 복사하면 두 곳을 동기화해야 합니다. `@docs/README.md` import 구문으로 참조하세요.
-- **계층 혼동**: 조직 정책을 `~/.claude/CLAUDE.md`에 넣거나 사용자 메모리를 관리 정책 위치에 두면 우선순위가 뒤집힙니다. [memory-hierarchy.md](02-10-memory-hierarchy.md)의 8단계 표를 먼저 확인하세요.
-- **자동 Memory와 수동 CLAUDE.md 혼동**: 자동 Memory는 Claude가 학습한 패턴을 자동 기록하는 별도 디렉터리로, 사용자가 직접 작성하는 CLAUDE.md와 다릅니다. 차이는 [memory-comparison.md](02-09-memory-comparison.md)에서 비교합니다.
+- **계층 혼동**: 조직 정책을 `~/.claude/CLAUDE.md`에 넣거나 사용자 메모리를 관리 정책 위치에 두면 우선순위가 뒤집힙니다. memory-hierarchy.md의 8단계 표를 먼저 확인하세요.
+- **자동 Memory와 수동 CLAUDE.md 혼동**: 자동 Memory는 Claude가 학습한 패턴을 자동 기록하는 별도 디렉터리로, 사용자가 직접 작성하는 CLAUDE.md와 다릅니다. 차이는 memory-comparison.md에서 비교합니다.
 
 ## 관련 장
 
 ### 다른 모듈
 
-- [Slash Command](01-getting-started.md) — `/init`·`/memory` 등 Memory 관련 명령 전체
-- [Skill](03-skills.md) — Memory 컨텍스트를 활용한 자동화 워크플로
-- [MCP Protocol](05-mcp.md) — Memory와 함께 사용하는 외부 데이터 접근
+- Slash Command — `/init`·`/memory` 등 Memory 관련 명령 전체
+- Skill — Memory 컨텍스트를 활용한 자동화 워크플로
+- MCP Protocol — Memory와 함께 사용하는 외부 데이터 접근
 
 ### 공식 문서
 

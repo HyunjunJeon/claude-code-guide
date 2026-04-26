@@ -29,7 +29,7 @@
 
 ## 관련 링크
 
-- [세션](12-16-sessions.md)
-- [에이전트 루프](12-01-agent-loop.md)
-- [Subagents 모듈](04-subagents.md)
+- 세션
+- 에이전트 루프
+- Subagents 모듈
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/subagents

@@ -85,5 +85,5 @@ reference 구성의 중심은 세 파일입니다.
 
 - [공식 devcontainer 문서](https://code.claude.com/docs/ko/devcontainer)
 - [Reference devcontainer repository](https://github.com/anthropics/claude-code)
-- [Network Configuration](11-09-network-config.md)
-- [LLM Gateway](11-06-llm-gateway.md)
+- Network Configuration
+- LLM Gateway

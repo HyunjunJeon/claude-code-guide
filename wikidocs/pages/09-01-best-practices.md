@@ -116,10 +116,10 @@ Claude Code는 대화형이고 중간에 끊을 수 있습니다. 잘못 가기 
 
 ## 관련 가이드
 
-- [How Claude Code Works](09-19-how-claude-code-works.md)
-- [Common Workflows](09-06-common-workflows.md)
-- [Permissions and Security](09-21-permissions-and-security.md)
-- [Settings System Guide](09-27-settings-system-guide.md)
+- How Claude Code Works
+- Common Workflows
+- Permissions and Security
+- Settings System Guide
 
 ## 공식 출처
 

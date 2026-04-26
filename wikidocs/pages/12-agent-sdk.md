@@ -62,10 +62,10 @@ print(result.output)
 
 ## 관련 가이드
 
-- [CLI 참조](10-cli.md)
-- [Hooks](06-hooks.md)
-- [Subagents](04-subagents.md)
-- [Plugins](07-plugins.md)
+- CLI 참조
+- Hooks
+- Subagents
+- Plugins
 
 ## Official reference
 

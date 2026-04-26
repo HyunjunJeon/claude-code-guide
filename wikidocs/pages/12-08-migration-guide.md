@@ -25,7 +25,7 @@
 
 ## 관련 링크
 
-- [개요](12-11-overview.md)
-- [TypeScript](12-26-typescript.md)
-- [Python](12-14-python.md)
+- 개요
+- TypeScript
+- Python
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/migration-guide

@@ -1,4 +1,4 @@
-이 페이지는 첫 MCP 서버를 처음부터 끝까지 붙여 보는 단계별 setup 안내(전제조건 → 추가 → 환경변수 → 연결 테스트 → 도구 호출)와 자주 쓰이는 패키지 설치 명령을 모아 둔다. MCP를 처음 도입하는 사람이 따라 하기 좋은 페이지다. 명령 자체의 문법 레퍼런스는 [mcp-installation.md](05-11-mcp-installation.md)와 [mcp-management.md](05-13-mcp-management.md), 문제가 생겼을 때는 [mcp-troubleshooting.md](05-31-mcp-troubleshooting.md)를 본다.
+이 페이지는 첫 MCP 서버를 처음부터 끝까지 붙여 보는 단계별 setup 안내(전제조건 → 추가 → 환경변수 → 연결 테스트 → 도구 호출)와 자주 쓰이는 패키지 설치 명령을 모아 둔다. MCP를 처음 도입하는 사람이 따라 하기 좋은 페이지다. 명령 자체의 문법 레퍼런스는 mcp-installation.md와 mcp-management.md, 문제가 생겼을 때는 mcp-troubleshooting.md를 본다.
 
 ## 전제 조건
 

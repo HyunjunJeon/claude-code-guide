@@ -228,10 +228,10 @@ Expected result:
 
 ## Related Guides
 
-- [고급 기능 README](09-advanced-features.md)
-- [MCP 가이드](05-mcp.md)
-- [Plugin 가이드](07-plugins.md)
-- [Hook 가이드](06-hooks.md)
+- 고급 기능 README
+- MCP 가이드
+- Plugin 가이드
+- Hook 가이드
 
 ## Official Reference
 

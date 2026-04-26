@@ -26,7 +26,7 @@
 
 ## 관련 링크
 
-- [권한](12-12-permissions.md)
-- [호스팅](12-06-hosting.md)
-- [관측성](12-10-observability.md)
+- 권한
+- 호스팅
+- 관측성
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/secure-deployment

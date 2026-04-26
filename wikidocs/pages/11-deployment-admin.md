@@ -104,33 +104,33 @@
 
 ### 기본 경로
 
-1. [Authentication and IAM](11-02-authentication-and-iam.md)
-2. [Network Configuration](11-09-network-config.md)
-3. [Server-Managed Settings](11-10-server-managed-settings.md)
-4. [Monitoring and Usage](11-08-monitoring-usage.md)
-5. [Data Usage](11-03-data-usage.md)
-6. [Zero Data Retention](11-11-zero-data-retention.md)
+1. Authentication and IAM
+2. Network Configuration
+3. Server-Managed Settings
+4. Monitoring and Usage
+5. Data Usage
+6. Zero Data Retention
 
 ### 공급자별 경로
 
-- AWS 중심 조직: [Amazon Bedrock](11-01-amazon-bedrock.md)
-- GCP 중심 조직: [Google Vertex AI](11-05-google-vertex-ai.md)
-- Azure 중심 조직: [Microsoft Foundry](11-07-microsoft-foundry.md)
-- 여러 provider를 한 게이트웨이 뒤에 둘 때: [LLM Gateway](11-06-llm-gateway.md)
+- AWS 중심 조직: Amazon Bedrock
+- GCP 중심 조직: Google Vertex AI
+- Azure 중심 조직: Microsoft Foundry
+- 여러 provider를 한 게이트웨이 뒤에 둘 때: LLM Gateway
 
 ## 현재 모듈에 있는 문서
 
-- [Amazon Bedrock](11-01-amazon-bedrock.md)
-- [Authentication and IAM](11-02-authentication-and-iam.md)
-- [Data Usage](11-03-data-usage.md)
-- [Dev Container Setup](11-04-devcontainer.md)
-- [Google Vertex AI](11-05-google-vertex-ai.md)
-- [LLM Gateway](11-06-llm-gateway.md)
-- [Microsoft Foundry](11-07-microsoft-foundry.md)
-- [Monitoring and Usage](11-08-monitoring-usage.md)
-- [Network Configuration](11-09-network-config.md)
-- [Server-Managed Settings](11-10-server-managed-settings.md)
-- [Zero Data Retention](11-11-zero-data-retention.md)
+- Amazon Bedrock
+- Authentication and IAM
+- Data Usage
+- Dev Container Setup
+- Google Vertex AI
+- LLM Gateway
+- Microsoft Foundry
+- Monitoring and Usage
+- Network Configuration
+- Server-Managed Settings
+- Zero Data Retention
 
 ## 이 모듈에서 아직 공식 문서를 직접 보조해야 하는 주제
 
@@ -170,6 +170,6 @@
 
 ## 관련 가이드
 
-- [Settings System Guide](09-27-settings-system-guide.md)
-- [CLI 참조](10-cli.md)
-- [문제 해결](10-07-troubleshooting.md)
+- Settings System Guide
+- CLI 참조
+- 문제 해결

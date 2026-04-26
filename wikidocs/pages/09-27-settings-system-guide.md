@@ -231,9 +231,9 @@ settings system은 이런 기능군이 어떻게 활성화되고 제약되는지
 
 각 기능 상세는 전용 가이드를 참고하세요:
 
-- [Hook 가이드](06-hooks.md)
-- [Plugin 가이드](07-plugins.md)
-- [Subagent 가이드](04-subagents.md)
+- Hook 가이드
+- Plugin 가이드
+- Subagent 가이드
 
 ## Excluding Sensitive or Irrelevant Files
 
@@ -331,11 +331,11 @@ Expected result:
 
 ## Related Guides
 
-- [고급 기능 README](09-advanced-features.md)
-- [Terminal Configuration](09-29-terminal-configuration.md)
-- [Output Styles](09-20-output-styles.md)
-- [CLI 참조](10-cli.md)
-- [메모리 가이드](02-memory.md)
+- 고급 기능 README
+- Terminal Configuration
+- Output Styles
+- CLI 참조
+- 메모리 가이드
 
 ## Official Reference
 

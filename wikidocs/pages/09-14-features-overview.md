@@ -92,12 +92,12 @@ Claude Code는 모델과 내장 도구로 시작합니다. 그 위에 확장 기
 
 ## 관련 가이드
 
-- [How Claude Code Works](09-19-how-claude-code-works.md)
-- [Settings System Guide](09-27-settings-system-guide.md)
-- [Channels Reference](09-02-channels-reference.md)
-- [Subagents](04-subagents.md)
-- [Skills](03-skills.md)
-- [Plugins](07-plugins.md)
+- How Claude Code Works
+- Settings System Guide
+- Channels Reference
+- Subagents
+- Skills
+- Plugins
 
 ## 공식 출처
 

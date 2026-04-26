@@ -30,6 +30,6 @@
 
 ## 관련 링크
 
-- [보안 배포](12-15-secure-deployment.md)
-- [관측성](12-10-observability.md)
+- 보안 배포
+- 관측성
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/hosting

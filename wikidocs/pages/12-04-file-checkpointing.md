@@ -31,6 +31,6 @@
 
 ## 관련 링크
 
-- [세션](12-16-sessions.md)
-- [Todo Tracking](12-23-todo-tracking.md)
+- 세션
+- Todo Tracking
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/file-checkpointing

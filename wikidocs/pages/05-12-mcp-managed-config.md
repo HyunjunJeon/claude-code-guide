@@ -1,4 +1,4 @@
-이 페이지는 IT 관리자가 `managed-mcp.json`으로 조직 전체에 MCP 서버 정책(allowlist, denylist, 명령/URL 패턴 매칭)을 강제하는 방법을 정리한다. 사용자나 프로젝트 설정보다 위에서 동작하는 게이트라서 기업 배포·보안 감사 시 가장 먼저 확인해야 할 페이지다. 일반 사용자 범위 설정은 [mcp-scopes.md](05-23-mcp-scopes.md), 운영 명령은 [mcp-management.md](05-13-mcp-management.md)에서 다룬다.
+이 페이지는 IT 관리자가 `managed-mcp.json`으로 조직 전체에 MCP 서버 정책(allowlist, denylist, 명령/URL 패턴 매칭)을 강제하는 방법을 정리한다. 사용자나 프로젝트 설정보다 위에서 동작하는 게이트라서 기업 배포·보안 감사 시 가장 먼저 확인해야 할 페이지다. 일반 사용자 범위 설정은 mcp-scopes.md, 운영 명령은 mcp-management.md에서 다룬다.
 
 기업 배포의 경우, IT 관리자는 `managed-mcp.json` 구성 파일을 통해 MCP 서버 정책을 적용할 수 있습니다. 이 파일은 조직 전체에서 허용되거나 차단되는 MCP 서버에 대한 독점적 제어를 제공합니다.
 

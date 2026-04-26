@@ -30,7 +30,7 @@ Agent SDK에서 사용자 입력은 에이전트가 중간에 멈춰서 설명, 
 
 ## 관련 링크
 
-- [권한](12-12-permissions.md)
-- [스트리밍 출력](12-19-streaming-output.md)
-- [세션](12-16-sessions.md)
+- 권한
+- 스트리밍 출력
+- 세션
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/user-input

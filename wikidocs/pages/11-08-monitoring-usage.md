@@ -115,6 +115,6 @@ export OTEL_TRACES_EXPORTER=otlp
 ## 관련 링크
 
 - [공식 monitoring 문서](https://code.claude.com/docs/ko/monitoring-usage)
-- [Server-Managed Settings](11-10-server-managed-settings.md)
-- [Data Usage](11-03-data-usage.md)
-- [Zero Data Retention](11-11-zero-data-retention.md)
+- Server-Managed Settings
+- Data Usage
+- Zero Data Retention

@@ -27,7 +27,7 @@
 
 ## 관련 링크
 
-- [스킬](12-17-skills.md)
-- [플러그인](12-13-plugins.md)
-- [Slash Commands 모듈](01-getting-started.md)
+- 스킬
+- 플러그인
+- Slash Commands 모듈
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/slash-commands

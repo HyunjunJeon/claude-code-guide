@@ -36,7 +36,7 @@
 
 ## 관련 링크
 
-- [권한](12-12-permissions.md)
-- [개요](12-11-overview.md)
+- 권한
+- 개요
 - 공식 훅 레퍼런스: https://code.claude.com/docs/ko/hooks
 - 공식 훅 가이드: https://platform.claude.com/docs/en/agent-sdk/hooks

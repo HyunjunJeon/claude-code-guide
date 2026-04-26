@@ -169,7 +169,7 @@ Expected result:
 Fullscreen rendering 상태에서:
 
 - `Ctrl+O`
-- `[`
+- ``
 
 Expected result:
 
@@ -177,9 +177,9 @@ Expected result:
 
 ## Related Guides
 
-- [고급 기능 README](09-advanced-features.md)
-- [Terminal Configuration](09-29-terminal-configuration.md)
-- [Sandboxing](09-advanced-features.md#sandboxing)
+- [고급 기능 README
+- Terminal Configuration
+- Sandboxing
 
 ## Official Reference
 

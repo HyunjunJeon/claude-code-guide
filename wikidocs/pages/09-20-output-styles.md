@@ -215,10 +215,10 @@ Expected result:
 
 ## Related Guides
 
-- [고급 기능 README](09-advanced-features.md)
-- [메모리 가이드](02-memory.md)
-- [Skills 가이드](03-skills.md)
-- [Subagents 가이드](04-subagents.md)
+- 고급 기능 README
+- 메모리 가이드
+- Skills 가이드
+- Subagents 가이드
 
 ## Official Reference
 

@@ -161,6 +161,6 @@ Bedrock / Vertex라면:
 ## 관련 링크
 
 - [공식 GitLab CI/CD 문서](https://code.claude.com/docs/ko/gitlab-ci-cd)
-- [AWS Bedrock](11-01-amazon-bedrock.md)
-- [Google Vertex AI](11-05-google-vertex-ai.md)
-- [지침과 메모 관리](02-memory.md)
+- AWS Bedrock
+- Google Vertex AI
+- 지침과 메모 관리

@@ -30,7 +30,7 @@
 
 ## 관련 링크
 
-- [스킬](12-17-skills.md)
-- [Tool Search](12-24-tool-search.md)
-- [Plugins 모듈](07-plugins.md)
+- 스킬
+- Tool Search
+- Plugins 모듈
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/plugins

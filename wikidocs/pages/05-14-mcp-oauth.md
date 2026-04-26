@@ -1,4 +1,4 @@
-이 페이지는 OAuth 2.0이 필요한 MCP 서버에 Claude Code를 연결할 때 알아야 할 모든 것을 모아 둔다. interactive 흐름·사전 등록된 client·고정 callback port·메타데이터 디스커버리 override·custom header 같은 실무 옵션을 함께 다룬다. 일반적인 토큰 헤더(`Authorization: Bearer ...`)만으로 끝나는 서버라면 [mcp-installation.md](05-11-mcp-installation.md)가 더 빠르고, OAuth가 필요한 서비스(Notion, Stripe 등)는 이 페이지를 본다.
+이 페이지는 OAuth 2.0이 필요한 MCP 서버에 Claude Code를 연결할 때 알아야 할 모든 것을 모아 둔다. interactive 흐름·사전 등록된 client·고정 callback port·메타데이터 디스커버리 override·custom header 같은 실무 옵션을 함께 다룬다. 일반적인 토큰 헤더(`Authorization: Bearer ...`)만으로 끝나는 서버라면 mcp-installation.md가 더 빠르고, OAuth가 필요한 서비스(Notion, Stripe 등)는 이 페이지를 본다.
 
 Claude Code는 OAuth 2.0을 요구하는 MCP 서버를 지원합니다. OAuth가 활성화된 서버에 연결할 때 Claude Code가 전체 인증 흐름을 처리합니다:
 

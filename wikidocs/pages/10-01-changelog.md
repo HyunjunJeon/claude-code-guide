@@ -77,9 +77,9 @@ changelog는 버전 단위의 정확한 변화 확인용입니다. 모든 수정
 
 ## 관련 가이드
 
-- [Quickstart](10-05-quickstart.md)
-- [문제 해결](10-07-troubleshooting.md)
-- [오류 참고](10-03-errors.md)
+- Quickstart
+- 문제 해결
+- 오류 참고
 - What's New
 
 ## 공식 출처

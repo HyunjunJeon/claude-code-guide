@@ -62,6 +62,6 @@ ZDR은 self-serve 토글이 아닙니다. 공식 경로는 Anthropic account tea
 ## 관련 링크
 
 - [공식 zero data retention 문서](https://code.claude.com/docs/ko/zero-data-retention)
-- [Data Usage](11-03-data-usage.md)
-- [Monitoring Usage](11-08-monitoring-usage.md)
-- [Server-Managed Settings](11-10-server-managed-settings.md)
+- Data Usage
+- Monitoring Usage
+- Server-Managed Settings

@@ -651,6 +651,34 @@ function isExternalTarget(target) {
   return /^(?:[a-z][a-z0-9+.-]*:|#)/i.test(target);
 }
 
+function stripWikidocsLocalMarkdownLinks(content) {
+  const parts = content.split(/(```[\s\S]*?```)/g);
+
+  return parts
+    .map((part) => {
+      if (part.startsWith("```")) {
+        return part;
+      }
+
+      return part.replace(
+        /(!?)\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g,
+        (fullMatch, marker, text, target) => {
+          if (marker === "!" || isExternalTarget(target)) {
+            return fullMatch;
+          }
+
+          const { pathname } = splitHash(target);
+          if (path.extname(pathname).toLowerCase() !== ".md") {
+            return fullMatch;
+          }
+
+          return text;
+        }
+      );
+    })
+    .join("");
+}
+
 async function resolveMarkdownTarget(sourcePath, pathname) {
   const decodedPathname = decodeURIComponent(pathname);
   let absoluteTarget = path.resolve(path.dirname(sourcePath), decodedPathname);
@@ -956,7 +984,7 @@ function buildReadme(navigation) {
     const order = sectionNumber(section.title);
     const topic = stripDisplayNumber(section.title);
     const description = WIKIDOCS_SECTION_DESCRIPTIONS.get(section.page.outputName) || "";
-    lines.push(`| [${order}](pages/${section.page.outputName}) | ${topic} | ${description} |`);
+    lines.push(`| ${order} | ${topic} | ${description} |`);
   }
 
   return `${lines.join("\n")}\n`;
@@ -998,19 +1026,17 @@ async function main() {
   for (const page of pages) {
     const overrideDoc = await readOverrideDoc(page.outputName);
     const doc = overrideDoc || (await readMarkdownDoc(page.sourcePath));
-    const rewrittenContent = overrideDoc
-      ? doc.content
-      : await rewriteMarkdownLinks(doc.content, page.sourcePath, pageMap, assetMap, warnings);
+    const rewrittenContent = stripWikidocsLocalMarkdownLinks(
+      overrideDoc
+        ? doc.content
+        : await rewriteMarkdownLinks(doc.content, page.sourcePath, pageMap, assetMap, warnings)
+    );
     const mergedSections = [];
 
     for (const child of page.children) {
       const childDoc = await readMarkdownDoc(child.sourcePath);
-      const childRewritten = await rewriteMarkdownLinks(
-        childDoc.content,
-        child.sourcePath,
-        pageMap,
-        assetMap,
-        warnings
+      const childRewritten = stripWikidocsLocalMarkdownLinks(
+        await rewriteMarkdownLinks(childDoc.content, child.sourcePath, pageMap, assetMap, warnings)
       );
       const childBody = shiftHeadings(stripFirstHeading(childRewritten), 1);
       mergedSections.push(

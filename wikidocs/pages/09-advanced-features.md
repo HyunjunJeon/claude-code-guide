@@ -11,58 +11,58 @@ Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print 
 
 **관련 가이드:**
 
-- [How Claude Code Works](09-19-how-claude-code-works.md)
-- [Features Overview](09-14-features-overview.md)
-- [`.claude` 디렉터리 살펴보기](09-04-claude-directory.md)
-- [컨텍스트 윈도우 살펴보기](09-09-context-window.md)
-- [공통 워크플로](09-06-common-workflows.md)
-- [모범 사례](09-01-best-practices.md)
-- [Settings System Guide](09-27-settings-system-guide.md)
-- [Output Styles](09-20-output-styles.md)
-- [Fullscreen Rendering](09-15-fullscreen-rendering.md)
-- [Terminal Configuration](09-29-terminal-configuration.md)
-- [Channels Reference](09-02-channels-reference.md)
-- [Computer Use](09-07-computer-use.md)
-- [Slack의 Claude Code](09-28-slack.md)
-- [Use Claude Code in VS Code](09-30-vscode.md)
-- [Claude Code 웹 시작하기](09-31-web-quickstart.md)
-- [웹에서 Claude Code 사용하기](09-03-claude-code-on-the-web.md)
-- [Claude Code Desktop](09-12-desktop.md)
-- [Desktop Quickstart](09-10-desktop-quickstart.md)
-- [Desktop Scheduled Tasks](09-11-desktop-scheduled-tasks.md)
-- [Routines](09-25-routines.md)
-- [Code Review](09-05-code-review.md)
-- [GitHub Actions](09-16-github-actions.md)
-- [GitHub Enterprise Server](09-17-github-enterprise-server.md)
-- [GitLab CI/CD](09-18-gitlab-ci-cd.md)
+- How Claude Code Works
+- Features Overview
+- `.claude` 디렉터리 살펴보기
+- 컨텍스트 윈도우 살펴보기
+- 공통 워크플로
+- 모범 사례
+- Settings System Guide
+- Output Styles
+- Fullscreen Rendering
+- Terminal Configuration
+- Channels Reference
+- Computer Use
+- Slack의 Claude Code
+- Use Claude Code in VS Code
+- Claude Code 웹 시작하기
+- 웹에서 Claude Code 사용하기
+- Claude Code Desktop
+- Desktop Quickstart
+- Desktop Scheduled Tasks
+- Routines
+- Code Review
+- GitHub Actions
+- GitHub Enterprise Server
+- GitLab CI/CD
 
 ## 목차
 
 1. [개요](#개요)
-2. [How Claude Code Works](09-19-how-claude-code-works.md)
-3. [Features Overview](09-14-features-overview.md)
-4. [`.claude` 디렉터리 살펴보기](09-04-claude-directory.md)
-5. [컨텍스트 윈도우 살펴보기](09-09-context-window.md)
-6. [플래닝 모드 & 확장 사고](09-22-planning-and-thinking.md)
-7. [실행 모드](09-13-execution-modes.md) — Auto Mode, Background Tasks, Scheduled Tasks, Headless Mode
-8. [권한 & 보안](09-21-permissions-and-security.md) — 권한 모드, Sandboxing
-9. [세션 & 인터랙션](09-26-session-and-interaction.md) — 세션 관리, 대화형 기능, 음성 입력, Task List, 프롬프트 제안
-10. [공통 워크플로](09-06-common-workflows.md)
-11. [모범 사례](09-01-best-practices.md)
-12. [플랫폼 & 통합](09-24-platforms.md) — Chrome 통합, Remote Control, 웹 세션, 데스크톱 앱, Git Worktree
-13. [Claude Code 웹 시작하기](09-31-web-quickstart.md)
-14. [웹에서 Claude Code 사용하기](09-03-claude-code-on-the-web.md)
-15. [Claude Code Desktop](09-12-desktop.md)
-16. [Desktop Quickstart](09-10-desktop-quickstart.md)
-17. [Desktop Scheduled Tasks](09-11-desktop-scheduled-tasks.md)
-18. [Routines](09-25-routines.md)
-19. [Computer Use](09-07-computer-use.md)
-20. [Slack의 Claude Code](09-28-slack.md)
-21. [Code Review](09-05-code-review.md)
-22. [GitHub Actions](09-16-github-actions.md)
-23. [GitHub Enterprise Server](09-17-github-enterprise-server.md)
-24. [GitLab CI/CD](09-18-gitlab-ci-cd.md)
-25. [Configuration](09-08-configuration.md)
+2. How Claude Code Works
+3. Features Overview
+4. `.claude` 디렉터리 살펴보기
+5. 컨텍스트 윈도우 살펴보기
+6. 플래닝 모드 & 확장 사고
+7. 실행 모드 — Auto Mode, Background Tasks, Scheduled Tasks, Headless Mode
+8. 권한 & 보안 — 권한 모드, Sandboxing
+9. 세션 & 인터랙션 — 세션 관리, 대화형 기능, 음성 입력, Task List, 프롬프트 제안
+10. 공통 워크플로
+11. 모범 사례
+12. 플랫폼 & 통합 — Chrome 통합, Remote Control, 웹 세션, 데스크톱 앱, Git Worktree
+13. Claude Code 웹 시작하기
+14. 웹에서 Claude Code 사용하기
+15. Claude Code Desktop
+16. Desktop Quickstart
+17. Desktop Scheduled Tasks
+18. Routines
+19. Computer Use
+20. Slack의 Claude Code
+21. Code Review
+22. GitHub Actions
+23. GitHub Enterprise Server
+24. GitLab CI/CD
+25. Configuration
 26. [Channel](#channel)
 27. [관리형 설정 (엔터프라이즈)](#관리형-설정-엔터프라이즈)
 28. [구성 및 설정](#구성-및-설정)
@@ -141,7 +141,7 @@ claude --channels discord,telegram,imessage,webhooks
 4. 채널 플러그인은 `allowedChannelPlugins` 관리형 설정을 통해 승인되어야 합니다
 5. 폴링이 필요 없습니다 — 이벤트가 실시간으로 푸시됩니다
 
-전체 빌더 지향 참조는 [Channels Reference](09-02-channels-reference.md)를 참조하세요.
+전체 빌더 지향 참조는 Channels Reference를 참조하세요.
 
 ---
 
@@ -469,20 +469,20 @@ Claude Code 및 관련 기능에 대한 자세한 정보:
 - [공식 대화형 모드 문서](https://code.claude.com/docs/ko/interactive-mode)
 - [공식 Headless 모드 문서](https://code.claude.com/docs/ko/headless)
 - [CLI 참조](https://code.claude.com/docs/ko/cli-reference)
-- [Settings System Guide](09-27-settings-system-guide.md) - scope, precedence, settings file의 실제 동작 정리
-- [Output Styles](09-20-output-styles.md) - built-in style, custom style, 비교 기준 정리
-- [Fullscreen Rendering](09-15-fullscreen-rendering.md) - flicker 감소와 alternate-screen 동작 정리
-- [Terminal Configuration](09-29-terminal-configuration.md) - 줄바꿈, notifications, tmux 관련 설정 정리
-- [Channels Reference](09-02-channels-reference.md) - channel 기반 event stream의 builder-oriented 가이드
-- [Use Claude Code in VS Code](09-30-vscode.md) - VS Code 확장 중심 IDE workflow 가이드
-- [Checkpoint 가이드](08-checkpoints.md) - 세션 관리 및 rewind
-- [Slash Command](01-getting-started.md) - 명령어 참조
-- [메모리 가이드](02-memory.md) - 영구 컨텍스트
-- [Skill 가이드](03-skills.md) - 자율 기능
-- [Subagent 가이드](04-subagents.md) - 위임 작업 실행
-- [MCP 가이드](05-mcp.md) - 외부 데이터 접근
-- [Hook 가이드](06-hooks.md) - 이벤트 기반 자동화
-- [Plugin 가이드](07-plugins.md) - 번들 확장
+- Settings System Guide - scope, precedence, settings file의 실제 동작 정리
+- Output Styles - built-in style, custom style, 비교 기준 정리
+- Fullscreen Rendering - flicker 감소와 alternate-screen 동작 정리
+- Terminal Configuration - 줄바꿈, notifications, tmux 관련 설정 정리
+- Channels Reference - channel 기반 event stream의 builder-oriented 가이드
+- Use Claude Code in VS Code - VS Code 확장 중심 IDE workflow 가이드
+- Checkpoint 가이드 - 세션 관리 및 rewind
+- Slash Command - 명령어 참조
+- 메모리 가이드 - 영구 컨텍스트
+- Skill 가이드 - 자율 기능
+- Subagent 가이드 - 위임 작업 실행
+- MCP 가이드 - 외부 데이터 접근
+- Hook 가이드 - 이벤트 기반 자동화
+- Plugin 가이드 - 번들 확장
 - [공식 Scheduled Tasks 문서](https://code.claude.com/docs/ko/scheduled-tasks)
 - [공식 Chrome 통합 문서](https://code.claude.com/docs/ko/chrome)
 - [공식 Remote Control 문서](https://code.claude.com/docs/ko/remote-control)

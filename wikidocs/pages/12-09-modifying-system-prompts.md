@@ -26,6 +26,6 @@
 
 ## 관련 링크
 
-- [권한](12-12-permissions.md)
-- [훅](12-05-hooks.md)
+- 권한
+- 훅
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/modifying-system-prompts

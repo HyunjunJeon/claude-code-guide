@@ -52,9 +52,9 @@ Slash command는 Claude Code 세션 안에서 자주 쓰는 동작을 빠르게 
 
 ## 함께 읽으면 좋은 문서
 
-- [`/ultraplan`](01-01-ultraplan.md)
-- [`/ultrareview`](01-02-ultrareview.md)
-- [CLI 참조](10-cli.md)
-- [Skill](03-skills.md)
-- [MCP](05-mcp.md)
-- [Plugin](07-plugins.md)
+- `/ultraplan`
+- `/ultrareview`
+- CLI 참조
+- Skill
+- MCP
+- Plugin

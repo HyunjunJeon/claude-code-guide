@@ -146,9 +146,9 @@ Claude는 다음을 할 수 있습니다.
 
 ## 관련 가이드
 
-- [Web Quickstart](09-31-web-quickstart.md)
-- [Desktop Quickstart](09-10-desktop-quickstart.md)
-- [Remote Control and Platforms](09-24-platforms.md)
+- Web Quickstart
+- Desktop Quickstart
+- Remote Control and Platforms
 
 ## 공식 출처
 

@@ -141,10 +141,10 @@ Claude Code는 코드 외 작업에도 잘 맞습니다.
 
 ## 관련 가이드
 
-- [Best Practices](09-01-best-practices.md)
-- [Planning Mode Examples](09-23-planning-mode-examples.md)
-- [Session and Interaction](09-26-session-and-interaction.md)
-- [Execution Modes](09-13-execution-modes.md)
+- Best Practices
+- Planning Mode Examples
+- Session and Interaction
+- Execution Modes
 
 ## 공식 출처
 

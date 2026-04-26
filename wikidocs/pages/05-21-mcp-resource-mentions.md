@@ -1,4 +1,4 @@
-이 페이지는 프롬프트에서 `@server-name:protocol://resource/path` 형식으로 MCP 리소스를 인라인 컨텍스트로 끌어오는 방법을 설명한다. 도구 호출까지 가지 않고 단순 데이터를 prompt 안에 즉시 끼워 넣고 싶을 때 가장 빠른 방법이다. 일반 도구 호출 흐름은 [mcp-architecture.md](05-02-mcp-architecture.md), tool surface가 클 때의 최적화는 [mcp-tool-search.md](05-30-mcp-tool-search.md)에서 다룬다.
+이 페이지는 프롬프트에서 `@server-name:protocol://resource/path` 형식으로 MCP 리소스를 인라인 컨텍스트로 끌어오는 방법을 설명한다. 도구 호출까지 가지 않고 단순 데이터를 prompt 안에 즉시 끼워 넣고 싶을 때 가장 빠른 방법이다. 일반 도구 호출 흐름은 mcp-architecture.md, tool surface가 클 때의 최적화는 mcp-tool-search.md에서 다룬다.
 
 `@` 멘션 구문을 사용하여 프롬프트에서 MCP 리소스를 직접 참조할 수 있습니다:
 

@@ -32,7 +32,7 @@
 
 ## 관련 링크
 
-- [비용 추적](12-02-cost-tracking.md)
-- [훅](12-05-hooks.md)
-- [세션](12-16-sessions.md)
+- 비용 추적
+- 훅
+- 세션
 - 공식 가이드: https://platform.claude.com/docs/en/agent-sdk/observability
