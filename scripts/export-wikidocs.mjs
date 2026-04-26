@@ -31,6 +31,13 @@ const pagesDir = path.join(outputDir, "pages");
 const assetsDir = path.join(outputDir, "assets");
 const overridesDir = path.join(rootDir, "wikidocs-overrides");
 const wikidocsBookTitle = "Claude Code 빠르게 마스터 하기";
+const wikidocsLivePageUrls = new Map([
+  ["09-01-best-practices.md", "https://wikidocs.net/345349"],
+  ["09-06-common-workflows.md", "https://wikidocs.net/345348"],
+  ["09-19-how-claude-code-works.md", "https://wikidocs.net/345346"],
+  ["09-21-permissions-and-security.md", "https://wikidocs.net/345697"],
+  ["09-26-session-and-interaction.md", "https://wikidocs.net/345358"],
+]);
 const excludedWikidocsPages = new Set([
   "01-slash-commands-commit.md",
   "01-slash-commands-doc-refactor.md",
@@ -802,6 +809,11 @@ async function rewriteMarkdownLinks(content, sourcePath, pageMap, assetMap, warn
       const resolvedTarget = await resolveMarkdownTarget(sourcePath, pathname);
       const pageName = pageMap.get(resolvedTarget);
         if (pageName) {
+        const livePageUrl = wikidocsLivePageUrls.get(pageName);
+        if (livePageUrl) {
+          rewrittenPart += `[${text}](${livePageUrl}${hash})`;
+          continue;
+        }
         rewrittenPart += `[${text}](${pagePrefix}${pageName}${hash})`;
         continue;
         }

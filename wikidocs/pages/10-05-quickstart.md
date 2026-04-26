@@ -105,7 +105,7 @@ add a hello world function to the main file
 3. 사용자가 승인하거나 거부합니다.
 4. Claude가 편집을 적용합니다.
 
-권한 프롬프트는 정상 동작입니다. 더 세밀한 제어는 Permissions and Security를 참고하면 됩니다.
+권한 프롬프트는 정상 동작입니다. 더 세밀한 제어는 [Permissions and Security](https://wikidocs.net/345697)를 참고하면 됩니다.
 
 ## 6단계: Git 작업을 대화형으로 처리하기
 
@@ -166,8 +166,8 @@ add input validation to the user registration form
 - CLI 참조
 - 도구 참고
 - 문제 해결
-- Permissions and Security
-- Session and Interaction
+- [Permissions and Security](https://wikidocs.net/345697)
+- [Session and Interaction](https://wikidocs.net/345358)
 - Execution Modes
 
 ## 공식 출처

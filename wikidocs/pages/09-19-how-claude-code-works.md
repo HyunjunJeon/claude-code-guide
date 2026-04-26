@@ -117,10 +117,10 @@ Claude Code의 핵심 안전장치는 두 가지입니다.
 
 ## 관련 가이드
 
-- Best Practices
-- Common Workflows
-- Session and Interaction
-- Permissions and Security
+- [Best Practices](https://wikidocs.net/345349)
+- [Common Workflows](https://wikidocs.net/345348)
+- [Session and Interaction](https://wikidocs.net/345358)
+- [Permissions and Security](https://wikidocs.net/345697)
 
 ## 공식 출처
 

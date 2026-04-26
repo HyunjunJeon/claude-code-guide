@@ -11,12 +11,12 @@ Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print 
 
 **관련 가이드:**
 
-- How Claude Code Works
+- [How Claude Code Works](https://wikidocs.net/345346)
 - Features Overview
 - `.claude` 디렉터리 살펴보기
 - 컨텍스트 윈도우 살펴보기
-- 공통 워크플로
-- 모범 사례
+- [공통 워크플로](https://wikidocs.net/345348)
+- [모범 사례](https://wikidocs.net/345349)
 - Settings System Guide
 - Output Styles
 - Fullscreen Rendering
@@ -39,16 +39,16 @@ Plan mode, extended thinking, auto mode, background tasks, 권한 모드, print 
 ## 목차
 
 1. [개요](#개요)
-2. How Claude Code Works
+2. [How Claude Code Works](https://wikidocs.net/345346)
 3. Features Overview
 4. `.claude` 디렉터리 살펴보기
 5. 컨텍스트 윈도우 살펴보기
 6. 플래닝 모드 & 확장 사고
 7. 실행 모드 — Auto Mode, Background Tasks, Scheduled Tasks, Headless Mode
-8. 권한 & 보안 — 권한 모드, Sandboxing
-9. 세션 & 인터랙션 — 세션 관리, 대화형 기능, 음성 입력, Task List, 프롬프트 제안
-10. 공통 워크플로
-11. 모범 사례
+8. [권한 & 보안](https://wikidocs.net/345697) — 권한 모드, Sandboxing
+9. [세션 & 인터랙션](https://wikidocs.net/345358) — 세션 관리, 대화형 기능, 음성 입력, Task List, 프롬프트 제안
+10. [공통 워크플로](https://wikidocs.net/345348)
+11. [모범 사례](https://wikidocs.net/345349)
 12. 플랫폼 & 통합 — Chrome 통합, Remote Control, 웹 세션, 데스크톱 앱, Git Worktree
 13. Claude Code 웹 시작하기
 14. 웹에서 Claude Code 사용하기

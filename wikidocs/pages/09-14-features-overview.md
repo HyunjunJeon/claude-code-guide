@@ -92,7 +92,7 @@ Claude Code는 모델과 내장 도구로 시작합니다. 그 위에 확장 기
 
 ## 관련 가이드
 
-- How Claude Code Works
+- [How Claude Code Works](https://wikidocs.net/345346)
 - Settings System Guide
 - Channels Reference
 - Subagents

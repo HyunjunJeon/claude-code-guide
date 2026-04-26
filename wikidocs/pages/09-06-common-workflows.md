@@ -141,9 +141,9 @@ Claude Code는 코드 외 작업에도 잘 맞습니다.
 
 ## 관련 가이드
 
-- Best Practices
+- [Best Practices](https://wikidocs.net/345349)
 - Planning Mode Examples
-- Session and Interaction
+- [Session and Interaction](https://wikidocs.net/345358)
 - Execution Modes
 
 ## 공식 출처
