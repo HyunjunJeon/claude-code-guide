@@ -147,6 +147,8 @@ const WIKIDOCS_SECTIONS = [
       "04-26-subagents-file-locations.md",
       "04-27-subagents-installation.md",
       "04-04-builtin-subagents.md",
+      "04-02-agent-teams.md",
+      "04-01-agent-teams-experimental.md",
       "04-15-managing-subagents.md",
       "04-29-using-subagents.md",
       "04-30-when-to-use-subagents.md",
@@ -159,8 +161,6 @@ const WIKIDOCS_SECTIONS = [
       "04-31-worktree-isolation.md",
       "04-14-limiting-subagent-creation.md",
       "04-17-plugin-subagent-security.md",
-      "04-02-agent-teams.md",
-      "04-01-agent-teams-experimental.md",
       "04-24-subagents-best-practices.md",
       "04-05-clean-code-reviewer.md",
       "04-07-code-reviewer.md",
@@ -235,7 +235,7 @@ const WIKIDOCS_SECTIONS = [
     ],
   },
   {
-    title: "07. Plugins",
+    title: "07. Plugins 핵심",
     outputName: "07-plugins.md",
     children: [
       "07-09-discover-plugins.md",
@@ -270,6 +270,12 @@ const WIKIDOCS_SECTIONS = [
       "07-24-plugin-best-practices.md",
       "07-41-plugin-practical-examples.md",
       "07-31-plugin-full-workflow-example.md",
+    ],
+  },
+  {
+    title: "08. Plugin 실전 예제",
+    outputName: "08-plugin-examples.md",
+    children: [
       "07-01-devops-automation-readme.md",
       "07-02-devops-automation-agents-alert-analyzer.md",
       "07-03-devops-automation-agents-deployment-specialist.md",
@@ -299,12 +305,17 @@ const WIKIDOCS_SECTIONS = [
     ],
   },
   {
-    title: "08. Checkpoints & Rewind",
+    title: "09. Checkpoints & Rewind",
     outputName: "08-checkpoints.md",
-    children: ["08-01-checkpoint-examples.md"],
+    children: [
+      "08-02-checkpointing-core.md",
+      "08-03-rewind-workflows.md",
+      "08-04-checkpoints-git-and-sdk.md",
+      "08-01-checkpoint-examples.md",
+    ],
   },
   {
-    title: "09. 고급 워크플로",
+    title: "10. 고급 워크플로",
     outputName: "09-advanced-workflows.md",
     children: [
       "09-advanced-features.md",
@@ -318,10 +329,11 @@ const WIKIDOCS_SECTIONS = [
     ],
   },
   {
-    title: "10. 플랫폼과 통합",
+    title: "11. 플랫폼과 통합",
     outputName: "10-platforms-integrations.md",
     children: [
       "09-24-platforms.md",
+      "10-remote-control.md",
       "09-31-web-quickstart.md",
       "09-03-claude-code-on-the-web.md",
       "09-10-desktop-quickstart.md",
@@ -336,7 +348,7 @@ const WIKIDOCS_SECTIONS = [
     ],
   },
   {
-    title: "11. 설정·권한·보안",
+    title: "12. 설정·권한·보안",
     outputName: "11-configuration-security.md",
     children: [
       "09-08-configuration.md",
@@ -351,7 +363,7 @@ const WIKIDOCS_SECTIONS = [
     ],
   },
   {
-    title: "12. Deployment Administration",
+    title: "13. Deployment Administration",
     outputName: "11-deployment-admin.md",
     children: [
       "11-02-authentication-and-iam.md",
@@ -368,7 +380,7 @@ const WIKIDOCS_SECTIONS = [
     ],
   },
   {
-    title: "13. Agent SDK",
+    title: "14. Agent SDK",
     outputName: "12-agent-sdk.md",
     children: [
       "12-11-overview.md",
@@ -406,13 +418,14 @@ const WIKIDOCS_SECTION_DESCRIPTIONS = new Map([
   ["01-interaction.md", "CLI, 대화형 모드, slash command, 출력 형식"],
   ["02-memory.md", "CLAUDE.md와 자동 Memory로 지속 컨텍스트 관리"],
   ["03-skills.md", "재사용 가능한 지식과 워크플로를 skill로 패키징"],
-  ["04-subagents.md", "격리된 전문 agent로 병렬 작업과 컨텍스트 분리"],
+  ["04-subagents.md", "격리된 전문 agent와 Agent teams로 병렬 작업 분리"],
   ["05-mcp.md", "외부 도구, API, 실시간 데이터를 연결하는 표준 프로토콜"],
   ["06-hooks.md", "이벤트 기반 자동화, 검증, 권한 통제"],
-  ["07-plugins.md", "skills, agents, hooks, MCP를 묶어 배포하는 패키징 계층"],
-  ["08-checkpoints.md", "안전한 실험과 되돌리기를 위한 checkpoint와 rewind"],
+  ["07-plugins.md", "plugin 개념, 설치, 운영, 보안, 배포"],
+  ["08-plugin-examples.md", "DevOps, 문서화, PR 리뷰 plugin 실전 예제"],
+  ["08-checkpoints.md", "자동 checkpoint, rewind, git·SDK 비교"],
   ["09-advanced-workflows.md", "planning, routines, code review, 실행 모드 등 고급 흐름"],
-  ["10-platforms-integrations.md", "Web, Desktop, IDE, Slack, CI/CD 등 실행 표면과 통합"],
+  ["10-platforms-integrations.md", "Remote Control, Web, Desktop, IDE, Slack, CI/CD 통합"],
   ["11-configuration-security.md", "설정 계층, 권한, 보안, context window, 문제 해결"],
   ["11-deployment-admin.md", "조직 배포, 공급자 선택, 네트워크, 데이터 정책"],
   ["12-agent-sdk.md", "Claude Code agent loop를 앱과 백엔드에 임베드하는 SDK"],
@@ -939,28 +952,36 @@ function buildWikidocsNavigation(pages) {
 async function collectVirtualSectionPages(existingPages) {
   const existingOutputNames = new Set(existingPages.map((page) => page.outputName));
   const virtualPages = [];
+  const virtualOutputNames = new Set();
 
   for (const section of WIKIDOCS_SECTIONS) {
-    if (existingOutputNames.has(section.outputName)) {
+    virtualOutputNames.add(section.outputName);
+    for (const childOutputName of section.children) {
+      virtualOutputNames.add(childOutputName);
+    }
+  }
+
+  for (const outputName of virtualOutputNames) {
+    if (existingOutputNames.has(outputName)) {
       continue;
     }
 
-    const overridePath = path.join(overridesDir, "pages", section.outputName);
+    const overridePath = path.join(overridesDir, "pages", outputName);
     if (!(await pathExists(overridePath))) {
-      throw new Error(`가상 WikiDocs 섹션 override를 찾지 못했습니다: ${path.relative(rootDir, overridePath)}`);
+      throw new Error(`가상 WikiDocs 페이지 override를 찾지 못했습니다: ${path.relative(rootDir, overridePath)}`);
     }
 
     const overrideDoc = await readMarkdownDoc(overridePath);
     virtualPages.push({
       sourcePath: overridePath,
-      outputName: section.outputName,
-      title: section.title,
+      outputName,
+      title: overrideDoc.title,
       originalTitle: overrideDoc.title,
       level: 0,
       children: [],
       subpages: [],
     });
-    existingOutputNames.add(section.outputName);
+    existingOutputNames.add(outputName);
   }
 
   return virtualPages;
